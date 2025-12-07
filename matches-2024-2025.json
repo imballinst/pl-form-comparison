@@ -393,13 +393,6 @@
   },
   {
     "matchday": 6,
-    "date": "2024-09-29T13:00:00Z",
-    "home": "Ipswich Town",
-    "away": "Aston Villa",
-    "score": "2-2"
-  },
-  {
-    "matchday": 6,
     "date": "2024-09-29T15:30:00Z",
     "home": "Brighton & Hove Albion",
     "away": "Tottenham Hotspur",
@@ -418,13 +411,6 @@
     "home": "Arsenal",
     "away": "Southampton",
     "score": "3-1"
-  },
-  {
-    "matchday": 7,
-    "date": "2024-10-05T14:00:00Z",
-    "home": "Chelsea",
-    "away": "Nottingham Forest",
-    "score": "1-1"
   },
   {
     "matchday": 7,
@@ -750,31 +736,10 @@
   },
   {
     "matchday": 12,
-    "date": "2024-11-23T12:30:00Z",
-    "home": "Leicester City",
-    "away": "Chelsea",
-    "score": "1-2"
-  },
-  {
-    "matchday": 12,
     "date": "2024-11-23T15:00:00Z",
     "home": "AFC Bournemouth",
     "away": "Brighton & Hove Albion",
     "score": "1-2"
-  },
-  {
-    "matchday": 12,
-    "date": "2024-11-23T15:00:00Z",
-    "home": "Arsenal",
-    "away": "Nottingham Forest",
-    "score": "0-1"
-  },
-  {
-    "matchday": 12,
-    "date": "2024-11-23T15:00:00Z",
-    "home": "Aston Villa",
-    "away": "Crystal Palace",
-    "score": "2-2"
   },
   {
     "matchday": 12,
@@ -817,13 +782,6 @@
     "home": "West Ham United",
     "away": "Newcastle United",
     "score": "0-2"
-  },
-  {
-    "matchday": 13,
-    "date": "2024-11-30T12:30:00Z",
-    "home": "Ipswich Town",
-    "away": "Crystal Palace",
-    "score": "0-1"
   },
   {
     "matchday": 13,
