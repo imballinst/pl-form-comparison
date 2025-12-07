@@ -161,7 +161,7 @@ export function App() {
       </main>
 
       <footer className="border-t border-gray-300 p-4 text-xs text-center">
-        Created by <a href="https://github.com/imballinst">imballinst</a>. Original idea by{' '}
+        GitHub repository: <a href="https://github.com/imballinst/pl-form-comparison">imballinst/pl-form-comparison</a>. Original idea by{' '}
         <a href="https://x.com/DrRitzyy">DrRitzyy on Twitter</a>.
       </footer>
     </div>
