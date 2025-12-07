@@ -2,9 +2,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import axios from 'axios'
+import clsx from 'clsx'
 import { Info } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
-import './App.css'
 import { TEAMS_PER_SEASON } from './constants'
 import { MatchInfo, SeasonMatchesResponse } from './types'
 import { getEquivalentTeamFromAnotherSeason } from './utils/team-replacement'
@@ -12,6 +12,7 @@ import { getEquivalentTeamFromAnotherSeason } from './utils/team-replacement'
 interface FullMatchInfo extends MatchInfo {
   color: string
   opponent: string
+  teamResult: string
   venue: string
 }
 
@@ -23,11 +24,21 @@ interface MatchesState {
   comparison: MatchAnchorRecord
 }
 
+interface TableData {
+  gameweek: number
+  opponent: string
+  venue: string
+  comparedSeasonMatchInfo: FullMatchInfo | undefined
+  anchorSeasonMatchInfo: FullMatchInfo
+  pointDiff: string
+  aggPointDiff: string
+}
+
 export function App() {
   const [team, setTeam] = useState('Arsenal')
   const [anchorYear, setAnchorYear] = useState<string | undefined>('2025')
   const [comparedYear, setComparedYear] = useState<string | undefined>(undefined)
-  const [seasonMatchesResponses, setSeasonMatchesResponses] = useState<Record<string, FullMatchInfo[]> | undefined>(undefined)
+  const [seasonMatchesResponses, setSeasonMatchesResponses] = useState<Record<string, MatchInfo[]> | undefined>(undefined)
   const [anchorMatches, setAnchorMatches] = useState<MatchesState | undefined>(undefined)
   const hasFetched = useRef(false)
 
@@ -38,162 +49,202 @@ export function App() {
 
       const responses = await Promise.all([axios(`/2025.json`), axios(`/2024.json`), axios(`/2023.json`)])
       const [season2025Response, season2024Response, season2023Response] = responses.map((item) =>
-        (item.data as SeasonMatchesResponse).matchweeks.flatMap((mw) => {
-          const fullMatchInfos: FullMatchInfo[] = []
-          for (const match of mw.data.data) {
-            if (match.homeTeam.name !== team && match.awayTeam.name !== team) continue
-
-            fullMatchInfos.push({ ...match, ...getEssentialMatchInfo(match, team) })
-          }
-
-          return fullMatchInfos
-        }),
+        (item.data as SeasonMatchesResponse).matchweeks.flatMap((mw) => mw.data.data),
       )
 
-      const matchesResponses: Record<string, FullMatchInfo[]> = {
+      const matchesResponses: Record<string, MatchInfo[]> = {
         '2025': season2025Response,
         '2024': season2024Response,
         '2023': season2023Response,
       }
 
       setSeasonMatchesResponses(matchesResponses)
-      setAnchorMatches(getAnchorMatchesForTeam(team, matchesResponses, anchorYear, comparedYear))
     }
 
     fetchData()
   }, [anchorYear, comparedYear, team])
 
   const yearOptions = getTeamYearComparisonOptions(team)
-  console.info(team, anchorYear, comparedYear, anchorMatches)
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <main className="container mx-auto py-12">
-        <h1 className="text-4xl font-bold mb-8">Premier League Form Comparison</h1>
-        <p className="text-lg text-muted-foreground mb-8">
+      <main className="container mx-auto py-8 px-4">
+        <h1 className="text-4xl font-bold mb-4">Premier League Form Comparison</h1>
+        <p className="text-md text-gray-500 mb-8">
           Compare the current season's Premier League team's form with the same fixtures from previous seasons, adjusting for promoted and
-          relegated teams.
+          relegated teams. Credit to{' '}
+          <a href="https://x.com/DrRitzyy" target="_blank" rel="noreferer noopener">
+            DrRitzyy on Twitter
+          </a>{' '}
+          who started it in the first place.
         </p>
 
-        <div className="flex gap-x-2">
-          <Select
-            value={team}
-            onValueChange={(value) => {
-              setTeam(value)
-            }}
-          >
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Team" />
-            </SelectTrigger>
-            <SelectContent>
-              {TEAMS_PER_SEASON['2025'].map((item) => (
-                <SelectItem key={item} value={item}>
-                  {item}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+        <div className="flex flex-col gap-y-4">
+          <div className="flex gap-2 flex-col md:flex-row">
+            <Select
+              value={team}
+              onValueChange={(value) => {
+                setTeam(value)
+                setAnchorMatches(getAnchorMatchesForTeam(value, seasonMatchesResponses, anchorYear, comparedYear))
+              }}
+            >
+              <SelectTrigger className="w-full md:w-[50%]">
+                <SelectValue placeholder="Team" />
+              </SelectTrigger>
+              <SelectContent>
+                {TEAMS_PER_SEASON['2025'].map((item) => (
+                  <SelectItem key={item} value={item}>
+                    {item}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
 
-          {yearOptions.length > 2 && (
-            <div className="flex gap-x-2">
-              <Select
-                value={anchorYear}
-                onValueChange={(value) => {
-                  setAnchorYear(value)
-                  setAnchorMatches(getAnchorMatchesForTeam(team, seasonMatchesResponses, value, comparedYear))
-                }}
-              >
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Team" />
-                </SelectTrigger>
-                <SelectContent>
-                  {yearOptions.map((item) => (
-                    <SelectItem key={item} value={item}>
-                      {item}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+            {yearOptions.length > 2 && (
+              <div className="flex gap-x-2 w-full md:w-[50%]">
+                <Select
+                  value={anchorYear}
+                  onValueChange={(value) => {
+                    setAnchorYear(value)
+                    setAnchorMatches(getAnchorMatchesForTeam(team, seasonMatchesResponses, value, comparedYear))
+                  }}
+                >
+                  <SelectTrigger className="w-[50%]">
+                    <SelectValue placeholder="Anchor year" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {yearOptions.map((item) => (
+                      <SelectItem key={item} value={item}>
+                        {item}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
 
-              <Select
-                value={comparedYear}
-                onValueChange={(value) => {
-                  setComparedYear(value)
-                  setAnchorMatches(getAnchorMatchesForTeam(team, seasonMatchesResponses, anchorYear, value))
-                }}
-              >
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Team" />
-                </SelectTrigger>
-                <SelectContent>
-                  {yearOptions.map((item) => (
-                    <SelectItem key={item} value={item}>
-                      {item}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          )}
-        </div>
-
-        {yearOptions.length < 2 ? (
-          <div>
-            Your selected team has not been in at least 2 Premier League seasons in the past {Object.keys(TEAMS_PER_SEASON).length} years.
+                <Select
+                  value={comparedYear}
+                  onValueChange={(value) => {
+                    setComparedYear(value)
+                    setAnchorMatches(getAnchorMatchesForTeam(team, seasonMatchesResponses, anchorYear, value))
+                  }}
+                >
+                  <SelectTrigger className="w-[50%]">
+                    <SelectValue placeholder="Compared year" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {yearOptions.map((item) => (
+                      <SelectItem key={item} value={item}>
+                        {item}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            )}
           </div>
-        ) : !anchorYear || !comparedYear || !anchorMatches ? (
-          <div>Select two different seasons to compare the form.</div>
-        ) : (
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>GW</TableHead>
-                <TableHead>Opponent</TableHead>
-                <TableHead>Venue</TableHead>
-                <TableHead>24/25</TableHead>
-                <TableHead>25/26</TableHead>
-                <TableHead>+/-</TableHead>
-                <TableHead>Agg</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {anchorMatches.matches.map((match, idx) => {
-                const { opponent, venue } = getEssentialMatchInfo(match, team)
-                const comparedSeason = getMatchFromOtherSeason(
-                  anchorMatches.comparison,
-                  Number(anchorYear),
-                  Number(comparedYear),
-                  opponent,
-                  team,
-                  venue,
-                )
 
-                return (
-                  <TableRow key={match.matchId}>
-                    <TableCell>{idx + 1}</TableCell>
-                    <TableCell>{match.opponent}</TableCell>
-                    <TableCell>{match.venue}</TableCell>
-                    <TableCell className={comparedSeason?.color}>
-                      <div>
-                        <div>
-                          {comparedSeason?.homeTeam.score} - {comparedSeason?.awayTeam.score}
-                        </div>
-                        <PreviousTeamThatGotRelegated match={comparedSeason} opponent={opponent} />
-                      </div>
-                    </TableCell>
-                    <TableCell className={match.color}>
-                      {match.homeTeam.score} - {match.awayTeam.score}
-                    </TableCell>
-                    <TableCell>TBD</TableCell>
-                    <TableCell>TBD</TableCell>
-                  </TableRow>
-                )
-              })}
-            </TableBody>
-          </Table>
-        )}
+          <div>
+            {yearOptions.length < 2 ? (
+              <div>
+                Your selected team has not been in at least 2 Premier League seasons in the past {Object.keys(TEAMS_PER_SEASON).length}{' '}
+                years.
+              </div>
+            ) : !anchorYear || !comparedYear || !anchorMatches ? (
+              <div>Select two different seasons to compare the form.</div>
+            ) : (
+              <ComparisonTable anchorMatches={anchorMatches} anchorYear={anchorYear} comparedYear={comparedYear} team={team} />
+            )}
+          </div>
+        </div>
       </main>
     </div>
+  )
+}
+
+function ComparisonTable({
+  comparedYear,
+  anchorYear,
+  team,
+  anchorMatches,
+}: {
+  comparedYear: string
+  anchorYear: string
+  team: string
+  anchorMatches: MatchesState
+}) {
+  const data: TableData[] = []
+  let aggPointDiff = 0
+
+  anchorMatches.matches.forEach((match, gameweek) => {
+    if (match.period !== 'FullTime') return
+
+    const { opponent, venue } = getEssentialMatchInfo(match, team)
+    const comparedSeason = getMatchFromOtherSeason(
+      anchorMatches.comparison,
+      Number(anchorYear),
+      Number(comparedYear),
+      opponent,
+      team,
+      venue,
+    )
+    const pointResult = getNumberOfPointFromResult(match.teamResult)
+    let pointDiff = pointResult
+
+    if (comparedSeason) {
+      pointDiff = pointDiff - getNumberOfPointFromResult(comparedSeason.teamResult)
+    }
+
+    aggPointDiff += pointDiff
+
+    data.push({
+      gameweek: gameweek + 1,
+      opponent: match.opponent,
+      venue: match.venue[0].toUpperCase() + match.venue.slice(1),
+      comparedSeasonMatchInfo: comparedSeason,
+      anchorSeasonMatchInfo: match,
+      pointDiff: pointDiff > 0 ? `+${pointDiff}` : pointDiff.toString(),
+      aggPointDiff: aggPointDiff > 0 ? `+${aggPointDiff}` : aggPointDiff.toString(),
+    })
+  })
+
+  return (
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>GW</TableHead>
+          <TableHead>Opponent</TableHead>
+          <TableHead>Venue</TableHead>
+          <TableHead className="text-center w-[95px]">{getSeasonShortText(comparedYear)}</TableHead>
+          <TableHead className="text-center w-[95px]">{getSeasonShortText(anchorYear)}</TableHead>
+          <TableHead className="text-right">+/-</TableHead>
+          <TableHead className="text-right">Agg</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {data.map((row, idx) => {
+          return (
+            <TableRow key={row.gameweek}>
+              <TableCell>{idx + 1}</TableCell>
+              <TableCell>{row.opponent}</TableCell>
+              <TableCell>{row.venue}</TableCell>
+              <TableCell className={clsx(row.comparedSeasonMatchInfo?.color, 'text-center')}>
+                <div className="flex gap-x-2 justify-center items-center relative">
+                  <div>
+                    {row.comparedSeasonMatchInfo?.homeTeam.score}-{row.comparedSeasonMatchInfo?.awayTeam.score}
+                  </div>
+                  <PreviousTeamThatGotRelegated match={row.comparedSeasonMatchInfo} opponent={row.opponent} />
+                </div>
+              </TableCell>
+              <TableCell className={clsx(row.anchorSeasonMatchInfo.color, 'text-center')}>
+                {row.anchorSeasonMatchInfo.homeTeam.score}-{row.anchorSeasonMatchInfo.awayTeam.score}
+              </TableCell>
+              <TableCell className="text-right">{row.pointDiff}</TableCell>
+              <TableCell className="text-right">{row.aggPointDiff}</TableCell>
+            </TableRow>
+          )
+        })}
+      </TableBody>
+    </Table>
   )
 }
 
@@ -203,7 +254,7 @@ function PreviousTeamThatGotRelegated({ match, opponent }: { match: FullMatchInf
   }
 
   return (
-    <div>
+    <div className="absolute right-2.5 flex">
       <Tooltip>
         <TooltipTrigger asChild>
           <Info className="inline-block w-4 h-4 text-muted-foreground" />
@@ -214,32 +265,44 @@ function PreviousTeamThatGotRelegated({ match, opponent }: { match: FullMatchInf
   )
 }
 
-function getScoreColor(position: string, score: [number, number]) {
+function getScoreResult(position: string, score: [number, number]) {
   if (score[0] === score[1]) {
-    return 'bg-gray-400'
+    return { color: 'bg-gray-400', teamResult: 'draw' }
   }
 
   const isHome = position === 'home'
   const isWin = isHome ? score[0] > score[1] : score[1] > score[0]
 
-  return isWin ? 'bg-green-400' : 'bg-red-400'
+  if (isWin) {
+    return {
+      color: 'bg-green-400',
+      teamResult: 'win',
+    }
+  }
+
+  return {
+    color: 'bg-red-400',
+    teamResult: 'loss',
+  }
 }
 
 function getEssentialMatchInfo(match: MatchInfo, team: string) {
   const isHome = match.homeTeam.name === team
   const score = [match.homeTeam.score, match.awayTeam.score] satisfies [number, number]
   let opponent: string
-  let color: string
+  let venue: 'home' | 'away'
 
   if (isHome) {
     opponent = match.awayTeam.name
-    color = getScoreColor('home', score)
+    venue = 'home'
   } else {
     opponent = match.homeTeam.name
-    color = getScoreColor('away', score)
+    venue = 'away'
   }
 
-  return { opponent, color, venue: isHome ? 'home' : 'away' }
+  const scoreColorAndResult = getScoreResult(venue, score)
+
+  return { opponent, venue, ...scoreColorAndResult }
 }
 
 function getAnchorKeyFromMatch(match: MatchInfo) {
@@ -252,8 +315,6 @@ function getAnchorKeyFromString(home: string, away: string) {
 
 function fillMatchAnchorRecord(record: MatchAnchorRecord, seasonMatches: MatchInfo[], team: string) {
   for (const match of seasonMatches) {
-    if (match.homeTeam.name !== team && match.awayTeam.name !== team) continue
-
     const anchorKey = getAnchorKeyFromMatch(match)
     record[anchorKey] = {
       ...match,
@@ -270,7 +331,7 @@ function getMatchFromOtherSeason(
   team: string,
   venue: string,
 ) {
-  const teamFromOtherSeason = getEquivalentTeamFromAnotherSeason(opponent, targetYear, year)
+  const teamFromOtherSeason = getEquivalentTeamFromAnotherSeason(opponent, year, targetYear)
   let anchorKey: string
 
   if (venue === 'home') {
@@ -280,7 +341,6 @@ function getMatchFromOtherSeason(
   }
 
   if (!record[anchorKey]) {
-    console.info(opponent, teamFromOtherSeason, getEquivalentTeamFromAnotherSeason(opponent, year, targetYear))
     return undefined
   }
 
@@ -302,20 +362,42 @@ function getTeamYearComparisonOptions(team: string) {
 
 function getAnchorMatchesForTeam(
   team: string,
-  matchesResponses: Record<string, FullMatchInfo[]> | undefined,
+  matchesResponses: Record<string, MatchInfo[]> | undefined,
   anchorYear: string | undefined,
   comparedYear: string | undefined,
-) {
-  console.info(anchorYear, comparedYear, matchesResponses)
+): MatchesState | undefined {
   if (!anchorYear || !comparedYear || !matchesResponses) {
     return undefined
   }
 
   const comparison: MatchAnchorRecord = {}
-  fillMatchAnchorRecord(comparison, matchesResponses[comparedYear], team)
+  fillMatchAnchorRecord(
+    comparison,
+    matchesResponses[comparedYear].filter((match) => match.homeTeam.name === team || match.awayTeam.name === team),
+    team,
+  )
+
+  const matches: FullMatchInfo[] = []
+  for (const match of matchesResponses[anchorYear]) {
+    if (match.homeTeam.name !== team && match.awayTeam.name !== team) continue
+    matches.push({
+      ...match,
+      ...getEssentialMatchInfo(match, team),
+    })
+  }
 
   return {
-    matches: matchesResponses[anchorYear],
+    matches,
     comparison,
   }
+}
+
+function getSeasonShortText(year: string) {
+  return `${year.slice(2)}/${(Number(year) + 1).toString().slice(2)}`
+}
+
+function getNumberOfPointFromResult(result: string) {
+  if (result === 'win') return 3
+  if (result === 'draw') return 1
+  return 0
 }
