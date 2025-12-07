@@ -24,3 +24,5 @@ jobs:
       - name: Build
         working-directory: ./docs
         run: yarn && yarn build
+        env:
+          BASE_PATH: /pl-form-comparison/
