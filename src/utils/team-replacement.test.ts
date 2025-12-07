@@ -1,23 +1,28 @@
-import { describe, expect, it } from 'vitest'
-import { replaceTeamFromAnchorSeasonToPromotedTeamThatSeason } from './team-replacement'
+import { describe, expect, test } from 'vitest'
+import { getEquivalentTeamFromAnotherSeason } from './team-replacement'
 
-describe('replaceTeamFromAnchorSeasonToPromotedTeamThatSeason', () => {
-  //   const testCases = [
+describe('getEquivalentTeamFromAnotherSeason', () => {
+  const testCases = [
+    { team: 'Leeds United', from: 2025, to: 2024, expected: 'Leicester City' },
+    { team: 'Burnley', from: 2025, to: 2024, expected: 'Ipswich Town' },
+    { team: 'Sunderland', from: 2025, to: 2024, expected: 'Southampton' },
 
-  //   '2024': ['Leeds', 'Burnley', 'Sunderland'],
-  //   '2024': ['Leicester City', 'Ipswich Town', 'Southampton'],
+    { expected: 'Leeds United', from: 2024, to: 2025, team: 'Leicester City' },
+    { expected: 'Burnley', from: 2024, to: 2025, team: 'Ipswich Town' },
+    { expected: 'Sunderland', from: 2024, to: 2025, team: 'Southampton' },
 
-  //   '2023': ['Luton Town', 'Burnley', 'Sheffield United'],
-  //   '2023': ['Leicester City', 'Ipswich Town', 'Southampton'],
+    { team: 'Leeds United', from: 2025, to: 2023, expected: 'Burnley' },
+    { team: 'Burnley', from: 2025, to: 2023, expected: 'Sheffield United' },
+    { team: 'Sunderland', from: 2025, to: 2023, expected: 'Luton Town' },
 
-  //   '2022': ['Burnley', 'Sheffield United', 'Luton Town'],
-  //   '2022': ['Leicester City', 'Leeds United', 'Southampton'],
-  // }
-  //   ]
+    { expected: 'Leeds United', from: 2023, to: 2025, team: 'Burnley' },
+    { expected: 'Burnley', from: 2023, to: 2025, team: 'Sheffield United' },
+    { expected: 'Sunderland', from: 2023, to: 2025, team: 'Luton Town' },
+  ]
 
-  it('replaces Southampton with Sunderland', () => {
-    const result = replaceTeamFromAnchorSeasonToPromotedTeamThatSeason('Southampton', 2024, 2025)
+  test.each(testCases)('correctly replaces $team to $expected ($from->$to)', ({ team, from, to, expected }) => {
+    const result = getEquivalentTeamFromAnotherSeason(team, from, to)
 
-    expect(result).toBe('Sunderland')
+    expect(result).toBe(expected)
   })
 })
