@@ -67,16 +67,12 @@ export function App() {
   const yearOptions = getTeamYearComparisonOptions(team)
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <main className="container mx-auto py-8 px-4">
+    <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <main className="container mx-auto py-8 px-4 flex-1">
         <h1 className="text-4xl font-bold mb-4">Premier League Form Comparison</h1>
         <p className="text-md text-gray-500 mb-8">
           Compare the current season's Premier League team's form with the same fixtures from previous seasons, adjusting for promoted and
-          relegated teams. Credit to{' '}
-          <a href="https://x.com/DrRitzyy" target="_blank" rel="noreferer noopener">
-            DrRitzyy on Twitter
-          </a>{' '}
-          who started it in the first place.
+          relegated teams.
         </p>
 
         <div className="flex flex-col gap-y-4">
@@ -150,13 +146,18 @@ export function App() {
                 years.
               </div>
             ) : !anchorYear || !comparedYear || !anchorMatches ? (
-              <div>Select two different seasons to compare the form.</div>
+              <div className="italic text-center">Select two different seasons to compare the form.</div>
             ) : (
               <ComparisonTable anchorMatches={anchorMatches} anchorYear={anchorYear} comparedYear={comparedYear} team={team} />
             )}
           </div>
         </div>
       </main>
+
+      <footer className="border-t border-gray-300 p-4 text-xs text-center">
+        Created by <a href="https://github.com/imballinst">imballinst</a>. Original idea by{' '}
+        <a href="https://x.com/DrRitzyy">DrRitzyy on Twitter</a>.
+      </footer>
     </div>
   )
 }
@@ -214,8 +215,8 @@ function ComparisonTable({
           <TableHead>GW</TableHead>
           <TableHead>Opponent</TableHead>
           <TableHead>Venue</TableHead>
-          <TableHead className="text-center w-[95px]">{getSeasonShortText(comparedYear)}</TableHead>
-          <TableHead className="text-center w-[95px]">{getSeasonShortText(anchorYear)}</TableHead>
+          <TableHead className="text-center min-w-[70px]">{getSeasonShortText(comparedYear)}</TableHead>
+          <TableHead className="text-center min-w-[70px]">{getSeasonShortText(anchorYear)}</TableHead>
           <TableHead className="text-right">+/-</TableHead>
           <TableHead className="text-right">Agg</TableHead>
         </TableRow>
@@ -229,9 +230,7 @@ function ComparisonTable({
               <TableCell>{row.venue}</TableCell>
               <TableCell className={clsx(row.comparedSeasonMatchInfo?.color, 'text-center')}>
                 <div className="flex gap-x-2 justify-center items-center relative">
-                  <div>
-                    {row.comparedSeasonMatchInfo?.homeTeam.score}-{row.comparedSeasonMatchInfo?.awayTeam.score}
-                  </div>
+                  {row.comparedSeasonMatchInfo?.homeTeam.score}-{row.comparedSeasonMatchInfo?.awayTeam.score}
                   <PreviousTeamThatGotRelegated match={row.comparedSeasonMatchInfo} opponent={row.opponent} />
                 </div>
               </TableCell>
@@ -254,7 +253,7 @@ function PreviousTeamThatGotRelegated({ match, opponent }: { match: FullMatchInf
   }
 
   return (
-    <div className="absolute right-2.5 flex">
+    <div className="absolute right-0 top-0.5 flex">
       <Tooltip>
         <TooltipTrigger asChild>
           <Info className="inline-block w-4 h-4 text-muted-foreground" />

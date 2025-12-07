@@ -1,0 +1,28 @@
+name: Build Only
+
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+          cache: yarn
+
+      - name: Build
+        working-directory: .
+        run: yarn && yarn build
+        env:
+          BASE_PATH: /pl-form-comparison/
