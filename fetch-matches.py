@@ -26,6 +26,12 @@ import sys
 import urllib.request
 import urllib.error
 
+# API Configuration
+COMPETITION_ID = 8  # Premier League
+SEASON_YEAR = 2024  # 2024/2025 season
+MAX_MATCHWEEKS = 38  # Total matchweeks in a Premier League season
+API_LIMIT = 100  # Maximum results per request
+
 def fetch_matches(matchweek):
     """
     Fetch matches for a specific matchweek from the Premier League API.
@@ -36,11 +42,11 @@ def fetch_matches(matchweek):
     Returns:
         dict: The API response as a dictionary, or None if error
     """
-    url = f"https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v2/matches?competition=8&season=2024&matchweek={matchweek}&_limit=100"
+    url = f"https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v2/matches?competition={COMPETITION_ID}&season={SEASON_YEAR}&matchweek={matchweek}&_limit={API_LIMIT}"
     
     # Create request with headers to mimic a browser
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         'Accept': 'application/json',
         'Accept-Language': 'en-US,en;q=0.9',
     }
@@ -74,7 +80,7 @@ def main():
     parser.add_argument(
         '--all',
         action='store_true',
-        help='Fetch all matchweeks (1-38)'
+        help=f'Fetch all matchweeks (1-{MAX_MATCHWEEKS})'
     )
     parser.add_argument(
         '--output',
@@ -86,10 +92,10 @@ def main():
     
     if args.all:
         # Fetch all matchweeks
-        print("Fetching all matchweeks (1-38)...", file=sys.stderr)
+        print(f"Fetching all matchweeks (1-{MAX_MATCHWEEKS})...", file=sys.stderr)
         all_data = []
         
-        for week in range(1, 39):
+        for week in range(1, MAX_MATCHWEEKS + 1):
             print(f"Fetching matchweek {week}...", file=sys.stderr)
             data = fetch_matches(week)
             
@@ -102,8 +108,8 @@ def main():
                 print(f"Warning: Failed to fetch matchweek {week}", file=sys.stderr)
         
         result = {
-            'season': 2024,
-            'competition': 8,
+            'season': SEASON_YEAR,
+            'competition': COMPETITION_ID,
             'matchweeks': all_data
         }
     else:
