@@ -2,33 +2,37 @@
 
 Premier League form comparison tool with match results data.
 
-## Data Files
+## Setup
 
-- `matches-2024-2025.json` - Match results for the 2024/2025 season (matchdays 1-14)
+Install dependencies:
+
+```bash
+npm install
+```
 
 ## Scripts
 
-### fetch-matches.py
+### fetch-matches.js
 
-A Python script to fetch Premier League match results directly from the official Premier League API.
+A JavaScript/Node.js script to fetch Premier League match results directly from the official Premier League API.
 
 **Usage:**
 
 ```bash
 # Fetch matchweek 15 (default)
-python3 fetch-matches.py
+node scripts/fetch-matches.js
 
 # Fetch specific matchweek
-python3 fetch-matches.py --matchweek 10
+node scripts/fetch-matches.js --matchweek 10
 
 # Fetch all matchweeks (1-38)
-python3 fetch-matches.py --all
+node scripts/fetch-matches.js --all
 
 # Save to file
-python3 fetch-matches.py --matchweek 15 --output matchweek-15.json
+node scripts/fetch-matches.js --matchweek 15 --output matchweek-15.json
 
 # Fetch all and save
-python3 fetch-matches.py --all --output all-matches.json
+node scripts/fetch-matches.js --all --output all-matches.json
 ```
 
 **API Endpoint:**
@@ -39,3 +43,17 @@ https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v2/matches?competiti
 ```
 
 **Note:** The API endpoint may be blocked in some network environments. If you encounter connectivity issues, try running the script from a different network.
+
+## Development
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
