@@ -34,7 +34,7 @@ interface TableData {
   aggPointDiff: string
 }
 
-const BASE_PATH = import.meta.env.BASE_PATH ?? ''
+const BASE_PATH = import.meta.env.VITE_BASE_PATH ?? ''
 
 export function App() {
   const [team, setTeam] = useState('Arsenal')

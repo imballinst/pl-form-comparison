@@ -25,4 +25,4 @@ jobs:
         working-directory: .
         run: yarn && yarn build
         env:
-          BASE_PATH: /pl-form-comparison/
+          VITE_BASE_PATH: /pl-form-comparison
