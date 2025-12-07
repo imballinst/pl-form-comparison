@@ -2,8 +2,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import axios from 'axios'
 import { useEffect, useRef, useState } from 'preact/hooks'
 import './App.css'
-import { PROMOTED_TEAMS_TO_PREMIER_LEAGUE } from './constants/promoted-teams'
 import { MatchInfo, SeasonMatchesResponse } from './types'
+import { replaceTeamFromAnchorSeasonToPromotedTeamThatSeason } from './utils/team-replacement'
 
 interface FullMatchInfo extends MatchInfo {
   color: string
@@ -59,7 +59,7 @@ export function App() {
               ...match,
               color,
               venue,
-              opponent: replaceTeamFromAnchorSeasonToPromotedTeamThatSeason(opponent, 2024),
+              opponent: replaceTeamFromAnchorSeasonToPromotedTeamThatSeason(opponent, 2023, 2024),
             }
           }
         }
@@ -95,7 +95,7 @@ export function App() {
           <TableBody>
             {anchorMatches.map((match, idx) => {
               const { opponent, venue } = getEssentialMatchInfo(match)
-              const teamFromOtherSeason = replaceTeamFromAnchorSeasonToPromotedTeamThatSeason(opponent, 2023)
+              const teamFromOtherSeason = replaceTeamFromAnchorSeasonToPromotedTeamThatSeason(opponent, 2023, 2025)
               let anchorKey: string
 
               if (venue === 'home') {
@@ -156,18 +156,6 @@ function getEssentialMatchInfo(match: MatchInfo) {
   }
 
   return { opponent, color, venue: isHome ? 'home' : 'away' }
-}
-
-function replaceTeamFromAnchorSeasonToPromotedTeamThatSeason(team: string, year: number) {
-  const seasonGotPromoted = year - 1
-  const promotedTeams = PROMOTED_TEAMS_TO_PREMIER_LEAGUE[seasonGotPromoted.toString()]
-  const promotedTeamIdx = promotedTeams.indexOf(team)
-
-  if (promotedTeamIdx > -1) {
-    return promotedTeams[promotedTeamIdx]
-  }
-
-  return team
 }
 
 function getAnchorKeyFromMatch(match: MatchInfo) {
