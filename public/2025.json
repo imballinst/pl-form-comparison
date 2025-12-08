@@ -4866,26 +4866,34 @@
           {
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 15,
             "kickoff": "2025-12-07 14:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "West Ham United",
               "id": "21",
+              "halfTimeScore": 0,
               "shortName": "West Ham",
-              "abbr": "WHU"
+              "abbr": "WHU",
+              "redCards": 0
             },
+            "competition": "Premier League",
+            "clock": "98",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Brighton and Hove Albion",
               "id": "36",
+              "halfTimeScore": 0,
               "shortName": "Brighton",
-              "abbr": "BHA"
+              "abbr": "BHA",
+              "redCards": 0
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "American Express Stadium, Falmer",
-            "matchId": "2562037",
-            "kickoffTimezoneString": "Europe/London"
+            "resultType": "NormalResult",
+            "matchId": "2562037"
           },
           {
             "kickoffTimezone": "GMT",
@@ -4923,26 +4931,35 @@
           {
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 15,
             "kickoff": "2025-12-07 16:30:00",
             "awayTeam": {
+              "score": 2,
               "name": "Crystal Palace",
               "id": "31",
+              "halfTimeScore": 1,
               "shortName": "Crystal Palace",
-              "abbr": "CRY"
+              "abbr": "CRY",
+              "redCards": 0
             },
+            "competition": "Premier League",
+            "clock": "97",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Fulham",
               "id": "54",
+              "halfTimeScore": 1,
               "shortName": "Fulham",
-              "abbr": "FUL"
+              "abbr": "FUL",
+              "redCards": 0
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Craven Cottage, London",
+            "resultType": "NormalResult",
             "matchId": "2562039",
-            "kickoffTimezoneString": "Europe/London"
+            "attendance": 27283
           },
           {
             "kickoffTimezone": "GMT",
