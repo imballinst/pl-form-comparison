@@ -119,8 +119,11 @@
   }
 }
 
-a {
-  @apply text-blue-500 underline;
+main,
+footer {
+  a {
+    @apply text-blue-500 underline;
+  }
 }
 
 th {
