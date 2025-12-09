@@ -11,14 +11,14 @@ const router = createBrowserRouter([
     path: `${BASE_PATH}/`,
     Component: App,
     children: [
-      { index: true, element: <Navigate to="/compare/between-seasons" replace /> },
+      { index: true, element: <Navigate to="compare/between-seasons" replace /> },
       {
         path: 'compare',
         Component: Outlet,
         children: [
-          { index: true, element: <Navigate to="/compare/between-seasons" replace /> },
+          { index: true, element: <Navigate to="compare/between-seasons" replace /> },
           { path: 'between-seasons', Component: ResultComparisonBySeason, loader: resultComparisonBySeasonLoader },
-          { path: 'remaining-matches', Component: ResultComparisonBySeason },
+          // { path: 'remaining-matches', Component: ResultComparisonBySeason },
         ],
       },
     ],

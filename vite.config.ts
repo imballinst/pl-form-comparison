@@ -4,7 +4,7 @@ import path from 'path'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: process.env.VITE_BASE_PATH,
+  base: '/pl-form-comparison',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
