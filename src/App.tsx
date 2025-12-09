@@ -27,6 +27,7 @@ interface MatchesState {
 interface TableData {
   gameweek: number
   opponent: string
+  period: string
   venue: string
   comparedSeasonMatchInfo: FullMatchInfo | undefined
   anchorSeasonMatchInfo: FullMatchInfo
@@ -183,8 +184,6 @@ function ComparisonTable({
   let aggPointDiff = 0
 
   anchorMatches.matches.forEach((match, gameweek) => {
-    if (match.period !== 'FullTime') return
-
     const { opponent, venue } = getEssentialMatchInfo(match, team)
     const comparedSeason = getMatchFromOtherSeason(
       anchorMatches.comparison,
@@ -194,18 +193,23 @@ function ComparisonTable({
       team,
       venue,
     )
-    const pointResult = getNumberOfPointFromResult(match.teamResult)
-    let pointDiff = pointResult
+    let pointDiff = 0
 
-    if (comparedSeason) {
-      pointDiff = pointDiff - getNumberOfPointFromResult(comparedSeason.teamResult)
+    if (match.period === 'FullTime') {
+      const pointResult = getNumberOfPointFromResult(match.teamResult)
+      pointDiff = pointResult
+
+      if (comparedSeason) {
+        pointDiff = pointDiff - getNumberOfPointFromResult(comparedSeason.teamResult)
+      }
+
+      aggPointDiff += pointDiff
     }
-
-    aggPointDiff += pointDiff
 
     data.push({
       gameweek: gameweek + 1,
       opponent: match.opponent,
+      period: match.period,
       venue: match.venue[0].toUpperCase() + match.venue.slice(1),
       comparedSeasonMatchInfo: comparedSeason,
       anchorSeasonMatchInfo: match,
@@ -235,16 +239,27 @@ function ComparisonTable({
               <TableCell>{row.opponent}</TableCell>
               <TableCell>{row.venue}</TableCell>
               <TableCell className={clsx(row.comparedSeasonMatchInfo?.color, 'text-center')}>
-                <div className="flex gap-x-2 justify-center items-center relative">
+                <div className="inline-flex justify-center items-center relative">
                   {row.comparedSeasonMatchInfo?.homeTeam.score}-{row.comparedSeasonMatchInfo?.awayTeam.score}
                   <PreviousTeamThatGotRelegated match={row.comparedSeasonMatchInfo} opponent={row.opponent} />
                 </div>
               </TableCell>
-              <TableCell className={clsx(row.anchorSeasonMatchInfo.color, 'text-center')}>
-                {row.anchorSeasonMatchInfo.homeTeam.score}-{row.anchorSeasonMatchInfo.awayTeam.score}
-              </TableCell>
-              <TableCell className="text-right">{row.pointDiff}</TableCell>
-              <TableCell className="text-right">{row.aggPointDiff}</TableCell>
+
+              {row.period === 'FullTime' ? (
+                <>
+                  <TableCell className={clsx(row.anchorSeasonMatchInfo.color, 'text-center')}>
+                    {row.anchorSeasonMatchInfo.homeTeam.score}-{row.anchorSeasonMatchInfo.awayTeam.score}
+                  </TableCell>
+                  <TableCell className="text-right">{row.pointDiff}</TableCell>
+                  <TableCell className="text-right">{row.aggPointDiff}</TableCell>
+                </>
+              ) : (
+                <>
+                  <TableCell className="text-center">-</TableCell>
+                  <TableCell className="text-right">-</TableCell>
+                  <TableCell className="text-right">-</TableCell>
+                </>
+              )}
             </TableRow>
           )
         })}
@@ -259,7 +274,7 @@ function PreviousTeamThatGotRelegated({ match, opponent }: { match: FullMatchInf
   }
 
   return (
-    <div className="absolute right-0 top-0.5 flex">
+    <div className="absolute -right-5 top-0.5 flex">
       <Tooltip>
         <TooltipTrigger asChild>
           <Info className="inline-block w-4 h-4 text-muted-foreground" />
