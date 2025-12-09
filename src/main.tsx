@@ -2,12 +2,13 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, Navigate, Outlet } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 import { App } from './App.jsx'
+import { BASE_PATH } from './constants.js'
 import './index.css'
 import { ResultComparisonBySeason, resultComparisonBySeasonLoader } from './routes/ResultComparisonBySeason'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: `${BASE_PATH}/`,
     Component: App,
     children: [
       { index: true, element: <Navigate to="/compare/between-seasons" replace /> },

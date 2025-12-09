@@ -1,7 +1,7 @@
+import { BASE_PATH } from '@/constants'
 import { MatchInfo, SeasonMatchesResponse } from '@/types'
 import axios from 'axios'
 
-const BASE_PATH = import.meta.env.VITE_BASE_PATH ?? ''
 let seasons: Record<string, MatchInfo[]> | undefined
 
 export async function fetchSeasons() {
