@@ -4798,6 +4798,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4831,6 +4832,7 @@
             "attendance": 11240
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4864,6 +4866,7 @@
             "attendance": 42888
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4896,6 +4899,7 @@
             "matchId": "2562037"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4929,6 +4933,7 @@
             "attendance": 52501
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4962,6 +4967,7 @@
             "attendance": 27283
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4995,6 +5001,7 @@
             "attendance": 36842
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -5027,6 +5034,7 @@
             "matchId": "2562041"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -5060,6 +5068,7 @@
             "attendance": 52041
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -5093,28 +5102,38 @@
             "attendance": 60759
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 15,
             "kickoff": "2025-12-08 20:00:00",
             "awayTeam": {
+              "score": 4,
               "name": "Manchester United",
               "id": "1",
+              "halfTimeScore": 1,
               "shortName": "Man Utd",
-              "abbr": "MUN"
+              "abbr": "MUN",
+              "redCards": 0
             },
+            "competition": "Premier League",
+            "clock": "99",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Wolverhampton Wanderers",
               "id": "39",
+              "halfTimeScore": 1,
               "shortName": "Wolves",
-              "abbr": "WOL"
+              "abbr": "WOL",
+              "redCards": 0
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Molineux Stadium, Wolverhampton",
+            "resultType": "NormalResult",
             "matchId": "2562044",
-            "kickoffTimezoneString": "Europe/London"
+            "attendance": 30338
           }
         ]
       }
