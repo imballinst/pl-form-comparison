@@ -5,21 +5,14 @@ import { fetchSeasons } from '@/utils/seasons-fetcher'
 import clsx from 'clsx'
 import { Info } from 'lucide-react'
 import { LoaderFunctionArgs, useLoaderData, useSearchParams } from 'react-router'
-import { TEAMS_PER_SEASON } from '../constants'
-import { MatchInfo } from '../types'
+import { CURRENT_SEASON, TEAMS_PER_SEASON } from '../constants'
+import { FullMatchInfo, MatchInfo } from '../types'
 import { getEquivalentTeamFromAnotherSeason } from '../utils/team-replacement'
-
-interface FullMatchInfo extends MatchInfo {
-  color: string
-  opponent: string
-  teamResult: string
-  venue: string
-}
 
 // { "Arsenal vs Tottenham": FullMatchInfo }.
 type MatchAnchorRecord = Record<string, FullMatchInfo>
 
-interface MatchesState {
+interface MatchesAcrossSeasons {
   matches: FullMatchInfo[]
   comparison: MatchAnchorRecord
 }
@@ -38,13 +31,13 @@ interface TableData {
 export async function resultComparisonBySeasonLoader({ request }: LoaderFunctionArgs) {
   const params = new URL(request.url).searchParams
   let team = params.get('team') ?? 'Arsenal'
-  if (!TEAMS_PER_SEASON['2025'].includes(team)) {
+  if (!TEAMS_PER_SEASON[CURRENT_SEASON].includes(team)) {
     team = 'Arsenal'
   }
 
-  let anchorYear = params.get('anchorYear') ?? '2025'
+  let anchorYear = params.get('anchorYear') ?? CURRENT_SEASON
   if (!TEAMS_PER_SEASON[anchorYear]) {
-    anchorYear = '2025'
+    anchorYear = CURRENT_SEASON
   }
 
   let comparedYear = params.get('comparedYear') ?? undefined
@@ -87,7 +80,7 @@ export function ResultComparisonBySeason() {
               <SelectValue placeholder="Team" />
             </SelectTrigger>
             <SelectContent>
-              {TEAMS_PER_SEASON['2025'].map((item) => (
+              {TEAMS_PER_SEASON[CURRENT_SEASON].map((item) => (
                 <SelectItem key={item} value={item}>
                   {item}
                 </SelectItem>
@@ -169,7 +162,7 @@ function ComparisonTable({
   comparedYear: string
   anchorYear: string
   team: string
-  anchorMatches: MatchesState
+  anchorMatches: MatchesAcrossSeasons
 }) {
   const data: TableData[] = []
   let aggPointDiff = 0
@@ -376,7 +369,7 @@ function getAnchorMatchesForTeam(
   matchesResponses: Record<string, MatchInfo[]>,
   anchorYear: string,
   comparedYear: string | undefined,
-): MatchesState | undefined {
+): MatchesAcrossSeasons | undefined {
   if (!anchorYear || !comparedYear || !matchesResponses) {
     return undefined
   }

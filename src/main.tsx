@@ -4,6 +4,7 @@ import { RouterProvider } from 'react-router/dom'
 import { App } from './App.jsx'
 import { BASE_PATH } from './constants.js'
 import './index.css'
+import { RemainingMatches, remainingMatchesLoader } from './routes/RemainingMatches.js'
 import { ResultComparisonBySeason, resultComparisonBySeasonLoader } from './routes/ResultComparisonBySeason'
 
 const router = createBrowserRouter([
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <Navigate to="compare/between-seasons" replace /> },
           { path: 'between-seasons', Component: ResultComparisonBySeason, loader: resultComparisonBySeasonLoader },
-          // { path: 'remaining-matches', Component: ResultComparisonBySeason },
+          { path: 'remaining-matches', Component: RemainingMatches, loader: remainingMatchesLoader },
         ],
       },
     ],

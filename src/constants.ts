@@ -73,3 +73,4 @@ export const TEAMS_PER_SEASON: Record<string, string[]> = {
 }
 
 export const BASE_PATH = import.meta.env.BASE_URL ?? ''
+export const CURRENT_SEASON = Object.keys(TEAMS_PER_SEASON).reverse()[0]
