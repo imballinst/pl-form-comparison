@@ -1,6 +1,7 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo } from '@/utils/match'
 import { fetchSeasons } from '@/utils/seasons-fetcher'
 import clsx from 'clsx'
 import { Info } from 'lucide-react'
@@ -269,57 +270,9 @@ function PreviousTeamThatGotRelegated({ match, opponent }: { match: FullMatchInf
   )
 }
 
-function getScoreResult(position: string, score: [number, number]) {
-  if (score[0] === score[1]) {
-    return { color: 'bg-gray-400', teamResult: 'draw' }
-  }
-
-  const isHome = position === 'home'
-  const isWin = isHome ? score[0] > score[1] : score[1] > score[0]
-
-  if (isWin) {
-    return {
-      color: 'bg-green-400',
-      teamResult: 'win',
-    }
-  }
-
-  return {
-    color: 'bg-red-400',
-    teamResult: 'loss',
-  }
-}
-
-function getEssentialMatchInfo(match: MatchInfo, team: string) {
-  const isHome = match.homeTeam.name === team
-  const score = [match.homeTeam.score, match.awayTeam.score] satisfies [number, number]
-  let opponent: string
-  let venue: 'home' | 'away'
-
-  if (isHome) {
-    opponent = match.awayTeam.name
-    venue = 'home'
-  } else {
-    opponent = match.homeTeam.name
-    venue = 'away'
-  }
-
-  const scoreColorAndResult = getScoreResult(venue, score)
-
-  return { opponent, venue, ...scoreColorAndResult }
-}
-
-function getAnchorKeyFromMatch(match: MatchInfo) {
-  return getAnchorKeyFromString(match.homeTeam.name, match.awayTeam.name)
-}
-
-function getAnchorKeyFromString(home: string, away: string) {
-  return [home, away].join(' vs ')
-}
-
 function fillMatchAnchorRecord(record: MatchAnchorRecord, seasonMatches: MatchInfo[], team: string) {
   for (const match of seasonMatches) {
-    const anchorKey = getAnchorKeyFromMatch(match)
+    const anchorKey = getAnchorKeyFromMatch(match, team)
     record[anchorKey] = {
       ...match,
       ...getEssentialMatchInfo(match, team),
@@ -339,9 +292,9 @@ function getMatchFromOtherSeason(
   let anchorKey: string
 
   if (venue === 'home') {
-    anchorKey = getAnchorKeyFromString(team, teamFromOtherSeason)
+    anchorKey = getAnchorKeyFromString(team, teamFromOtherSeason, team)
   } else {
-    anchorKey = getAnchorKeyFromString(teamFromOtherSeason, team)
+    anchorKey = getAnchorKeyFromString(teamFromOtherSeason, team, team)
   }
 
   if (!record[anchorKey]) {

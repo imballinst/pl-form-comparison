@@ -2,9 +2,10 @@ import { Button } from '@/components/ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo } from '@/utils/match'
 import { fetchSeasons } from '@/utils/seasons-fetcher'
 import clsx from 'clsx'
-import { Info } from 'lucide-react'
+import { Info, X } from 'lucide-react'
 import { useState } from 'react'
 import { LoaderFunctionArgs, useLoaderData, useSearchParams } from 'react-router'
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '../constants'
@@ -38,7 +39,7 @@ export async function remainingMatchesLoader({ request }: LoaderFunctionArgs) {
   const teamsArray = teamsString.filter((team) => TEAMS_PER_SEASON[CURRENT_SEASON].includes(team))
 
   const matchesResponses = await fetchSeasons()
-  const matchesAcrossSeasons = getAnchorMatchesForTeams(teamsArray, matchesResponses)
+  const matchesAcrossSeasons = getMatchesAcrossSeasons(teamsArray, matchesResponses)
 
   return { teams: teamsArray, matchesAcrossSeasons }
 }
@@ -106,6 +107,7 @@ export function RemainingMatches() {
 }
 
 function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossSeasons: MatchesAcrossSeasons; teams: string[] }) {
+  const [, setSearchParams] = useSearchParams()
   // Each array element represents a gameweek, in each item is a record for each team's match.
   const data: Array<TableData> = []
   const gameWeeks = Object.keys(matchesAcrossSeasons.matchesByGameweekByTeamRecord)
@@ -163,8 +165,6 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
     }
   }
 
-  console.info(matchesAcrossSeasons.matchesByGameweekByTeamRecord)
-
   return (
     <Table>
       <TableHeader>
@@ -172,7 +172,32 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
           <TableHead>GW</TableHead>
           {teams.map((team) => (
             <TableHead key={team} className="text-center">
-              {team}
+              <div className="flex gap-x-2 justify-center items-center">
+                <div>{team}</div>
+
+                <Button
+                  variant="outline"
+                  size="icon-sm"
+                  className="rounded-full w-5 h-5"
+                  aria-label="Remove column"
+                  onClick={() => {
+                    setSearchParams((prev) => {
+                      const newSearchParams = new URLSearchParams(prev)
+                      const teamsParam = newSearchParams.getAll('teams') ?? []
+                      teamsParam.splice(teamsParam.indexOf(team), 1)
+                      newSearchParams.delete('teams')
+
+                      for (const team of teamsParam) {
+                        newSearchParams.append('teams', team)
+                      }
+
+                      return newSearchParams
+                    })
+                  }}
+                >
+                  <X className="w-3! h-3!" />
+                </Button>
+              </div>
             </TableHead>
           ))}
         </TableRow>
@@ -182,7 +207,8 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
           return (
             <TableRow key={row.gameweek}>
               <TableCell>{row.gameweek}</TableCell>
-              {Object.values(row.teamMatchRecord).map((teamMatchInfo, idx) => {
+              {teams.map((team, idx) => {
+                const teamMatchInfo = row.teamMatchRecord[team]
                 if (!teamMatchInfo) {
                   return (
                     <TableCell key={idx} className="text-center">
@@ -202,10 +228,10 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
                       <div className="flex justify-center items-center">
                         <ul className="flex gap-x-2">
                           <li>
-                            <ScoreTag match={lastSeasonMatch} currentSeasonOpponent={teamMatchInfo.opponent} />
+                            <ScoreTag match={lastSeasonMatch} currentSeasonOpponent={teamMatchInfo.opponent} currentColumnTeam={team} />
                           </li>
                           <li>
-                            <ScoreTag match={twoSeasonsAgoMatch} currentSeasonOpponent={teamMatchInfo.opponent} />
+                            <ScoreTag match={twoSeasonsAgoMatch} currentSeasonOpponent={teamMatchInfo.opponent} currentColumnTeam={team} />
                           </li>
                         </ul>
                       </div>
@@ -221,13 +247,21 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
   )
 }
 
-function ScoreTag({ match, currentSeasonOpponent }: { match: FullMatchInfo; currentSeasonOpponent: string }) {
+function ScoreTag({
+  match,
+  currentSeasonOpponent,
+  currentColumnTeam,
+}: {
+  match: FullMatchInfo
+  currentSeasonOpponent: string
+  currentColumnTeam: string
+}) {
   return (
     <div className={clsx(match.color, 'p-1 py-0.5 rounded text-sm flex items-center justify-center gap-x-1')}>
       <div>
         {match.homeTeam.score}-{match.awayTeam.score} ({match.season})
       </div>
-      {currentSeasonOpponent !== match.opponent ? (
+      {currentSeasonOpponent !== match.opponent && currentColumnTeam !== match.opponent ? (
         <Tooltip>
           <TooltipTrigger asChild>
             <Info className="inline-block w-4 h-4" />
@@ -239,55 +273,7 @@ function ScoreTag({ match, currentSeasonOpponent }: { match: FullMatchInfo; curr
   )
 }
 
-function getScoreResult(position: string, score: [number, number]) {
-  if (score[0] === score[1]) {
-    return { color: 'bg-gray-400', teamResult: 'draw' }
-  }
-
-  const isHome = position === 'home'
-  const isWin = isHome ? score[0] > score[1] : score[1] > score[0]
-
-  if (isWin) {
-    return {
-      color: 'bg-green-400',
-      teamResult: 'win',
-    }
-  }
-
-  return {
-    color: 'bg-red-400',
-    teamResult: 'loss',
-  }
-}
-
-function getEssentialMatchInfo(match: MatchInfo, team: string) {
-  const isHome = match.homeTeam.name === team
-  const score = [match.homeTeam.score, match.awayTeam.score] satisfies [number, number]
-  let opponent: string
-  let venue: 'home' | 'away'
-
-  if (isHome) {
-    opponent = match.awayTeam.name
-    venue = 'home'
-  } else {
-    opponent = match.homeTeam.name
-    venue = 'away'
-  }
-
-  const scoreColorAndResult = getScoreResult(venue, score)
-
-  return { opponent, venue, ...scoreColorAndResult }
-}
-
-function getAnchorKeyFromMatch(match: MatchInfo) {
-  return getAnchorKeyFromString(match.homeTeam.name, match.awayTeam.name)
-}
-
-function getAnchorKeyFromString(home: string, away: string) {
-  return [home, away].join(' vs ')
-}
-
-function fillMatchAnchorRecord(record: MatchAnchorRecord, seasonMatches: MatchInfo[], team: string, year: string) {
+function fillRemainingMatchAnchorRecord(record: MatchAnchorRecord, seasonMatches: MatchInfo[], team: string, year: string) {
   let seasonRecord = record[year]
   if (!seasonRecord) {
     record[year] = {}
@@ -295,7 +281,7 @@ function fillMatchAnchorRecord(record: MatchAnchorRecord, seasonMatches: MatchIn
   }
 
   for (const match of seasonMatches) {
-    const anchorKey = getAnchorKeyFromMatch(match)
+    const anchorKey = getAnchorKeyFromMatch(match, team)
     seasonRecord[anchorKey] = {
       ...match,
       ...getEssentialMatchInfo(match, team),
@@ -315,15 +301,15 @@ function getMatchFromOtherSeason(
   let anchorKey: string
 
   if (venue === 'home') {
-    anchorKey = getAnchorKeyFromString(team, teamFromOtherSeason)
+    anchorKey = getAnchorKeyFromString(team, teamFromOtherSeason, team)
   } else {
-    anchorKey = getAnchorKeyFromString(teamFromOtherSeason, team)
+    anchorKey = getAnchorKeyFromString(teamFromOtherSeason, team, team)
   }
 
   return record[anchorKey]
 }
 
-function getAnchorMatchesForTeams(teams: string[], matchesResponses: Record<string, MatchInfo[]>): MatchesAcrossSeasons {
+function getMatchesAcrossSeasons(teams: string[], matchesResponses: Record<string, MatchInfo[]>): MatchesAcrossSeasons {
   const matchesByGameweekByTeamRecord: MatchesAcrossSeasons['matchesByGameweekByTeamRecord'] = {}
   const comparison: MatchAnchorRecord = {}
   let previousMatchweek = -1
@@ -347,16 +333,6 @@ function getAnchorMatchesForTeams(teams: string[], matchesResponses: Record<stri
         ...match,
         ...getEssentialMatchInfo(match, team),
       }
-
-      const previousYears = Object.keys(matchesResponses).filter((year) => year !== CURRENT_SEASON)
-      for (const previousYear of previousYears) {
-        fillMatchAnchorRecord(
-          comparison,
-          matchesResponses[previousYear].filter((match) => match.homeTeam.name === homeTeam.name || match.awayTeam.name === awayTeam.name),
-          team,
-          previousYear,
-        )
-      }
     }
 
     if (previousMatchweek !== -1 && previousMatchweek !== matchWeek) {
@@ -369,7 +345,17 @@ function getAnchorMatchesForTeams(teams: string[], matchesResponses: Record<stri
     previousMatchweek = matchWeek
   }
 
-  console.info(matchesByGameweekByTeamRecord)
+  for (const team of teams) {
+    const previousYears = Object.keys(matchesResponses).filter((year) => year !== CURRENT_SEASON)
+    for (const previousYear of previousYears) {
+      fillRemainingMatchAnchorRecord(
+        comparison,
+        matchesResponses[previousYear].filter((match) => match.homeTeam.name === team || match.awayTeam.name === team),
+        team,
+        previousYear,
+      )
+    }
+  }
 
   return {
     matchesByGameweekByTeamRecord,
