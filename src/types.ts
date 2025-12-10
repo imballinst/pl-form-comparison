@@ -1,3 +1,12 @@
+// Custom types.
+export interface FullMatchInfo extends MatchInfo {
+  color: string
+  opponent: string
+  teamResult: string
+  venue: string
+}
+
+// Types from JSON struct.
 export interface SeasonMatchesResponse {
   season: number
   competition: number

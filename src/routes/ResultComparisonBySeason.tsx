@@ -1,25 +1,19 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo } from '@/utils/match'
 import { fetchSeasons } from '@/utils/seasons-fetcher'
 import clsx from 'clsx'
 import { Info } from 'lucide-react'
 import { LoaderFunctionArgs, useLoaderData, useSearchParams } from 'react-router'
-import { TEAMS_PER_SEASON } from '../constants'
-import { MatchInfo } from '../types'
+import { CURRENT_SEASON, TEAMS_PER_SEASON } from '../constants'
+import { FullMatchInfo, MatchInfo } from '../types'
 import { getEquivalentTeamFromAnotherSeason } from '../utils/team-replacement'
-
-interface FullMatchInfo extends MatchInfo {
-  color: string
-  opponent: string
-  teamResult: string
-  venue: string
-}
 
 // { "Arsenal vs Tottenham": FullMatchInfo }.
 type MatchAnchorRecord = Record<string, FullMatchInfo>
 
-interface MatchesState {
+interface MatchesAcrossSeasons {
   matches: FullMatchInfo[]
   comparison: MatchAnchorRecord
 }
@@ -38,13 +32,13 @@ interface TableData {
 export async function resultComparisonBySeasonLoader({ request }: LoaderFunctionArgs) {
   const params = new URL(request.url).searchParams
   let team = params.get('team') ?? 'Arsenal'
-  if (!TEAMS_PER_SEASON['2025'].includes(team)) {
+  if (!TEAMS_PER_SEASON[CURRENT_SEASON].includes(team)) {
     team = 'Arsenal'
   }
 
-  let anchorYear = params.get('anchorYear') ?? '2025'
+  let anchorYear = params.get('anchorYear') ?? CURRENT_SEASON
   if (!TEAMS_PER_SEASON[anchorYear]) {
-    anchorYear = '2025'
+    anchorYear = CURRENT_SEASON
   }
 
   let comparedYear = params.get('comparedYear') ?? undefined
@@ -87,7 +81,7 @@ export function ResultComparisonBySeason() {
               <SelectValue placeholder="Team" />
             </SelectTrigger>
             <SelectContent>
-              {TEAMS_PER_SEASON['2025'].map((item) => (
+              {TEAMS_PER_SEASON[CURRENT_SEASON].map((item) => (
                 <SelectItem key={item} value={item}>
                   {item}
                 </SelectItem>
@@ -169,7 +163,7 @@ function ComparisonTable({
   comparedYear: string
   anchorYear: string
   team: string
-  anchorMatches: MatchesState
+  anchorMatches: MatchesAcrossSeasons
 }) {
   const data: TableData[] = []
   let aggPointDiff = 0
@@ -276,57 +270,9 @@ function PreviousTeamThatGotRelegated({ match, opponent }: { match: FullMatchInf
   )
 }
 
-function getScoreResult(position: string, score: [number, number]) {
-  if (score[0] === score[1]) {
-    return { color: 'bg-gray-400', teamResult: 'draw' }
-  }
-
-  const isHome = position === 'home'
-  const isWin = isHome ? score[0] > score[1] : score[1] > score[0]
-
-  if (isWin) {
-    return {
-      color: 'bg-green-400',
-      teamResult: 'win',
-    }
-  }
-
-  return {
-    color: 'bg-red-400',
-    teamResult: 'loss',
-  }
-}
-
-function getEssentialMatchInfo(match: MatchInfo, team: string) {
-  const isHome = match.homeTeam.name === team
-  const score = [match.homeTeam.score, match.awayTeam.score] satisfies [number, number]
-  let opponent: string
-  let venue: 'home' | 'away'
-
-  if (isHome) {
-    opponent = match.awayTeam.name
-    venue = 'home'
-  } else {
-    opponent = match.homeTeam.name
-    venue = 'away'
-  }
-
-  const scoreColorAndResult = getScoreResult(venue, score)
-
-  return { opponent, venue, ...scoreColorAndResult }
-}
-
-function getAnchorKeyFromMatch(match: MatchInfo) {
-  return getAnchorKeyFromString(match.homeTeam.name, match.awayTeam.name)
-}
-
-function getAnchorKeyFromString(home: string, away: string) {
-  return [home, away].join(' vs ')
-}
-
 function fillMatchAnchorRecord(record: MatchAnchorRecord, seasonMatches: MatchInfo[], team: string) {
   for (const match of seasonMatches) {
-    const anchorKey = getAnchorKeyFromMatch(match)
+    const anchorKey = getAnchorKeyFromMatch(match, team)
     record[anchorKey] = {
       ...match,
       ...getEssentialMatchInfo(match, team),
@@ -346,9 +292,9 @@ function getMatchFromOtherSeason(
   let anchorKey: string
 
   if (venue === 'home') {
-    anchorKey = getAnchorKeyFromString(team, teamFromOtherSeason)
+    anchorKey = getAnchorKeyFromString(team, teamFromOtherSeason, team)
   } else {
-    anchorKey = getAnchorKeyFromString(teamFromOtherSeason, team)
+    anchorKey = getAnchorKeyFromString(teamFromOtherSeason, team, team)
   }
 
   if (!record[anchorKey]) {
@@ -376,7 +322,7 @@ function getAnchorMatchesForTeam(
   matchesResponses: Record<string, MatchInfo[]>,
   anchorYear: string,
   comparedYear: string | undefined,
-): MatchesState | undefined {
+): MatchesAcrossSeasons | undefined {
   if (!anchorYear || !comparedYear || !matchesResponses) {
     return undefined
   }
