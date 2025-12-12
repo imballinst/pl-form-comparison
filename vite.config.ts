@@ -1,14 +1,21 @@
+import { reactRouter } from '@react-router/dev/vite'
 import tailwindcss from '@tailwindcss/vite'
-import react from '@vitejs/plugin-react'
 import path from 'path'
 import { defineConfig } from 'vite'
+import tsconfigPaths from 'vite-tsconfig-paths'
+
+const BASE = 'pl-form-comparison'
 
 export default defineConfig({
-  base: '/pl-form-comparison',
-  plugins: [react(), tailwindcss()],
+  base: '/',
+  build: {
+    outDir: `build/${BASE}`,
+    assetsDir: `${BASE}/assets`,
+  },
+  plugins: [tsconfigPaths(), reactRouter(), tailwindcss()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, './app'),
     },
   },
 })

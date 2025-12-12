@@ -2,15 +2,16 @@ import { Button } from '@/components/ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
+import type { FullMatchInfo, MatchInfo } from '@/types'
 import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo } from '@/utils/match'
 import { fetchSeasons } from '@/utils/seasons-fetcher'
+import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
 import { Info, X } from 'lucide-react'
 import { useState } from 'react'
-import { LoaderFunctionArgs, useLoaderData, useSearchParams } from 'react-router'
-import { CURRENT_SEASON, TEAMS_PER_SEASON } from '../constants'
-import { FullMatchInfo, MatchInfo } from '../types'
-import { getEquivalentTeamFromAnotherSeason } from '../utils/team-replacement'
+import { useLoaderData, useSearchParams } from 'react-router'
+import type { Route } from './+types/compare.remaining-matches'
 
 // { "2024": { "Arsenal vs Tottenham": FullMatchInfo } }.
 type MatchAnchorRecord = Record<string, Record<string, FullMatchInfo>>
@@ -33,7 +34,7 @@ interface TableData {
   >
 }
 
-export async function remainingMatchesLoader({ request }: LoaderFunctionArgs) {
+export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const params = new URL(request.url).searchParams
   const teamsString = params.getAll('teams') ?? []
   const teamsArray = teamsString.filter((team) => TEAMS_PER_SEASON[CURRENT_SEASON].includes(team))
@@ -44,8 +45,8 @@ export async function remainingMatchesLoader({ request }: LoaderFunctionArgs) {
   return { teams: teamsArray, matchesAcrossSeasons }
 }
 
-export function RemainingMatches() {
-  const { teams, matchesAcrossSeasons } = useLoaderData<typeof remainingMatchesLoader>()
+export default function RemainingMatches() {
+  const { teams, matchesAcrossSeasons } = useLoaderData<typeof clientLoader>()
   const [, setSearchParams] = useSearchParams()
   const [selectedTeam, setSelectedTeam] = useState('Arsenal')
 

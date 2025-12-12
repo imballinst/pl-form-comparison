@@ -1,4 +1,4 @@
-import { MatchInfo } from '@/types'
+import type { MatchInfo } from '@/types'
 
 export function getScoreResult(position: string, score: [number, number]) {
   if (score[0] === score[1]) {

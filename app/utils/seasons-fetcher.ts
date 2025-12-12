@@ -1,5 +1,5 @@
 import { BASE_PATH } from '@/constants'
-import { MatchInfo, SeasonMatchesResponse } from '@/types'
+import type { MatchInfo, SeasonMatchesResponse } from '@/types'
 import axios from 'axios'
 
 let seasons: Record<string, MatchInfo[]> | undefined
