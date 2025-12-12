@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, Navigate, Outlet } from 'react-router'
+import { createBrowserRouter, Navigate } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 import { App } from './App.jsx'
 import { BASE_PATH } from './constants.js'
@@ -12,16 +12,10 @@ const router = createBrowserRouter([
     path: `${BASE_PATH}/`,
     Component: App,
     children: [
-      { index: true, element: <Navigate to="compare/between-seasons" replace /> },
-      {
-        path: 'compare',
-        Component: Outlet,
-        children: [
-          { index: true, element: <Navigate to="compare/between-seasons" replace /> },
-          { path: 'between-seasons', Component: ResultComparisonBySeason, loader: resultComparisonBySeasonLoader },
-          { path: 'remaining-matches', Component: RemainingMatches, loader: remainingMatchesLoader },
-        ],
-      },
+      { index: true, element: <Navigate to="compare-between-seasons" replace /> },
+      { path: 'compare-between-seasons', Component: ResultComparisonBySeason, loader: resultComparisonBySeasonLoader },
+      { path: 'compare-remaining-matches', Component: RemainingMatches, loader: remainingMatchesLoader },
+      { path: '*', element: <Navigate to="compare-between-seasons" replace /> },
     ],
   },
 ])
