@@ -1,14 +1,15 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
+import type { FullMatchInfo, MatchInfo } from '@/types'
 import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo } from '@/utils/match'
 import { fetchSeasons } from '@/utils/seasons-fetcher'
+import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
 import { Info } from 'lucide-react'
-import { LoaderFunctionArgs, useLoaderData, useSearchParams } from 'react-router'
-import { CURRENT_SEASON, TEAMS_PER_SEASON } from '../constants'
-import { FullMatchInfo, MatchInfo } from '../types'
-import { getEquivalentTeamFromAnotherSeason } from '../utils/team-replacement'
+import { useLoaderData, useSearchParams } from 'react-router'
+import type { Route } from './+types/compare.between-seasons'
 
 // { "Arsenal vs Tottenham": FullMatchInfo }.
 type MatchAnchorRecord = Record<string, FullMatchInfo>
@@ -29,7 +30,7 @@ interface TableData {
   aggPointDiff: string
 }
 
-export async function resultComparisonBySeasonLoader({ request }: LoaderFunctionArgs) {
+export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const params = new URL(request.url).searchParams
   let team = params.get('team') ?? 'Arsenal'
   if (!TEAMS_PER_SEASON[CURRENT_SEASON].includes(team)) {
@@ -52,8 +53,8 @@ export async function resultComparisonBySeasonLoader({ request }: LoaderFunction
   return { team, anchorYear, comparedYear, anchorMatches }
 }
 
-export function ResultComparisonBySeason() {
-  const { team, anchorMatches, anchorYear, comparedYear } = useLoaderData<typeof resultComparisonBySeasonLoader>()
+export default function ResultComparisonBySeason() {
+  const { team, anchorMatches, anchorYear, comparedYear } = useLoaderData<typeof clientLoader>()
   const yearOptions = getTeamYearComparisonOptions(team)
   const [, setSearchParams] = useSearchParams()
 

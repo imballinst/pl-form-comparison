@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 
 install-state.gz
+.react-router

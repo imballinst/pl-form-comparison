@@ -10,19 +10,18 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
-import { BASE_PATH } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { Link } from 'react-router'
 
 const components: { title: string; href: string; description: string }[] = [
   {
     title: 'Compare between seasons',
-    href: `${BASE_PATH}/compare-between-seasons`,
+    href: `/compare/between-seasons`,
     description: `Compare the current season's Premier League team's form with the same fixtures from previous seasons.`,
   },
   {
     title: 'Compare remaining matches',
-    href: `${BASE_PATH}/compare-remaining-matches`,
+    href: `/compare/remaining-matches`,
     description: `Compare two or more teams' remaining matches.`,
   },
 ]

@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router'
 import { Navbar } from './components/custom/navbar'
 
-export function App() {
+export function PageLayout() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <div className="border-b border-gray-200 w-full">
