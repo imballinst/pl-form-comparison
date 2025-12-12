@@ -13,8 +13,8 @@ permissions:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  build_and_publish:
-    name: Build and Publish
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -30,12 +30,20 @@ jobs:
         working-directory: .
         run: yarn && yarn build
 
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/client/pl-form-comparison
-          # Publish only with the latest commit.
-          # Source: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-force-orphan-force_orphan.
-          force_orphan: true
+          path: ./build/client/pl-form-comparison
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
