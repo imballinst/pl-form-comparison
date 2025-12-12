@@ -72,5 +72,5 @@ export const TEAMS_PER_SEASON: Record<string, string[]> = {
   '2023': TEAMS_2023,
 }
 
-export const BASE_PATH = import.meta.env.BASE_URL ?? ''
+export const BASE_PATH = '/pl-form-comparison'
 export const CURRENT_SEASON = Object.keys(TEAMS_PER_SEASON).reverse()[0]

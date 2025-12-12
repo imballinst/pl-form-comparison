@@ -3,7 +3,13 @@ import type { Route } from './+types/root'
 import './index.css'
 import { PageLayout } from './PageLayout'
 
-export const links: Route.LinksFunction = () => []
+export const links: Route.LinksFunction = () => [
+  {
+    rel: 'icon',
+    href: '/pl-form-comparison/favicon.ico',
+    type: 'image/x-icon',
+  },
+]
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

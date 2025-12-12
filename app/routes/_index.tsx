@@ -1,5 +1,5 @@
-import { redirect } from 'react-router'
+import { Navigate } from 'react-router'
 
-export async function loader() {
-  return redirect('/compare/between-seasons')
+export default function IndexRoute() {
+  return <Navigate to="/compare/between-seasons" />
 }

@@ -4,8 +4,14 @@ import path from 'path'
 import { defineConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
+const BASE = 'pl-form-comparison'
+
 export default defineConfig({
-  base: '/pl-form-comparison',
+  base: '/',
+  build: {
+    outDir: `build/${BASE}`,
+    assetsDir: `${BASE}/assets`,
+  },
   plugins: [tsconfigPaths(), reactRouter(), tailwindcss()],
   resolve: {
     alias: {
