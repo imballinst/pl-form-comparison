@@ -131,7 +131,7 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
       const teamMatch = matchesByTeamRecord[team]
       if (teamMatch === null) {
         existingData.teamMatchRecord[team] = null
-        return
+        continue
       }
 
       const teamInPreviousSeason = getEquivalentTeamFromAnotherSeason(
