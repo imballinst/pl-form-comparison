@@ -8,7 +8,7 @@ const MAX_MATCHWEEKS = 38
 const START_MATCHWEEK = process.env.START_MATCHWEEK ? Number(process.env.START_MATCHWEEK) : 1
 const END_MATCHWEEK = process.env.END_MATCHWEEK ? Number(process.env.END_MATCHWEEK) : MAX_MATCHWEEKS
 const API_LIMIT = 100
-const OUTPUT = `public/${SEASON_YEAR}.json`
+const OUTPUT = `public/pl-form-comparison/${SEASON_YEAR}.json`
 const OVERRIDE = process.env.OVERRIDE === 'true'
 
 async function fetchMatches(matchweek) {
