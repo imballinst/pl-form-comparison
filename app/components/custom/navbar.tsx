@@ -44,7 +44,7 @@ export function Navbar({ className }: { className?: string }) {
         </NavigationMenuItem> */}
         <NavigationMenuItem>
           <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
-          <NavigationMenuContent>
+          <NavigationMenuContent className="z-50">
             <ul className="grid gap-2 w-[300px] max-w-screen sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               {components.map((component) => (
                 <ListItem key={component.title} title={component.title} href={component.href}>

@@ -43,9 +43,9 @@ export default function CrossTableRoute() {
           <TableHeader>
             <TableRow>
               {/* Top-left corner cell */}
-              <TableHead className="sticky left-0 top-0 z-20 bg-background min-w-16" />
+              <TableHead className="sticky left-0 top-0 z-20 bg-background min-w-16 h-7" />
               {teams.map((away) => (
-                <TableHead key={away} className="sticky top-0 z-10 bg-background text-center font-mono min-w-[50px]">
+                <TableHead key={away} className="sticky top-0 z-10 bg-background text-center font-mono min-w-[50px] h-7">
                   {abbrMap[away] ?? away}
                 </TableHead>
               ))}
@@ -56,15 +56,12 @@ export default function CrossTableRoute() {
             {teams.map((home) => (
               <TableRow key={home}>
                 {/* Sticky left header cell */}
-                <TableHead className="sticky left-0 z-10 bg-background font-mono text-center">{abbrMap[home] ?? home}</TableHead>
+                <TableHead className="sticky left-0 z-10 bg-background font-mono text-center h-7">{abbrMap[home] ?? home}</TableHead>
 
                 {teams.map((away) => {
                   if (home === away) {
                     return (
-                      <TableCell
-                        key={`${home}-${away}`}
-                        className="text-center font-mono min-w-[50px] h-[50px] p-0.5 bg-black text-transparent"
-                      >
+                      <TableCell key={`${home}-${away}`} className="text-center font-mono min-w-[50px] h-7 p-0.5 bg-black text-transparent">
                         —
                       </TableCell>
                     )
@@ -74,7 +71,7 @@ export default function CrossTableRoute() {
 
                   if (!m || m.period !== 'FullTime') {
                     return (
-                      <TableCell key={`${home}-${away}`} className="text-center font-mono min-w-[50px] h-[50px] p-0.5">
+                      <TableCell key={`${home}-${away}`} className="text-center font-mono min-w-[50px] h-7 p-0.5">
                         -
                       </TableCell>
                     )
@@ -82,7 +79,7 @@ export default function CrossTableRoute() {
 
                   const color = getScoreResult('home', [m.homeTeam.score, m.awayTeam.score]).color
                   return (
-                    <TableCell key={`${home}-${away}`} className={clsx(color, 'text-center font-mono min-w-[50px] h-[50px] p-0.5')}>
+                    <TableCell key={`${home}-${away}`} className={clsx(color, 'text-center font-mono min-w-[50px] h-7 p-0.5')}>
                       {m.homeTeam.score}-{m.awayTeam.score}
                     </TableCell>
                   )
