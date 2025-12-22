@@ -24,6 +24,11 @@ const components: { title: string; href: string; description: string }[] = [
     href: `/compare/remaining-matches`,
     description: `Compare two or more teams' remaining matches.`,
   },
+  {
+    title: 'Home-Away Cross Table',
+    href: `/compare/cross-table`,
+    description: `Compare all home and away matches from every team in the current season.`,
+  },
 ]
 
 export function Navbar({ className }: { className?: string }) {
