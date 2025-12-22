@@ -34,14 +34,16 @@ export default function CrossTableRoute() {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4">Home-Away Cross Table</h1>
-      <p className="text-md text-gray-500 mb-4">Compare all home and away matches from every team in the current season.</p>
+      <p className="text-md text-gray-500 mb-4">
+        Compare all home and away matches from every team in the current season. Column represents away team and row represents home team.
+      </p>
 
       <div className="overflow-auto">
         <Table className="border-collapse">
           <TableHeader>
             <TableRow>
               {/* Top-left corner cell */}
-              <TableHead className="sticky left-0 top-0 z-20 bg-background min-w-16 whitespace-nowrap">Home \ Away</TableHead>
+              <TableHead className="sticky left-0 top-0 z-20 bg-background min-w-16" />
               {teams.map((away) => (
                 <TableHead key={away} className="sticky top-0 z-10 bg-background text-center font-mono min-w-[50px]">
                   {abbrMap[away] ?? away}
