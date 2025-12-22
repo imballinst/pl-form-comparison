@@ -24,6 +24,11 @@ const components: { title: string; href: string; description: string }[] = [
     href: `/compare/remaining-matches`,
     description: `Compare two or more teams' remaining matches.`,
   },
+  {
+    title: 'Home-Away Cross Table',
+    href: `/compare/cross-table`,
+    description: `Compare all home and away matches from every team in the current season.`,
+  },
 ]
 
 export function Navbar({ className }: { className?: string }) {
@@ -39,8 +44,8 @@ export function Navbar({ className }: { className?: string }) {
         </NavigationMenuItem> */}
         <NavigationMenuItem>
           <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-2 sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+          <NavigationMenuContent className="z-50">
+            <ul className="grid gap-2 w-[300px] max-w-screen sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               {components.map((component) => (
                 <ListItem key={component.title} title={component.title} href={component.href}>
                   {component.description}
