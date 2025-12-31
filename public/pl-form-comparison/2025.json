@@ -5632,31 +5632,40 @@
             "season": "2025",
             "ground": "Hill Dickinson Stadium, Liverpool",
             "resultType": "NormalResult",
-            "matchId": "2562058"
+            "matchId": "2562058",
+            "attendance": 52513
           },
           {
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 17,
             "kickoff": "2025-12-22 20:00:00",
             "awayTeam": {
+              "score": 0,
               "name": "Nottingham Forest",
               "id": "17",
+              "halfTimeScore": 0,
               "shortName": "Nott'm Forest",
-              "abbr": "NFO"
+              "abbr": "NFO",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Fulham",
               "id": "54",
+              "halfTimeScore": 1,
               "shortName": "Fulham",
-              "abbr": "FUL"
+              "abbr": "FUL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Craven Cottage, London",
+            "resultType": "NormalResult",
             "matchId": "2562059"
           },
           {
