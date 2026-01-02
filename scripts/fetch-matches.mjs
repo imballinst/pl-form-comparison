@@ -49,7 +49,7 @@ async function main() {
         data: data,
       })
     } else {
-      console.error(`Warning: Failed to fetch matchweek ${week}`)
+      throw new Error(`Warning: Failed to fetch matchweek ${week}`)
     }
   }
 
