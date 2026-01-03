@@ -1,8 +1,9 @@
 import { BASE_PATH } from '@/constants'
-import type { MatchInfo, SeasonMatchesResponse } from '@/types'
+import type { MatchInfo, SeasonMatchesResponse, SeasonTableData } from '@/types'
 import axios from 'axios'
 
 let seasons: Record<string, MatchInfo[]> | undefined
+let seasonsTable: Record<string, Array<SeasonTableData>> | undefined
 
 export async function fetchSeasons() {
   if (seasons) {
@@ -22,4 +23,20 @@ export async function fetchSeasons() {
   seasons = matchesResponses
 
   return matchesResponses
+}
+
+export async function fetchSeasonsTable(season: string) {
+  if (seasonsTable && seasonsTable[season]) {
+    return Promise.resolve(seasonsTable[season])
+  }
+
+  const response = await axios(`${BASE_PATH}/${season}-table.json`)
+  const seasonTableData = response.data as Array<SeasonTableData>
+
+  if (!seasonsTable) {
+    seasonsTable = {}
+  }
+  seasonsTable[season] = seasonTableData
+
+  return seasonTableData
 }

@@ -66,3 +66,12 @@ export interface HomeTeam {
   abbr: string
   redCards: number
 }
+
+export interface SeasonTableData {
+  name: string
+  abbr: string
+  points: number
+  gf: number
+  ga: number
+  gd: number
+}
