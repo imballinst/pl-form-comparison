@@ -7,6 +7,7 @@
     "build": "react-router build",
     "dev": "react-router dev",
     "preview": "vite preview",
+    "stats:update": "node scripts/fetch-matches.mjs && node scripts/derive-table.mjs",
     "typecheck": "react-router typegen && tsc"
   },
   "devDependencies": {

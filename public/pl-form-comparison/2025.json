@@ -6554,76 +6554,103 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 20,
             "kickoff": "2026-01-03 17:30:00",
             "awayTeam": {
+              "score": 3,
               "name": "Arsenal",
               "id": "3",
+              "halfTimeScore": 1,
               "shortName": "Arsenal",
-              "abbr": "ARS"
+              "abbr": "ARS",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Bournemouth",
               "id": "91",
+              "halfTimeScore": 1,
               "shortName": "Bournemouth",
-              "abbr": "BOU"
+              "abbr": "BOU",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Vitality Stadium, Bournemouth",
-            "matchId": "2562085"
+            "resultType": "NormalResult",
+            "matchId": "2562085",
+            "attendance": 11240
           },
           {
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 20,
             "kickoff": "2026-01-03 12:30:00",
             "awayTeam": {
+              "score": 1,
               "name": "Nottingham Forest",
               "id": "17",
+              "halfTimeScore": 0,
               "shortName": "Nott'm Forest",
-              "abbr": "NFO"
+              "abbr": "NFO",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "98",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 3,
               "name": "Aston Villa",
               "id": "7",
+              "halfTimeScore": 1,
               "shortName": "Aston Villa",
-              "abbr": "AVL"
+              "abbr": "AVL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Villa Park, Birmingham",
-            "matchId": "2562086"
+            "resultType": "NormalResult",
+            "matchId": "2562086",
+            "attendance": 43039
           },
           {
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 20,
             "kickoff": "2026-01-03 15:00:00",
             "awayTeam": {
+              "score": 0,
               "name": "Burnley",
               "id": "90",
+              "halfTimeScore": 0,
               "shortName": "Burnley",
-              "abbr": "BUR"
+              "abbr": "BUR",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "94",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Brighton and Hove Albion",
               "id": "36",
+              "halfTimeScore": 1,
               "shortName": "Brighton",
-              "abbr": "BHA"
+              "abbr": "BHA",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "American Express Stadium, Falmer",
-            "matchId": "2562087"
+            "resultType": "NormalResult",
+            "matchId": "2562087",
+            "attendance": 31373
           },
           {
             "phase": "1",
@@ -6779,26 +6806,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 20,
             "kickoff": "2026-01-03 15:00:00",
             "awayTeam": {
+              "score": 0,
               "name": "West Ham United",
               "id": "21",
+              "halfTimeScore": 0,
               "shortName": "West Ham",
-              "abbr": "WHU"
+              "abbr": "WHU",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "96",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 3,
               "name": "Wolverhampton Wanderers",
               "id": "39",
+              "halfTimeScore": 3,
               "shortName": "Wolves",
-              "abbr": "WOL"
+              "abbr": "WOL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Molineux Stadium, Wolverhampton",
-            "matchId": "2562094"
+            "resultType": "NormalResult",
+            "matchId": "2562094",
+            "attendance": 29874
           }
         ]
       }
