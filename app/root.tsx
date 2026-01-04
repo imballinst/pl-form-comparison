@@ -1,5 +1,6 @@
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 import type { Route } from './+types/root'
+import { TouchProvider } from './components/ui/hybrid-tooltip'
 import './index.css'
 import { PageLayout } from './PageLayout'
 
@@ -31,9 +32,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <PageLayout>
-      <Outlet />
-    </PageLayout>
+    <TouchProvider>
+      <PageLayout>
+        <Outlet />
+      </PageLayout>
+    </TouchProvider>
   )
 }
 

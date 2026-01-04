@@ -1,6 +1,6 @@
+import { HybridTooltip, HybridTooltipContent, HybridTooltipTrigger } from '@/components/ui/hybrid-tooltip'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
 import type { FullMatchInfo, MatchInfo } from '@/types'
 import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo } from '@/utils/match'
@@ -261,12 +261,12 @@ function PreviousTeamThatGotRelegated({ match, opponent }: { match: FullMatchInf
 
   return (
     <div className="absolute -right-5 top-0.5 flex">
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Info className="inline-block w-4 h-4 text-muted-foreground" />
-        </TooltipTrigger>
-        <TooltipContent>{match.opponent}</TooltipContent>
-      </Tooltip>
+      <HybridTooltip>
+        <HybridTooltipTrigger asChild>
+          <Info className="inline-block w-4 h-4 text-muted-foreground" aria-label={`(equivalent team: ${match.opponent})`} />
+        </HybridTooltipTrigger>
+        <HybridTooltipContent>{match.opponent}</HybridTooltipContent>
+      </HybridTooltip>
     </div>
   )
 }

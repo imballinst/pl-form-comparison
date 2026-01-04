@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
+import { HybridTooltip, HybridTooltipContent, HybridTooltipTrigger } from '@/components/ui/hybrid-tooltip'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
 import type { FullMatchInfo, MatchInfo } from '@/types'
 import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo } from '@/utils/match'
@@ -263,12 +263,12 @@ function ScoreTag({
         {match.homeTeam.score}-{match.awayTeam.score} ({match.season})
       </div>
       {currentSeasonOpponent !== match.opponent && currentColumnTeam !== match.opponent ? (
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Info className="inline-block w-4 h-4" />
-          </TooltipTrigger>
-          <TooltipContent>{match.opponent}</TooltipContent>
-        </Tooltip>
+        <HybridTooltip>
+          <HybridTooltipTrigger asChild>
+            <Info className="inline-block w-4 h-4" aria-label={`(equivalent team: ${match.opponent})`} />
+          </HybridTooltipTrigger>
+          <HybridTooltipContent>{match.opponent}</HybridTooltipContent>
+        </HybridTooltip>
       ) : null}
     </div>
   )
