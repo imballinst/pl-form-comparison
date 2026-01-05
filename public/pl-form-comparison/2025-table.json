@@ -7,6 +7,13 @@
     "gd": 26
   },
   {
+    "name": "Manchester City",
+    "points": 42,
+    "gf": 44,
+    "ga": 18,
+    "gd": 26
+  },
+  {
     "name": "Aston Villa",
     "points": 42,
     "gf": 33,
@@ -14,39 +21,46 @@
     "gd": 9
   },
   {
-    "name": "Manchester City",
-    "points": 41,
-    "gf": 43,
-    "ga": 17,
-    "gd": 26
-  },
-  {
     "name": "Liverpool",
-    "points": 33,
-    "gf": 30,
-    "ga": 26,
+    "points": 34,
+    "gf": 32,
+    "ga": 28,
     "gd": 4
   },
   {
     "name": "Chelsea",
-    "points": 30,
-    "gf": 32,
-    "ga": 21,
+    "points": 31,
+    "gf": 33,
+    "ga": 22,
     "gd": 11
   },
   {
     "name": "Manchester United",
+    "points": 31,
+    "gf": 34,
+    "ga": 30,
+    "gd": 4
+  },
+  {
+    "name": "Brentford",
     "points": 30,
-    "gf": 33,
-    "ga": 29,
+    "gf": 32,
+    "ga": 28,
     "gd": 4
   },
   {
     "name": "Sunderland",
-    "points": 29,
-    "gf": 20,
-    "ga": 18,
+    "points": 30,
+    "gf": 21,
+    "ga": 19,
     "gd": 2
+  },
+  {
+    "name": "Newcastle United",
+    "points": 29,
+    "gf": 28,
+    "ga": 24,
+    "gd": 4
   },
   {
     "name": "Brighton and Hove Albion",
@@ -56,46 +70,32 @@
     "gd": 3
   },
   {
-    "name": "Everton",
+    "name": "Fulham",
     "points": 28,
-    "gf": 20,
-    "ga": 20,
-    "gd": 0
+    "gf": 28,
+    "ga": 29,
+    "gd": -1
   },
   {
-    "name": "Brentford",
+    "name": "Everton",
+    "points": 28,
+    "gf": 22,
+    "ga": 24,
+    "gd": -2
+  },
+  {
+    "name": "Tottenham Hotspur",
     "points": 27,
     "gf": 28,
-    "ga": 26,
-    "gd": 2
+    "ga": 24,
+    "gd": 4
   },
   {
     "name": "Crystal Palace",
     "points": 27,
     "gf": 22,
-    "ga": 21,
-    "gd": 1
-  },
-  {
-    "name": "Fulham",
-    "points": 27,
-    "gf": 26,
-    "ga": 27,
-    "gd": -1
-  },
-  {
-    "name": "Tottenham Hotspur",
-    "points": 26,
-    "gf": 27,
     "ga": 23,
-    "gd": 4
-  },
-  {
-    "name": "Newcastle United",
-    "points": 26,
-    "gf": 26,
-    "ga": 24,
-    "gd": 2
+    "gd": -1
   },
   {
     "name": "Bournemouth",
@@ -106,9 +106,9 @@
   },
   {
     "name": "Leeds United",
-    "points": 21,
-    "gf": 25,
-    "ga": 32,
+    "points": 22,
+    "gf": 26,
+    "ga": 33,
     "gd": -7
   },
   {
