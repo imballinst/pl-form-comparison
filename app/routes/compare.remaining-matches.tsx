@@ -4,7 +4,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
 import type { FullMatchInfo, MatchInfo } from '@/types'
-import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo } from '@/utils/match'
+import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, getSeasonShortText } from '@/utils/match'
 import { fetchSeasons } from '@/utils/seasons-fetcher'
 import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
@@ -52,6 +52,8 @@ export default function RemainingMatches() {
 
   return (
     <>
+      <title>Compare Remaining Matches | Premier League Form Comparison</title>
+
       <h1 className="text-3xl font-bold mb-4">Remaining Matches</h1>
       <p className="text-md text-gray-500 mb-8">
         Compare the remaining matches of the current Premier League teams and compare each fixture against previous seasons.
@@ -135,14 +137,18 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
       }
 
       const teamInPreviousSeason = getEquivalentTeamFromAnotherSeason(
-        teamMatch.opponent,
+        teamMatch.opponent.name,
         Number(CURRENT_SEASON),
         Number(CURRENT_SEASON) - 1,
       )
-      const teamInTwoSeasonsAgo = getEquivalentTeamFromAnotherSeason(teamMatch.opponent, Number(CURRENT_SEASON), Number(CURRENT_SEASON) - 2)
+      const teamInTwoSeasonsAgo = getEquivalentTeamFromAnotherSeason(
+        teamMatch.opponent.name,
+        Number(CURRENT_SEASON),
+        Number(CURRENT_SEASON) - 2,
+      )
 
       existingData.teamMatchRecord[team] = {
-        opponent: teamMatch.opponent,
+        opponent: teamMatch.opponent.name,
         venue: teamMatch.venue,
         pastTwoSeasonsMatchInfo: [
           getMatchFromOtherSeason(
@@ -260,14 +266,14 @@ function ScoreTag({
   return (
     <div className={clsx(match.color, 'p-1 py-0.5 rounded text-sm flex items-center justify-center gap-x-1')}>
       <div>
-        {match.homeTeam.score}-{match.awayTeam.score} ({match.season})
+        {match.homeTeam.score}-{match.awayTeam.score} ({getSeasonShortText(match.season)})
       </div>
-      {currentSeasonOpponent !== match.opponent && currentColumnTeam !== match.opponent ? (
+      {currentSeasonOpponent !== match.opponent.name && currentColumnTeam !== match.opponent.name ? (
         <HybridTooltip>
           <HybridTooltipTrigger asChild>
             <Info className="inline-block w-4 h-4" aria-label={`(equivalent team: ${match.opponent})`} />
           </HybridTooltipTrigger>
-          <HybridTooltipContent>{match.opponent}</HybridTooltipContent>
+          <HybridTooltipContent>{match.opponent.name}</HybridTooltipContent>
         </HybridTooltip>
       ) : null}
     </div>

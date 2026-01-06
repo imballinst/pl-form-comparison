@@ -4,7 +4,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
 import type { FullMatchInfo, MatchInfo, Team } from '@/types'
-import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo } from '@/utils/match'
+import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, getSeasonShortText } from '@/utils/match'
 import { fetchSeasons } from '@/utils/seasons-fetcher'
 import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
@@ -62,6 +62,8 @@ export default function ResultComparisonBySeason() {
 
   return (
     <>
+      <title>Compare Between Seasons | Premier League Form Comparison</title>
+
       <h1 className="text-3xl font-bold mb-4">Form Comparison</h1>
       <p className="text-md text-gray-500 mb-8">
         Compare the current season's Premier League team's form with the same fixtures from previous seasons, adjusting for promoted and
@@ -388,10 +390,6 @@ function getAnchorMatchesForTeam(
     matches,
     comparison,
   }
-}
-
-function getSeasonShortText(year: string) {
-  return `${year.slice(2)}/${(Number(year) + 1).toString().slice(2)}`
 }
 
 function getNumberOfPointFromResult(result: string) {

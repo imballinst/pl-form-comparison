@@ -49,7 +49,9 @@ export default function CrossTableRoute() {
   }
 
   return (
-    <div>
+    <>
+      <title>Cross-table | Premier League Form Comparison</title>
+
       <h1 className="text-3xl font-bold mb-4">Home-Away Cross Table</h1>
       <p className="text-md text-gray-500 mb-4">
         Compare all home and away matches from every team in the current season. Column represents away team and row represents home team.
@@ -140,6 +142,6 @@ export default function CrossTableRoute() {
           </Table>
         </div>
       </div>
-    </div>
+    </>
   )
 }

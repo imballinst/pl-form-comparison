@@ -47,3 +47,7 @@ export function getAnchorKeyFromMatch(match: MatchInfo, identifier: string) {
 export function getAnchorKeyFromString(home: string, away: string, identifier: string) {
   return [home, away, identifier].join(' vs ')
 }
+
+export function getSeasonShortText(year: string) {
+  return `${year.slice(2)}/${(Number(year) + 1).toString().slice(2)}`
+}
