@@ -2,12 +2,14 @@ import { HybridTooltip, HybridTooltipContent, HybridTooltipTrigger } from '@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
-import type { FullMatchInfo, MatchInfo } from '@/types'
+import { useIsMobile } from '@/hooks/use-mobile'
+import type { FullMatchInfo, MatchInfo, Team } from '@/types'
 import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo } from '@/utils/match'
 import { fetchSeasons } from '@/utils/seasons-fetcher'
 import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
 import { Info } from 'lucide-react'
+import type { ReactNode } from 'react'
 import { useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/compare.between-seasons'
 
@@ -21,7 +23,7 @@ interface MatchesAcrossSeasons {
 
 interface TableData {
   gameweek: number
-  opponent: string
+  opponent: Team
   period: string
   venue: string
   comparedSeasonMatchInfo: FullMatchInfo | undefined
@@ -166,6 +168,8 @@ function ComparisonTable({
   team: string
   anchorMatches: MatchesAcrossSeasons
 }) {
+  const isMobile = useIsMobile()
+
   const data: TableData[] = []
   let aggPointDiff = 0
 
@@ -175,7 +179,7 @@ function ComparisonTable({
       anchorMatches.comparison,
       Number(anchorYear),
       Number(comparedYear),
-      opponent,
+      opponent.name,
       team,
       venue,
     )
@@ -204,58 +208,93 @@ function ComparisonTable({
     })
   })
 
+  const rows: ReactNode[] = []
+  const points: number[] = [0, 0]
+
+  for (let i = 0; i < data.length; i++) {
+    const row = data[i]
+
+    const comparedSeasonMatchPOintsGained = row.comparedSeasonMatchInfo
+      ? getNumberOfPointFromResult(row.comparedSeasonMatchInfo.teamResult)
+      : 0
+
+    points[0] += comparedSeasonMatchPOintsGained
+    points[1] +=
+      row.period === 'FullTime' ? getNumberOfPointFromResult(row.anchorSeasonMatchInfo.teamResult) : comparedSeasonMatchPOintsGained
+
+    const opponentAndVenueColumns = isMobile ? (
+      <TableCell>
+        {row.opponent.abbr} <span className="font-bold">({row.venue === 'Home' ? 'H' : 'A'})</span>
+      </TableCell>
+    ) : (
+      <>
+        <TableCell>{row.opponent.name}</TableCell>
+        <TableCell>{row.venue}</TableCell>
+      </>
+    )
+
+    rows.push(
+      <TableRow key={row.gameweek}>
+        <TableCell>{i + 1}</TableCell>
+
+        {opponentAndVenueColumns}
+
+        <TableCell className={clsx(row.comparedSeasonMatchInfo?.color, 'text-center font-mono')}>
+          <div className="inline-flex justify-center items-center relative">
+            {row.comparedSeasonMatchInfo?.homeTeam.score}-{row.comparedSeasonMatchInfo?.awayTeam.score}
+            <PreviousTeamThatGotRelegated match={row.comparedSeasonMatchInfo} opponent={row.opponent.name} />
+          </div>
+        </TableCell>
+
+        {row.period === 'FullTime' ? (
+          <TableCell className={clsx(row.anchorSeasonMatchInfo.color, 'text-center font-mono')}>
+            {row.anchorSeasonMatchInfo.homeTeam.score}-{row.anchorSeasonMatchInfo.awayTeam.score}
+          </TableCell>
+        ) : (
+          <TableCell className="text-center font-mono">-</TableCell>
+        )}
+
+        {!isMobile && <TableCell className="text-right font-mono">{row.pointDiff}</TableCell>}
+
+        <TableCell className="text-right font-mono">
+          {points[1]} <span className="text-slate-400 text-xs">({row.aggPointDiff})</span>
+        </TableCell>
+      </TableRow>,
+    )
+  }
+
+  const opponentAndvenueTableHeaders = isMobile ? (
+    <TableHead>Opponent</TableHead>
+  ) : (
+    <>
+      <TableHead>Opponent</TableHead>
+      <TableHead>Venue</TableHead>
+    </>
+  )
+
   return (
     <Table>
       <TableHeader>
         <TableRow>
           <TableHead>GW</TableHead>
-          <TableHead>Opponent</TableHead>
-          <TableHead>Venue</TableHead>
+
+          {opponentAndvenueTableHeaders}
+
           <TableHead className="text-center min-w-[70px]">{getSeasonShortText(comparedYear)}</TableHead>
           <TableHead className="text-center min-w-[70px]">{getSeasonShortText(anchorYear)}</TableHead>
-          <TableHead className="text-right">+/-</TableHead>
-          <TableHead className="text-right">Agg</TableHead>
+
+          {!isMobile && <TableHead className="text-right">+/-</TableHead>}
+
+          <TableHead className="text-right">Total</TableHead>
         </TableRow>
       </TableHeader>
-      <TableBody>
-        {data.map((row, idx) => {
-          return (
-            <TableRow key={row.gameweek}>
-              <TableCell>{idx + 1}</TableCell>
-              <TableCell>{row.opponent}</TableCell>
-              <TableCell>{row.venue}</TableCell>
-              <TableCell className={clsx(row.comparedSeasonMatchInfo?.color, 'text-center font-mono')}>
-                <div className="inline-flex justify-center items-center relative">
-                  {row.comparedSeasonMatchInfo?.homeTeam.score}-{row.comparedSeasonMatchInfo?.awayTeam.score}
-                  <PreviousTeamThatGotRelegated match={row.comparedSeasonMatchInfo} opponent={row.opponent} />
-                </div>
-              </TableCell>
-
-              {row.period === 'FullTime' ? (
-                <>
-                  <TableCell className={clsx(row.anchorSeasonMatchInfo.color, 'text-center font-mono')}>
-                    {row.anchorSeasonMatchInfo.homeTeam.score}-{row.anchorSeasonMatchInfo.awayTeam.score}
-                  </TableCell>
-                  <TableCell className="text-right font-mono">{row.pointDiff}</TableCell>
-                  <TableCell className="text-right font-mono">{row.aggPointDiff}</TableCell>
-                </>
-              ) : (
-                <>
-                  <TableCell className="text-center font-mono">-</TableCell>
-                  <TableCell className="text-right font-mono">-</TableCell>
-                  <TableCell className="text-right font-mono">-</TableCell>
-                </>
-              )}
-            </TableRow>
-          )
-        })}
-      </TableBody>
+      <TableBody>{rows}</TableBody>
     </Table>
   )
 }
 
 function PreviousTeamThatGotRelegated({ match, opponent }: { match: FullMatchInfo | undefined; opponent: string }) {
-  if (!match || match.opponent === opponent) {
+  if (!match || match.opponent.name === opponent) {
     return undefined
   }
 
@@ -265,7 +304,7 @@ function PreviousTeamThatGotRelegated({ match, opponent }: { match: FullMatchInf
         <HybridTooltipTrigger asChild>
           <Info className="inline-block w-4 h-4 text-muted-foreground" aria-label={`(equivalent team: ${match.opponent})`} />
         </HybridTooltipTrigger>
-        <HybridTooltipContent>{match.opponent}</HybridTooltipContent>
+        <HybridTooltipContent>{match.opponent.name}</HybridTooltipContent>
       </HybridTooltip>
     </div>
   )
@@ -299,6 +338,7 @@ function getMatchFromOtherSeason(
   }
 
   if (!record[anchorKey]) {
+    // This is an edge case.
     return undefined
   }
 

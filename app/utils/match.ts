@@ -1,4 +1,4 @@
-import type { MatchInfo } from '@/types'
+import type { MatchInfo, Team } from '@/types'
 
 export function getScoreResult(position: string, score: [number, number]) {
   if (score[0] === score[1]) {
@@ -24,14 +24,14 @@ export function getScoreResult(position: string, score: [number, number]) {
 export function getEssentialMatchInfo(match: MatchInfo, team: string) {
   const isHome = match.homeTeam.name === team
   const score = [match.homeTeam.score, match.awayTeam.score] satisfies [number, number]
-  let opponent: string
+  let opponent: Team
   let venue: 'home' | 'away'
 
   if (isHome) {
-    opponent = match.awayTeam.name
+    opponent = match.awayTeam
     venue = 'home'
   } else {
-    opponent = match.homeTeam.name
+    opponent = match.homeTeam
     venue = 'away'
   }
 

@@ -1,7 +1,7 @@
 // Custom types.
 export interface FullMatchInfo extends MatchInfo {
   color: string
-  opponent: string
+  opponent: Team
   teamResult: string
   venue: string
 }
@@ -35,11 +35,11 @@ export interface MatchInfo {
   period: string
   matchWeek: number
   kickoff: string
-  awayTeam: AwayTeam
+  awayTeam: Team
   competition: string
   clock: string
   kickoffTimezoneString: string
-  homeTeam: HomeTeam
+  homeTeam: Team
   season: string
   ground: string
   resultType: string
@@ -47,17 +47,7 @@ export interface MatchInfo {
   attendance?: number
 }
 
-export interface AwayTeam {
-  score: number
-  name: string
-  id: string
-  halfTimeScore: number
-  shortName: string
-  abbr: string
-  redCards: number
-}
-
-export interface HomeTeam {
+export interface Team {
   score: number
   name: string
   id: string

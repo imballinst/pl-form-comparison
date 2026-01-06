@@ -7,7 +7,7 @@ import { PageLayout } from './PageLayout'
 export const links: Route.LinksFunction = () => [
   {
     rel: 'icon',
-    href: '/pl-form-comparison/favicon.ico',
+    href: '/pl-form-comparison/favicon.svg',
     type: 'image/x-icon',
   },
 ]
