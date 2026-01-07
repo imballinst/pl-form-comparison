@@ -3,9 +3,11 @@ import { HybridTooltip, HybridTooltipContent, HybridTooltipTrigger } from '@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
-import type { FullMatchInfo, MatchInfo } from '@/types'
+import { useIsMobile } from '@/hooks/use-mobile'
+import type { FullMatchInfo, MatchInfo, SeasonTableData, Team } from '@/types'
+import { formatFdr, getDifficultyRating, getFdrColorClass, getTeamLeaguePosition } from '@/utils/difficulty-rating'
 import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, getSeasonShortText } from '@/utils/match'
-import { fetchSeasons } from '@/utils/seasons-fetcher'
+import { fetchSeasons, fetchSeasonsTable } from '@/utils/seasons-fetcher'
 import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
 import { Info, X } from 'lucide-react'
@@ -20,6 +22,7 @@ interface MatchesAcrossSeasons {
   // { "16": { "Arsenal": FullMatchInfo | null } }
   matchesByGameweekByTeamRecord: Record<string, Record<string, FullMatchInfo | null>>
   comparison: MatchAnchorRecord
+  currentSeasonTable: SeasonTableData[]
 }
 
 interface TableData {
@@ -27,9 +30,10 @@ interface TableData {
   teamMatchRecord: Record<
     string,
     {
-      opponent: string
+      opponent: Team
       venue: string
       pastTwoSeasonsMatchInfo: [FullMatchInfo, FullMatchInfo]
+      difficultyRating: number
     } | null
   >
 }
@@ -40,7 +44,8 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const teamsArray = teamsString.filter((team) => TEAMS_PER_SEASON[CURRENT_SEASON].includes(team))
 
   const matchesResponses = await fetchSeasons()
-  const matchesAcrossSeasons = getMatchesAcrossSeasons(teamsArray, matchesResponses)
+  const currentSeasonTable = await fetchSeasonsTable(CURRENT_SEASON)
+  const matchesAcrossSeasons = getMatchesAcrossSeasons(teamsArray, matchesResponses, currentSeasonTable)
 
   return { teams: teamsArray, matchesAcrossSeasons }
 }
@@ -111,6 +116,7 @@ export default function RemainingMatches() {
 
 function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossSeasons: MatchesAcrossSeasons; teams: string[] }) {
   const [, setSearchParams] = useSearchParams()
+  const isMobile = useIsMobile()
   // Each array element represents a gameweek, in each item is a record for each team's match.
   const data: Array<TableData> = []
   const gameWeeks = Object.keys(matchesAcrossSeasons.matchesByGameweekByTeamRecord)
@@ -147,8 +153,12 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
         Number(CURRENT_SEASON) - 2,
       )
 
+      // Calculate FDR based on opponent's current league position
+      const opponentPosition = getTeamLeaguePosition(teamMatch.opponent.name, matchesAcrossSeasons.currentSeasonTable)
+      const difficultyRating = opponentPosition !== undefined ? getDifficultyRating(opponentPosition, teamMatch.venue) : 3 // Default to mid-tier if not found
+
       existingData.teamMatchRecord[team] = {
-        opponent: teamMatch.opponent.name,
+        opponent: teamMatch.opponent,
         venue: teamMatch.venue,
         pastTwoSeasonsMatchInfo: [
           getMatchFromOtherSeason(
@@ -168,6 +178,7 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
             teamMatch.venue,
           ),
         ],
+        difficultyRating,
       }
     }
   }
@@ -229,16 +240,30 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
                 return (
                   <TableCell key={idx} className="text-center">
                     <div className="flex flex-col gap-1">
-                      <div>
-                        {teamMatchInfo.opponent} <span className="font-bold">({teamMatchInfo.venue === 'home' ? 'H' : 'A'})</span>
+                      <div className="flex gap-x-2 justify-center items-center">
+                        <div>
+                          {isMobile ? teamMatchInfo.opponent.shortName : teamMatchInfo.opponent.name}{' '}
+                          <span className="font-bold">({teamMatchInfo.venue === 'home' ? 'H' : 'A'})</span>
+                        </div>
+                        <div className={clsx('px-2 py-1 rounded text-xs font-semibold', getFdrColorClass(teamMatchInfo.difficultyRating))}>
+                          FDR {formatFdr(teamMatchInfo.difficultyRating)}
+                        </div>
                       </div>
                       <div className="flex justify-center items-center">
                         <ul className="flex gap-x-2">
                           <li>
-                            <ScoreTag match={lastSeasonMatch} currentSeasonOpponent={teamMatchInfo.opponent} currentColumnTeam={team} />
+                            <ScoreTag
+                              match={lastSeasonMatch}
+                              currentSeasonOpponent={teamMatchInfo.opponent.name}
+                              currentColumnTeam={team}
+                            />
                           </li>
                           <li>
-                            <ScoreTag match={twoSeasonsAgoMatch} currentSeasonOpponent={teamMatchInfo.opponent} currentColumnTeam={team} />
+                            <ScoreTag
+                              match={twoSeasonsAgoMatch}
+                              currentSeasonOpponent={teamMatchInfo.opponent.name}
+                              currentColumnTeam={team}
+                            />
                           </li>
                         </ul>
                       </div>
@@ -316,7 +341,11 @@ function getMatchFromOtherSeason(
   return record[anchorKey]
 }
 
-function getMatchesAcrossSeasons(teams: string[], matchesResponses: Record<string, MatchInfo[]>): MatchesAcrossSeasons {
+function getMatchesAcrossSeasons(
+  teams: string[],
+  matchesResponses: Record<string, MatchInfo[]>,
+  currentSeasonTable: SeasonTableData[],
+): MatchesAcrossSeasons {
   const matchesByGameweekByTeamRecord: MatchesAcrossSeasons['matchesByGameweekByTeamRecord'] = {}
   const comparison: MatchAnchorRecord = {}
   let previousMatchweek = -1
@@ -367,5 +396,6 @@ function getMatchesAcrossSeasons(teams: string[], matchesResponses: Record<strin
   return {
     matchesByGameweekByTeamRecord,
     comparison,
+    currentSeasonTable,
   }
 }
