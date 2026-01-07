@@ -8,7 +8,8 @@
     "dev": "react-router dev",
     "preview": "vite preview",
     "stats:update": "node scripts/fetch-matches.mjs && node scripts/derive-table.mjs",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "test": "vitest"
   },
   "devDependencies": {
     "@react-router/dev": "7.10.1",

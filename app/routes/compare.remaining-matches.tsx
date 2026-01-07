@@ -3,9 +3,11 @@ import { HybridTooltip, HybridTooltipContent, HybridTooltipTrigger } from '@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
-import type { FullMatchInfo, MatchInfo } from '@/types'
+import { useIsMobile } from '@/hooks/use-mobile'
+import type { FullMatchInfo, MatchInfo, SeasonTableData, Team } from '@/types'
+import { formatFdr, getDifficultyRating, getFdrColorClass, getTeamPoints } from '@/utils/difficulty-rating'
 import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, getSeasonShortText } from '@/utils/match'
-import { fetchSeasons } from '@/utils/seasons-fetcher'
+import { fetchSeasons, fetchSeasonsTable } from '@/utils/seasons-fetcher'
 import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
 import { Info, X } from 'lucide-react'
@@ -20,6 +22,7 @@ interface MatchesAcrossSeasons {
   // { "16": { "Arsenal": FullMatchInfo | null } }
   matchesByGameweekByTeamRecord: Record<string, Record<string, FullMatchInfo | null>>
   comparison: MatchAnchorRecord
+  currentSeasonTable: SeasonTableData[]
 }
 
 interface TableData {
@@ -27,9 +30,10 @@ interface TableData {
   teamMatchRecord: Record<
     string,
     {
-      opponent: string
+      opponent: Team
       venue: string
       pastTwoSeasonsMatchInfo: [FullMatchInfo, FullMatchInfo]
+      difficultyRating: number
     } | null
   >
 }
@@ -40,7 +44,8 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const teamsArray = teamsString.filter((team) => TEAMS_PER_SEASON[CURRENT_SEASON].includes(team))
 
   const matchesResponses = await fetchSeasons()
-  const matchesAcrossSeasons = getMatchesAcrossSeasons(teamsArray, matchesResponses)
+  const currentSeasonTable = await fetchSeasonsTable(CURRENT_SEASON)
+  const matchesAcrossSeasons = getMatchesAcrossSeasons(teamsArray, matchesResponses, currentSeasonTable)
 
   return { teams: teamsArray, matchesAcrossSeasons }
 }
@@ -56,7 +61,8 @@ export default function RemainingMatches() {
 
       <h1 className="text-3xl font-bold mb-4">Remaining Matches</h1>
       <p className="text-md text-gray-500 mb-8">
-        Compare the remaining matches of the current Premier League teams and compare each fixture against previous seasons.
+        Compare the remaining matches of the current Premier League teams and compare each fixture against previous seasons. Teams with
+        higher points have a higher FDR. Away matches have a slightly higher FDR.
       </p>
 
       <div className="flex flex-col gap-y-4">
@@ -111,9 +117,16 @@ export default function RemainingMatches() {
 
 function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossSeasons: MatchesAcrossSeasons; teams: string[] }) {
   const [, setSearchParams] = useSearchParams()
+  const isMobile = useIsMobile()
   // Each array element represents a gameweek, in each item is a record for each team's match.
   const data: Array<TableData> = []
   const gameWeeks = Object.keys(matchesAcrossSeasons.matchesByGameweekByTeamRecord)
+
+  // Track FDR values for averaging (home and away separately)
+  const fdrTracker: Record<string, { home: number[]; away: number[] }> = {}
+  teams.forEach((team) => {
+    fdrTracker[team] = { home: [], away: [] }
+  })
 
   for (let i = 0; i < gameWeeks.length; i++) {
     const gameweek = gameWeeks[i]
@@ -147,8 +160,24 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
         Number(CURRENT_SEASON) - 2,
       )
 
+      // Calculate FDR based on opponent's points as percentile within league
+      const leaderPoints = matchesAcrossSeasons.currentSeasonTable[0]?.points ?? 0
+      const lastPlacePoints = matchesAcrossSeasons.currentSeasonTable[matchesAcrossSeasons.currentSeasonTable.length - 1]?.points ?? 0
+      const opponentPoints = getTeamPoints(teamMatch.opponent.name, matchesAcrossSeasons.currentSeasonTable)
+      const difficultyRating =
+        opponentPoints !== undefined
+          ? getDifficultyRating(opponentPoints, leaderPoints, lastPlacePoints, teamMatch.venue as 'home' | 'away')
+          : 3 // Default to mid-tier if not found
+
+      // Track FDR by venue for averaging
+      if (teamMatch.venue === 'home') {
+        fdrTracker[team].home.push(difficultyRating)
+      } else {
+        fdrTracker[team].away.push(difficultyRating)
+      }
+
       existingData.teamMatchRecord[team] = {
-        opponent: teamMatch.opponent.name,
+        opponent: teamMatch.opponent,
         venue: teamMatch.venue,
         pastTwoSeasonsMatchInfo: [
           getMatchFromOtherSeason(
@@ -168,9 +197,21 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
             teamMatch.venue,
           ),
         ],
+        difficultyRating,
       }
     }
   }
+
+  // Calculate averages
+  const averageFdr = Object.fromEntries(
+    teams.map((team) => [
+      team,
+      {
+        home: fdrTracker[team].home.length > 0 ? fdrTracker[team].home.reduce((a, b) => a + b, 0) / fdrTracker[team].home.length : 0,
+        away: fdrTracker[team].away.length > 0 ? fdrTracker[team].away.reduce((a, b) => a + b, 0) / fdrTracker[team].away.length : 0,
+      },
+    ]),
+  )
 
   return (
     <Table>
@@ -229,16 +270,30 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
                 return (
                   <TableCell key={idx} className="text-center">
                     <div className="flex flex-col gap-1">
-                      <div>
-                        {teamMatchInfo.opponent} <span className="font-bold">({teamMatchInfo.venue === 'home' ? 'H' : 'A'})</span>
+                      <div className="flex gap-x-2 justify-center items-center">
+                        <div>
+                          {isMobile ? teamMatchInfo.opponent.shortName : teamMatchInfo.opponent.name}{' '}
+                          <span className="font-bold">({teamMatchInfo.venue === 'home' ? 'H' : 'A'})</span>
+                        </div>
+                        <div className={clsx('px-2 py-1 rounded text-xs font-semibold', getFdrColorClass(teamMatchInfo.difficultyRating))}>
+                          FDR {formatFdr(teamMatchInfo.difficultyRating)}
+                        </div>
                       </div>
                       <div className="flex justify-center items-center">
                         <ul className="flex gap-x-2">
                           <li>
-                            <ScoreTag match={lastSeasonMatch} currentSeasonOpponent={teamMatchInfo.opponent} currentColumnTeam={team} />
+                            <ScoreTag
+                              match={lastSeasonMatch}
+                              currentSeasonOpponent={teamMatchInfo.opponent.name}
+                              currentColumnTeam={team}
+                            />
                           </li>
                           <li>
-                            <ScoreTag match={twoSeasonsAgoMatch} currentSeasonOpponent={teamMatchInfo.opponent} currentColumnTeam={team} />
+                            <ScoreTag
+                              match={twoSeasonsAgoMatch}
+                              currentSeasonOpponent={teamMatchInfo.opponent.name}
+                              currentColumnTeam={team}
+                            />
                           </li>
                         </ul>
                       </div>
@@ -249,6 +304,22 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
             </TableRow>
           )
         })}
+        <TableRow className="font-semibold bg-muted">
+          <TableCell className="text-xs">Avg FDR</TableCell>
+          {teams.map((team, idx) => (
+            <TableCell key={idx}>
+              <div className="flex flex-row justify-center items-center gap-1 text-xs">
+                <div>
+                  <span className="text-green-700">H:</span> {formatFdr(averageFdr[team].home)}
+                </div>
+                <div className="w-px h-4 border border-slate-300" />
+                <div>
+                  <span className="text-red-700">A:</span> {formatFdr(averageFdr[team].away)}
+                </div>
+              </div>
+            </TableCell>
+          ))}
+        </TableRow>
       </TableBody>
     </Table>
   )
@@ -316,7 +387,11 @@ function getMatchFromOtherSeason(
   return record[anchorKey]
 }
 
-function getMatchesAcrossSeasons(teams: string[], matchesResponses: Record<string, MatchInfo[]>): MatchesAcrossSeasons {
+function getMatchesAcrossSeasons(
+  teams: string[],
+  matchesResponses: Record<string, MatchInfo[]>,
+  currentSeasonTable: SeasonTableData[],
+): MatchesAcrossSeasons {
   const matchesByGameweekByTeamRecord: MatchesAcrossSeasons['matchesByGameweekByTeamRecord'] = {}
   const comparison: MatchAnchorRecord = {}
   let previousMatchweek = -1
@@ -367,5 +442,6 @@ function getMatchesAcrossSeasons(teams: string[], matchesResponses: Record<strin
   return {
     matchesByGameweekByTeamRecord,
     comparison,
+    currentSeasonTable,
   }
 }
