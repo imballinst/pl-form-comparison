@@ -122,6 +122,12 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
   const data: Array<TableData> = []
   const gameWeeks = Object.keys(matchesAcrossSeasons.matchesByGameweekByTeamRecord)
 
+  // Track FDR values for averaging (home and away separately)
+  const fdrTracker: Record<string, { home: number[]; away: number[] }> = {}
+  teams.forEach((team) => {
+    fdrTracker[team] = { home: [], away: [] }
+  })
+
   for (let i = 0; i < gameWeeks.length; i++) {
     const gameweek = gameWeeks[i]
     const matchesByTeamRecord = matchesAcrossSeasons.matchesByGameweekByTeamRecord[gameweek]
@@ -158,6 +164,13 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
       const opponentPosition = getTeamLeaguePosition(teamMatch.opponent.name, matchesAcrossSeasons.currentSeasonTable)
       const difficultyRating = opponentPosition !== undefined ? getDifficultyRating(opponentPosition, teamMatch.venue) : 3 // Default to mid-tier if not found
 
+      // Track FDR by venue for averaging
+      if (teamMatch.venue === 'home') {
+        fdrTracker[team].home.push(difficultyRating)
+      } else {
+        fdrTracker[team].away.push(difficultyRating)
+      }
+
       existingData.teamMatchRecord[team] = {
         opponent: teamMatch.opponent,
         venue: teamMatch.venue,
@@ -183,6 +196,17 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
       }
     }
   }
+
+  // Calculate averages
+  const averageFdr = Object.fromEntries(
+    teams.map((team) => [
+      team,
+      {
+        home: fdrTracker[team].home.length > 0 ? fdrTracker[team].home.reduce((a, b) => a + b, 0) / fdrTracker[team].home.length : 0,
+        away: fdrTracker[team].away.length > 0 ? fdrTracker[team].away.reduce((a, b) => a + b, 0) / fdrTracker[team].away.length : 0,
+      },
+    ]),
+  )
 
   return (
     <Table>
@@ -275,6 +299,22 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
             </TableRow>
           )
         })}
+        <TableRow className="font-semibold bg-muted">
+          <TableCell className="text-xs">Avg FDR</TableCell>
+          {teams.map((team, idx) => (
+            <TableCell key={idx}>
+              <div className="flex flex-row justify-center items-center gap-1 text-xs">
+                <div>
+                  <span className="text-green-700">H:</span> {formatFdr(averageFdr[team].home)}
+                </div>
+                <div className="w-px h-4 border border-slate-300" />
+                <div>
+                  <span className="text-red-700">A:</span> {formatFdr(averageFdr[team].away)}
+                </div>
+              </div>
+            </TableCell>
+          ))}
+        </TableRow>
       </TableBody>
     </Table>
   )
