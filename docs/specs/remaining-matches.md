@@ -33,7 +33,7 @@ Please answer or choose defaults for the following implementation details:
   - FDR 2: positions 13–16
   - FDR 1: positions 17–20
     Accept or adjust?
-    - Accept
+    - Adjust. FDR should not be based on positions but based on number of points. The closer the FDR is to leader, the bigger the FDR number is.
 
 4. Home/away adjustment
 
