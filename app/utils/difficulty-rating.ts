@@ -97,5 +97,5 @@ export function getFdrColorClass(fdr: number): string {
  * @returns Formatted string
  */
 export function formatFdr(fdr: number): string {
-  return fdr % 1 === 0 ? `${Math.round(fdr)}` : `${fdr.toFixed(1)}`
+  return fdr.toFixed(1).endsWith('0') ? `${Math.round(fdr)}` : `${fdr.toFixed(1)}`
 }
