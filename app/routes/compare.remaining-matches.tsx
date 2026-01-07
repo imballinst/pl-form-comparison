@@ -61,7 +61,8 @@ export default function RemainingMatches() {
 
       <h1 className="text-3xl font-bold mb-4">Remaining Matches</h1>
       <p className="text-md text-gray-500 mb-8">
-        Compare the remaining matches of the current Premier League teams and compare each fixture against previous seasons.
+        Compare the remaining matches of the current Premier League teams and compare each fixture against previous seasons. FDR is based on
+        the opponent's current league position and the venue.
       </p>
 
       <div className="flex flex-col gap-y-4">
