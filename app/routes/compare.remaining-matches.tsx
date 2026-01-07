@@ -5,7 +5,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
 import type { FullMatchInfo, MatchInfo, SeasonTableData, Team } from '@/types'
-import { formatFdr, getDifficultyRating, getFdrColorClass, getTeamLeaguePosition } from '@/utils/difficulty-rating'
+import { formatFdr, getDifficultyRating, getFdrColorClass, getTeamPoints } from '@/utils/difficulty-rating'
 import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, getSeasonShortText } from '@/utils/match'
 import { fetchSeasons, fetchSeasonsTable } from '@/utils/seasons-fetcher'
 import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
@@ -61,8 +61,8 @@ export default function RemainingMatches() {
 
       <h1 className="text-3xl font-bold mb-4">Remaining Matches</h1>
       <p className="text-md text-gray-500 mb-8">
-        Compare the remaining matches of the current Premier League teams and compare each fixture against previous seasons. FDR is based on
-        the opponent's current league position and the venue.
+        Compare the remaining matches of the current Premier League teams and compare each fixture against previous seasons. Teams with
+        higher points have a higher FDR. Away matches have a slightly higher FDR.
       </p>
 
       <div className="flex flex-col gap-y-4">
@@ -160,9 +160,14 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
         Number(CURRENT_SEASON) - 2,
       )
 
-      // Calculate FDR based on opponent's current league position
-      const opponentPosition = getTeamLeaguePosition(teamMatch.opponent.name, matchesAcrossSeasons.currentSeasonTable)
-      const difficultyRating = opponentPosition !== undefined ? getDifficultyRating(opponentPosition, teamMatch.venue) : 3 // Default to mid-tier if not found
+      // Calculate FDR based on opponent's points as percentile within league
+      const leaderPoints = matchesAcrossSeasons.currentSeasonTable[0]?.points ?? 0
+      const lastPlacePoints = matchesAcrossSeasons.currentSeasonTable[matchesAcrossSeasons.currentSeasonTable.length - 1]?.points ?? 0
+      const opponentPoints = getTeamPoints(teamMatch.opponent.name, matchesAcrossSeasons.currentSeasonTable)
+      const difficultyRating =
+        opponentPoints !== undefined
+          ? getDifficultyRating(opponentPoints, leaderPoints, lastPlacePoints, teamMatch.venue as 'home' | 'away')
+          : 3 // Default to mid-tier if not found
 
       // Track FDR by venue for averaging
       if (teamMatch.venue === 'home') {

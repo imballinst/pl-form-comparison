@@ -33,7 +33,9 @@ Please answer or choose defaults for the following implementation details:
   - FDR 2: positions 13–16
   - FDR 1: positions 17–20
     Accept or adjust?
-    - Adjust. FDR should not be based on positions but based on number of points. The closer the FDR is to leader, the bigger the FDR number is.
+    - Adjust. FDR should not be based on positions but based on number of points. The closer the FDR is to leader, the bigger the FDR number is. The FDR should be based on distance between rank 1 and rank 20 league position.
+    - Example test case, if rank 1 is on 48 points and rank 20 is on 7 points, then the distance is 41.
+    - If a team has 35 points, then it's 35/41 \* 100% = 85% \* 5 = the FDR is 4.25
 
 4. Home/away adjustment
 
