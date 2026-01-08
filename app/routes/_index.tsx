@@ -15,27 +15,55 @@ interface TeamMatchesData {
   nextMatch: FullMatchInfo | null
 }
 
-function getTeamMatchesData(teamName: string, allMatches: FullMatchInfo[]): TeamMatchesData {
+function getTeamMatchesData(teamNames: string[], allMatches: FullMatchInfo[]): Record<string, TeamMatchesData> {
   const now = new Date()
+  const result: Record<string, TeamMatchesData> = {}
 
-  // Get past 5 matches
-  const pastMatches = allMatches
-    .filter((match) => {
-      if (match.homeTeam.name !== teamName && match.awayTeam.name !== teamName) return false
-      return new Date(match.kickoff) <= now
-    })
-    .sort((a, b) => new Date(b.kickoff).getTime() - new Date(a.kickoff).getTime())
+  // Initialize data structures for all teams
+  const teamPastMatches: Record<string, FullMatchInfo[]> = {}
+  const teamNextMatch: Record<string, FullMatchInfo | null> = {}
 
-  const past5 = pastMatches.slice(0, 5).reverse()
+  for (const teamName of teamNames) {
+    teamPastMatches[teamName] = []
+    teamNextMatch[teamName] = null
+  }
 
-  // Get next match
-  const nextMatch =
-    allMatches.find((match) => {
-      if (match.homeTeam.name !== teamName && match.awayTeam.name !== teamName) return false
-      return new Date(match.kickoff) > now
-    }) || null
+  // Single pass through all matches
+  for (const match of allMatches) {
+    const matchDate = new Date(match.kickoff)
+    const isPast = matchDate <= now
+    const isFuture = matchDate > now
 
-  return { past5, nextMatch }
+    // Check if either team is in our list
+    if (teamNames.includes(match.homeTeam.name)) {
+      if (isPast) {
+        teamPastMatches[match.homeTeam.name].push(match)
+      } else if (isFuture && !teamNextMatch[match.homeTeam.name]) {
+        teamNextMatch[match.homeTeam.name] = match
+      }
+    }
+
+    if (teamNames.includes(match.awayTeam.name)) {
+      if (isPast) {
+        teamPastMatches[match.awayTeam.name].push(match)
+      } else if (isFuture && !teamNextMatch[match.awayTeam.name]) {
+        teamNextMatch[match.awayTeam.name] = match
+      }
+    }
+  }
+
+  // Build final result with sorted past matches
+  for (const teamName of teamNames) {
+    const pastMatches = teamPastMatches[teamName].sort((a, b) => new Date(b.kickoff).getTime() - new Date(a.kickoff).getTime())
+    const past5 = pastMatches.slice(0, 5).reverse()
+
+    result[teamName] = {
+      past5,
+      nextMatch: teamNextMatch[teamName],
+    }
+  }
+
+  return result
 }
 
 export async function clientLoader(): Promise<{
@@ -79,11 +107,16 @@ export async function clientLoader(): Promise<{
   const tableData = await fetchSeasonsTable(CURRENT_SEASON)
   const widgets = getWidgetsFromStorage()
 
-  // Pre-compute team match data for all widgets
+  // Pre-compute team match data for all widgets (single pass through matches)
   const teamMatchesData: Record<string, TeamMatchesData> = {}
-  for (const widget of widgets) {
-    if (widget.teamName) {
-      teamMatchesData[widget.id] = getTeamMatchesData(widget.teamName, enrichedMatches)
+  const teamNamesToFetch = widgets.filter((w) => w.teamName).map((w) => w.teamName)
+
+  if (teamNamesToFetch.length > 0) {
+    const allTeamData = getTeamMatchesData(teamNamesToFetch, enrichedMatches)
+    for (const widget of widgets) {
+      if (widget.teamName) {
+        teamMatchesData[widget.id] = allTeamData[widget.teamName]
+      }
     }
   }
 
@@ -114,8 +147,8 @@ export default function HomePage() {
       setWidgets(updated)
       // Compute team match data for the selected team
       if (teamName) {
-        const teamData = getTeamMatchesData(teamName, matchesData)
-        setTeamMatchesData((prev) => ({ ...prev, [widgetId]: teamData }))
+        const teamData = getTeamMatchesData([teamName], matchesData)
+        setTeamMatchesData((prev) => ({ ...prev, [widgetId]: teamData[teamName] }))
       }
     },
     [widgets, matchesData],
