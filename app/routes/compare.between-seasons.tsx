@@ -4,7 +4,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
 import type { FullMatchInfo, MatchInfo, Team } from '@/types'
-import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, getSeasonShortText } from '@/utils/match'
+import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, getSeasonShortText, isMatchFinished } from '@/utils/match'
 import { fetchSeasons } from '@/utils/seasons-fetcher'
 import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
@@ -187,7 +187,7 @@ function ComparisonTable({
     )
     let pointDiff = 0
 
-    if (match.period === 'FullTime') {
+    if (isMatchFinished(match)) {
       const pointResult = getNumberOfPointFromResult(match.teamResult)
       pointDiff = pointResult
 
@@ -221,8 +221,7 @@ function ComparisonTable({
       : 0
 
     points[0] += comparedSeasonMatchPOintsGained
-    points[1] +=
-      row.period === 'FullTime' ? getNumberOfPointFromResult(row.anchorSeasonMatchInfo.teamResult) : comparedSeasonMatchPOintsGained
+    points[1] += isMatchFinished(row) ? getNumberOfPointFromResult(row.anchorSeasonMatchInfo.teamResult) : comparedSeasonMatchPOintsGained
 
     const opponentAndVenueColumns = isMobile ? (
       <TableCell>
@@ -248,7 +247,7 @@ function ComparisonTable({
           </div>
         </TableCell>
 
-        {row.period === 'FullTime' ? (
+        {isMatchFinished(row) ? (
           <TableCell className={clsx(row.anchorSeasonMatchInfo.color, 'text-center font-mono')}>
             {row.anchorSeasonMatchInfo.homeTeam.score}-{row.anchorSeasonMatchInfo.awayTeam.score}
           </TableCell>

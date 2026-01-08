@@ -1,23 +1,203 @@
 import { MatchCard } from '@/components/custom/match-card'
-import { TeamWidget } from '@/components/custom/team-widget'
+import { TeamWidget, type TeamInfoData } from '@/components/custom/team-widget'
 import { Button } from '@/components/ui/button'
 import { CURRENT_SEASON } from '@/constants'
-import type { FullMatchInfo, SeasonTableData } from '@/types'
-import { getEssentialMatchInfo } from '@/utils/match'
+import type { FullMatchInfo, MatchInfo, SeasonTableData } from '@/types'
+import { getEssentialMatchInfo, isMatchFinished } from '@/utils/match'
 import { fetchSeasons, fetchSeasonsTable } from '@/utils/seasons-fetcher'
-import { addWidget, getWidgetsFromStorage, removeWidget, reorderWidgets, type Widget } from '@/utils/widget-storage'
+import { addWidget, getWidgetsFromStorage, removeWidget, saveWidgetsToStorage } from '@/utils/widget-storage'
 import { Plus } from 'lucide-react'
 import { useCallback, useState } from 'react'
-import { useLoaderData } from 'react-router'
+import { useLoaderData, useRevalidator } from 'react-router'
 
-interface TeamMatchesData {
-  past5: FullMatchInfo[]
-  nextMatch: FullMatchInfo | null
+export async function clientLoader() {
+  const matchesResponses = await fetchSeasons()
+  const matches = matchesResponses[CURRENT_SEASON] || []
+
+  // Get the last 10 matchweeks
+  const now = new Date()
+  const lastMatchIndex = matches.findIndex((match) => new Date(match.kickoff) > now)
+  let lastMatchIndexInNearbyMatches = 10
+  let nearbyMatches: MatchInfo[] = []
+
+  if (lastMatchIndex === -1) {
+    // All matches are in the past
+    nearbyMatches = matches.slice(-10)
+  } else if (lastMatchIndex === 0) {
+    // All matches are in the future, no-op
+  } else {
+    // Need past 5 matches = give or take around 100 matches; add 20 for buffer
+    const start = Math.max(0, lastMatchIndex - 120)
+
+    // Add 10 + 10 as gap to consider upcoming matches
+    // TODO: maybe it's better to do this in the stats update script?
+    nearbyMatches = matches.slice(start, lastMatchIndex + 20)
+    lastMatchIndexInNearbyMatches = Math.max(10, nearbyMatches.length - 20)
+  }
+
+  const enrichedMatches: FullMatchInfo[] = nearbyMatches.map((match) => getFullMatchInfoFromMatchInfo(match, match.homeTeam.name))
+
+  const tableData = await fetchSeasonsTable(CURRENT_SEASON)
+  const widgets = getWidgetsFromStorage()
+
+  // Pre-compute team match data for all widgets (single pass through matches)
+  const teamNamesToFetch = widgets.filter((w) => w.teamName).map((w) => w.teamName)
+  const teamInfoRecord: Record<string, TeamInfoData> = getTeamInfoRecord(teamNamesToFetch, enrichedMatches, tableData)
+
+  if (teamNamesToFetch.length > 0) {
+    const sourceTeamInfoRecord = getTeamInfoRecord(teamNamesToFetch, enrichedMatches, tableData)
+    for (const widget of widgets) {
+      if (widget.teamName) {
+        teamInfoRecord[widget.id] = sourceTeamInfoRecord[widget.teamName]
+      }
+    }
+  }
+
+  return {
+    last10Matches: enrichedMatches.slice(lastMatchIndexInNearbyMatches - 10, lastMatchIndexInNearbyMatches),
+    widgets,
+    teamInfoRecord,
+  }
 }
 
-function getTeamMatchesData(teamNames: string[], allMatches: FullMatchInfo[]): Record<string, TeamMatchesData> {
+export default function HomePage() {
+  const { last10Matches, widgets, teamInfoRecord } = useLoaderData<typeof clientLoader>()
+  const [draggedWidgetId, setDraggedWidgetId] = useState<string | null>(null)
+  const [dragOverIndex, setDragOverIndex] = useState<number | null>(null)
+  const revalidator = useRevalidator()
+
+  const handleTeamSelect = (teamName: string, widgetId: string) => {
+    const updated = widgets.map((w) => (w.id === widgetId ? { ...w, teamName } : w))
+
+    saveWidgetsToStorage(updated)
+    revalidator.revalidate()
+  }
+
+  const handleDragStart = (widgetId: string) => {
+    setDraggedWidgetId(widgetId)
+  }
+
+  const handleDragEnd = () => {
+    setDraggedWidgetId(null)
+    setDragOverIndex(null)
+  }
+
+  const handleDragOver = (e: React.DragEvent, index: number) => {
+    e.preventDefault()
+    setDragOverIndex(index)
+  }
+
+  const handleDrop = useCallback(
+    (e: React.DragEvent, dropIndex: number) => {
+      e.preventDefault()
+      if (!draggedWidgetId) return
+
+      const draggedIndex = widgets.findIndex((w) => w.id === draggedWidgetId)
+      if (draggedIndex === dropIndex) return
+
+      const updated = [...widgets]
+      const [draggedWidget] = updated.splice(draggedIndex, 1)
+      updated.splice(dropIndex, 0, draggedWidget)
+
+      saveWidgetsToStorage(updated)
+      setDragOverIndex(null)
+
+      revalidator.revalidate()
+    },
+    [widgets, draggedWidgetId],
+  )
+
+  return (
+    <div className="space-y-8">
+      <title>Home | Premier League Form Comparison</title>
+
+      <h1 className="text-3xl font-bold mb-4">Premier League Form Comparison Home</h1>
+      <p className="text-md text-gray-500 mb-8">
+        Track your favorite Premier League teams' recent performance and upcoming matches with customizable widgets. Check out all other
+        stats from the "Tools" menu in the navbar!
+      </p>
+
+      {/* Recent Matches Section */}
+      <section>
+        <h2 className="text-2xl font-semibold mb-4">Recent Matches</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          {last10Matches.map((match) => (
+            <MatchCard key={match.matchId} match={match} />
+          ))}
+        </div>
+        {last10Matches.length === 0 && <p className="text-gray-500">No recent matches found</p>}
+      </section>
+
+      {/* Widgets Section */}
+      <section>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-2xl font-semibold">My Widgets</h2>
+          {widgets.length < 3 && (
+            <Button
+              onClick={() => {
+                addWidget('')
+                revalidator.revalidate()
+              }}
+              size="sm"
+              variant="outline"
+            >
+              <Plus size={16} />
+              Add Widget
+            </Button>
+          )}
+        </div>
+
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {widgets.length === 0 ? (
+            <li className="rounded-lg border-2 border-dashed border-gray-300 p-6 flex flex-col items-center justify-center min-h-[300px] gap-4">
+              <Button
+                onClick={() => {
+                  addWidget('')
+                  revalidator.revalidate()
+                }}
+              >
+                <Plus size={32} className="text-gray-400" />
+                Add your first widget
+              </Button>
+            </li>
+          ) : (
+            widgets.map((widget, index) => (
+              <li
+                key={widget.id}
+                onDragOver={(e) => handleDragOver(e, index)}
+                onDrop={(e) => handleDrop(e, index)}
+                className={`transition-opacity ${dragOverIndex === index ? 'opacity-50' : ''}`}
+              >
+                <div draggable onDragStart={() => handleDragStart(widget.id)} onDragEnd={handleDragEnd} className="h-full">
+                  <TeamWidget
+                    widgetId={widget.id}
+                    teamName={widget.teamName}
+                    onRemove={(id) => {
+                      removeWidget(id)
+                      revalidator.revalidate()
+                    }}
+                    onTeamSelect={(teamName) => handleTeamSelect(teamName, widget.id)}
+                    isDragging={draggedWidgetId === widget.id}
+                    teamInfo={teamInfoRecord[widget.id]}
+                  />
+                </div>
+              </li>
+            ))
+          )}
+        </ul>
+      </section>
+    </div>
+  )
+}
+
+function getTeamInfoRecord(teamNames: string[], allMatches: FullMatchInfo[], seasonTable: SeasonTableData[]): Record<string, TeamInfoData> {
+  const teamPositions: Record<string, number> = {}
+  seasonTable.forEach((position, index) => {
+    teamPositions[position.name] = index + 1
+  })
+
   const now = new Date()
-  const result: Record<string, TeamMatchesData> = {}
+  const result: Record<string, TeamInfoData> = {}
 
   // Initialize data structures for all teams
   const teamPastMatches: Record<string, FullMatchInfo[]> = {}
@@ -30,9 +210,8 @@ function getTeamMatchesData(teamNames: string[], allMatches: FullMatchInfo[]): R
 
   // Single pass through all matches
   for (const match of allMatches) {
-    const matchDate = new Date(match.kickoff)
-    const isPast = matchDate <= now
-    const isFuture = matchDate > now
+    const isPast = isMatchFinished(match)
+    const isFuture = !isPast
 
     // Check if either team is in our list
     if (teamNames.includes(match.homeTeam.name)) {
@@ -55,201 +234,25 @@ function getTeamMatchesData(teamNames: string[], allMatches: FullMatchInfo[]): R
   // Build final result with sorted past matches
   for (const teamName of teamNames) {
     const pastMatches = teamPastMatches[teamName].sort((a, b) => new Date(b.kickoff).getTime() - new Date(a.kickoff).getTime())
-    const past5 = pastMatches.slice(0, 5).reverse()
+    const past5Matches = pastMatches.slice(0, 5).reverse()
 
     result[teamName] = {
-      past5,
+      past5Matches,
       nextMatch: teamNextMatch[teamName],
+      leaguePosition: teamPositions[teamName],
     }
   }
 
   return result
 }
 
-export async function clientLoader(): Promise<{
-  matchesData: FullMatchInfo[]
-  tableData: SeasonTableData[]
-  widgets: Widget[]
-  teamMatchesData: Record<string, TeamMatchesData>
-}> {
-  const matchesResponses = await fetchSeasons()
-  const matches = matchesResponses[CURRENT_SEASON] || []
-
-  // Get the last 10 matchweeks
-  const now = new Date()
-  const recentMatches = matches
-    .filter((match) => {
-      const matchDate = new Date(match.kickoff)
-      return matchDate <= now
-    })
-    .slice(-10)
-    .sort((a, b) => new Date(a.kickoff).getTime() - new Date(b.kickoff).getTime())
-
-  // Enrich matches with color, opponent, venue info
-  const enrichedMatches: FullMatchInfo[] = recentMatches.map((match) => {
-    // We need to pick a team to get the essential info
-    const homeInfo = getEssentialMatchInfo(match, match.homeTeam.name)
-    return {
-      ...match,
-      color: '',
-      opponent: homeInfo.opponent,
-      teamResult: homeInfo.teamResult,
-      venue: homeInfo.venue,
-    }
-  })
-
-  const tableData = await fetchSeasonsTable(CURRENT_SEASON)
-  const widgets = getWidgetsFromStorage()
-
-  // Pre-compute team match data for all widgets (single pass through matches)
-  const teamMatchesData: Record<string, TeamMatchesData> = {}
-  const teamNamesToFetch = widgets.filter((w) => w.teamName).map((w) => w.teamName)
-
-  if (teamNamesToFetch.length > 0) {
-    const allTeamData = getTeamMatchesData(teamNamesToFetch, enrichedMatches)
-    for (const widget of widgets) {
-      if (widget.teamName) {
-        teamMatchesData[widget.id] = allTeamData[widget.teamName]
-      }
-    }
+function getFullMatchInfoFromMatchInfo(match: MatchInfo, teamName: string): FullMatchInfo {
+  const essentialInfo = getEssentialMatchInfo(match, teamName)
+  return {
+    ...match,
+    color: '',
+    opponent: essentialInfo.opponent,
+    teamResult: essentialInfo.teamResult,
+    venue: essentialInfo.venue,
   }
-
-  return { matchesData: enrichedMatches, tableData, widgets, teamMatchesData }
-}
-
-export default function HomePage() {
-  const { matchesData, tableData, widgets: initialWidgets, teamMatchesData: initialTeamMatchesData } = useLoaderData<typeof clientLoader>()
-  const [widgets, setWidgets] = useState(initialWidgets)
-  const [teamMatchesData, setTeamMatchesData] = useState(initialTeamMatchesData)
-  const [draggedWidgetId, setDraggedWidgetId] = useState<string | null>(null)
-  const [dragOverIndex, setDragOverIndex] = useState<number | null>(null)
-
-  const handleAddWidget = useCallback(() => {
-    const updated = addWidget('')
-    setWidgets(updated)
-  }, [])
-
-  const handleRemoveWidget = useCallback((id: string) => {
-    const updated = removeWidget(id)
-    setWidgets(updated)
-  }, [])
-
-  const handleTeamSelect = useCallback(
-    (teamName: string, widgetId: string) => {
-      const updated = widgets.map((w) => (w.id === widgetId ? { ...w, teamName } : w))
-      reorderWidgets(updated)
-      setWidgets(updated)
-      // Compute team match data for the selected team
-      if (teamName) {
-        const teamData = getTeamMatchesData([teamName], matchesData)
-        setTeamMatchesData((prev) => ({ ...prev, [widgetId]: teamData[teamName] }))
-      }
-    },
-    [widgets, matchesData],
-  )
-
-  const handleDragStart = useCallback((widgetId: string) => {
-    setDraggedWidgetId(widgetId)
-  }, [])
-
-  const handleDragEnd = useCallback(() => {
-    setDraggedWidgetId(null)
-    setDragOverIndex(null)
-  }, [])
-
-  const handleDragOver = useCallback((e: React.DragEvent, index: number) => {
-    e.preventDefault()
-    setDragOverIndex(index)
-  }, [])
-
-  const handleDrop = useCallback(
-    (e: React.DragEvent, dropIndex: number) => {
-      e.preventDefault()
-      if (!draggedWidgetId) return
-
-      const draggedIndex = widgets.findIndex((w) => w.id === draggedWidgetId)
-      if (draggedIndex === dropIndex) return
-
-      const updated = [...widgets]
-      const [draggedWidget] = updated.splice(draggedIndex, 1)
-      updated.splice(dropIndex, 0, draggedWidget)
-
-      reorderWidgets(updated)
-      setWidgets(updated)
-      setDragOverIndex(null)
-    },
-    [widgets, draggedWidgetId],
-  )
-
-  return (
-    <div className="space-y-8">
-      <title>Home | Premier League Form Comparison</title>
-
-      <h1 className="text-3xl font-bold mb-4">Premier League Form Comparison Home</h1>
-      <p className="text-md text-gray-500 mb-8">
-        Track your favorite Premier League teams' recent performance and upcoming matches with customizable widgets. Check out all other
-        stats from the "Tools" menu in the navbar!
-      </p>
-
-      {/* Recent Matches Section */}
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">Recent Matches</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-          {matchesData.map((match) => (
-            <MatchCard key={match.matchId} match={match} />
-          ))}
-        </div>
-        {matchesData.length === 0 && <p className="text-gray-500">No recent matches found</p>}
-      </section>
-
-      {/* Widgets Section */}
-      <section>
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-semibold">My Teams</h2>
-          {widgets.length < 3 && (
-            <Button onClick={handleAddWidget} size="sm" variant="outline">
-              <Plus size={16} />
-              Add Widget
-            </Button>
-          )}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {widgets.length === 0 ? (
-            <div
-              className="rounded-lg border-2 border-dashed border-gray-300 p-6 flex flex-col items-center justify-center min-h-[300px] gap-4"
-              onClick={handleAddWidget}
-            >
-              <Plus size={32} className="text-gray-400" />
-              <div className="text-center">
-                <h3 className="font-semibold text-gray-700 mb-2">Add Widget</h3>
-                <p className="text-sm text-gray-500">Select a team to track</p>
-              </div>
-            </div>
-          ) : (
-            widgets.map((widget, index) => (
-              <div
-                key={widget.id}
-                onDragOver={(e) => handleDragOver(e, index)}
-                onDrop={(e) => handleDrop(e, index)}
-                className={`transition-opacity ${dragOverIndex === index ? 'opacity-50' : ''}`}
-              >
-                <div draggable onDragStart={() => handleDragStart(widget.id)} onDragEnd={handleDragEnd}>
-                  <TeamWidget
-                    widgetId={widget.id}
-                    teamName={widget.teamName}
-                    tableData={tableData}
-                    onRemove={handleRemoveWidget}
-                    onTeamSelect={(teamName) => handleTeamSelect(teamName, widget.id)}
-                    isDragging={draggedWidgetId === widget.id}
-                    teamMatches={teamMatchesData[widget.id]}
-                  />
-                </div>
-              </div>
-            ))
-          )}
-        </div>
-      </section>
-    </div>
-  )
 }

@@ -6,7 +6,7 @@ import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
 import type { FullMatchInfo, MatchInfo, SeasonTableData, Team } from '@/types'
 import { formatFdr, getDifficultyRating, getFdrColorClass, getTeamPoints } from '@/utils/difficulty-rating'
-import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, getSeasonShortText } from '@/utils/match'
+import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, getSeasonShortText, isMatchFinished } from '@/utils/match'
 import { fetchSeasons, fetchSeasonsTable } from '@/utils/seasons-fetcher'
 import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
@@ -406,7 +406,7 @@ function getMatchesAcrossSeasons(
 
     const iteratedTeams = [homeTeam.name, awayTeam.name].filter((team) => teams.includes(team))
     for (const team of iteratedTeams) {
-      if (match.period === 'FullTime') {
+      if (isMatchFinished(match)) {
         matchesByGameweekByTeamRecord[match.matchWeek][team] = null
         continue
       }

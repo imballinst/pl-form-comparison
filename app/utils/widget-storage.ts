@@ -54,7 +54,3 @@ export function removeWidget(id: string): Widget[] {
   saveWidgetsToStorage(updated)
   return updated
 }
-
-export function reorderWidgets(widgets: Widget[]): void {
-  saveWidgetsToStorage(widgets)
-}

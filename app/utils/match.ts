@@ -1,4 +1,5 @@
 import type { MatchInfo, Team } from '@/types'
+import dayjs from 'dayjs'
 
 export function getScoreResult(position: string, score: [number, number]) {
   if (score[0] === score[1]) {
@@ -50,4 +51,17 @@ export function getAnchorKeyFromString(home: string, away: string, identifier: s
 
 export function getSeasonShortText(year: string) {
   return `${year.slice(2)}/${(Number(year) + 1).toString().slice(2)}`
+}
+
+export function isMatchFinished<T extends { period: string }>(match: T) {
+  return match.period === 'FullTime'
+}
+
+export function getMatchLocalTime(match: MatchInfo) {
+  const kickoffDate = dayjs(match.kickoff, 'YYYY-MM-DD HH:mm:ss').add(new Date().getTimezoneOffset() * -1, 'minute')
+
+  const formattedDate = kickoffDate.format('MMM DD')
+  const formattedTime = kickoffDate.format('HH:mm')
+
+  return { date: formattedDate, time: formattedTime }
 }

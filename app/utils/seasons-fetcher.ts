@@ -12,7 +12,7 @@ export async function fetchSeasons() {
 
   const responses = await Promise.all([axios(`${BASE_PATH}/2025.json`), axios(`${BASE_PATH}/2024.json`), axios(`${BASE_PATH}/2023.json`)])
   const [season2025Response, season2024Response, season2023Response] = responses.map((item) =>
-    (item.data as SeasonMatchesResponse).matchweeks.flatMap((mw) => mw.data.data),
+    (item.data as SeasonMatchesResponse).matchweeks.flatMap((mw) => mw.data.data).sort((a, b) => a.kickoff.localeCompare(b.kickoff)),
   )
 
   const matchesResponses: Record<string, MatchInfo[]> = {
