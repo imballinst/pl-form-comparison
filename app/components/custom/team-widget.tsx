@@ -83,7 +83,7 @@ export function TeamWidget({ teamName, tableData, onRemove, onTeamSelect, widget
             const resultText = result === 'win' ? 'W' : result === 'loss' ? 'L' : 'D'
 
             return (
-              <div key={idx} className={clsx('flex items-center justify-center w-6 h-6 rounded text-white text-xs font-bold', resultColor)}>
+              <div key={idx} className={clsx('flex items-center justify-center w-6 h-6 rounded text-xs font-bold', resultColor)}>
                 {resultText}
               </div>
             )

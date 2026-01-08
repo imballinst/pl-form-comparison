@@ -9,6 +9,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { Link } from 'react-router'
@@ -37,11 +38,11 @@ export function Navbar({ className }: { className?: string }) {
   return (
     <NavigationMenu viewport={isMobile} className={className}>
       <NavigationMenuList className="flex-wrap">
-        {/* <NavigationMenuItem>
+        <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
             <Link to="/">Home</Link>
           </NavigationMenuLink>
-        </NavigationMenuItem> */}
+        </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
           <NavigationMenuContent className="z-50">

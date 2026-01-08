@@ -77,19 +77,13 @@ export async function clientLoader(): Promise<{
 
   // Get the last 10 matchweeks
   const now = new Date()
-  const pastMatches = matches.filter((match) => {
-    const matchDate = new Date(match.kickoff)
-    return matchDate <= now
-  })
-
-  // Get all matchweeks and find the last 10
-  const matchweeks = new Set(pastMatches.map((m) => m.matchWeek))
-  const sortedMatchweeks = Array.from(matchweeks).sort((a, b) => b - a)
-  const last10Matchweeks = new Set(sortedMatchweeks.slice(0, 10))
-
   const recentMatches = matches
-    .filter((match) => last10Matchweeks.has(match.matchWeek))
-    .sort((a, b) => new Date(b.kickoff).getTime() - new Date(a.kickoff).getTime())
+    .filter((match) => {
+      const matchDate = new Date(match.kickoff)
+      return matchDate <= now
+    })
+    .slice(-10)
+    .sort((a, b) => new Date(a.kickoff).getTime() - new Date(b.kickoff).getTime())
 
   // Enrich matches with color, opponent, venue info
   const enrichedMatches: FullMatchInfo[] = recentMatches.map((match) => {
@@ -97,7 +91,7 @@ export async function clientLoader(): Promise<{
     const homeInfo = getEssentialMatchInfo(match, match.homeTeam.name)
     return {
       ...match,
-      color: homeInfo.color,
+      color: '',
       opponent: homeInfo.opponent,
       teamResult: homeInfo.teamResult,
       venue: homeInfo.venue,
@@ -191,16 +185,27 @@ export default function HomePage() {
     <div className="space-y-8">
       <title>Home | Premier League Form Comparison</title>
 
-      {/* Header */}
-      <div>
-        <h1 className="text-4xl font-bold mb-2">Premier League Form</h1>
-        <p className="text-gray-600">Latest results and team tracking</p>
-      </div>
+      <h1 className="text-3xl font-bold mb-4">Premier League Form Comparison Home</h1>
+      <p className="text-md text-gray-500 mb-8">
+        Track your favorite Premier League teams' recent performance and upcoming matches with customizable widgets. Check out all other
+        stats from the "Tools" menu in the navbar!
+      </p>
+
+      {/* Recent Matches Section */}
+      <section>
+        <h2 className="text-2xl font-semibold mb-4">Recent Matches</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          {matchesData.map((match) => (
+            <MatchCard key={match.matchId} match={match} />
+          ))}
+        </div>
+        {matchesData.length === 0 && <p className="text-gray-500">No recent matches found</p>}
+      </section>
 
       {/* Widgets Section */}
       <section>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold">My Teams</h2>
+          <h2 className="text-2xl font-semibold">My Teams</h2>
           {widgets.length < 3 && (
             <Button onClick={handleAddWidget} size="sm" variant="outline">
               <Plus size={16} />
@@ -244,17 +249,6 @@ export default function HomePage() {
             ))
           )}
         </div>
-      </section>
-
-      {/* Recent Matches Section */}
-      <section>
-        <h2 className="text-2xl font-bold mb-4">Recent Results (Past 10 Matchweeks)</h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-          {matchesData.map((match) => (
-            <MatchCard key={match.matchId} match={match} />
-          ))}
-        </div>
-        {matchesData.length === 0 && <p className="text-gray-500">No recent matches found</p>}
       </section>
     </div>
   )
