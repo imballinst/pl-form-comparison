@@ -6784,7 +6784,8 @@
             "season": "2025",
             "ground": "Etihad Stadium, Manchester",
             "resultType": "NormalResult",
-            "matchId": "2562091"
+            "matchId": "2562091",
+            "attendance": 52503
           },
           {
             "phase": "1",
@@ -6901,30 +6902,41 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 21,
             "kickoff": "2026-01-07 19:30:00",
             "awayTeam": {
+              "score": 2,
               "name": "Tottenham Hotspur",
               "id": "6",
+              "halfTimeScore": 1,
               "shortName": "Spurs",
-              "abbr": "TOT"
+              "abbr": "TOT",
+              "redCards": 0
             },
+            "competition": "Premier League",
+            "clock": "101",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 3,
               "name": "Bournemouth",
               "id": "91",
+              "halfTimeScore": 2,
               "shortName": "Bournemouth",
-              "abbr": "BOU"
+              "abbr": "BOU",
+              "redCards": 0
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Vitality Stadium, Bournemouth",
+            "resultType": "NormalResult",
             "matchId": "2562095",
-            "kickoffTimezoneString": "Europe/London"
+            "attendance": 11212
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
@@ -6936,6 +6948,8 @@
               "shortName": "Liverpool",
               "abbr": "LIV"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Arsenal",
               "id": "3",
@@ -6943,202 +6957,277 @@
               "abbr": "ARS"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Emirates Stadium, London",
-            "matchId": "2562096",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562096"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 21,
             "kickoff": "2026-01-07 19:30:00",
             "awayTeam": {
+              "score": 0,
               "name": "Sunderland",
               "id": "56",
+              "halfTimeScore": 0,
               "shortName": "Sunderland",
-              "abbr": "SUN"
+              "abbr": "SUN",
+              "redCards": 0
             },
+            "competition": "Premier League",
+            "clock": "96",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 3,
               "name": "Brentford",
               "id": "94",
+              "halfTimeScore": 1,
               "shortName": "Brentford",
-              "abbr": "BRE"
+              "abbr": "BRE",
+              "redCards": 0
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Gtech Community Stadium, Brentford",
+            "resultType": "NormalResult",
             "matchId": "2562097",
-            "kickoffTimezoneString": "Europe/London"
+            "attendance": 17016
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 21,
             "kickoff": "2026-01-07 20:15:00",
             "awayTeam": {
+              "score": 2,
               "name": "Manchester United",
               "id": "1",
+              "halfTimeScore": 0,
               "shortName": "Man Utd",
-              "abbr": "MUN"
+              "abbr": "MUN",
+              "redCards": 0
             },
+            "competition": "Premier League",
+            "clock": "96",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Burnley",
               "id": "90",
+              "halfTimeScore": 1,
               "shortName": "Burnley",
-              "abbr": "BUR"
+              "abbr": "BUR",
+              "redCards": 0
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Turf Moor, Burnley",
+            "resultType": "NormalResult",
             "matchId": "2562098",
-            "kickoffTimezoneString": "Europe/London"
+            "attendance": 21047
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 21,
             "kickoff": "2026-01-07 19:30:00",
             "awayTeam": {
+              "score": 0,
               "name": "Aston Villa",
               "id": "7",
+              "halfTimeScore": 0,
               "shortName": "Aston Villa",
-              "abbr": "AVL"
+              "abbr": "AVL",
+              "redCards": 0
             },
+            "competition": "Premier League",
+            "clock": "94",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "Crystal Palace",
               "id": "31",
+              "halfTimeScore": 0,
               "shortName": "Crystal Palace",
-              "abbr": "CRY"
+              "abbr": "CRY",
+              "redCards": 0
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Selhurst Park, London",
+            "resultType": "NormalResult",
             "matchId": "2562099",
-            "kickoffTimezoneString": "Europe/London"
+            "attendance": 24841
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 21,
             "kickoff": "2026-01-07 19:30:00",
             "awayTeam": {
+              "score": 1,
               "name": "Wolverhampton Wanderers",
               "id": "39",
+              "halfTimeScore": 0,
               "shortName": "Wolves",
-              "abbr": "WOL"
+              "abbr": "WOL",
+              "redCards": 0
             },
+            "competition": "Premier League",
+            "clock": "100",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Everton",
               "id": "11",
+              "halfTimeScore": 1,
               "shortName": "Everton",
-              "abbr": "EVE"
+              "abbr": "EVE",
+              "redCards": 2
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Hill Dickinson Stadium, Liverpool",
-            "matchId": "2562100",
-            "kickoffTimezoneString": "Europe/London"
+            "resultType": "NormalResult",
+            "matchId": "2562100"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 21,
             "kickoff": "2026-01-07 19:30:00",
             "awayTeam": {
+              "score": 1,
               "name": "Chelsea",
               "id": "8",
+              "halfTimeScore": 0,
               "shortName": "Chelsea",
-              "abbr": "CHE"
+              "abbr": "CHE",
+              "redCards": 1
             },
+            "competition": "Premier League",
+            "clock": "96",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Fulham",
               "id": "54",
+              "halfTimeScore": 0,
               "shortName": "Fulham",
-              "abbr": "FUL"
+              "abbr": "FUL",
+              "redCards": 0
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Craven Cottage, London",
-            "matchId": "2562101",
-            "kickoffTimezoneString": "Europe/London"
+            "resultType": "NormalResult",
+            "matchId": "2562101"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 21,
             "kickoff": "2026-01-07 19:30:00",
             "awayTeam": {
+              "score": 1,
               "name": "Brighton and Hove Albion",
               "id": "36",
+              "halfTimeScore": 0,
               "shortName": "Brighton",
-              "abbr": "BHA"
+              "abbr": "BHA",
+              "redCards": 0
             },
+            "competition": "Premier League",
+            "clock": "96",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Manchester City",
               "id": "43",
+              "halfTimeScore": 1,
               "shortName": "Man City",
-              "abbr": "MCI"
+              "abbr": "MCI",
+              "redCards": 0
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Etihad Stadium, Manchester",
-            "matchId": "2562102",
-            "kickoffTimezoneString": "Europe/London"
+            "resultType": "NormalResult",
+            "matchId": "2562102"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 21,
             "kickoff": "2026-01-07 20:15:00",
             "awayTeam": {
+              "score": 3,
               "name": "Leeds United",
               "id": "2",
+              "halfTimeScore": 2,
               "shortName": "Leeds",
-              "abbr": "LEE"
+              "abbr": "LEE",
+              "redCards": 0
             },
+            "competition": "Premier League",
+            "clock": "104",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 4,
               "name": "Newcastle United",
               "id": "4",
+              "halfTimeScore": 1,
               "shortName": "Newcastle",
-              "abbr": "NEW"
+              "abbr": "NEW",
+              "redCards": 0
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "St. James' Park, Newcastle",
+            "resultType": "NormalResult",
             "matchId": "2562103",
-            "kickoffTimezoneString": "Europe/London"
+            "attendance": 52176
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 21,
             "kickoff": "2026-01-06 20:00:00",
             "awayTeam": {
+              "score": 2,
               "name": "Nottingham Forest",
               "id": "17",
+              "halfTimeScore": 0,
               "shortName": "Nott'm Forest",
-              "abbr": "NFO"
+              "abbr": "NFO",
+              "redCards": 0
             },
+            "competition": "Premier League",
+            "clock": "98",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "West Ham United",
               "id": "21",
+              "halfTimeScore": 1,
               "shortName": "West Ham",
-              "abbr": "WHU"
+              "abbr": "WHU",
+              "redCards": 0
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "London Stadium, London",
+            "resultType": "NormalResult",
             "matchId": "2562104",
-            "kickoffTimezoneString": "Europe/London"
+            "attendance": 62429
           }
         ]
       }
