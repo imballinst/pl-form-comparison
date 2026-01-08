@@ -10,10 +10,39 @@ import { Plus } from 'lucide-react'
 import { useCallback, useState } from 'react'
 import { useLoaderData } from 'react-router'
 
+interface TeamMatchesData {
+  past5: FullMatchInfo[]
+  nextMatch: FullMatchInfo | null
+}
+
+function getTeamMatchesData(teamName: string, allMatches: FullMatchInfo[]): TeamMatchesData {
+  const now = new Date()
+
+  // Get past 5 matches
+  const pastMatches = allMatches
+    .filter((match) => {
+      if (match.homeTeam.name !== teamName && match.awayTeam.name !== teamName) return false
+      return new Date(match.kickoff) <= now
+    })
+    .sort((a, b) => new Date(b.kickoff).getTime() - new Date(a.kickoff).getTime())
+
+  const past5 = pastMatches.slice(0, 5).reverse()
+
+  // Get next match
+  const nextMatch =
+    allMatches.find((match) => {
+      if (match.homeTeam.name !== teamName && match.awayTeam.name !== teamName) return false
+      return new Date(match.kickoff) > now
+    }) || null
+
+  return { past5, nextMatch }
+}
+
 export async function clientLoader(): Promise<{
   matchesData: FullMatchInfo[]
   tableData: SeasonTableData[]
   widgets: Widget[]
+  teamMatchesData: Record<string, TeamMatchesData>
 }> {
   const matchesResponses = await fetchSeasons()
   const matches = matchesResponses[CURRENT_SEASON] || []
@@ -50,12 +79,21 @@ export async function clientLoader(): Promise<{
   const tableData = await fetchSeasonsTable(CURRENT_SEASON)
   const widgets = getWidgetsFromStorage()
 
-  return { matchesData: enrichedMatches, tableData, widgets }
+  // Pre-compute team match data for all widgets
+  const teamMatchesData: Record<string, TeamMatchesData> = {}
+  for (const widget of widgets) {
+    if (widget.teamName) {
+      teamMatchesData[widget.id] = getTeamMatchesData(widget.teamName, enrichedMatches)
+    }
+  }
+
+  return { matchesData: enrichedMatches, tableData, widgets, teamMatchesData }
 }
 
 export default function HomePage() {
-  const { matchesData, tableData, widgets: initialWidgets } = useLoaderData<typeof clientLoader>()
+  const { matchesData, tableData, widgets: initialWidgets, teamMatchesData: initialTeamMatchesData } = useLoaderData<typeof clientLoader>()
   const [widgets, setWidgets] = useState(initialWidgets)
+  const [teamMatchesData, setTeamMatchesData] = useState(initialTeamMatchesData)
   const [draggedWidgetId, setDraggedWidgetId] = useState<string | null>(null)
   const [dragOverIndex, setDragOverIndex] = useState<number | null>(null)
 
@@ -74,8 +112,13 @@ export default function HomePage() {
       const updated = widgets.map((w) => (w.id === widgetId ? { ...w, teamName } : w))
       reorderWidgets(updated)
       setWidgets(updated)
+      // Compute team match data for the selected team
+      if (teamName) {
+        const teamData = getTeamMatchesData(teamName, matchesData)
+        setTeamMatchesData((prev) => ({ ...prev, [widgetId]: teamData }))
+      }
     },
-    [widgets],
+    [widgets, matchesData],
   )
 
   const handleDragStart = useCallback((widgetId: string) => {
@@ -157,11 +200,11 @@ export default function HomePage() {
                   <TeamWidget
                     widgetId={widget.id}
                     teamName={widget.teamName}
-                    matchesData={matchesData}
                     tableData={tableData}
                     onRemove={handleRemoveWidget}
                     onTeamSelect={(teamName) => handleTeamSelect(teamName, widget.id)}
                     isDragging={draggedWidgetId === widget.id}
+                    teamMatches={teamMatchesData[widget.id]}
                   />
                 </div>
               </div>

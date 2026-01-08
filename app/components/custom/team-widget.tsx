@@ -5,21 +5,18 @@ import type { FullMatchInfo, SeasonTableData } from '@/types'
 import { getEssentialMatchInfo } from '@/utils/match'
 import clsx from 'clsx'
 import { GripVertical, Plus, X } from 'lucide-react'
-import { useRef } from 'react'
 
 interface TeamWidgetProps {
   teamName?: string
-  matchesData: FullMatchInfo[]
   tableData: SeasonTableData[]
   onRemove: (id: string) => void
   onTeamSelect: (teamName: string) => void
   widgetId: string
   isDragging?: boolean
+  teamMatches?: { past5: FullMatchInfo[]; nextMatch: FullMatchInfo | null }
 }
 
-export function TeamWidget({ teamName, matchesData, tableData, onRemove, onTeamSelect, widgetId, isDragging }: TeamWidgetProps) {
-  const dragRef = useRef<HTMLDivElement>(null)
-
+export function TeamWidget({ teamName, tableData, onRemove, onTeamSelect, widgetId, isDragging, teamMatches }: TeamWidgetProps) {
   if (!teamName) {
     return (
       <div className="rounded-lg border-2 border-dashed border-gray-300 p-6 flex flex-col items-center justify-center min-h-[300px] gap-4">
@@ -44,25 +41,14 @@ export function TeamWidget({ teamName, matchesData, tableData, onRemove, onTeamS
     )
   }
 
-  // Get team's matches (past 5) and next match
-  const teamMatches = matchesData.filter((match) => match.homeTeam.name === teamName || match.awayTeam.name === teamName).slice(-5)
-
   const teamTableData = tableData.find((t) => t.name === teamName)
   const position = teamTableData ? tableData.indexOf(teamTableData) + 1 : '-'
 
-  // Find next match (future match)
-  const now = new Date()
-  const nextMatch = matchesData.find((match) => {
-    if (match.homeTeam.name !== teamName && match.awayTeam.name !== teamName) return false
-    return new Date(match.kickoff) > now
-  })
+  const past5 = teamMatches?.past5 || []
+  const nextMatch = teamMatches?.nextMatch || null
 
   return (
-    <div
-      ref={dragRef}
-      className={clsx('rounded-lg border p-4 flex flex-col gap-4 min-h-[300px] bg-white', isDragging ? 'opacity-50' : '')}
-      draggable
-    >
+    <div className={clsx('rounded-lg border p-4 flex flex-col gap-4 min-h-[300px] bg-white', isDragging ? 'opacity-50' : '')} draggable>
       {/* Header with drag and close buttons */}
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2 flex-1 min-w-0">
@@ -90,7 +76,7 @@ export function TeamWidget({ teamName, matchesData, tableData, onRemove, onTeamS
       <div className="flex flex-col gap-2">
         <span className="text-sm font-semibold text-gray-700">Form (Past 5)</span>
         <div className="flex gap-1">
-          {teamMatches.map((match, idx) => {
+          {past5.map((match, idx) => {
             const matchInfo = getEssentialMatchInfo(match, teamName)
             const result = matchInfo.teamResult
             const resultColor = result === 'win' ? 'bg-green-500' : result === 'loss' ? 'bg-red-500' : 'bg-gray-400'
