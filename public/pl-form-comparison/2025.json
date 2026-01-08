@@ -6939,26 +6939,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 21,
             "kickoff": "2026-01-08 20:00:00",
             "awayTeam": {
+              "score": 0,
               "name": "Liverpool",
               "id": "14",
+              "halfTimeScore": 0,
               "shortName": "Liverpool",
-              "abbr": "LIV"
+              "abbr": "LIV",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "Arsenal",
               "id": "3",
+              "halfTimeScore": 0,
               "shortName": "Arsenal",
-              "abbr": "ARS"
+              "abbr": "ARS",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Emirates Stadium, London",
-            "matchId": "2562096"
+            "resultType": "NormalResult",
+            "matchId": "2562096",
+            "attendance": 60258
           },
           {
             "phase": "1",
