@@ -58,7 +58,7 @@ async function main() {
   /** @type {number[]} */
   const matchweeksToFetch = []
 
-  for (const mw of existingJSON.matchweeks.forEach) {
+  for (const mw of existingJSON.matchweeks) {
     for (const match of mw.data.data) {
       const date = dayjs(match.kickoff, 'YYYY-MM-DD HH:mm:ss')
       if (date.isAfter(dayjs())) {
