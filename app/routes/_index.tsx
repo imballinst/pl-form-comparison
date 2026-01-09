@@ -36,16 +36,15 @@ export async function clientLoader() {
   }
 
   const enrichedMatches: FullMatchInfo[] = nearbyMatches.map((match) => getFullMatchInfoFromMatchInfo(match, match.homeTeam.name))
-
-  const tableData = await fetchSeasonsTable(CURRENT_SEASON)
   const widgets = getWidgetsFromStorage()
 
   // Pre-compute team match data for all widgets (single pass through matches)
-  const teamNamesToFetch = widgets.filter((w) => w.teamName).map((w) => w.teamName)
-  const teamInfoRecord: Record<string, TeamInfoData> = getTeamInfoRecord(teamNamesToFetch, enrichedMatches, tableData)
+  let teamInfoRecord: Record<string, TeamInfoData> = {}
 
-  if (teamNamesToFetch.length > 0) {
-    const sourceTeamInfoRecord = getTeamInfoRecord(teamNamesToFetch, enrichedMatches, tableData)
+  if (widgets.length > 0) {
+    const tableData = await fetchSeasonsTable(CURRENT_SEASON)
+    const sourceTeamInfoRecord = getTeamInfoRecord(enrichedMatches, tableData)
+
     for (const widget of widgets) {
       if (widget.teamName) {
         teamInfoRecord[widget.id] = sourceTeamInfoRecord[widget.teamName]
@@ -190,7 +189,8 @@ export default function HomePage() {
   )
 }
 
-function getTeamInfoRecord(teamNames: string[], allMatches: FullMatchInfo[], seasonTable: SeasonTableData[]): Record<string, TeamInfoData> {
+function getTeamInfoRecord(allMatches: FullMatchInfo[], seasonTable: SeasonTableData[]): Record<string, TeamInfoData> {
+  const teamNames = seasonTable.map((team) => team.name)
   const teamPositions: Record<string, number> = {}
   seasonTable.forEach((position, index) => {
     teamPositions[position.name] = index + 1
@@ -233,13 +233,24 @@ function getTeamInfoRecord(teamNames: string[], allMatches: FullMatchInfo[], sea
 
   // Build final result with sorted past matches
   for (const teamName of teamNames) {
-    const pastMatches = teamPastMatches[teamName].sort((a, b) => new Date(b.kickoff).getTime() - new Date(a.kickoff).getTime())
-    const past5Matches = pastMatches.slice(0, 5).reverse()
+    const past5Matches = getPastFiveMatches(teamPastMatches, teamName)
+    const nextOpponentPast5Matches: FullMatchInfo[] = []
+    let nextOpponentLeaguePosition = 0
+
+    if (teamNextMatch[teamName]) {
+      const nextOpponentTeamName =
+        teamNextMatch[teamName].homeTeam.name === teamName ? teamNextMatch[teamName].awayTeam.name : teamNextMatch[teamName].homeTeam.name
+
+      nextOpponentPast5Matches.push(...getPastFiveMatches(teamPastMatches, nextOpponentTeamName))
+      nextOpponentLeaguePosition = teamPositions[nextOpponentTeamName]
+    }
 
     result[teamName] = {
       past5Matches,
       nextMatch: teamNextMatch[teamName],
       leaguePosition: teamPositions[teamName],
+      nextOpponentPast5Matches,
+      nextOpponentLeaguePosition,
     }
   }
 
@@ -255,4 +266,9 @@ function getFullMatchInfoFromMatchInfo(match: MatchInfo, teamName: string): Full
     teamResult: essentialInfo.teamResult,
     venue: essentialInfo.venue,
   }
+}
+
+function getPastFiveMatches(teamPastMatches: Record<string, FullMatchInfo[]>, teamName: string): FullMatchInfo[] {
+  const pastMatches = teamPastMatches[teamName].sort((a, b) => new Date(b.kickoff).getTime() - new Date(a.kickoff).getTime())
+  return pastMatches.slice(0, 5).reverse()
 }

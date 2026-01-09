@@ -18,4 +18,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './app'),
     },
   },
+  define: {
+    __BUILD_TIMESTAMP__: JSON.stringify(new Date().toISOString()),
+  },
 })
