@@ -61,12 +61,16 @@ async function main() {
   for (const mw of existingJSON.matchweeks) {
     for (const match of mw.data.data) {
       const date = dayjs(match.kickoff, 'YYYY-MM-DD HH:mm:ss')
-      if (date.isAfter(dayjs()) && match.period === 'FullTime') {
+      if (date.isBefore(dayjs()) && match.period === 'FullTime') {
+        continue
+      }
+      if (date.isAfter(dayjs())) {
         continue
       }
 
       if (!matchweeksToFetch.includes(mw.matchweek)) {
-        matchweeksToFetch.push(mw.matchweek)
+        // Add 2 more matchweeks in advance, just so it's possible to know future fixtures.
+        matchweeksToFetch.push(mw.matchweek, Math.max(mw.matchweek, mw.matchweek + 1), Math.max(mw.matchweek, mw.matchweek + 2))
       }
     }
   }
