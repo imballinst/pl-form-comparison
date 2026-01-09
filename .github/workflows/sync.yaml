@@ -19,9 +19,6 @@ jobs:
           node-version: '22'
 
       - name: Sync data
-        env:
-          MATCHWEEKS: ${{ steps.check.outputs.matchweeks }}
-          OVERRIDE: 'true'
         run: yarn && node scripts/fetch-matches.mjs
 
       # Commit only if there are changes
