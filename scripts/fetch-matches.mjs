@@ -61,9 +61,35 @@ function ensureResourcesDir() {
 }
 
 async function main() {
-  const upcomingMatchweeksRecord = JSON.parse(fs.readFileSync(UPCOMING_MATCHES_FILE, 'utf-8'))
+  const existingFile = fs.readFileSync(OUTPUT, 'utf-8')
+  const existingJSON = JSON.parse(existingFile)
+  let upcomingMatchweeksRecord = JSON.parse(fs.readFileSync(UPCOMING_MATCHES_FILE, 'utf-8'))
+
+  if (Object.keys(upcomingMatchweeksRecord).length === 0) {
+    console.info('No upcoming matchweeks found, initializing with default values...')
+
+    existingJSON.matchweeks.forEach((/** @type {*} */ mw) => {
+      if (mw.data.data.length > 0) {
+        const date = dayjs(mw.data.data[0].kickoff, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD')
+        if (!upcomingMatchweeksRecord[date]) {
+          upcomingMatchweeksRecord[date] = []
+        }
+        if (!upcomingMatchweeksRecord[date].includes(mw.matchweek)) {
+          upcomingMatchweeksRecord[date].push(mw.matchweek)
+        }
+      }
+    })
+
+    console.info(upcomingMatchweeksRecord)
+  }
+
   const { future, past } = classifyMatchweeksTime(upcomingMatchweeksRecord)
   const pastMatchweeks = new Set(Object.values(past).flat())
+
+  if (pastMatchweeks.size === 0) {
+    console.info('No past matchweeks to fetch. Exiting.')
+    return
+  }
 
   console.info(`Fetching matchweeks: ${Array.from(pastMatchweeks).join(', ')}...`)
   const allData = []
@@ -82,28 +108,19 @@ async function main() {
     }
   }
 
+  const existingByWeek = Object.fromEntries(existingJSON.matchweeks.map((/** @type {*} */ mw) => [mw.matchweek, mw]))
+  allData.forEach((mw) => {
+    existingByWeek[mw.matchweek] = mw
+  })
+
   const result = {
     season: SEASON_YEAR,
     competition: COMPETITION_ID,
     matchweeks: allData,
   }
+  result.matchweeks = Object.values(existingByWeek).sort((a, b) => a.matchweek - b.matchweek)
 
-  let jsonOutput = result
-
-  if (fs.existsSync(OUTPUT)) {
-    const existingFile = fs.readFileSync(OUTPUT, 'utf-8')
-    const existingJSON = JSON.parse(existingFile)
-
-    const existingByWeek = Object.fromEntries(existingJSON.matchweeks.map((/** @type {*} */ mw) => [mw.matchweek, mw]))
-
-    result.matchweeks.forEach((mw) => {
-      existingByWeek[mw.matchweek] = mw
-    })
-
-    jsonOutput.matchweeks = Object.values(existingByWeek).sort((a, b) => a.matchweek - b.matchweek)
-  }
-
-  fs.writeFileSync(OUTPUT, JSON.stringify(jsonOutput, null, 2))
+  fs.writeFileSync(OUTPUT, JSON.stringify(result, null, 2))
   console.log(`Data saved to ${OUTPUT}`)
 
   ensureResourcesDir()

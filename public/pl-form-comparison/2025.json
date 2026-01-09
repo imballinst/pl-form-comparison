@@ -12,6 +12,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -45,6 +46,7 @@
             "attendance": 60315
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -78,6 +80,7 @@
             "attendance": 42526
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -111,6 +114,7 @@
             "attendance": 31478
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -144,6 +148,7 @@
             "attendance": 29949
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -177,6 +182,7 @@
             "attendance": 46233
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -210,6 +216,7 @@
             "attendance": 61077
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -243,6 +250,7 @@
             "attendance": 31118
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -276,6 +284,7 @@
             "attendance": 39678
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -309,6 +318,7 @@
             "attendance": 73475
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -354,6 +364,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -387,6 +398,7 @@
             "attendance": 11070
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -420,6 +432,7 @@
             "attendance": 60110
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -453,6 +466,7 @@
             "attendance": 16838
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -486,6 +500,7 @@
             "attendance": 21285
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -519,6 +534,7 @@
             "attendance": 24876
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -552,6 +568,7 @@
             "attendance": 51759
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -585,6 +602,7 @@
             "attendance": 27512
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -618,6 +636,7 @@
             "attendance": 52491
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -651,6 +670,7 @@
             "attendance": 52230
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -696,6 +716,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -729,6 +750,7 @@
             "attendance": 41036
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -762,6 +784,7 @@
             "attendance": 31485
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -795,6 +818,7 @@
             "attendance": 39745
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -828,6 +852,7 @@
             "attendance": 36727
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -861,6 +886,7 @@
             "attendance": 60455
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -894,6 +920,7 @@
             "attendance": 74257
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -927,6 +954,7 @@
             "attendance": 30215
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -960,6 +988,7 @@
             "attendance": 46267
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -993,6 +1022,7 @@
             "attendance": 61250
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1038,6 +1068,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1071,6 +1102,7 @@
             "attendance": 11167
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1104,6 +1136,7 @@
             "attendance": 60167
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1137,6 +1170,7 @@
             "attendance": 16795
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1170,6 +1204,7 @@
             "attendance": 21678
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1203,6 +1238,7 @@
             "attendance": 25154
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1236,6 +1272,7 @@
             "attendance": 52114
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1269,6 +1306,7 @@
             "attendance": 27327
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1302,6 +1340,7 @@
             "attendance": 52534
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1335,6 +1374,7 @@
             "attendance": 52145
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1380,6 +1420,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1413,6 +1454,7 @@
             "attendance": 11212
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1446,6 +1488,7 @@
             "attendance": 60161
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1479,6 +1522,7 @@
             "attendance": 31488
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1512,6 +1556,7 @@
             "attendance": 21475
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1545,6 +1590,7 @@
             "attendance": 26113
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1578,6 +1624,7 @@
             "attendance": 60342
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1611,6 +1658,7 @@
             "attendance": 74124
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1644,6 +1692,7 @@
             "attendance": 46261
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1677,6 +1726,7 @@
             "attendance": 62455
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1722,6 +1772,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1755,6 +1806,7 @@
             "attendance": 40350
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1788,6 +1840,7 @@
             "attendance": 17193
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1821,6 +1874,7 @@
             "attendance": 39597
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1854,6 +1908,7 @@
             "attendance": 25118
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1887,6 +1942,7 @@
             "attendance": 51890
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1920,6 +1976,7 @@
             "attendance": 36574
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1953,6 +2010,7 @@
             "attendance": 52427
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -1986,6 +2044,7 @@
             "attendance": 52199
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2019,6 +2078,7 @@
             "attendance": 30226
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2064,6 +2124,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2097,6 +2158,7 @@
             "attendance": 11165
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2130,6 +2192,7 @@
             "attendance": 60181
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2163,6 +2226,7 @@
             "attendance": 40308
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2196,6 +2260,7 @@
             "attendance": 17140
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2226,9 +2291,10 @@
             "ground": "Stamford Bridge, London",
             "resultType": "NormalResult",
             "matchId": "2561959",
-            "attendance": 39769
+            "attendance": 39767
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2262,6 +2328,7 @@
             "attendance": 51770
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2295,6 +2362,7 @@
             "attendance": 36703
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2328,6 +2396,7 @@
             "attendance": 74004
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2361,6 +2430,7 @@
             "attendance": 52189
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2406,6 +2476,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2439,6 +2510,7 @@
             "attendance": 31620
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2472,6 +2544,7 @@
             "attendance": 21646
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2505,6 +2578,7 @@
             "attendance": 25125
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2538,6 +2612,7 @@
             "attendance": 27736
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2571,6 +2646,7 @@
             "attendance": 60337
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2604,6 +2680,7 @@
             "attendance": 52498
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2637,6 +2714,7 @@
             "attendance": 30495
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2670,6 +2748,7 @@
             "attendance": 46578
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2703,6 +2782,7 @@
             "attendance": 61291
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2748,6 +2828,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -2781,6 +2862,7 @@
             "attendance": 11204
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -2814,6 +2896,7 @@
             "attendance": 60103
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -2847,6 +2930,7 @@
             "attendance": 41988
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2880,6 +2964,7 @@
             "attendance": 17214
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2913,6 +2998,7 @@
             "attendance": 39489
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -2946,6 +3032,7 @@
             "attendance": 52501
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -2979,6 +3066,7 @@
             "attendance": 36788
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -3012,6 +3100,7 @@
             "attendance": 73987
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "FullTime",
@@ -3045,6 +3134,7 @@
             "attendance": 52152
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3090,6 +3180,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3123,6 +3214,7 @@
             "attendance": 31512
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3156,6 +3248,7 @@
             "attendance": 21538
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3189,6 +3282,7 @@
             "attendance": 25083
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3222,6 +3316,7 @@
             "attendance": 26413
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3255,6 +3350,7 @@
             "attendance": 60407
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3288,6 +3384,7 @@
             "attendance": 52387
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3321,6 +3418,7 @@
             "attendance": 30778
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3354,6 +3452,7 @@
             "attendance": 41476
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3387,6 +3486,7 @@
             "attendance": 61202
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3432,6 +3532,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3465,6 +3566,7 @@
             "attendance": 40792
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3498,6 +3600,7 @@
             "attendance": 17207
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3531,6 +3634,7 @@
             "attendance": 39467
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3564,6 +3668,7 @@
             "attendance": 24326
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3597,6 +3702,7 @@
             "attendance": 52491
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3630,6 +3736,7 @@
             "attendance": 52511
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3663,6 +3770,7 @@
             "attendance": 30708
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3696,6 +3804,7 @@
             "attendance": 46799
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3729,6 +3838,7 @@
             "attendance": 61210
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3774,6 +3884,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3807,6 +3918,7 @@
             "attendance": 11216
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3840,6 +3952,7 @@
             "attendance": 60345
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3873,6 +3986,7 @@
             "attendance": 31358
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3906,6 +4020,7 @@
             "attendance": 21499
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3939,6 +4054,7 @@
             "attendance": 27560
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -3972,6 +4088,7 @@
             "attendance": 36819
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4005,6 +4122,7 @@
             "attendance": 60419
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4038,6 +4156,7 @@
             "attendance": 74158
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4071,6 +4190,7 @@
             "attendance": 52181
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4116,6 +4236,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4149,6 +4270,7 @@
             "attendance": 42139
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4182,6 +4304,7 @@
             "attendance": 17176
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4215,6 +4338,7 @@
             "attendance": 39820
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4248,6 +4372,7 @@
             "attendance": 25189
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4277,9 +4402,11 @@
             "season": "2025",
             "ground": "Hill Dickinson Stadium, Liverpool",
             "resultType": "NormalResult",
-            "matchId": "2562019"
+            "matchId": "2562019",
+            "attendance": 52244
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4313,6 +4440,7 @@
             "attendance": 52483
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4346,6 +4474,7 @@
             "attendance": 30522
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4375,9 +4504,11 @@
             "season": "2025",
             "ground": "Stadium of Light, Sunderland",
             "resultType": "NormalResult",
-            "matchId": "2562022"
+            "matchId": "2562022",
+            "attendance": 46973
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4411,6 +4542,7 @@
             "attendance": 60546
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4456,6 +4588,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4489,6 +4622,7 @@
             "attendance": 11161
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4522,6 +4656,7 @@
             "attendance": 60110
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4555,6 +4690,7 @@
             "attendance": 31180
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4588,6 +4724,7 @@
             "attendance": 19365
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4621,6 +4758,7 @@
             "attendance": 26700
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4654,6 +4792,7 @@
             "attendance": 36767
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4687,6 +4826,7 @@
             "attendance": 60414
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4720,6 +4860,7 @@
             "attendance": 73938
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4753,6 +4894,7 @@
             "attendance": 52007
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "FullTime",
@@ -4896,7 +5038,8 @@
             "season": "2025",
             "ground": "American Express Stadium, Falmer",
             "resultType": "NormalResult",
-            "matchId": "2562037"
+            "matchId": "2562037",
+            "attendance": 31293
           },
           {
             "phase": "1",
@@ -5031,7 +5174,8 @@
             "season": "2025",
             "ground": "Etihad Stadium, Manchester",
             "resultType": "NormalResult",
-            "matchId": "2562041"
+            "matchId": "2562041",
+            "attendance": 52436
           },
           {
             "phase": "1",
@@ -5666,7 +5810,8 @@
             "season": "2025",
             "ground": "Craven Cottage, London",
             "resultType": "NormalResult",
-            "matchId": "2562059"
+            "matchId": "2562059",
+            "attendance": 27136
           },
           {
             "phase": "1",
@@ -6085,7 +6230,8 @@
             "season": "2025",
             "ground": "Old Trafford, Manchester",
             "resultType": "NormalResult",
-            "matchId": "2562071"
+            "matchId": "2562071",
+            "attendance": 73996
           },
           {
             "phase": "1",
@@ -6334,7 +6480,8 @@
             "season": "2025",
             "ground": "Stamford Bridge, London",
             "resultType": "NormalResult",
-            "matchId": "2562078"
+            "matchId": "2562078",
+            "attendance": 39622
           },
           {
             "phase": "1",
@@ -6435,7 +6582,8 @@
             "season": "2025",
             "ground": "Old Trafford, Manchester",
             "resultType": "NormalResult",
-            "matchId": "2562081"
+            "matchId": "2562081",
+            "attendance": 73941
           },
           {
             "phase": "1",
@@ -6536,7 +6684,8 @@
             "season": "2025",
             "ground": "London Stadium, London",
             "resultType": "NormalResult",
-            "matchId": "2562084"
+            "matchId": "2562084",
+            "attendance": 62438
           }
         ]
       }
@@ -7168,7 +7317,8 @@
             "season": "2025",
             "ground": "Etihad Stadium, Manchester",
             "resultType": "NormalResult",
-            "matchId": "2562102"
+            "matchId": "2562102",
+            "attendance": 51728
           },
           {
             "phase": "1",
