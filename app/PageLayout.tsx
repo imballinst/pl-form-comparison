@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { Navbar } from './components/custom/navbar'
 
 export function PageLayout({ children }: { children?: React.ReactNode }) {
@@ -12,9 +13,15 @@ export function PageLayout({ children }: { children?: React.ReactNode }) {
       <main className="container mx-auto p-4 flex-1">{children}</main>
 
       <footer className="border-t border-gray-200 px-4 py-2 text-xs text-center w-full">
-        GitHub repository: <a href="https://github.com/imballinst/pl-form-comparison">imballinst/pl-form-comparison</a>. Original idea by{' '}
-        <a href="https://x.com/DrRitzyy">DrRitzyy on Twitter</a>.
+        <div>
+          GitHub repository: <a href="https://github.com/imballinst/pl-form-comparison">imballinst/pl-form-comparison</a>. Original idea by{' '}
+          <a href="https://x.com/DrRitzyy">DrRitzyy on Twitter</a>. Last updated at {getLastUpdatedTime()}.
+        </div>
       </footer>
     </div>
   )
+}
+
+function getLastUpdatedTime() {
+  return dayjs(__BUILD_TIMESTAMP__).format('MMM D, YYYY HH:mm')
 }
