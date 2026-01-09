@@ -1,0 +1,33 @@
+name: Sync Premier League Data
+
+on:
+  schedule:
+    - cron: '0 23 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Sync data
+        env:
+          MATCHWEEKS: ${{ steps.check.outputs.matchweeks }}
+          OVERRIDE: 'true'
+        run: node scripts/fetch-matches.mjs
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/pl-form-comparison/2025.json scripts/resources/upcoming-matches.json
+          git commit -m "chore: sync Premier League data"
+          git push

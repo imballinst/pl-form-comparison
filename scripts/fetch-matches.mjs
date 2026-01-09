@@ -1,20 +1,18 @@
 import axios from 'axios'
+import dayjs from 'dayjs'
 import fs from 'fs'
+import path from 'path'
 
-// API Configuration
 const COMPETITION_ID = 8
 const SEASON_YEAR = 2025
-const MAX_MATCHWEEKS = 38
-const START_MATCHWEEK = process.env.START_MATCHWEEK ? Number(process.env.START_MATCHWEEK) : 1
-const END_MATCHWEEK = process.env.END_MATCHWEEK ? Number(process.env.END_MATCHWEEK) : MAX_MATCHWEEKS
 const API_LIMIT = 100
 const OUTPUT = `public/pl-form-comparison/${SEASON_YEAR}.json`
 const OVERRIDE = process.env.OVERRIDE === 'true'
+const UPCOMING_MATCHES_FILE = `scripts/resources/upcoming-matches.json`
 
 async function fetchMatches(matchweek) {
   const url = `https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v2/matches?competition=${COMPETITION_ID}&season=${SEASON_YEAR}&matchweek=${matchweek}&_limit=${API_LIMIT}`
 
-  // Create request with headers to mimic a browser
   const headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     Accept: 'application/json',
@@ -30,16 +28,57 @@ async function fetchMatches(matchweek) {
   }
 }
 
-async function main() {
-  if (fs.existsSync(OUTPUT) && !OVERRIDE) {
-    console.info(`File ${OUTPUT} exists, skipping sync...`)
-    return
+function extractUpcomingMatches(jsonData) {
+  const upcoming = {}
+
+  for (const mw of jsonData.matchweeks) {
+    for (const match of mw.data.data) {
+      if (match.period === 'PreMatch') {
+        const kickoff = new Date(match.kickoff.replace(' ', 'T') + 'Z')
+        const kickoffUtc = kickoff.toISOString().split('T')[0] + 'T00:00:00Z'
+
+        if (!upcoming[kickoffUtc]) {
+          upcoming[kickoffUtc] = []
+        }
+        if (!upcoming[kickoffUtc].includes(mw.matchweek)) {
+          upcoming[kickoffUtc].push(mw.matchweek)
+        }
+      }
+    }
   }
 
-  console.info(`Fetching all matchweeks (${START_MATCHWEEK}-${END_MATCHWEEK})...`)
+  return upcoming
+}
+
+function classifyMatchweeksTime(upcoming) {
+  const past = {}
+  const future = {}
+  for (const [date, weeks] of Object.entries(upcoming)) {
+    if (dayjs(date).isAfter(dayjs())) {
+      future[date] = weeks
+    } else {
+      past[date] = weeks
+    }
+  }
+  return { past, future }
+}
+
+function ensureResourcesDir() {
+  const dir = path.dirname(UPCOMING_MATCHES_FILE)
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true })
+  }
+}
+
+async function main() {
+  const upcomingMatchweeksRecord = JSON.parse(fs.readFileSync(UPCOMING_MATCHES_FILE, 'utf-8'))
+  const { future, past } = classifyMatchweeksTime(upcomingMatchweeksRecord)
+  const pastMatchweeks = new Set(Object.values(past).flat())
+
+  console.info(`Fetching matchweeks: ${MATCHWEEKS.join(', ')}...`)
   const allData = []
 
-  for (let week = START_MATCHWEEK; week <= END_MATCHWEEK; week++) {
+  for (const week of pastMatchweeks) {
     console.info(`Fetching matchweek ${week}...`)
     const data = await fetchMatches(week)
 
@@ -49,7 +88,7 @@ async function main() {
         data: data,
       })
     } else {
-      throw new Error(`Warning: Failed to fetch matchweek ${week}`)
+      throw new Error(`Failed to fetch matchweek ${week}`)
     }
   }
 
@@ -61,18 +100,26 @@ async function main() {
 
   let jsonOutput = result
 
-  if (START_MATCHWEEK !== 1) {
+  if (fs.existsSync(OUTPUT)) {
     const existingFile = fs.readFileSync(OUTPUT, 'utf-8')
     const existingJSON = JSON.parse(existingFile)
 
-    jsonOutput.matchweeks = existingJSON.matchweeks
-      .slice(0, START_MATCHWEEK - 1)
-      .concat(result.matchweeks)
-      .concat(existingJSON.matchweeks.slice(END_MATCHWEEK))
+    const existingByWeek = Object.fromEntries(existingJSON.matchweeks.map((mw) => [mw.matchweek, mw]))
+
+    result.matchweeks.forEach((mw) => {
+      existingByWeek[mw.matchweek] = mw
+    })
+
+    jsonOutput.matchweeks = Object.values(existingByWeek).sort((a, b) => a.matchweek - b.matchweek)
   }
 
   fs.writeFileSync(OUTPUT, JSON.stringify(jsonOutput, null, 2))
   console.log(`Data saved to ${OUTPUT}`)
+
+  ensureResourcesDir()
+
+  fs.writeFileSync(UPCOMING_MATCHES_FILE, JSON.stringify(future, null, 2))
+  console.log(`Upcoming matches saved to ${UPCOMING_MATCHES_FILE}`)
 }
 
 main().catch((error) => {
