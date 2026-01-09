@@ -2,13 +2,11 @@
 import axios from 'axios'
 import dayjs from 'dayjs'
 import fs from 'fs'
-import path from 'path'
 
 const COMPETITION_ID = 8
 const SEASON_YEAR = 2025
 const API_LIMIT = 100
 const OUTPUT = `public/pl-form-comparison/${SEASON_YEAR}.json`
-const UPCOMING_MATCHES_FILE = `scripts/resources/upcoming-matches.json`
 
 /**
  *
@@ -53,48 +51,35 @@ function classifyMatchweeksTime(upcoming) {
   return { past, future }
 }
 
-function ensureResourcesDir() {
-  const dir = path.dirname(UPCOMING_MATCHES_FILE)
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true })
-  }
-}
-
 async function main() {
   const existingFile = fs.readFileSync(OUTPUT, 'utf-8')
   const existingJSON = JSON.parse(existingFile)
-  let upcomingMatchweeksRecord = JSON.parse(fs.readFileSync(UPCOMING_MATCHES_FILE, 'utf-8'))
 
-  if (Object.keys(upcomingMatchweeksRecord).length === 0) {
-    console.info('No upcoming matchweeks found, initializing with default values...')
+  /** @type {number[]} */
+  const matchweeksToFetch = []
 
-    existingJSON.matchweeks.forEach((/** @type {*} */ mw) => {
-      if (mw.data.data.length > 0) {
-        const date = dayjs(mw.data.data[0].kickoff, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD')
-        if (!upcomingMatchweeksRecord[date]) {
-          upcomingMatchweeksRecord[date] = []
-        }
-        if (!upcomingMatchweeksRecord[date].includes(mw.matchweek)) {
-          upcomingMatchweeksRecord[date].push(mw.matchweek)
-        }
+  for (const mw of existingJSON.matchweeks.forEach) {
+    for (const match of mw.data.data) {
+      const date = dayjs(match.kickoff, 'YYYY-MM-DD HH:mm:ss')
+      if (date.isAfter(dayjs())) {
+        return
       }
-    })
 
-    console.info(upcomingMatchweeksRecord)
+      if (!matchweeksToFetch.includes(mw.matchweek)) {
+        matchweeksToFetch.push(mw.matchweek)
+      }
+    }
   }
 
-  const { future, past } = classifyMatchweeksTime(upcomingMatchweeksRecord)
-  const pastMatchweeks = new Set(Object.values(past).flat())
-
-  if (pastMatchweeks.size === 0) {
+  if (matchweeksToFetch.length === 0) {
     console.info('No past matchweeks to fetch. Exiting.')
     return
   }
 
-  console.info(`Matchweeks to fetch: ${Array.from(pastMatchweeks).join(', ')}.`)
+  console.info(`Matchweeks to fetch: ${matchweeksToFetch.join(', ')}.`)
   const allData = []
 
-  for (const week of pastMatchweeks) {
+  for (const week of matchweeksToFetch) {
     console.info(`Fetching matchweek ${week}...`)
     const data = await fetchMatches(week)
 
@@ -122,11 +107,6 @@ async function main() {
 
   fs.writeFileSync(OUTPUT, JSON.stringify(result, null, 2))
   console.log(`Data saved to ${OUTPUT}`)
-
-  ensureResourcesDir()
-
-  fs.writeFileSync(UPCOMING_MATCHES_FILE, JSON.stringify(future, null, 2))
-  console.log(`Upcoming matches saved to ${UPCOMING_MATCHES_FILE}`)
 }
 
 main().catch((error) => {
