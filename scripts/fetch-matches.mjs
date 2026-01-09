@@ -1,3 +1,4 @@
+// @ts-check
 import axios from 'axios'
 import dayjs from 'dayjs'
 import fs from 'fs'
@@ -7,9 +8,13 @@ const COMPETITION_ID = 8
 const SEASON_YEAR = 2025
 const API_LIMIT = 100
 const OUTPUT = `public/pl-form-comparison/${SEASON_YEAR}.json`
-const OVERRIDE = process.env.OVERRIDE === 'true'
 const UPCOMING_MATCHES_FILE = `scripts/resources/upcoming-matches.json`
 
+/**
+ *
+ * @param {number} matchweek
+ * @returns
+ */
 async function fetchMatches(matchweek) {
   const url = `https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v2/matches?competition=${COMPETITION_ID}&season=${SEASON_YEAR}&matchweek=${matchweek}&_limit=${API_LIMIT}`
 
@@ -22,36 +27,21 @@ async function fetchMatches(matchweek) {
   try {
     const response = await axios.get(url, { headers, timeout: 10000 })
     return response.data
-  } catch (error) {
+  } catch (/** @type {*} */ error) {
     console.error(`Error fetching matchweek ${matchweek}:`, error.message)
     return null
   }
 }
 
-function extractUpcomingMatches(jsonData) {
-  const upcoming = {}
-
-  for (const mw of jsonData.matchweeks) {
-    for (const match of mw.data.data) {
-      if (match.period === 'PreMatch') {
-        const kickoff = new Date(match.kickoff.replace(' ', 'T') + 'Z')
-        const kickoffUtc = kickoff.toISOString().split('T')[0] + 'T00:00:00Z'
-
-        if (!upcoming[kickoffUtc]) {
-          upcoming[kickoffUtc] = []
-        }
-        if (!upcoming[kickoffUtc].includes(mw.matchweek)) {
-          upcoming[kickoffUtc].push(mw.matchweek)
-        }
-      }
-    }
-  }
-
-  return upcoming
-}
-
+/**
+ *
+ * @param {*} upcoming
+ * @returns
+ */
 function classifyMatchweeksTime(upcoming) {
+  /** @type {Record<string, number[]>}*/
   const past = {}
+  /** @type {Record<string, number[]>}*/
   const future = {}
   for (const [date, weeks] of Object.entries(upcoming)) {
     if (dayjs(date).isAfter(dayjs())) {
@@ -75,7 +65,7 @@ async function main() {
   const { future, past } = classifyMatchweeksTime(upcomingMatchweeksRecord)
   const pastMatchweeks = new Set(Object.values(past).flat())
 
-  console.info(`Fetching matchweeks: ${MATCHWEEKS.join(', ')}...`)
+  console.info(`Fetching matchweeks: ${Array.from(pastMatchweeks).join(', ')}...`)
   const allData = []
 
   for (const week of pastMatchweeks) {
@@ -104,7 +94,7 @@ async function main() {
     const existingFile = fs.readFileSync(OUTPUT, 'utf-8')
     const existingJSON = JSON.parse(existingFile)
 
-    const existingByWeek = Object.fromEntries(existingJSON.matchweeks.map((mw) => [mw.matchweek, mw]))
+    const existingByWeek = Object.fromEntries(existingJSON.matchweeks.map((/** @type {*} */ mw) => [mw.matchweek, mw]))
 
     result.matchweeks.forEach((mw) => {
       existingByWeek[mw.matchweek] = mw
