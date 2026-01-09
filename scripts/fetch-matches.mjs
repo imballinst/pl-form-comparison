@@ -62,7 +62,7 @@ async function main() {
     for (const match of mw.data.data) {
       const date = dayjs(match.kickoff, 'YYYY-MM-DD HH:mm:ss')
       if (date.isAfter(dayjs())) {
-        return
+        continue
       }
 
       if (!matchweeksToFetch.includes(mw.matchweek)) {
