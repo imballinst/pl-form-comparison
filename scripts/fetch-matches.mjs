@@ -91,7 +91,7 @@ async function main() {
     return
   }
 
-  console.info(`Fetching matchweeks: ${Array.from(pastMatchweeks).join(', ')}...`)
+  console.info(`Matchweeks to fetch: ${Array.from(pastMatchweeks).join(', ')}.`)
   const allData = []
 
   for (const week of pastMatchweeks) {
