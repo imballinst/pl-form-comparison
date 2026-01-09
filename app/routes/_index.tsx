@@ -140,7 +140,7 @@ export default function HomePage() {
               size="sm"
               variant="outline"
             >
-              <Plus size={16} />
+              <Plus size={16} aria-hidden />
               Add Widget
             </Button>
           )}

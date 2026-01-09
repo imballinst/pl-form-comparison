@@ -227,7 +227,6 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
                   variant="outline"
                   size="icon-sm"
                   className="rounded-full w-5 h-5"
-                  aria-label="Remove column"
                   onClick={() => {
                     setSearchParams((prev) => {
                       const newSearchParams = new URLSearchParams(prev)
@@ -243,7 +242,7 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
                     })
                   }}
                 >
-                  <X className="w-3! h-3!" />
+                  <X className="w-3! h-3!" aria-label="Remove column" />
                 </Button>
               </div>
             </TableHead>

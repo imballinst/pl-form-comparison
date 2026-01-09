@@ -32,7 +32,7 @@ export function TeamWidget({ teamName, onRemove, onTeamSelect, widgetId, isDragg
       {/* Header with drag and close buttons */}
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2 flex-1 min-w-0">
-          <GripVertical size={18} className="text-gray-400 shrink-0 cursor-grab active:cursor-grabbing" />
+          <GripVertical size={18} className="text-gray-400 shrink-0 cursor-grab active:cursor-grabbing" aria-label="Drag widget" />
 
           <Select onValueChange={onTeamSelect} value={teamName}>
             <SelectTrigger className="w-full">
@@ -55,7 +55,7 @@ export function TeamWidget({ teamName, onRemove, onTeamSelect, widgetId, isDragg
             onRemove(widgetId)
           }}
         >
-          <X size={18} />
+          <X size={18} aria-label="Remove widget" />
         </Button>
       </div>
 
