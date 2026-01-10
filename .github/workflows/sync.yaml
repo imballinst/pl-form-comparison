@@ -22,12 +22,15 @@ jobs:
         run: yarn && node scripts/fetch-matches.mjs
 
       # Commit only if there are changes
+      - name: Check for changes
+        id: gitcheck
+        run: echo "::set-output name=changed::$(git status --porcelain | wc -l)"
+
       - name: Commit changes
+        if: steps.gitcheck.outputs.changed != '0'
         run: |
-          if git status --porcelain; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add -A
-            git commit -m "chore: sync Premier League data"
-            git push
-          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: sync Premier League data"
+          git push
