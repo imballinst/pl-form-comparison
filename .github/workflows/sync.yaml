@@ -24,7 +24,7 @@ jobs:
       # Commit only if there are changes
       - name: Check for changes
         id: gitcheck
-        run: echo "::set-output name=changed::$(git status --porcelain | wc -l)"
+        run: echo "changed=$(git status --porcelain | wc -l)" >> "$GITHUB_OUTPUT"
 
       - name: Commit changes
         if: steps.gitcheck.outputs.changed != '0'
@@ -34,3 +34,9 @@ jobs:
           git add -A
           git commit -m "chore: sync Premier League data"
           git push
+
+      - name: Trigger publish workflow
+        if: steps.gitcheck.outputs.changed != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api repos/${{ github.repository }}/actions/workflows/publish.yaml/dispatches -f ref=main
