@@ -1,7 +1,7 @@
 [
   {
     "name": "Arsenal",
-    "points": 49,
+    "points": 50,
     "gf": 40,
     "ga": 14,
     "gd": 26
@@ -10,8 +10,8 @@
     "name": "Manchester City",
     "points": 43,
     "gf": 45,
-    "ga": 19,
-    "gd": 26
+    "ga": 21,
+    "gd": 24
   },
   {
     "name": "Aston Villa",
@@ -22,17 +22,38 @@
   },
   {
     "name": "Liverpool",
-    "points": 35,
-    "gf": 32,
-    "ga": 28,
+    "points": 36,
+    "gf": 33,
+    "ga": 29,
     "gd": 4
+  },
+  {
+    "name": "Manchester United",
+    "points": 35,
+    "gf": 38,
+    "ga": 32,
+    "gd": 6
+  },
+  {
+    "name": "Chelsea",
+    "points": 34,
+    "gf": 36,
+    "ga": 24,
+    "gd": 12
   },
   {
     "name": "Brentford",
     "points": 33,
     "gf": 35,
-    "ga": 28,
-    "gd": 7
+    "ga": 30,
+    "gd": 5
+  },
+  {
+    "name": "Sunderland",
+    "points": 33,
+    "gf": 23,
+    "ga": 23,
+    "gd": 0
   },
   {
     "name": "Newcastle United",
@@ -42,31 +63,10 @@
     "gd": 5
   },
   {
-    "name": "Manchester United",
-    "points": 32,
-    "gf": 36,
-    "ga": 32,
-    "gd": 4
-  },
-  {
-    "name": "Chelsea",
-    "points": 31,
-    "gf": 34,
-    "ga": 24,
-    "gd": 10
-  },
-  {
     "name": "Fulham",
     "points": 31,
     "gf": 30,
-    "ga": 30,
-    "gd": 0
-  },
-  {
-    "name": "Sunderland",
-    "points": 30,
-    "gf": 21,
-    "ga": 22,
+    "ga": 31,
     "gd": -1
   },
   {
@@ -86,16 +86,16 @@
   {
     "name": "Crystal Palace",
     "points": 28,
-    "gf": 22,
-    "ga": 23,
-    "gd": -1
+    "gf": 23,
+    "ga": 25,
+    "gd": -2
   },
   {
     "name": "Tottenham Hotspur",
     "points": 27,
-    "gf": 30,
-    "ga": 27,
-    "gd": 3
+    "gf": 31,
+    "ga": 29,
+    "gd": 2
   },
   {
     "name": "Bournemouth",
@@ -106,30 +106,30 @@
   },
   {
     "name": "Leeds United",
-    "points": 22,
-    "gf": 29,
+    "points": 25,
+    "gf": 30,
     "ga": 37,
-    "gd": -8
+    "gd": -7
   },
   {
     "name": "Nottingham Forest",
-    "points": 21,
+    "points": 22,
     "gf": 21,
     "ga": 34,
     "gd": -13
   },
   {
     "name": "West Ham United",
-    "points": 14,
-    "gf": 22,
-    "ga": 43,
-    "gd": -21
+    "points": 17,
+    "gf": 24,
+    "ga": 44,
+    "gd": -20
   },
   {
     "name": "Burnley",
-    "points": 13,
-    "gf": 22,
-    "ga": 41,
+    "points": 14,
+    "gf": 23,
+    "ga": 42,
     "gd": -19
   },
   {

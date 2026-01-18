@@ -19,7 +19,7 @@ jobs:
           node-version: '22'
 
       - name: Sync data
-        run: yarn && node scripts/fetch-matches.mjs
+        run: yarn && yarn stats:update
 
       # Commit only if there are changes
       - name: Check for changes
