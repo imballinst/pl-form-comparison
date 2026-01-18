@@ -7404,25 +7404,33 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 22,
             "kickoff": "2026-01-18 16:30:00",
             "awayTeam": {
+              "score": 1,
               "name": "Everton",
               "id": "11",
+              "halfTimeScore": 0,
               "shortName": "Everton",
-              "abbr": "EVE"
+              "abbr": "EVE",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "95",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "Aston Villa",
               "id": "7",
+              "halfTimeScore": 0,
               "shortName": "Aston Villa",
-              "abbr": "AVL"
+              "abbr": "AVL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Villa Park, Birmingham",
+            "resultType": "NormalResult",
             "matchId": "2562105"
           },
           {
@@ -7548,7 +7556,8 @@
             "season": "2025",
             "ground": "Anfield, Liverpool",
             "resultType": "NormalResult",
-            "matchId": "2562109"
+            "matchId": "2562109",
+            "attendance": 60431
           },
           {
             "phase": "1",
@@ -7649,7 +7658,8 @@
             "season": "2025",
             "ground": "Stadium of Light, Sunderland",
             "resultType": "NormalResult",
-            "matchId": "2562112"
+            "matchId": "2562112",
+            "attendance": 47257
           },
           {
             "phase": "1",
@@ -7689,26 +7699,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 22,
             "kickoff": "2026-01-18 14:00:00",
             "awayTeam": {
+              "score": 0,
               "name": "Newcastle United",
               "id": "4",
+              "halfTimeScore": 0,
               "shortName": "Newcastle",
-              "abbr": "NEW"
+              "abbr": "NEW",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "Wolverhampton Wanderers",
               "id": "39",
+              "halfTimeScore": 0,
               "shortName": "Wolves",
-              "abbr": "WOL"
+              "abbr": "WOL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Molineux Stadium, Wolverhampton",
-            "matchId": "2562114"
+            "resultType": "NormalResult",
+            "matchId": "2562114",
+            "attendance": 29751
           }
         ]
       }

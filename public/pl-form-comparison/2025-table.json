@@ -17,8 +17,8 @@
     "name": "Aston Villa",
     "points": 43,
     "gf": 33,
-    "ga": 24,
-    "gd": 9
+    "ga": 25,
+    "gd": 8
   },
   {
     "name": "Liverpool",
@@ -49,6 +49,13 @@
     "gd": 5
   },
   {
+    "name": "Newcastle United",
+    "points": 33,
+    "gf": 32,
+    "ga": 27,
+    "gd": 5
+  },
+  {
     "name": "Sunderland",
     "points": 33,
     "gf": 23,
@@ -56,11 +63,11 @@
     "gd": 0
   },
   {
-    "name": "Newcastle United",
+    "name": "Everton",
     "points": 32,
-    "gf": 32,
-    "ga": 27,
-    "gd": 5
+    "gf": 24,
+    "ga": 25,
+    "gd": -1
   },
   {
     "name": "Fulham",
@@ -75,13 +82,6 @@
     "gf": 31,
     "ga": 28,
     "gd": 3
-  },
-  {
-    "name": "Everton",
-    "points": 29,
-    "gf": 23,
-    "ga": 25,
-    "gd": -2
   },
   {
     "name": "Crystal Palace",
@@ -134,7 +134,7 @@
   },
   {
     "name": "Wolverhampton Wanderers",
-    "points": 7,
+    "points": 8,
     "gf": 15,
     "ga": 41,
     "gd": -26
