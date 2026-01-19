@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        env:
+          token: ${{ secrets.PAT }}
 
       - uses: actions/setup-node@v4
         with:
@@ -34,9 +36,3 @@ jobs:
           git add -A
           git commit -m "chore: sync Premier League data"
           git push
-
-      - name: Trigger publish workflow
-        if: steps.gitcheck.outputs.changed != '0'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh api repos/${{ github.repository }}/actions/workflows/publish.yaml/dispatches -f ref=main
