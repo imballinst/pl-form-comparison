@@ -7437,26 +7437,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 22,
             "kickoff": "2026-01-19 20:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Bournemouth",
               "id": "91",
+              "halfTimeScore": 1,
               "shortName": "Bournemouth",
-              "abbr": "BOU"
+              "abbr": "BOU",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "101",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Brighton and Hove Albion",
               "id": "36",
+              "halfTimeScore": 0,
               "shortName": "Brighton",
-              "abbr": "BHA"
+              "abbr": "BHA",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "American Express Stadium, Falmer",
-            "matchId": "2562106"
+            "resultType": "NormalResult",
+            "matchId": "2562106",
+            "attendance": 30172
           },
           {
             "phase": "1",
@@ -7489,7 +7498,8 @@
             "season": "2025",
             "ground": "Stamford Bridge, London",
             "resultType": "NormalResult",
-            "matchId": "2562107"
+            "matchId": "2562107",
+            "attendance": 39704
           },
           {
             "phase": "1",
