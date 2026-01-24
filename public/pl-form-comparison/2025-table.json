@@ -8,10 +8,10 @@
   },
   {
     "name": "Manchester City",
-    "points": 43,
-    "gf": 45,
+    "points": 46,
+    "gf": 47,
     "ga": 21,
-    "gd": 24
+    "gd": 26
   },
   {
     "name": "Aston Villa",
@@ -23,9 +23,9 @@
   {
     "name": "Liverpool",
     "points": 36,
-    "gf": 33,
-    "ga": 29,
-    "gd": 4
+    "gf": 35,
+    "ga": 32,
+    "gd": 3
   },
   {
     "name": "Manchester United",
@@ -40,6 +40,13 @@
     "gf": 36,
     "ga": 24,
     "gd": 12
+  },
+  {
+    "name": "Fulham",
+    "points": 34,
+    "gf": 32,
+    "ga": 32,
+    "gd": 0
   },
   {
     "name": "Brentford",
@@ -58,9 +65,9 @@
   {
     "name": "Sunderland",
     "points": 33,
-    "gf": 23,
-    "ga": 23,
-    "gd": 0
+    "gf": 24,
+    "ga": 26,
+    "gd": -2
   },
   {
     "name": "Everton",
@@ -70,18 +77,25 @@
     "gd": -1
   },
   {
-    "name": "Fulham",
-    "points": 31,
-    "gf": 30,
-    "ga": 31,
-    "gd": -1
-  },
-  {
     "name": "Brighton and Hove Albion",
     "points": 30,
-    "gf": 32,
-    "ga": 29,
-    "gd": 3
+    "gf": 33,
+    "ga": 31,
+    "gd": 2
+  },
+  {
+    "name": "Bournemouth",
+    "points": 30,
+    "gf": 38,
+    "ga": 43,
+    "gd": -5
+  },
+  {
+    "name": "Tottenham Hotspur",
+    "points": 28,
+    "gf": 33,
+    "ga": 31,
+    "gd": 2
   },
   {
     "name": "Crystal Palace",
@@ -89,20 +103,6 @@
     "gf": 23,
     "ga": 25,
     "gd": -2
-  },
-  {
-    "name": "Tottenham Hotspur",
-    "points": 27,
-    "gf": 31,
-    "ga": 29,
-    "gd": 2
-  },
-  {
-    "name": "Bournemouth",
-    "points": 27,
-    "gf": 35,
-    "ga": 41,
-    "gd": -6
   },
   {
     "name": "Leeds United",
@@ -120,23 +120,23 @@
   },
   {
     "name": "West Ham United",
-    "points": 17,
-    "gf": 24,
-    "ga": 44,
-    "gd": -20
+    "points": 20,
+    "gf": 27,
+    "ga": 45,
+    "gd": -18
   },
   {
     "name": "Burnley",
-    "points": 14,
-    "gf": 23,
-    "ga": 42,
+    "points": 15,
+    "gf": 25,
+    "ga": 44,
     "gd": -19
   },
   {
     "name": "Wolverhampton Wanderers",
     "points": 8,
     "gf": 15,
-    "ga": 41,
-    "gd": -26
+    "ga": 43,
+    "gd": -28
   }
 ]
