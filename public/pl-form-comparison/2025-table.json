@@ -63,18 +63,18 @@
     "gd": 3
   },
   {
+    "name": "Everton",
+    "points": 33,
+    "gf": 25,
+    "ga": 26,
+    "gd": -1
+  },
+  {
     "name": "Sunderland",
     "points": 33,
     "gf": 24,
     "ga": 26,
     "gd": -2
-  },
-  {
-    "name": "Everton",
-    "points": 32,
-    "gf": 24,
-    "ga": 25,
-    "gd": -1
   },
   {
     "name": "Brighton and Hove Albion",
@@ -106,9 +106,9 @@
   },
   {
     "name": "Leeds United",
-    "points": 25,
-    "gf": 30,
-    "ga": 37,
+    "points": 26,
+    "gf": 31,
+    "ga": 38,
     "gd": -7
   },
   {

@@ -7918,32 +7918,42 @@
             "season": "2025",
             "ground": "Selhurst Park, London",
             "resultType": "NormalResult",
-            "matchId": "2562119"
+            "matchId": "2562119",
+            "attendance": 25163
           },
           {
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 23,
             "kickoff": "2026-01-26 20:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Leeds United",
               "id": "2",
+              "halfTimeScore": 1,
               "shortName": "Leeds",
-              "abbr": "LEE"
+              "abbr": "LEE",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "95",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Everton",
               "id": "11",
+              "halfTimeScore": 0,
               "shortName": "Everton",
-              "abbr": "EVE"
+              "abbr": "EVE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Hill Dickinson Stadium, Liverpool",
-            "matchId": "2562120"
+            "resultType": "NormalResult",
+            "matchId": "2562120",
+            "attendance": 51979
           },
           {
             "phase": "1",
@@ -8078,7 +8088,8 @@
             "season": "2025",
             "ground": "London Stadium, London",
             "resultType": "NormalResult",
-            "matchId": "2562124"
+            "matchId": "2562124",
+            "attendance": 62456
           }
         ]
       }
