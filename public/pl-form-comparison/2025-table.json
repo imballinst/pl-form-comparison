@@ -49,6 +49,13 @@
     "gd": 4
   },
   {
+    "name": "Sunderland",
+    "points": 36,
+    "gf": 27,
+    "ga": 26,
+    "gd": 1
+  },
+  {
     "name": "Fulham",
     "points": 34,
     "gf": 34,
@@ -68,13 +75,6 @@
     "gf": 33,
     "ga": 33,
     "gd": 0
-  },
-  {
-    "name": "Sunderland",
-    "points": 33,
-    "gf": 24,
-    "ga": 26,
-    "gd": -2
   },
   {
     "name": "Bournemouth",
@@ -129,8 +129,8 @@
     "name": "Burnley",
     "points": 15,
     "gf": 25,
-    "ga": 44,
-    "gd": -19
+    "ga": 47,
+    "gd": -22
   },
   {
     "name": "Wolverhampton Wanderers",

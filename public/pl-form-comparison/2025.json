@@ -8343,26 +8343,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 24,
             "kickoff": "2026-02-02 20:00:00",
             "awayTeam": {
+              "score": 0,
               "name": "Burnley",
               "id": "90",
+              "halfTimeScore": 0,
               "shortName": "Burnley",
-              "abbr": "BUR"
+              "abbr": "BUR",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "94",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 3,
               "name": "Sunderland",
               "id": "56",
+              "halfTimeScore": 2,
               "shortName": "Sunderland",
-              "abbr": "SUN"
+              "abbr": "SUN",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Stadium of Light, Sunderland",
-            "matchId": "2562132"
+            "resultType": "NormalResult",
+            "matchId": "2562132",
+            "attendance": 46370
           },
           {
             "phase": "1",
