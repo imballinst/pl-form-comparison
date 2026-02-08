@@ -6,6 +6,7 @@ import fs from 'fs'
 const COMPETITION_ID = 8
 const SEASON_YEAR = 2025
 const API_LIMIT = 100
+const FETCH_REMAINING_MATCHWEEKS = process.env.FETCH_REMAINING_MATCHWEEKS === 'true'
 const OUTPUT = `public/pl-form-comparison/${SEASON_YEAR}.json`
 
 /**
@@ -31,26 +32,6 @@ async function fetchMatches(matchweek) {
   }
 }
 
-/**
- *
- * @param {*} upcoming
- * @returns
- */
-function classifyMatchweeksTime(upcoming) {
-  /** @type {Record<string, number[]>}*/
-  const past = {}
-  /** @type {Record<string, number[]>}*/
-  const future = {}
-  for (const [date, weeks] of Object.entries(upcoming)) {
-    if (dayjs(date).isAfter(dayjs())) {
-      future[date] = weeks
-    } else {
-      past[date] = weeks
-    }
-  }
-  return { past, future }
-}
-
 async function main() {
   const existingFile = fs.readFileSync(OUTPUT, 'utf-8')
   const existingJSON = JSON.parse(existingFile)
@@ -65,6 +46,14 @@ async function main() {
         continue
       }
       if (date.isAfter(dayjs())) {
+        if (FETCH_REMAINING_MATCHWEEKS) {
+          for (let i = mw.matchweek; i <= existingJSON.matchweeks.length; i++) {
+            if (!matchweeksToFetch.includes(i)) {
+              matchweeksToFetch.push(i)
+            }
+          }
+        }
+
         continue
       }
 

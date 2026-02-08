@@ -9337,17 +9337,20 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 28,
-            "kickoff": "2026-02-28 15:00:00",
+            "kickoff": "2026-02-28 12:30:00",
             "awayTeam": {
               "name": "Sunderland",
               "id": "56",
               "shortName": "Sunderland",
               "abbr": "SUN"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Bournemouth",
               "id": "91",
@@ -9355,23 +9358,24 @@
               "abbr": "BOU"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Vitality Stadium, Bournemouth",
-            "matchId": "2562165",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562165"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 28,
-            "kickoff": "2026-02-28 15:00:00",
+            "kickoff": "2026-03-01 16:30:00",
             "awayTeam": {
               "name": "Chelsea",
               "id": "8",
               "shortName": "Chelsea",
               "abbr": "CHE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Arsenal",
               "id": "3",
@@ -9379,23 +9383,24 @@
               "abbr": "ARS"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Emirates Stadium, London",
-            "matchId": "2562166",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562166"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 28,
-            "kickoff": "2026-02-28 15:00:00",
+            "kickoff": "2026-03-01 14:00:00",
             "awayTeam": {
               "name": "Nottingham Forest",
               "id": "17",
               "shortName": "Nott'm Forest",
               "abbr": "NFO"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Brighton and Hove Albion",
               "id": "36",
@@ -9403,12 +9408,11 @@
               "abbr": "BHA"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "American Express Stadium, Falmer",
-            "matchId": "2562167",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562167"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
@@ -9420,6 +9424,8 @@
               "shortName": "Brentford",
               "abbr": "BRE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Burnley",
               "id": "90",
@@ -9427,23 +9433,24 @@
               "abbr": "BUR"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Turf Moor, Burnley",
-            "matchId": "2562168",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562168"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 28,
-            "kickoff": "2026-02-28 15:00:00",
+            "kickoff": "2026-03-01 14:00:00",
             "awayTeam": {
               "name": "Tottenham Hotspur",
               "id": "6",
               "shortName": "Spurs",
               "abbr": "TOT"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Fulham",
               "id": "54",
@@ -9451,23 +9458,24 @@
               "abbr": "FUL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Craven Cottage, London",
-            "matchId": "2562169",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562169"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 28,
-            "kickoff": "2026-02-28 15:00:00",
+            "kickoff": "2026-02-28 17:30:00",
             "awayTeam": {
               "name": "Manchester City",
               "id": "43",
               "shortName": "Man City",
               "abbr": "MCI"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Leeds United",
               "id": "2",
@@ -9475,12 +9483,11 @@
               "abbr": "LEE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Elland Road, Leeds",
-            "matchId": "2562170",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562170"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
@@ -9492,6 +9499,8 @@
               "shortName": "West Ham",
               "abbr": "WHU"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Liverpool",
               "id": "14",
@@ -9499,23 +9508,24 @@
               "abbr": "LIV"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Anfield, Liverpool",
-            "matchId": "2562171",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562171"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 28,
-            "kickoff": "2026-02-28 15:00:00",
+            "kickoff": "2026-03-01 14:00:00",
             "awayTeam": {
               "name": "Crystal Palace",
               "id": "31",
               "shortName": "Crystal Palace",
               "abbr": "CRY"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Manchester United",
               "id": "1",
@@ -9523,12 +9533,11 @@
               "abbr": "MUN"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Old Trafford, Manchester",
-            "matchId": "2562172",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562172"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
@@ -9540,6 +9549,8 @@
               "shortName": "Everton",
               "abbr": "EVE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Newcastle United",
               "id": "4",
@@ -9547,23 +9558,24 @@
               "abbr": "NEW"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "St. James' Park, Newcastle",
-            "matchId": "2562173",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562173"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 28,
-            "kickoff": "2026-02-28 15:00:00",
+            "kickoff": "2026-02-27 20:00:00",
             "awayTeam": {
               "name": "Aston Villa",
               "id": "7",
               "shortName": "Aston Villa",
               "abbr": "AVL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Wolverhampton Wanderers",
               "id": "39",
@@ -9571,10 +9583,8 @@
               "abbr": "WOL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Molineux Stadium, Wolverhampton",
-            "matchId": "2562174",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562174"
           }
         ]
       }
@@ -9589,17 +9599,20 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 29,
-            "kickoff": "2026-03-04 20:00:00",
+            "kickoff": "2026-03-03 19:30:00",
             "awayTeam": {
               "name": "Brentford",
               "id": "94",
               "shortName": "Brentford",
               "abbr": "BRE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Bournemouth",
               "id": "91",
@@ -9607,23 +9620,24 @@
               "abbr": "BOU"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Vitality Stadium, Bournemouth",
-            "matchId": "2562175",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562175"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 29,
-            "kickoff": "2026-03-04 20:00:00",
+            "kickoff": "2026-03-04 19:30:00",
             "awayTeam": {
               "name": "Chelsea",
               "id": "8",
               "shortName": "Chelsea",
               "abbr": "CHE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Aston Villa",
               "id": "7",
@@ -9631,23 +9645,24 @@
               "abbr": "AVL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Villa Park, Birmingham",
-            "matchId": "2562176",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562176"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 29,
-            "kickoff": "2026-03-04 20:00:00",
+            "kickoff": "2026-03-04 19:30:00",
             "awayTeam": {
               "name": "Arsenal",
               "id": "3",
               "shortName": "Arsenal",
               "abbr": "ARS"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Brighton and Hove Albion",
               "id": "36",
@@ -9655,23 +9670,24 @@
               "abbr": "BHA"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "American Express Stadium, Falmer",
-            "matchId": "2562177",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562177"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 29,
-            "kickoff": "2026-03-04 20:00:00",
+            "kickoff": "2026-03-03 19:30:00",
             "awayTeam": {
               "name": "Burnley",
               "id": "90",
               "shortName": "Burnley",
               "abbr": "BUR"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Everton",
               "id": "11",
@@ -9679,23 +9695,24 @@
               "abbr": "EVE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Hill Dickinson Stadium, Liverpool",
-            "matchId": "2562178",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562178"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 29,
-            "kickoff": "2026-03-04 20:00:00",
+            "kickoff": "2026-03-04 19:30:00",
             "awayTeam": {
               "name": "West Ham United",
               "id": "21",
               "shortName": "West Ham",
               "abbr": "WHU"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Fulham",
               "id": "54",
@@ -9703,23 +9720,24 @@
               "abbr": "FUL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Craven Cottage, London",
-            "matchId": "2562179",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562179"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 29,
-            "kickoff": "2026-03-04 20:00:00",
+            "kickoff": "2026-03-03 19:30:00",
             "awayTeam": {
               "name": "Sunderland",
               "id": "56",
               "shortName": "Sunderland",
               "abbr": "SUN"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Leeds United",
               "id": "2",
@@ -9727,23 +9745,24 @@
               "abbr": "LEE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Elland Road, Leeds",
-            "matchId": "2562180",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562180"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 29,
-            "kickoff": "2026-03-04 20:00:00",
+            "kickoff": "2026-03-04 19:30:00",
             "awayTeam": {
               "name": "Nottingham Forest",
               "id": "17",
               "shortName": "Nott'm Forest",
               "abbr": "NFO"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Manchester City",
               "id": "43",
@@ -9751,23 +9770,24 @@
               "abbr": "MCI"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Etihad Stadium, Manchester",
-            "matchId": "2562181",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562181"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 29,
-            "kickoff": "2026-03-04 20:00:00",
+            "kickoff": "2026-03-04 20:15:00",
             "awayTeam": {
               "name": "Manchester United",
               "id": "1",
               "shortName": "Man Utd",
               "abbr": "MUN"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Newcastle United",
               "id": "4",
@@ -9775,23 +9795,24 @@
               "abbr": "NEW"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "St. James' Park, Newcastle",
-            "matchId": "2562182",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562182"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 29,
-            "kickoff": "2026-03-04 20:00:00",
+            "kickoff": "2026-03-05 20:00:00",
             "awayTeam": {
               "name": "Crystal Palace",
               "id": "31",
               "shortName": "Crystal Palace",
               "abbr": "CRY"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Tottenham Hotspur",
               "id": "6",
@@ -9799,23 +9820,24 @@
               "abbr": "TOT"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Tottenham Hotspur Stadium, London",
-            "matchId": "2562183",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562183"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 29,
-            "kickoff": "2026-03-04 20:00:00",
+            "kickoff": "2026-03-03 20:15:00",
             "awayTeam": {
               "name": "Liverpool",
               "id": "14",
               "shortName": "Liverpool",
               "abbr": "LIV"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Wolverhampton Wanderers",
               "id": "39",
@@ -9823,10 +9845,8 @@
               "abbr": "WOL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Molineux Stadium, Wolverhampton",
-            "matchId": "2562184",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562184"
           }
         ]
       }
@@ -9841,17 +9861,20 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 30,
-            "kickoff": "2026-03-14 15:00:00",
+            "kickoff": "2026-03-15 14:00:00",
             "awayTeam": {
               "name": "Everton",
               "id": "11",
               "shortName": "Everton",
               "abbr": "EVE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Arsenal",
               "id": "3",
@@ -9859,23 +9882,24 @@
               "abbr": "ARS"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Emirates Stadium, London",
-            "matchId": "2562185",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562185"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 30,
-            "kickoff": "2026-03-14 15:00:00",
+            "kickoff": "2026-03-16 20:00:00",
             "awayTeam": {
               "name": "Wolverhampton Wanderers",
               "id": "39",
               "shortName": "Wolves",
               "abbr": "WOL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Brentford",
               "id": "94",
@@ -9883,12 +9907,11 @@
               "abbr": "BRE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Gtech Community Stadium, Brentford",
-            "matchId": "2562186",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562186"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
@@ -9900,6 +9923,8 @@
               "shortName": "Bournemouth",
               "abbr": "BOU"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Burnley",
               "id": "90",
@@ -9907,23 +9932,24 @@
               "abbr": "BUR"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Turf Moor, Burnley",
-            "matchId": "2562187",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562187"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 30,
-            "kickoff": "2026-03-14 15:00:00",
+            "kickoff": "2026-03-14 17:30:00",
             "awayTeam": {
               "name": "Newcastle United",
               "id": "4",
               "shortName": "Newcastle",
               "abbr": "NEW"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Chelsea",
               "id": "8",
@@ -9931,12 +9957,11 @@
               "abbr": "CHE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Stamford Bridge, London",
-            "matchId": "2562188",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562188"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
@@ -9948,6 +9973,8 @@
               "shortName": "Leeds",
               "abbr": "LEE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Crystal Palace",
               "id": "31",
@@ -9955,23 +9982,24 @@
               "abbr": "CRY"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Selhurst Park, London",
-            "matchId": "2562189",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562189"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 30,
-            "kickoff": "2026-03-14 15:00:00",
+            "kickoff": "2026-03-15 16:30:00",
             "awayTeam": {
               "name": "Tottenham Hotspur",
               "id": "6",
               "shortName": "Spurs",
               "abbr": "TOT"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Liverpool",
               "id": "14",
@@ -9979,23 +10007,24 @@
               "abbr": "LIV"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Anfield, Liverpool",
-            "matchId": "2562190",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562190"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 30,
-            "kickoff": "2026-03-14 15:00:00",
+            "kickoff": "2026-03-15 14:00:00",
             "awayTeam": {
               "name": "Aston Villa",
               "id": "7",
               "shortName": "Aston Villa",
               "abbr": "AVL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Manchester United",
               "id": "1",
@@ -10003,12 +10032,11 @@
               "abbr": "MUN"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Old Trafford, Manchester",
-            "matchId": "2562191",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562191"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10020,6 +10048,8 @@
               "shortName": "Fulham",
               "abbr": "FUL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Nottingham Forest",
               "id": "17",
@@ -10027,12 +10057,11 @@
               "abbr": "NFO"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "The City Ground, Nottingham",
-            "matchId": "2562192",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562192"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10044,6 +10073,8 @@
               "shortName": "Brighton",
               "abbr": "BHA"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Sunderland",
               "id": "56",
@@ -10051,23 +10082,24 @@
               "abbr": "SUN"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Stadium of Light, Sunderland",
-            "matchId": "2562193",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562193"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 30,
-            "kickoff": "2026-03-14 15:00:00",
+            "kickoff": "2026-03-14 12:30:00",
             "awayTeam": {
               "name": "Manchester City",
               "id": "43",
               "shortName": "Man City",
               "abbr": "MCI"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "West Ham United",
               "id": "21",
@@ -10075,10 +10107,8 @@
               "abbr": "WHU"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "London Stadium, London",
-            "matchId": "2562194",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562194"
           }
         ]
       }
@@ -10093,17 +10123,20 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 31,
-            "kickoff": "2026-03-21 15:00:00",
+            "kickoff": "2026-03-20 20:00:00",
             "awayTeam": {
               "name": "Manchester United",
               "id": "1",
               "shortName": "Man Utd",
               "abbr": "MUN"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Bournemouth",
               "id": "91",
@@ -10111,23 +10144,24 @@
               "abbr": "BOU"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Vitality Stadium, Bournemouth",
-            "matchId": "2562195",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562195"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 31,
-            "kickoff": "2026-03-21 15:00:00",
+            "kickoff": "2026-03-22 14:15:00",
             "awayTeam": {
               "name": "West Ham United",
               "id": "21",
               "shortName": "West Ham",
               "abbr": "WHU"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Aston Villa",
               "id": "7",
@@ -10135,23 +10169,24 @@
               "abbr": "AVL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Villa Park, Birmingham",
-            "matchId": "2562196",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562196"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 31,
-            "kickoff": "2026-03-21 15:00:00",
+            "kickoff": "2026-03-21 12:30:00",
             "awayTeam": {
               "name": "Liverpool",
               "id": "14",
               "shortName": "Liverpool",
               "abbr": "LIV"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Brighton and Hove Albion",
               "id": "36",
@@ -10159,23 +10194,24 @@
               "abbr": "BHA"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "American Express Stadium, Falmer",
-            "matchId": "2562197",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562197"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 31,
-            "kickoff": "2026-03-21 15:00:00",
+            "kickoff": "2026-03-21 17:30:00",
             "awayTeam": {
               "name": "Chelsea",
               "id": "8",
               "shortName": "Chelsea",
               "abbr": "CHE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Everton",
               "id": "11",
@@ -10183,12 +10219,11 @@
               "abbr": "EVE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Hill Dickinson Stadium, Liverpool",
-            "matchId": "2562198",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562198"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10200,6 +10235,8 @@
               "shortName": "Burnley",
               "abbr": "BUR"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Fulham",
               "id": "54",
@@ -10207,23 +10244,24 @@
               "abbr": "FUL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Craven Cottage, London",
-            "matchId": "2562199",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562199"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 31,
-            "kickoff": "2026-03-21 15:00:00",
+            "kickoff": "2026-03-21 20:00:00",
             "awayTeam": {
               "name": "Brentford",
               "id": "94",
               "shortName": "Brentford",
               "abbr": "BRE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Leeds United",
               "id": "2",
@@ -10231,47 +10269,57 @@
               "abbr": "LEE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Elland Road, Leeds",
-            "matchId": "2562200",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562200"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "Postponed",
             "matchWeek": 31,
             "kickoff": "2026-03-21 15:00:00",
             "awayTeam": {
+              "score": 0,
               "name": "Crystal Palace",
               "id": "31",
+              "halfTimeScore": 0,
               "shortName": "Crystal Palace",
-              "abbr": "CRY"
+              "abbr": "CRY",
+              "redCards": 0
             },
+            "competition": "Premier League",
+            "clock": "0",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "Manchester City",
               "id": "43",
+              "halfTimeScore": 0,
               "shortName": "Man City",
-              "abbr": "MCI"
+              "abbr": "MCI",
+              "redCards": 0
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Etihad Stadium, Manchester",
-            "matchId": "2562201",
-            "kickoffTimezoneString": "Europe/London"
+            "resultType": "Postponed",
+            "matchId": "2562201"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 31,
-            "kickoff": "2026-03-21 15:00:00",
+            "kickoff": "2026-03-22 12:00:00",
             "awayTeam": {
               "name": "Sunderland",
               "id": "56",
               "shortName": "Sunderland",
               "abbr": "SUN"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Newcastle United",
               "id": "4",
@@ -10279,23 +10327,24 @@
               "abbr": "NEW"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "St. James' Park, Newcastle",
-            "matchId": "2562202",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562202"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 31,
-            "kickoff": "2026-03-21 15:00:00",
+            "kickoff": "2026-03-22 14:15:00",
             "awayTeam": {
               "name": "Nottingham Forest",
               "id": "17",
               "shortName": "Nott'm Forest",
               "abbr": "NFO"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Tottenham Hotspur",
               "id": "6",
@@ -10303,34 +10352,8 @@
               "abbr": "TOT"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Tottenham Hotspur Stadium, London",
-            "matchId": "2562203",
-            "kickoffTimezoneString": "Europe/London"
-          },
-          {
-            "kickoffTimezone": "GMT",
-            "competitionId": "8",
-            "period": "PreMatch",
-            "matchWeek": 31,
-            "kickoff": "2026-03-21 15:00:00",
-            "awayTeam": {
-              "name": "Arsenal",
-              "id": "3",
-              "shortName": "Arsenal",
-              "abbr": "ARS"
-            },
-            "homeTeam": {
-              "name": "Wolverhampton Wanderers",
-              "id": "39",
-              "shortName": "Wolves",
-              "abbr": "WOL"
-            },
-            "season": "2025",
-            "competition": "Premier League",
-            "ground": "Molineux Stadium, Wolverhampton",
-            "matchId": "2562204",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562203"
           }
         ]
       }
@@ -10345,6 +10368,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10356,6 +10380,8 @@
               "shortName": "Bournemouth",
               "abbr": "BOU"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Arsenal",
               "id": "3",
@@ -10363,12 +10389,11 @@
               "abbr": "ARS"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Emirates Stadium, London",
-            "matchId": "2562205",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562205"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10380,6 +10405,8 @@
               "shortName": "Everton",
               "abbr": "EVE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Brentford",
               "id": "94",
@@ -10387,12 +10414,11 @@
               "abbr": "BRE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Gtech Community Stadium, Brentford",
-            "matchId": "2562206",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562206"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10404,6 +10430,8 @@
               "shortName": "Brighton",
               "abbr": "BHA"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Burnley",
               "id": "90",
@@ -10411,12 +10439,11 @@
               "abbr": "BUR"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Turf Moor, Burnley",
-            "matchId": "2562207",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562207"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10428,6 +10455,8 @@
               "shortName": "Man City",
               "abbr": "MCI"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Chelsea",
               "id": "8",
@@ -10435,12 +10464,11 @@
               "abbr": "CHE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Stamford Bridge, London",
-            "matchId": "2562208",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562208"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10452,6 +10480,8 @@
               "shortName": "Newcastle",
               "abbr": "NEW"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Crystal Palace",
               "id": "31",
@@ -10459,12 +10489,11 @@
               "abbr": "CRY"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Selhurst Park, London",
-            "matchId": "2562209",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562209"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10476,6 +10505,8 @@
               "shortName": "Fulham",
               "abbr": "FUL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Liverpool",
               "id": "14",
@@ -10483,12 +10514,11 @@
               "abbr": "LIV"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Anfield, Liverpool",
-            "matchId": "2562210",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562210"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10500,6 +10530,8 @@
               "shortName": "Leeds",
               "abbr": "LEE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Manchester United",
               "id": "1",
@@ -10507,12 +10539,11 @@
               "abbr": "MUN"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Old Trafford, Manchester",
-            "matchId": "2562211",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562211"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10524,6 +10555,8 @@
               "shortName": "Aston Villa",
               "abbr": "AVL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Nottingham Forest",
               "id": "17",
@@ -10531,12 +10564,11 @@
               "abbr": "NFO"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "The City Ground, Nottingham",
-            "matchId": "2562212",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562212"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10548,6 +10580,8 @@
               "shortName": "Spurs",
               "abbr": "TOT"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Sunderland",
               "id": "56",
@@ -10555,12 +10589,11 @@
               "abbr": "SUN"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Stadium of Light, Sunderland",
-            "matchId": "2562213",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562213"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10572,6 +10605,8 @@
               "shortName": "Wolves",
               "abbr": "WOL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "West Ham United",
               "id": "21",
@@ -10579,10 +10614,8 @@
               "abbr": "WHU"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "London Stadium, London",
-            "matchId": "2562214",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562214"
           }
         ]
       }
@@ -10597,6 +10630,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10608,6 +10642,8 @@
               "shortName": "Sunderland",
               "abbr": "SUN"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Aston Villa",
               "id": "7",
@@ -10615,12 +10651,11 @@
               "abbr": "AVL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Villa Park, Birmingham",
-            "matchId": "2562215",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562215"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10632,6 +10667,8 @@
               "shortName": "Fulham",
               "abbr": "FUL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Brentford",
               "id": "94",
@@ -10639,12 +10676,11 @@
               "abbr": "BRE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Gtech Community Stadium, Brentford",
-            "matchId": "2562216",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562216"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10656,6 +10692,8 @@
               "shortName": "Man Utd",
               "abbr": "MUN"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Chelsea",
               "id": "8",
@@ -10663,12 +10701,11 @@
               "abbr": "CHE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Stamford Bridge, London",
-            "matchId": "2562217",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562217"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10680,6 +10717,8 @@
               "shortName": "West Ham",
               "abbr": "WHU"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Crystal Palace",
               "id": "31",
@@ -10687,12 +10726,11 @@
               "abbr": "CRY"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Selhurst Park, London",
-            "matchId": "2562218",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562218"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10704,6 +10742,8 @@
               "shortName": "Liverpool",
               "abbr": "LIV"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Everton",
               "id": "11",
@@ -10711,12 +10751,11 @@
               "abbr": "EVE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Hill Dickinson Stadium, Liverpool",
-            "matchId": "2562219",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562219"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10728,6 +10767,8 @@
               "shortName": "Wolves",
               "abbr": "WOL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Leeds United",
               "id": "2",
@@ -10735,12 +10776,11 @@
               "abbr": "LEE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Elland Road, Leeds",
-            "matchId": "2562220",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562220"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10752,6 +10792,8 @@
               "shortName": "Arsenal",
               "abbr": "ARS"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Manchester City",
               "id": "43",
@@ -10759,12 +10801,11 @@
               "abbr": "MCI"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Etihad Stadium, Manchester",
-            "matchId": "2562221",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562221"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10776,6 +10817,8 @@
               "shortName": "Bournemouth",
               "abbr": "BOU"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Newcastle United",
               "id": "4",
@@ -10783,12 +10826,11 @@
               "abbr": "NEW"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "St. James' Park, Newcastle",
-            "matchId": "2562222",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562222"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10800,6 +10842,8 @@
               "shortName": "Burnley",
               "abbr": "BUR"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Nottingham Forest",
               "id": "17",
@@ -10807,12 +10851,11 @@
               "abbr": "NFO"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "The City Ground, Nottingham",
-            "matchId": "2562223",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562223"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10824,6 +10867,8 @@
               "shortName": "Brighton",
               "abbr": "BHA"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Tottenham Hotspur",
               "id": "6",
@@ -10831,10 +10876,8 @@
               "abbr": "TOT"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Tottenham Hotspur Stadium, London",
-            "matchId": "2562224",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562224"
           }
         ]
       }
@@ -10849,6 +10892,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10860,6 +10904,8 @@
               "shortName": "Leeds",
               "abbr": "LEE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Bournemouth",
               "id": "91",
@@ -10867,12 +10913,11 @@
               "abbr": "BOU"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Vitality Stadium, Bournemouth",
-            "matchId": "2562225",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562225"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10884,6 +10929,8 @@
               "shortName": "Newcastle",
               "abbr": "NEW"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Arsenal",
               "id": "3",
@@ -10891,12 +10938,11 @@
               "abbr": "ARS"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Emirates Stadium, London",
-            "matchId": "2562226",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562226"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10908,6 +10954,8 @@
               "shortName": "Chelsea",
               "abbr": "CHE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Brighton and Hove Albion",
               "id": "36",
@@ -10915,12 +10963,11 @@
               "abbr": "BHA"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "American Express Stadium, Falmer",
-            "matchId": "2562227",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562227"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10932,6 +10979,8 @@
               "shortName": "Man City",
               "abbr": "MCI"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Burnley",
               "id": "90",
@@ -10939,12 +10988,11 @@
               "abbr": "BUR"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Turf Moor, Burnley",
-            "matchId": "2562228",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562228"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10956,6 +11004,8 @@
               "shortName": "Aston Villa",
               "abbr": "AVL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Fulham",
               "id": "54",
@@ -10963,12 +11013,11 @@
               "abbr": "FUL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Craven Cottage, London",
-            "matchId": "2562229",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562229"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -10980,6 +11029,8 @@
               "shortName": "Crystal Palace",
               "abbr": "CRY"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Liverpool",
               "id": "14",
@@ -10987,12 +11038,11 @@
               "abbr": "LIV"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Anfield, Liverpool",
-            "matchId": "2562230",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562230"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11004,6 +11054,8 @@
               "shortName": "Brentford",
               "abbr": "BRE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Manchester United",
               "id": "1",
@@ -11011,12 +11063,11 @@
               "abbr": "MUN"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Old Trafford, Manchester",
-            "matchId": "2562231",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562231"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11028,6 +11079,8 @@
               "shortName": "Nott'm Forest",
               "abbr": "NFO"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Sunderland",
               "id": "56",
@@ -11035,12 +11088,11 @@
               "abbr": "SUN"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Stadium of Light, Sunderland",
-            "matchId": "2562232",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562232"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11052,6 +11104,8 @@
               "shortName": "Everton",
               "abbr": "EVE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "West Ham United",
               "id": "21",
@@ -11059,12 +11113,11 @@
               "abbr": "WHU"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "London Stadium, London",
-            "matchId": "2562233",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562233"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11076,6 +11129,8 @@
               "shortName": "Spurs",
               "abbr": "TOT"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Wolverhampton Wanderers",
               "id": "39",
@@ -11083,10 +11138,8 @@
               "abbr": "WOL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Molineux Stadium, Wolverhampton",
-            "matchId": "2562234",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562234"
           }
         ]
       }
@@ -11101,6 +11154,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11112,6 +11166,8 @@
               "shortName": "Crystal Palace",
               "abbr": "CRY"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Bournemouth",
               "id": "91",
@@ -11119,12 +11175,11 @@
               "abbr": "BOU"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Vitality Stadium, Bournemouth",
-            "matchId": "2562235",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562235"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11136,6 +11191,8 @@
               "shortName": "Fulham",
               "abbr": "FUL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Arsenal",
               "id": "3",
@@ -11143,12 +11200,11 @@
               "abbr": "ARS"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Emirates Stadium, London",
-            "matchId": "2562236",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562236"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11160,6 +11216,8 @@
               "shortName": "Spurs",
               "abbr": "TOT"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Aston Villa",
               "id": "7",
@@ -11167,12 +11225,11 @@
               "abbr": "AVL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Villa Park, Birmingham",
-            "matchId": "2562237",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562237"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11184,6 +11241,8 @@
               "shortName": "West Ham",
               "abbr": "WHU"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Brentford",
               "id": "94",
@@ -11191,12 +11250,11 @@
               "abbr": "BRE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Gtech Community Stadium, Brentford",
-            "matchId": "2562238",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562238"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11208,6 +11266,8 @@
               "shortName": "Nott'm Forest",
               "abbr": "NFO"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Chelsea",
               "id": "8",
@@ -11215,12 +11275,11 @@
               "abbr": "CHE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Stamford Bridge, London",
-            "matchId": "2562239",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562239"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11232,6 +11291,8 @@
               "shortName": "Man City",
               "abbr": "MCI"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Everton",
               "id": "11",
@@ -11239,12 +11300,11 @@
               "abbr": "EVE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Hill Dickinson Stadium, Liverpool",
-            "matchId": "2562240",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562240"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11256,6 +11316,8 @@
               "shortName": "Burnley",
               "abbr": "BUR"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Leeds United",
               "id": "2",
@@ -11263,12 +11325,11 @@
               "abbr": "LEE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Elland Road, Leeds",
-            "matchId": "2562241",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562241"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11280,6 +11341,8 @@
               "shortName": "Liverpool",
               "abbr": "LIV"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Manchester United",
               "id": "1",
@@ -11287,12 +11350,11 @@
               "abbr": "MUN"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Old Trafford, Manchester",
-            "matchId": "2562242",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562242"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11304,6 +11366,8 @@
               "shortName": "Brighton",
               "abbr": "BHA"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Newcastle United",
               "id": "4",
@@ -11311,12 +11375,11 @@
               "abbr": "NEW"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "St. James' Park, Newcastle",
-            "matchId": "2562243",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562243"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11328,6 +11391,8 @@
               "shortName": "Sunderland",
               "abbr": "SUN"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Wolverhampton Wanderers",
               "id": "39",
@@ -11335,10 +11400,8 @@
               "abbr": "WOL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Molineux Stadium, Wolverhampton",
-            "matchId": "2562244",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562244"
           }
         ]
       }
@@ -11353,6 +11416,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11364,6 +11428,8 @@
               "shortName": "Wolves",
               "abbr": "WOL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Brighton and Hove Albion",
               "id": "36",
@@ -11371,12 +11437,11 @@
               "abbr": "BHA"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "American Express Stadium, Falmer",
-            "matchId": "2562245",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562245"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11388,6 +11453,8 @@
               "shortName": "Aston Villa",
               "abbr": "AVL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Burnley",
               "id": "90",
@@ -11395,12 +11462,11 @@
               "abbr": "BUR"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Turf Moor, Burnley",
-            "matchId": "2562246",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562246"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11412,6 +11478,8 @@
               "shortName": "Everton",
               "abbr": "EVE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Crystal Palace",
               "id": "31",
@@ -11419,12 +11487,11 @@
               "abbr": "CRY"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Selhurst Park, London",
-            "matchId": "2562247",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562247"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11436,6 +11503,8 @@
               "shortName": "Bournemouth",
               "abbr": "BOU"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Fulham",
               "id": "54",
@@ -11443,12 +11512,11 @@
               "abbr": "FUL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Craven Cottage, London",
-            "matchId": "2562248",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562248"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11460,6 +11528,8 @@
               "shortName": "Chelsea",
               "abbr": "CHE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Liverpool",
               "id": "14",
@@ -11467,12 +11537,11 @@
               "abbr": "LIV"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Anfield, Liverpool",
-            "matchId": "2562249",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562249"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11484,6 +11553,8 @@
               "shortName": "Brentford",
               "abbr": "BRE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Manchester City",
               "id": "43",
@@ -11491,12 +11562,11 @@
               "abbr": "MCI"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Etihad Stadium, Manchester",
-            "matchId": "2562250",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562250"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11508,6 +11578,8 @@
               "shortName": "Newcastle",
               "abbr": "NEW"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Nottingham Forest",
               "id": "17",
@@ -11515,12 +11587,11 @@
               "abbr": "NFO"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "The City Ground, Nottingham",
-            "matchId": "2562251",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562251"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11532,6 +11603,8 @@
               "shortName": "Man Utd",
               "abbr": "MUN"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Sunderland",
               "id": "56",
@@ -11539,12 +11612,11 @@
               "abbr": "SUN"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Stadium of Light, Sunderland",
-            "matchId": "2562252",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562252"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11556,6 +11628,8 @@
               "shortName": "Leeds",
               "abbr": "LEE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Tottenham Hotspur",
               "id": "6",
@@ -11563,12 +11637,11 @@
               "abbr": "TOT"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Tottenham Hotspur Stadium, London",
-            "matchId": "2562253",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562253"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11580,6 +11653,8 @@
               "shortName": "Arsenal",
               "abbr": "ARS"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "West Ham United",
               "id": "21",
@@ -11587,10 +11662,8 @@
               "abbr": "WHU"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "London Stadium, London",
-            "matchId": "2562254",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562254"
           }
         ]
       }
@@ -11605,6 +11678,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11616,6 +11690,8 @@
               "shortName": "Man City",
               "abbr": "MCI"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Bournemouth",
               "id": "91",
@@ -11623,12 +11699,11 @@
               "abbr": "BOU"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Vitality Stadium, Bournemouth",
-            "matchId": "2562255",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562255"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11640,6 +11715,8 @@
               "shortName": "Burnley",
               "abbr": "BUR"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Arsenal",
               "id": "3",
@@ -11647,12 +11724,11 @@
               "abbr": "ARS"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Emirates Stadium, London",
-            "matchId": "2562256",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562256"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11664,6 +11740,8 @@
               "shortName": "Liverpool",
               "abbr": "LIV"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Aston Villa",
               "id": "7",
@@ -11671,12 +11749,11 @@
               "abbr": "AVL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Villa Park, Birmingham",
-            "matchId": "2562257",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562257"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11688,6 +11765,8 @@
               "shortName": "Crystal Palace",
               "abbr": "CRY"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Brentford",
               "id": "94",
@@ -11695,12 +11774,11 @@
               "abbr": "BRE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Gtech Community Stadium, Brentford",
-            "matchId": "2562258",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562258"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11712,6 +11790,8 @@
               "shortName": "Spurs",
               "abbr": "TOT"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Chelsea",
               "id": "8",
@@ -11719,12 +11799,11 @@
               "abbr": "CHE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Stamford Bridge, London",
-            "matchId": "2562259",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562259"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11736,6 +11815,8 @@
               "shortName": "Sunderland",
               "abbr": "SUN"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Everton",
               "id": "11",
@@ -11743,12 +11824,11 @@
               "abbr": "EVE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Hill Dickinson Stadium, Liverpool",
-            "matchId": "2562260",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562260"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11760,6 +11840,8 @@
               "shortName": "Brighton",
               "abbr": "BHA"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Leeds United",
               "id": "2",
@@ -11767,12 +11849,11 @@
               "abbr": "LEE"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Elland Road, Leeds",
-            "matchId": "2562261",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562261"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11784,6 +11865,8 @@
               "shortName": "Nott'm Forest",
               "abbr": "NFO"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Manchester United",
               "id": "1",
@@ -11791,12 +11874,11 @@
               "abbr": "MUN"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Old Trafford, Manchester",
-            "matchId": "2562262",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562262"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11808,6 +11890,8 @@
               "shortName": "West Ham",
               "abbr": "WHU"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Newcastle United",
               "id": "4",
@@ -11815,12 +11899,11 @@
               "abbr": "NEW"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "St. James' Park, Newcastle",
-            "matchId": "2562263",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562263"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11832,6 +11915,8 @@
               "shortName": "Fulham",
               "abbr": "FUL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Wolverhampton Wanderers",
               "id": "39",
@@ -11839,10 +11924,8 @@
               "abbr": "WOL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Molineux Stadium, Wolverhampton",
-            "matchId": "2562264",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562264"
           }
         ]
       }
@@ -11857,6 +11940,7 @@
         },
         "data": [
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11868,6 +11952,8 @@
               "shortName": "Man Utd",
               "abbr": "MUN"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Brighton and Hove Albion",
               "id": "36",
@@ -11875,12 +11961,11 @@
               "abbr": "BHA"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "American Express Stadium, Falmer",
-            "matchId": "2562265",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562265"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11892,6 +11977,8 @@
               "shortName": "Wolves",
               "abbr": "WOL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Burnley",
               "id": "90",
@@ -11899,12 +11986,11 @@
               "abbr": "BUR"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Turf Moor, Burnley",
-            "matchId": "2562266",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562266"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11916,6 +12002,8 @@
               "shortName": "Arsenal",
               "abbr": "ARS"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Crystal Palace",
               "id": "31",
@@ -11923,12 +12011,11 @@
               "abbr": "CRY"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Selhurst Park, London",
-            "matchId": "2562267",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562267"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11940,6 +12027,8 @@
               "shortName": "Newcastle",
               "abbr": "NEW"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Fulham",
               "id": "54",
@@ -11947,12 +12036,11 @@
               "abbr": "FUL"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Craven Cottage, London",
-            "matchId": "2562268",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562268"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11964,6 +12052,8 @@
               "shortName": "Brentford",
               "abbr": "BRE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Liverpool",
               "id": "14",
@@ -11971,12 +12061,11 @@
               "abbr": "LIV"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Anfield, Liverpool",
-            "matchId": "2562269",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562269"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -11988,6 +12077,8 @@
               "shortName": "Aston Villa",
               "abbr": "AVL"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Manchester City",
               "id": "43",
@@ -11995,12 +12086,11 @@
               "abbr": "MCI"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Etihad Stadium, Manchester",
-            "matchId": "2562270",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562270"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -12012,6 +12102,8 @@
               "shortName": "Bournemouth",
               "abbr": "BOU"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Nottingham Forest",
               "id": "17",
@@ -12019,12 +12111,11 @@
               "abbr": "NFO"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "The City Ground, Nottingham",
-            "matchId": "2562271",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562271"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -12036,6 +12127,8 @@
               "shortName": "Chelsea",
               "abbr": "CHE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Sunderland",
               "id": "56",
@@ -12043,12 +12136,11 @@
               "abbr": "SUN"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Stadium of Light, Sunderland",
-            "matchId": "2562272",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562272"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -12060,6 +12152,8 @@
               "shortName": "Everton",
               "abbr": "EVE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "Tottenham Hotspur",
               "id": "6",
@@ -12067,12 +12161,11 @@
               "abbr": "TOT"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "Tottenham Hotspur Stadium, London",
-            "matchId": "2562273",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562273"
           },
           {
+            "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
             "period": "PreMatch",
@@ -12084,6 +12177,8 @@
               "shortName": "Leeds",
               "abbr": "LEE"
             },
+            "competition": "Premier League",
+            "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "name": "West Ham United",
               "id": "21",
@@ -12091,10 +12186,8 @@
               "abbr": "WHU"
             },
             "season": "2025",
-            "competition": "Premier League",
             "ground": "London Stadium, London",
-            "matchId": "2562274",
-            "kickoffTimezoneString": "Europe/London"
+            "matchId": "2562274"
           }
         ]
       }
