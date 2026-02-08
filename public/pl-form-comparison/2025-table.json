@@ -8,10 +8,10 @@
   },
   {
     "name": "Manchester City",
-    "points": 47,
-    "gf": 49,
-    "ga": 23,
-    "gd": 26
+    "points": 50,
+    "gf": 51,
+    "ga": 24,
+    "gd": 27
   },
   {
     "name": "Aston Villa",
@@ -37,9 +37,9 @@
   {
     "name": "Liverpool",
     "points": 39,
-    "gf": 39,
-    "ga": 33,
-    "gd": 6
+    "gf": 40,
+    "ga": 35,
+    "gd": 5
   },
   {
     "name": "Brentford",
@@ -84,11 +84,18 @@
     "gd": -1
   },
   {
+    "name": "Crystal Palace",
+    "points": 32,
+    "gf": 26,
+    "ga": 29,
+    "gd": -3
+  },
+  {
     "name": "Brighton and Hove Albion",
     "points": 31,
     "gf": 34,
-    "ga": 32,
-    "gd": 2
+    "ga": 33,
+    "gd": 1
   },
   {
     "name": "Tottenham Hotspur",
@@ -96,13 +103,6 @@
     "gf": 35,
     "ga": 35,
     "gd": 0
-  },
-  {
-    "name": "Crystal Palace",
-    "points": 29,
-    "gf": 25,
-    "ga": 29,
-    "gd": -4
   },
   {
     "name": "Leeds United",

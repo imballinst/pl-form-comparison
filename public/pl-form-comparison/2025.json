@@ -8525,25 +8525,33 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 25,
             "kickoff": "2026-02-08 14:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Crystal Palace",
               "id": "31",
+              "halfTimeScore": 0,
               "shortName": "Crystal Palace",
-              "abbr": "CRY"
+              "abbr": "CRY",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "Brighton and Hove Albion",
               "id": "36",
+              "halfTimeScore": 0,
               "shortName": "Brighton",
-              "abbr": "BHA"
+              "abbr": "BHA",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "American Express Stadium, Falmer",
+            "resultType": "NormalResult",
             "matchId": "2562137"
           },
           {
@@ -8652,25 +8660,33 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 25,
             "kickoff": "2026-02-08 16:30:00",
             "awayTeam": {
+              "score": 2,
               "name": "Manchester City",
               "id": "43",
+              "halfTimeScore": 0,
               "shortName": "Man City",
-              "abbr": "MCI"
+              "abbr": "MCI",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "105",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Liverpool",
               "id": "14",
+              "halfTimeScore": 0,
               "shortName": "Liverpool",
-              "abbr": "LIV"
+              "abbr": "LIV",
+              "redCards": 1
             },
             "season": "2025",
             "ground": "Anfield, Liverpool",
+            "resultType": "NormalResult",
             "matchId": "2562141"
           },
           {
