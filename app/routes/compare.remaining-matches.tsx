@@ -1,12 +1,13 @@
+import { MatchweekNumber, RescheduleInfo } from '@/components/custom/match'
 import { Button } from '@/components/ui/button'
 import { HybridTooltip, HybridTooltipContent, HybridTooltipTrigger } from '@/components/ui/hybrid-tooltip'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
 import type { FullMatchInfo, MatchInfo, SeasonTableData, Team } from '@/types'
 import { formatFdr, getDifficultyRating, getFdrColorClass, getTeamPoints } from '@/utils/difficulty-rating'
-import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, getSeasonShortText, isMatchFinished } from '@/utils/match'
+import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, isMatchFinished } from '@/utils/match'
 import { fetchSeasons, fetchSeasonsTable } from '@/utils/seasons-fetcher'
 import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
@@ -26,7 +27,9 @@ interface MatchesAcrossSeasons {
 }
 
 interface TableData {
-  gameweek: number
+  key: string
+  gameweek: string
+  isRescheduled: boolean
   teamMatchRecord: Record<
     string,
     {
@@ -61,8 +64,8 @@ export default function RemainingMatches() {
 
       <h1 className="text-3xl font-bold mb-4">Remaining Matches</h1>
       <p className="text-md text-gray-500 mb-8">
-        Compare the remaining matches of the current Premier League teams and compare each fixture against previous seasons. Teams with
-        higher points have a higher FDR. Away matches have a slightly higher FDR.
+        Compare the remaining matches of the current Premier League teams and show the equivalent fixture's results for the past 2 seasons.
+        Teams with higher points have a higher FDR. Away matches have a slightly higher FDR.
       </p>
 
       <div className="flex flex-col gap-y-4">
@@ -119,8 +122,8 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
   const [, setSearchParams] = useSearchParams()
   const isMobile = useIsMobile()
   // Each array element represents a gameweek, in each item is a record for each team's match.
-  const data: Array<TableData> = []
-  const gameWeeks = Object.keys(matchesAcrossSeasons.matchesByGameweekByTeamRecord)
+  const data: Record<string, TableData> = {}
+  const gameWeeks = Object.keys(matchesAcrossSeasons.matchesByGameweekByTeamRecord).sort()
 
   // Track FDR values for averaging (home and away separately)
   const fdrTracker: Record<string, { home: number[]; away: number[] }> = {}
@@ -128,18 +131,21 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
     fdrTracker[team] = { home: [], away: [] }
   })
 
-  for (let i = 0; i < gameWeeks.length; i++) {
-    const gameweek = gameWeeks[i]
+  for (const gameweek of gameWeeks) {
     const matchesByTeamRecord = matchesAcrossSeasons.matchesByGameweekByTeamRecord[gameweek]
     const teams = Object.keys(matchesByTeamRecord)
 
-    let existingData = data[i]
+    let existingData = data[gameweek]
     if (!existingData) {
+      const [gameweekNumber, rescheduleInfo] = gameweek.split('-')
+
       existingData = {
-        gameweek: Number(gameweek),
+        key: gameweek,
+        gameweek: gameweekNumber,
+        isRescheduled: !!rescheduleInfo,
         teamMatchRecord: {},
       }
-      data.push(existingData)
+      data[gameweek] = existingData
     }
 
     for (const team of teams) {
@@ -213,6 +219,8 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
     ]),
   )
 
+  console.info(data)
+
   return (
     <Table>
       <TableHeader>
@@ -250,10 +258,15 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
         </TableRow>
       </TableHeader>
       <TableBody>
-        {data.map((row) => {
+        {gameWeeks.map((gameweek) => {
+          const row = data[gameweek]
+
           return (
             <TableRow key={row.gameweek}>
-              <TableCell>{row.gameweek}</TableCell>
+              <TableCell>
+                <MatchweekNumber gameweek={row.gameweek} isRescheduled={row.isRescheduled} />
+              </TableCell>
+
               {teams.map((team, idx) => {
                 const teamMatchInfo = row.teamMatchRecord[team]
                 if (!teamMatchInfo) {
@@ -320,6 +333,13 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
           ))}
         </TableRow>
       </TableBody>
+      <TableFooter>
+        <TableRow>
+          <TableCell colSpan={isMobile ? 4 : 5} className="italic">
+            <RescheduleInfo />
+          </TableCell>
+        </TableRow>
+      </TableFooter>
     </Table>
   )
 }
@@ -334,9 +354,9 @@ function ScoreTag({
   currentColumnTeam: string
 }) {
   return (
-    <div className={clsx(match.color, 'p-1 py-0.5 rounded text-sm flex items-center justify-center gap-x-1')}>
+    <div className={clsx(match.color, 'p-1 py-0.5 rounded text-sm flex items-center justify-center gap-x-1 font-mono')}>
       <div>
-        {match.homeTeam.score}-{match.awayTeam.score} ({getSeasonShortText(match.season)})
+        {match.homeTeam.score}-{match.awayTeam.score}
       </div>
       {currentSeasonOpponent !== match.opponent.name && currentColumnTeam !== match.opponent.name ? (
         <HybridTooltip>
@@ -361,7 +381,7 @@ function fillRemainingMatchAnchorRecord(record: MatchAnchorRecord, seasonMatches
     const anchorKey = getAnchorKeyFromMatch(match, team)
     seasonRecord[anchorKey] = {
       ...match,
-      ...getEssentialMatchInfo(match, team),
+      ...getEssentialMatchInfo(match, team, { scoreColor: 'border' }),
     }
   }
 }
@@ -410,7 +430,13 @@ function getMatchesAcrossSeasons(
         continue
       }
 
-      matchesByGameweekByTeamRecord[match.matchWeek][team] = {
+      let key: string = `${match.matchWeek}`
+      if (matchesByGameweekByTeamRecord[match.matchWeek][team]) {
+        key = `${match.matchWeek}-rescheduled`
+        matchesByGameweekByTeamRecord[key] = matchesByGameweekByTeamRecord[key] ?? {}
+      }
+
+      matchesByGameweekByTeamRecord[key][team] = {
         ...match,
         ...getEssentialMatchInfo(match, team),
       }

@@ -1,6 +1,7 @@
+import { MatchweekNumber, RescheduleInfo } from '@/components/custom/match'
 import { HybridTooltip, HybridTooltipContent, HybridTooltipTrigger } from '@/components/ui/hybrid-tooltip'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
 import type { FullMatchInfo, MatchInfo, Team } from '@/types'
@@ -26,6 +27,8 @@ interface TableData {
   opponent: Team
   period: string
   venue: string
+  id: string
+  isRescheduled: boolean
   comparedSeasonMatchInfo: FullMatchInfo | undefined
   anchorSeasonMatchInfo: FullMatchInfo
   pointDiff: string
@@ -175,7 +178,7 @@ function ComparisonTable({
   const data: TableData[] = []
   let aggPointDiff = 0
 
-  anchorMatches.matches.forEach((match, gameweek) => {
+  anchorMatches.matches.forEach((match, idx) => {
     const { opponent, venue } = getEssentialMatchInfo(match, team)
     const comparedSeason = getMatchFromOtherSeason(
       anchorMatches.comparison,
@@ -199,7 +202,9 @@ function ComparisonTable({
     }
 
     data.push({
-      gameweek: gameweek + 1,
+      id: match.matchId,
+      gameweek: match.matchWeek,
+      isRescheduled: match.matchWeek === anchorMatches.matches[idx - 1]?.matchWeek,
       opponent: match.opponent,
       period: match.period,
       venue: match.venue[0].toUpperCase() + match.venue.slice(1),
@@ -235,8 +240,10 @@ function ComparisonTable({
     )
 
     rows.push(
-      <TableRow key={row.gameweek}>
-        <TableCell>{i + 1}</TableCell>
+      <TableRow key={row.id}>
+        <TableCell className="w-5">
+          <MatchweekNumber gameweek={row.gameweek} isRescheduled={row.isRescheduled} />
+        </TableCell>
 
         {opponentAndVenueColumns}
 
@@ -290,6 +297,13 @@ function ComparisonTable({
         </TableRow>
       </TableHeader>
       <TableBody>{rows}</TableBody>
+      <TableFooter>
+        <TableRow>
+          <TableCell colSpan={isMobile ? 4 : 5} className="italic">
+            <RescheduleInfo />
+          </TableCell>
+        </TableRow>
+      </TableFooter>
     </Table>
   )
 }

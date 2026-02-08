@@ -1,9 +1,30 @@
 import type { MatchInfo, Team } from '@/types'
 import dayjs from 'dayjs'
 
-export function getScoreResult(position: string, score: [number, number]) {
+interface ScoreResultOptions {
+  scoreColor?: 'bg' | 'border'
+}
+
+const SCORE_COLORS = {
+  win: {
+    bg: 'bg-green-400',
+    border: 'border-2 border-green-400 text-green-600',
+  },
+  draw: {
+    bg: 'bg-gray-400',
+    border: 'border-2 border-gray-400 text-gray-600',
+  },
+  loss: {
+    bg: 'bg-red-400',
+    border: 'border-2 border-red-400 text-red-600',
+  },
+} as const
+
+export function getScoreResult(position: string, score: [number, number], options?: ScoreResultOptions) {
+  const colorMode = options?.scoreColor || 'bg'
+
   if (score[0] === score[1]) {
-    return { color: 'bg-gray-400', teamResult: 'draw' }
+    return { color: SCORE_COLORS.draw[colorMode], teamResult: 'draw' }
   }
 
   const isHome = position === 'home'
@@ -11,18 +32,18 @@ export function getScoreResult(position: string, score: [number, number]) {
 
   if (isWin) {
     return {
-      color: 'bg-green-400',
+      color: SCORE_COLORS.win[colorMode],
       teamResult: 'win',
     }
   }
 
   return {
-    color: 'bg-red-400',
+    color: SCORE_COLORS.loss[colorMode],
     teamResult: 'loss',
   }
 }
 
-export function getEssentialMatchInfo(match: MatchInfo, team: string) {
+export function getEssentialMatchInfo(match: MatchInfo, team: string, opts?: ScoreResultOptions) {
   const isHome = match.homeTeam.name === team
   const score = [match.homeTeam.score, match.awayTeam.score] satisfies [number, number]
   let opponent: Team
@@ -36,7 +57,7 @@ export function getEssentialMatchInfo(match: MatchInfo, team: string) {
     venue = 'away'
   }
 
-  const scoreColorAndResult = getScoreResult(venue, score)
+  const scoreColorAndResult = getScoreResult(venue, score, opts)
 
   return { opponent, venue, ...scoreColorAndResult }
 }
