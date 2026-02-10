@@ -22,16 +22,16 @@
   },
   {
     "name": "Manchester United",
-    "points": 44,
-    "gf": 46,
-    "ga": 36,
+    "points": 45,
+    "gf": 47,
+    "ga": 37,
     "gd": 10
   },
   {
     "name": "Chelsea",
-    "points": 43,
-    "gf": 45,
-    "ga": 28,
+    "points": 44,
+    "gf": 47,
+    "ga": 30,
     "gd": 17
   },
   {
@@ -51,8 +51,22 @@
   {
     "name": "Everton",
     "points": 37,
-    "gf": 28,
-    "ga": 28,
+    "gf": 29,
+    "ga": 30,
+    "gd": -1
+  },
+  {
+    "name": "Bournemouth",
+    "points": 37,
+    "gf": 43,
+    "ga": 45,
+    "gd": -2
+  },
+  {
+    "name": "Newcastle United",
+    "points": 36,
+    "gf": 37,
+    "ga": 37,
     "gd": 0
   },
   {
@@ -70,20 +84,6 @@
     "gd": -2
   },
   {
-    "name": "Bournemouth",
-    "points": 34,
-    "gf": 41,
-    "ga": 44,
-    "gd": -3
-  },
-  {
-    "name": "Newcastle United",
-    "points": 33,
-    "gf": 35,
-    "ga": 36,
-    "gd": -1
-  },
-  {
     "name": "Crystal Palace",
     "points": 32,
     "gf": 26,
@@ -98,18 +98,18 @@
     "gd": 1
   },
   {
-    "name": "Tottenham Hotspur",
-    "points": 29,
-    "gf": 35,
-    "ga": 35,
-    "gd": 0
+    "name": "Leeds United",
+    "points": 30,
+    "gf": 36,
+    "ga": 45,
+    "gd": -9
   },
   {
-    "name": "Leeds United",
+    "name": "Tottenham Hotspur",
     "points": 29,
-    "gf": 34,
-    "ga": 43,
-    "gd": -9
+    "gf": 36,
+    "ga": 37,
+    "gd": -1
   },
   {
     "name": "Nottingham Forest",
@@ -120,9 +120,9 @@
   },
   {
     "name": "West Ham United",
-    "points": 23,
-    "gf": 31,
-    "ga": 48,
+    "points": 24,
+    "gf": 32,
+    "ga": 49,
     "gd": -17
   },
   {
