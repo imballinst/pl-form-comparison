@@ -8841,26 +8841,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 26,
             "kickoff": "2026-02-12 20:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Arsenal",
               "id": "3",
+              "halfTimeScore": 0,
               "shortName": "Arsenal",
-              "abbr": "ARS"
+              "abbr": "ARS",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Brentford",
               "id": "94",
+              "halfTimeScore": 0,
               "shortName": "Brentford",
-              "abbr": "BRE"
+              "abbr": "BRE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Gtech Community Stadium, Brentford",
-            "matchId": "2562146"
+            "resultType": "NormalResult",
+            "matchId": "2562146",
+            "attendance": 17224
           },
           {
             "phase": "1",
