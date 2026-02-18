@@ -1,9 +1,9 @@
 [
   {
     "name": "Arsenal",
-    "points": 57,
-    "gf": 50,
-    "ga": 18,
+    "points": 58,
+    "gf": 52,
+    "ga": 20,
     "gd": 32
   },
   {
@@ -134,9 +134,9 @@
   },
   {
     "name": "Wolverhampton Wanderers",
-    "points": 9,
-    "gf": 16,
-    "ga": 48,
+    "points": 10,
+    "gf": 18,
+    "ga": 50,
     "gd": -32
   }
 ]

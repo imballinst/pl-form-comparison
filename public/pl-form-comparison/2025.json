@@ -8969,7 +8969,8 @@
             "season": "2025",
             "ground": "Hill Dickinson Stadium, Liverpool",
             "resultType": "NormalResult",
-            "matchId": "2562149"
+            "matchId": "2562149",
+            "attendance": 50196
           },
           {
             "phase": "1",
@@ -9002,7 +9003,8 @@
             "season": "2025",
             "ground": "Etihad Stadium, Manchester",
             "resultType": "NormalResult",
-            "matchId": "2562150"
+            "matchId": "2562150",
+            "attendance": 50717
           },
           {
             "phase": "1",
@@ -9143,26 +9145,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 26,
             "kickoff": "2026-02-18 20:00:00",
             "awayTeam": {
+              "score": 2,
               "name": "Arsenal",
               "id": "3",
+              "halfTimeScore": 1,
               "shortName": "Arsenal",
-              "abbr": "ARS"
+              "abbr": "ARS",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "99",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Wolverhampton Wanderers",
               "id": "39",
+              "halfTimeScore": 0,
               "shortName": "Wolves",
-              "abbr": "WOL"
+              "abbr": "WOL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Molineux Stadium, Wolverhampton",
-            "matchId": "2562204"
+            "resultType": "NormalResult",
+            "matchId": "2562204",
+            "attendance": 29843
           }
         ]
       }
