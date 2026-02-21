@@ -8,17 +8,24 @@
   },
   {
     "name": "Manchester City",
-    "points": 53,
-    "gf": 54,
-    "ga": 24,
-    "gd": 30
+    "points": 56,
+    "gf": 56,
+    "ga": 25,
+    "gd": 31
   },
   {
     "name": "Aston Villa",
-    "points": 50,
-    "gf": 37,
-    "ga": 27,
+    "points": 51,
+    "gf": 38,
+    "ga": 28,
     "gd": 10
+  },
+  {
+    "name": "Chelsea",
+    "points": 45,
+    "gf": 48,
+    "ga": 31,
+    "gd": 17
   },
   {
     "name": "Manchester United",
@@ -26,13 +33,6 @@
     "gf": 47,
     "ga": 37,
     "gd": 10
-  },
-  {
-    "name": "Chelsea",
-    "points": 44,
-    "gf": 47,
-    "ga": 30,
-    "gd": 17
   },
   {
     "name": "Liverpool",
@@ -45,8 +45,15 @@
     "name": "Brentford",
     "points": 40,
     "gf": 40,
-    "ga": 35,
-    "gd": 5
+    "ga": 37,
+    "gd": 3
+  },
+  {
+    "name": "Bournemouth",
+    "points": 38,
+    "gf": 43,
+    "ga": 45,
+    "gd": -2
   },
   {
     "name": "Everton",
@@ -56,18 +63,11 @@
     "gd": -1
   },
   {
-    "name": "Bournemouth",
-    "points": 37,
-    "gf": 43,
-    "ga": 45,
-    "gd": -2
-  },
-  {
     "name": "Newcastle United",
     "points": 36,
-    "gf": 37,
-    "ga": 37,
-    "gd": 0
+    "gf": 38,
+    "ga": 39,
+    "gd": -1
   },
   {
     "name": "Sunderland",
@@ -75,6 +75,13 @@
     "gf": 27,
     "ga": 30,
     "gd": -3
+  },
+  {
+    "name": "Brighton and Hove Albion",
+    "points": 34,
+    "gf": 36,
+    "ga": 34,
+    "gd": 2
   },
   {
     "name": "Fulham",
@@ -91,17 +98,10 @@
     "gd": -4
   },
   {
-    "name": "Brighton and Hove Albion",
-    "points": 31,
-    "gf": 34,
-    "ga": 34,
-    "gd": 0
-  },
-  {
     "name": "Leeds United",
-    "points": 30,
-    "gf": 36,
-    "ga": 45,
+    "points": 31,
+    "gf": 37,
+    "ga": 46,
     "gd": -9
   },
   {
@@ -120,16 +120,16 @@
   },
   {
     "name": "West Ham United",
-    "points": 24,
+    "points": 25,
     "gf": 32,
     "ga": 49,
     "gd": -17
   },
   {
     "name": "Burnley",
-    "points": 18,
-    "gf": 28,
-    "ga": 51,
+    "points": 19,
+    "gf": 29,
+    "ga": 52,
     "gd": -23
   },
   {

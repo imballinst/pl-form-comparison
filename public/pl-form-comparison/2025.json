@@ -9191,76 +9191,103 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 27,
             "kickoff": "2026-02-21 15:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Leeds United",
               "id": "2",
+              "halfTimeScore": 1,
               "shortName": "Leeds",
-              "abbr": "LEE"
+              "abbr": "LEE",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "96",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Aston Villa",
               "id": "7",
+              "halfTimeScore": 0,
               "shortName": "Aston Villa",
-              "abbr": "AVL"
+              "abbr": "AVL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Villa Park, Birmingham",
-            "matchId": "2562155"
+            "resultType": "NormalResult",
+            "matchId": "2562155",
+            "attendance": 43048
           },
           {
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 27,
             "kickoff": "2026-02-21 15:00:00",
             "awayTeam": {
+              "score": 2,
               "name": "Brighton and Hove Albion",
               "id": "36",
+              "halfTimeScore": 2,
               "shortName": "Brighton",
-              "abbr": "BHA"
+              "abbr": "BHA",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "95",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "Brentford",
               "id": "94",
+              "halfTimeScore": 0,
               "shortName": "Brentford",
-              "abbr": "BRE"
+              "abbr": "BRE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Gtech Community Stadium, Brentford",
-            "matchId": "2562156"
+            "resultType": "NormalResult",
+            "matchId": "2562156",
+            "attendance": 17163
           },
           {
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 27,
             "kickoff": "2026-02-21 15:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Burnley",
               "id": "90",
+              "halfTimeScore": 0,
               "shortName": "Burnley",
-              "abbr": "BUR"
+              "abbr": "BUR",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Chelsea",
               "id": "8",
+              "halfTimeScore": 1,
               "shortName": "Chelsea",
-              "abbr": "CHE"
+              "abbr": "CHE",
+              "redCards": 1
             },
             "season": "2025",
             "ground": "Stamford Bridge, London",
-            "matchId": "2562157"
+            "resultType": "NormalResult",
+            "matchId": "2562157",
+            "attendance": 39603
           },
           {
             "phase": "1",
@@ -9316,26 +9343,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 27,
             "kickoff": "2026-02-21 20:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Newcastle United",
               "id": "4",
+              "halfTimeScore": 1,
               "shortName": "Newcastle",
-              "abbr": "NEW"
+              "abbr": "NEW",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "95",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Manchester City",
               "id": "43",
+              "halfTimeScore": 2,
               "shortName": "Man City",
-              "abbr": "MCI"
+              "abbr": "MCI",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Etihad Stadium, Manchester",
-            "matchId": "2562160"
+            "resultType": "NormalResult",
+            "matchId": "2562160",
+            "attendance": 52187
           },
           {
             "phase": "1",
@@ -9416,26 +9452,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 27,
             "kickoff": "2026-02-21 17:30:00",
             "awayTeam": {
+              "score": 0,
               "name": "Bournemouth",
               "id": "91",
+              "halfTimeScore": 0,
               "shortName": "Bournemouth",
-              "abbr": "BOU"
+              "abbr": "BOU",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "West Ham United",
               "id": "21",
+              "halfTimeScore": 0,
               "shortName": "West Ham",
-              "abbr": "WHU"
+              "abbr": "WHU",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "London Stadium, London",
-            "matchId": "2562164"
+            "resultType": "NormalResult",
+            "matchId": "2562164",
+            "attendance": 62437
           }
         ]
       }
