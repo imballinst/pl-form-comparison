@@ -21,18 +21,18 @@
     "gd": 10
   },
   {
+    "name": "Manchester United",
+    "points": 48,
+    "gf": 48,
+    "ga": 37,
+    "gd": 11
+  },
+  {
     "name": "Chelsea",
     "points": 45,
     "gf": 48,
     "ga": 31,
     "gd": 17
-  },
-  {
-    "name": "Manchester United",
-    "points": 45,
-    "gf": 47,
-    "ga": 37,
-    "gd": 10
   },
   {
     "name": "Liverpool",
@@ -59,8 +59,8 @@
     "name": "Everton",
     "points": 37,
     "gf": 29,
-    "ga": 30,
-    "gd": -1
+    "ga": 31,
+    "gd": -2
   },
   {
     "name": "Fulham",
