@@ -17,8 +17,8 @@
     "name": "Aston Villa",
     "points": 51,
     "gf": 38,
-    "ga": 28,
-    "gd": 10
+    "ga": 30,
+    "gd": 8
   },
   {
     "name": "Manchester United",
@@ -134,9 +134,9 @@
   },
   {
     "name": "Wolverhampton Wanderers",
-    "points": 10,
-    "gf": 18,
+    "points": 13,
+    "gf": 20,
     "ga": 51,
-    "gd": -33
+    "gd": -31
   }
 ]

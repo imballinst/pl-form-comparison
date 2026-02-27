@@ -9768,26 +9768,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 28,
             "kickoff": "2026-02-27 20:00:00",
             "awayTeam": {
+              "score": 0,
               "name": "Aston Villa",
               "id": "7",
+              "halfTimeScore": 0,
               "shortName": "Aston Villa",
-              "abbr": "AVL"
+              "abbr": "AVL",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "99",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Wolverhampton Wanderers",
               "id": "39",
+              "halfTimeScore": 0,
               "shortName": "Wolves",
-              "abbr": "WOL"
+              "abbr": "WOL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Molineux Stadium, Wolverhampton",
-            "matchId": "2562174"
+            "resultType": "NormalResult",
+            "matchId": "2562174",
+            "attendance": 30197
           }
         ]
       }
@@ -10069,7 +10078,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 30,
-            "kickoff": "2026-03-15 14:00:00",
+            "kickoff": "2026-03-14 17:30:00",
             "awayTeam": {
               "name": "Everton",
               "id": "11",
@@ -10169,7 +10178,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 30,
-            "kickoff": "2026-03-14 15:00:00",
+            "kickoff": "2026-03-15 14:00:00",
             "awayTeam": {
               "name": "Leeds United",
               "id": "2",
@@ -10244,7 +10253,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 30,
-            "kickoff": "2026-03-14 15:00:00",
+            "kickoff": "2026-03-15 14:00:00",
             "awayTeam": {
               "name": "Fulham",
               "id": "54",
@@ -10294,7 +10303,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 30,
-            "kickoff": "2026-03-14 12:30:00",
+            "kickoff": "2026-03-14 20:00:00",
             "awayTeam": {
               "name": "Manchester City",
               "id": "43",
