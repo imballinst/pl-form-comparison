@@ -8,10 +8,10 @@
   },
   {
     "name": "Manchester City",
-    "points": 56,
-    "gf": 56,
+    "points": 59,
+    "gf": 57,
     "ga": 25,
-    "gd": 31
+    "gd": 32
   },
   {
     "name": "Aston Villa",
@@ -28,6 +28,13 @@
     "gd": 11
   },
   {
+    "name": "Liverpool",
+    "points": 48,
+    "gf": 47,
+    "ga": 37,
+    "gd": 10
+  },
+  {
     "name": "Chelsea",
     "points": 45,
     "gf": 48,
@@ -35,31 +42,24 @@
     "gd": 17
   },
   {
-    "name": "Liverpool",
-    "points": 45,
-    "gf": 42,
-    "ga": 35,
-    "gd": 7
-  },
-  {
     "name": "Brentford",
-    "points": 40,
-    "gf": 40,
-    "ga": 37,
-    "gd": 3
-  },
-  {
-    "name": "Bournemouth",
-    "points": 38,
-    "gf": 43,
-    "ga": 45,
-    "gd": -2
+    "points": 43,
+    "gf": 44,
+    "ga": 40,
+    "gd": 4
   },
   {
     "name": "Everton",
-    "points": 37,
-    "gf": 29,
-    "ga": 31,
+    "points": 40,
+    "gf": 32,
+    "ga": 33,
+    "gd": -1
+  },
+  {
+    "name": "Bournemouth",
+    "points": 39,
+    "gf": 44,
+    "ga": 46,
     "gd": -2
   },
   {
@@ -70,18 +70,18 @@
     "gd": -3
   },
   {
-    "name": "Newcastle United",
-    "points": 36,
-    "gf": 38,
-    "ga": 39,
-    "gd": -1
+    "name": "Sunderland",
+    "points": 37,
+    "gf": 29,
+    "ga": 34,
+    "gd": -5
   },
   {
-    "name": "Sunderland",
+    "name": "Newcastle United",
     "points": 36,
-    "gf": 28,
-    "ga": 33,
-    "gd": -5
+    "gf": 40,
+    "ga": 42,
+    "gd": -2
   },
   {
     "name": "Crystal Palace",
@@ -101,8 +101,8 @@
     "name": "Leeds United",
     "points": 31,
     "gf": 37,
-    "ga": 46,
-    "gd": -9
+    "ga": 47,
+    "gd": -10
   },
   {
     "name": "Tottenham Hotspur",
@@ -121,16 +121,16 @@
   {
     "name": "West Ham United",
     "points": 25,
-    "gf": 32,
-    "ga": 49,
-    "gd": -17
+    "gf": 34,
+    "ga": 54,
+    "gd": -20
   },
   {
     "name": "Burnley",
     "points": 19,
-    "gf": 29,
-    "ga": 52,
-    "gd": -23
+    "gf": 32,
+    "ga": 56,
+    "gd": -24
   },
   {
     "name": "Wolverhampton Wanderers",
