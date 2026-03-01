@@ -9577,51 +9577,69 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 28,
             "kickoff": "2026-03-01 16:30:00",
             "awayTeam": {
+              "score": 1,
               "name": "Chelsea",
               "id": "8",
+              "halfTimeScore": 1,
               "shortName": "Chelsea",
-              "abbr": "CHE"
+              "abbr": "CHE",
+              "redCards": 1
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Arsenal",
               "id": "3",
+              "halfTimeScore": 1,
               "shortName": "Arsenal",
-              "abbr": "ARS"
+              "abbr": "ARS",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Emirates Stadium, London",
-            "matchId": "2562166"
+            "resultType": "NormalResult",
+            "matchId": "2562166",
+            "attendance": 60296
           },
           {
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 28,
             "kickoff": "2026-03-01 14:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Nottingham Forest",
               "id": "17",
+              "halfTimeScore": 1,
               "shortName": "Nott'm Forest",
-              "abbr": "NFO"
+              "abbr": "NFO",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Brighton and Hove Albion",
               "id": "36",
+              "halfTimeScore": 2,
               "shortName": "Brighton",
-              "abbr": "BHA"
+              "abbr": "BHA",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "American Express Stadium, Falmer",
-            "matchId": "2562167"
+            "resultType": "NormalResult",
+            "matchId": "2562167",
+            "attendance": 31427
           },
           {
             "phase": "1",
@@ -9661,26 +9679,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 28,
             "kickoff": "2026-03-01 14:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Tottenham Hotspur",
               "id": "6",
+              "halfTimeScore": 0,
               "shortName": "Spurs",
-              "abbr": "TOT"
+              "abbr": "TOT",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Fulham",
               "id": "54",
+              "halfTimeScore": 2,
               "shortName": "Fulham",
-              "abbr": "FUL"
+              "abbr": "FUL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Craven Cottage, London",
-            "matchId": "2562169"
+            "resultType": "NormalResult",
+            "matchId": "2562169",
+            "attendance": 27439
           },
           {
             "phase": "1",
@@ -9747,32 +9774,42 @@
             "season": "2025",
             "ground": "Anfield, Liverpool",
             "resultType": "NormalResult",
-            "matchId": "2562171"
+            "matchId": "2562171",
+            "attendance": 60425
           },
           {
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 28,
             "kickoff": "2026-03-01 14:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Crystal Palace",
               "id": "31",
+              "halfTimeScore": 1,
               "shortName": "Crystal Palace",
-              "abbr": "CRY"
+              "abbr": "CRY",
+              "redCards": 1
             },
             "competition": "Premier League",
+            "clock": "99",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Manchester United",
               "id": "1",
+              "halfTimeScore": 0,
               "shortName": "Man Utd",
-              "abbr": "MUN"
+              "abbr": "MUN",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Old Trafford, Manchester",
-            "matchId": "2562172"
+            "resultType": "NormalResult",
+            "matchId": "2562172",
+            "attendance": 73934
           },
           {
             "phase": "1",
