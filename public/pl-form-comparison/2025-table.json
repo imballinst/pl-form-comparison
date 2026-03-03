@@ -30,9 +30,9 @@
   {
     "name": "Liverpool",
     "points": 48,
-    "gf": 47,
-    "ga": 37,
-    "gd": 10
+    "gf": 48,
+    "ga": 39,
+    "gd": 9
   },
   {
     "name": "Chelsea",
@@ -43,17 +43,24 @@
   },
   {
     "name": "Brentford",
-    "points": 43,
+    "points": 44,
     "gf": 44,
     "ga": 40,
     "gd": 4
   },
   {
     "name": "Everton",
-    "points": 40,
-    "gf": 32,
+    "points": 43,
+    "gf": 34,
     "ga": 33,
-    "gd": -1
+    "gd": 1
+  },
+  {
+    "name": "Bournemouth",
+    "points": 40,
+    "gf": 44,
+    "ga": 46,
+    "gd": -2
   },
   {
     "name": "Fulham",
@@ -63,11 +70,11 @@
     "gd": -2
   },
   {
-    "name": "Bournemouth",
-    "points": 39,
-    "gf": 44,
-    "ga": 46,
-    "gd": -2
+    "name": "Sunderland",
+    "points": 40,
+    "gf": 30,
+    "ga": 34,
+    "gd": -4
   },
   {
     "name": "Brighton and Hove Albion",
@@ -75,13 +82,6 @@
     "gf": 38,
     "ga": 35,
     "gd": 3
-  },
-  {
-    "name": "Sunderland",
-    "points": 37,
-    "gf": 29,
-    "ga": 34,
-    "gd": -5
   },
   {
     "name": "Newcastle United",
@@ -101,8 +101,8 @@
     "name": "Leeds United",
     "points": 31,
     "gf": 37,
-    "ga": 47,
-    "gd": -10
+    "ga": 48,
+    "gd": -11
   },
   {
     "name": "Tottenham Hotspur",
@@ -129,14 +129,14 @@
     "name": "Burnley",
     "points": 19,
     "gf": 32,
-    "ga": 56,
-    "gd": -24
+    "ga": 58,
+    "gd": -26
   },
   {
     "name": "Wolverhampton Wanderers",
-    "points": 13,
-    "gf": 20,
-    "ga": 51,
-    "gd": -31
+    "points": 16,
+    "gf": 22,
+    "ga": 52,
+    "gd": -30
   }
 ]

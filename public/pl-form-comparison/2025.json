@@ -9894,26 +9894,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 29,
             "kickoff": "2026-03-03 19:30:00",
             "awayTeam": {
+              "score": 0,
               "name": "Brentford",
               "id": "94",
+              "halfTimeScore": 0,
               "shortName": "Brentford",
-              "abbr": "BRE"
+              "abbr": "BRE",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "96",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "Bournemouth",
               "id": "91",
+              "halfTimeScore": 0,
               "shortName": "Bournemouth",
-              "abbr": "BOU"
+              "abbr": "BOU",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Vitality Stadium, Bournemouth",
-            "matchId": "2562175"
+            "resultType": "NormalResult",
+            "matchId": "2562175",
+            "attendance": 11108
           },
           {
             "phase": "1",
@@ -9969,26 +9978,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 29,
             "kickoff": "2026-03-03 19:30:00",
             "awayTeam": {
+              "score": 0,
               "name": "Burnley",
               "id": "90",
+              "halfTimeScore": 0,
               "shortName": "Burnley",
-              "abbr": "BUR"
+              "abbr": "BUR",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "99",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Everton",
               "id": "11",
+              "halfTimeScore": 1,
               "shortName": "Everton",
-              "abbr": "EVE"
+              "abbr": "EVE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Hill Dickinson Stadium, Liverpool",
-            "matchId": "2562178"
+            "resultType": "NormalResult",
+            "matchId": "2562178",
+            "attendance": 51959
           },
           {
             "phase": "1",
@@ -10019,25 +10037,33 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 29,
             "kickoff": "2026-03-03 19:30:00",
             "awayTeam": {
+              "score": 1,
               "name": "Sunderland",
               "id": "56",
+              "halfTimeScore": 0,
               "shortName": "Sunderland",
-              "abbr": "SUN"
+              "abbr": "SUN",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "103",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "Leeds United",
               "id": "2",
+              "halfTimeScore": 0,
               "shortName": "Leeds",
-              "abbr": "LEE"
+              "abbr": "LEE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Elland Road, Leeds",
+            "resultType": "NormalResult",
             "matchId": "2562180"
           },
           {
@@ -10119,26 +10145,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 29,
             "kickoff": "2026-03-03 20:15:00",
             "awayTeam": {
+              "score": 1,
               "name": "Liverpool",
               "id": "14",
+              "halfTimeScore": 0,
               "shortName": "Liverpool",
-              "abbr": "LIV"
+              "abbr": "LIV",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "98",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Wolverhampton Wanderers",
               "id": "39",
+              "halfTimeScore": 0,
               "shortName": "Wolves",
-              "abbr": "WOL"
+              "abbr": "WOL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Molineux Stadium, Wolverhampton",
-            "matchId": "2562184"
+            "resultType": "NormalResult",
+            "matchId": "2562184",
+            "attendance": 30247
           }
         ]
       }
