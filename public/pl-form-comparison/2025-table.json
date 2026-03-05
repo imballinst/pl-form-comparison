@@ -84,18 +84,18 @@
     "gd": -1
   },
   {
+    "name": "Crystal Palace",
+    "points": 38,
+    "gf": 33,
+    "ga": 35,
+    "gd": -2
+  },
+  {
     "name": "Brighton and Hove Albion",
     "points": 37,
     "gf": 38,
     "ga": 36,
     "gd": 2
-  },
-  {
-    "name": "Crystal Palace",
-    "points": 35,
-    "gf": 30,
-    "ga": 34,
-    "gd": -4
   },
   {
     "name": "Leeds United",
@@ -107,9 +107,9 @@
   {
     "name": "Tottenham Hotspur",
     "points": 29,
-    "gf": 38,
-    "ga": 43,
-    "gd": -5
+    "gf": 39,
+    "ga": 46,
+    "gd": -7
   },
   {
     "name": "Nottingham Forest",
