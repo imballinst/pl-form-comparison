@@ -35,7 +35,7 @@ export function TeamWidget({ teamName, onRemove, onTeamSelect, widgetId, isDragg
           <GripVertical size={18} className="text-gray-400 shrink-0 cursor-grab active:cursor-grabbing" aria-label="Drag widget" />
 
           <Select onValueChange={onTeamSelect} value={teamName}>
-            <SelectTrigger className="w-full">
+            <SelectTrigger className="w-full" id="select-club-widget-button">
               <SelectValue placeholder="Select a team" />
             </SelectTrigger>
             <SelectContent className="max-h-[300px]">
@@ -51,6 +51,7 @@ export function TeamWidget({ teamName, onRemove, onTeamSelect, widgetId, isDragg
         <Button
           variant="ghost"
           size="icon-sm"
+          id="remove-widget-button"
           onClick={() => {
             onRemove(widgetId)
           }}

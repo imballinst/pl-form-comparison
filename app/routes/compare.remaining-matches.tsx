@@ -8,7 +8,7 @@ import { useIsMobile } from '@/hooks/use-mobile'
 import type { FullMatchInfo, MatchInfo, SeasonTableData, Team } from '@/types'
 import { formatFdr, getDifficultyRating, getFdrColorClass, getTeamPoints } from '@/utils/difficulty-rating'
 import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, isMatchFinished } from '@/utils/match'
-import { fetchSeasons, fetchSeasonsTable } from '@/utils/seasons-fetcher'
+import { fetchSeasonTable, fetchSeasons } from '@/utils/seasons-fetcher'
 import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
 import { Info, X } from 'lucide-react'
@@ -47,7 +47,7 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const teamsArray = teamsString.filter((team) => TEAMS_PER_SEASON[CURRENT_SEASON].includes(team))
 
   const matchesResponses = await fetchSeasons()
-  const currentSeasonTable = await fetchSeasonsTable(CURRENT_SEASON)
+  const currentSeasonTable = await fetchSeasonTable(CURRENT_SEASON)
   const matchesAcrossSeasons = getMatchesAcrossSeasons(teamsArray, matchesResponses, currentSeasonTable)
 
   return { teams: teamsArray, matchesAcrossSeasons }
@@ -76,7 +76,7 @@ export default function RemainingMatches() {
               setSelectedTeam(value)
             }}
           >
-            <SelectTrigger className="w-full md:w-[50%]">
+            <SelectTrigger className="w-full md:w-[50%]" id="select-team-button">
               <SelectValue placeholder="Team" />
             </SelectTrigger>
             <SelectContent>
@@ -89,6 +89,7 @@ export default function RemainingMatches() {
           </Select>
 
           <Button
+            id="add-team-button"
             onClick={() => {
               if (teams.includes(selectedTeam)) {
                 // TODO: add alert.

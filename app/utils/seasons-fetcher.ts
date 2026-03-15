@@ -3,7 +3,7 @@ import type { MatchInfo, SeasonMatchesResponse, SeasonTableData } from '@/types'
 import axios from 'axios'
 
 let seasons: Record<string, MatchInfo[]> | undefined
-let seasonsTable: Record<string, Array<SeasonTableData>> | undefined
+let seasonTable: Record<string, Array<SeasonTableData>> | undefined
 
 export async function fetchSeasons() {
   if (seasons) {
@@ -25,18 +25,18 @@ export async function fetchSeasons() {
   return matchesResponses
 }
 
-export async function fetchSeasonsTable(season: string) {
-  if (seasonsTable && seasonsTable[season]) {
-    return Promise.resolve(seasonsTable[season])
+export async function fetchSeasonTable(season: string) {
+  if (seasonTable && seasonTable[season]) {
+    return Promise.resolve(seasonTable[season])
   }
 
   const response = await axios(`${BASE_PATH}/${season}-table.json`)
   const seasonTableData = response.data as Array<SeasonTableData>
 
-  if (!seasonsTable) {
-    seasonsTable = {}
+  if (!seasonTable) {
+    seasonTable = {}
   }
-  seasonsTable[season] = seasonTableData
+  seasonTable[season] = seasonTableData
 
   return seasonTableData
 }

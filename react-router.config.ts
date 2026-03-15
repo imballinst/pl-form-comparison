@@ -1,7 +1,7 @@
 import type { Config } from '@react-router/dev/config'
 
 export default {
-  basename: '/pl-form-comparison/',
+  basename: import.meta.env.PROD ? '/pl-form-comparison/' : '/',
   ssr: false,
   prerender: true,
 } satisfies Config

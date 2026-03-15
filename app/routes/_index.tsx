@@ -1,17 +1,18 @@
 import { MatchCard } from '@/components/custom/match-card'
+import { SeasonTable } from '@/components/custom/season-table'
 import { TeamWidget, type TeamInfoData } from '@/components/custom/team-widget'
 import { Button } from '@/components/ui/button'
 import { CURRENT_SEASON } from '@/constants'
 import type { FullMatchInfo, MatchInfo, SeasonTableData } from '@/types'
 import { getEssentialMatchInfo, isMatchFinished } from '@/utils/match'
-import { fetchSeasons, fetchSeasonsTable } from '@/utils/seasons-fetcher'
+import { fetchSeasonTable, fetchSeasons } from '@/utils/seasons-fetcher'
 import { addWidget, getWidgetsFromStorage, removeWidget, saveWidgetsToStorage } from '@/utils/widget-storage'
 import { Plus } from 'lucide-react'
 import { useCallback, useState } from 'react'
 import { useLoaderData, useRevalidator } from 'react-router'
 
 export async function clientLoader() {
-  const matchesResponses = await fetchSeasons()
+  const [matchesResponses, seasonTable] = await Promise.all([fetchSeasons(), fetchSeasonTable(CURRENT_SEASON)])
   const matches = matchesResponses[CURRENT_SEASON] || []
 
   // Get the last 10 matchweeks
@@ -42,7 +43,7 @@ export async function clientLoader() {
   let teamInfoRecord: Record<string, TeamInfoData> = {}
 
   if (widgets.length > 0) {
-    const tableData = await fetchSeasonsTable(CURRENT_SEASON)
+    const tableData = await fetchSeasonTable(CURRENT_SEASON)
     const sourceTeamInfoRecord = getTeamInfoRecord(enrichedMatches, tableData)
 
     for (const widget of widgets) {
@@ -56,11 +57,12 @@ export async function clientLoader() {
     last10Matches: enrichedMatches.slice(lastMatchIndexInNearbyMatches - 10, lastMatchIndexInNearbyMatches),
     widgets,
     teamInfoRecord,
+    seasonTable,
   }
 }
 
 export default function HomePage() {
-  const { last10Matches, widgets, teamInfoRecord } = useLoaderData<typeof clientLoader>()
+  const { last10Matches, widgets, teamInfoRecord, seasonTable } = useLoaderData<typeof clientLoader>()
   const [draggedWidgetId, setDraggedWidgetId] = useState<string | null>(null)
   const [dragOverIndex, setDragOverIndex] = useState<number | null>(null)
   const revalidator = useRevalidator()
@@ -127,6 +129,12 @@ export default function HomePage() {
         {last10Matches.length === 0 && <p className="text-gray-500">No recent matches found</p>}
       </section>
 
+      <section>
+        <h2 className="text-2xl font-semibold mb-4">Season Table</h2>
+
+        <SeasonTable data={seasonTable} />
+      </section>
+
       {/* Widgets Section */}
       <section>
         <div className="flex items-center justify-between mb-4">
@@ -154,8 +162,9 @@ export default function HomePage() {
                   addWidget('')
                   revalidator.revalidate()
                 }}
+                id="add-widget-button"
               >
-                <Plus size={32} className="text-gray-400" />
+                <Plus size={32} className="text-gray-400" aria-hidden="true" />
                 Add your first widget
               </Button>
             </li>

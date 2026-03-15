@@ -3,7 +3,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
 import type { MatchInfo } from '@/types'
 import { getScoreResult } from '@/utils/match'
-import { fetchSeasons, fetchSeasonsTable } from '@/utils/seasons-fetcher'
+import { fetchSeasonTable, fetchSeasons } from '@/utils/seasons-fetcher'
 import clsx from 'clsx'
 import { useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/compare.cross-table'
@@ -11,13 +11,13 @@ import type { Route } from './+types/compare.cross-table'
 type AbbrMap = Record<string, string>
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
-  const [seasons, seasonsTable] = await Promise.all([fetchSeasons(), fetchSeasonsTable(CURRENT_SEASON)])
+  const [seasons, seasonTable] = await Promise.all([fetchSeasons(), fetchSeasonTable(CURRENT_SEASON)])
   const matches = seasons[CURRENT_SEASON]
 
   const searchParams = new URL(request.url).searchParams
   const orderBy = searchParams.get('orderBy') ?? ORDER_BY_OPTIONS[0].value
 
-  const teams = orderBy === ORDER_BY_OPTIONS[0].value ? seasonsTable.map((team) => team.name) : TEAMS_PER_SEASON[CURRENT_SEASON]
+  const teams = orderBy === ORDER_BY_OPTIONS[0].value ? seasonTable.map((team) => team.name) : TEAMS_PER_SEASON[CURRENT_SEASON]
   const abbrMap: AbbrMap = {}
 
   for (const m of matches) {
@@ -74,7 +74,7 @@ export default function CrossTableRoute() {
               })
             }}
           >
-            <SelectTrigger className="w-full md:w-[50%]">
+            <SelectTrigger className="w-full md:w-[50%]" id="select-order-by-button">
               <SelectValue placeholder="Order by..." />
             </SelectTrigger>
             <SelectContent>

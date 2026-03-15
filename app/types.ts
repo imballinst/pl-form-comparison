@@ -60,7 +60,11 @@ export interface Team {
 export interface SeasonTableData {
   name: string
   abbr: string
+  played: number
   points: number
+  wins: number
+  losses: number
+  draws: number
   gf: number
   ga: number
   gd: number

@@ -16,23 +16,15 @@ async function main() {
 
   for (const match of finishedMatches) {
     const { homeTeam, awayTeam } = match
-    let homeTeamPoints
-    let awayTeamPoints
-
-    if (homeTeam.score === awayTeam.score) {
-      homeTeamPoints = 1
-      awayTeamPoints = 1
-    } else if (homeTeam.score > awayTeam.score) {
-      homeTeamPoints = 3
-      awayTeamPoints = 0
-    } else {
-      homeTeamPoints = 0
-      awayTeamPoints = 3
-    }
 
     if (!teamsObject[homeTeam.name]) {
       teamsObject[homeTeam.name] = {
         name: homeTeam.name,
+        abbr: homeTeam.abbr,
+        played: 0,
+        wins: 0,
+        draws: 0,
+        losses: 0,
         points: 0,
         gf: 0,
         ga: 0,
@@ -42,25 +34,51 @@ async function main() {
     if (!teamsObject[awayTeam.name]) {
       teamsObject[awayTeam.name] = {
         name: awayTeam.name,
+        abbr: awayTeam.abbr,
         points: 0,
+        played: 0,
+        wins: 0,
+        draws: 0,
+        losses: 0,
         gf: 0,
         ga: 0,
         gd: 0,
       }
     }
 
-    const homeTeamGD = homeTeam.score - awayTeam.score
-    const awayTeamGD = awayTeam.score - homeTeam.score
+    const homeTeamResult = teamsObject[homeTeam.name]
+    const awayTeamResult = teamsObject[awayTeam.name]
 
-    teamsObject[homeTeam.name].gf += homeTeam.score
-    teamsObject[homeTeam.name].ga += awayTeam.score
-    teamsObject[homeTeam.name].gd += homeTeamGD
-    teamsObject[homeTeam.name].points += homeTeamPoints
+    if (homeTeam.score === awayTeam.score) {
+      homeTeamResult.points += 1
+      homeTeamResult.draws += 1
 
-    teamsObject[awayTeam.name].gf += awayTeam.score
-    teamsObject[awayTeam.name].ga += homeTeam.score
-    teamsObject[awayTeam.name].gd += awayTeamGD
-    teamsObject[awayTeam.name].points += awayTeamPoints
+      awayTeamResult.points += 1
+      awayTeamResult.draws += 1
+    } else if (homeTeam.score > awayTeam.score) {
+      homeTeamResult.points += 3
+      awayTeamResult.points += 0
+
+      homeTeamResult.wins += 1
+      awayTeamResult.losses += 1
+    } else {
+      homeTeamResult.points += 0
+      awayTeamResult.points += 3
+
+      homeTeamResult.losses += 1
+      awayTeamResult.wins += 1
+    }
+
+    homeTeamResult.played += 1
+    awayTeamResult.played += 1
+
+    homeTeamResult.gf += homeTeam.score
+    homeTeamResult.ga += awayTeam.score
+    homeTeamResult.gd += homeTeam.score - awayTeam.score
+
+    awayTeamResult.gf += awayTeam.score
+    awayTeamResult.ga += homeTeam.score
+    awayTeamResult.gd += awayTeam.score - homeTeam.score
   }
 
   const table = Object.values(teamsObject).sort((a, b) => {
