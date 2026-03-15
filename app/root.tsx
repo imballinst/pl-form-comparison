@@ -34,7 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   j.async = true
   j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
   f.parentNode.insertBefore(j, f)
-})(window, document, 'script', 'dataLayer', 'GTM-KGLF5764')`,
+})(window, document, 'script', 'dataLayer', 'G-NVZE75RYKR')`,
           }}
         />
       </head>
@@ -47,7 +47,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           dangerouslySetInnerHTML={{
             __html: `
 <iframe
-  src="https://www.googletagmanager.com/ns.html?id=GTM-KGLF5764"
+  src="https://www.googletagmanager.com/ns.html?id= G-NVZE75RYKR"
   height="0"
   width="0"
   style="display: none; visibility: hidden"
