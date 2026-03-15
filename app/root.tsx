@@ -47,7 +47,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           dangerouslySetInnerHTML={{
             __html: `
 <iframe
-  src="https://www.googletagmanager.com/ns.html?id= G-NVZE75RYKR"
+  src="https://www.googletagmanager.com/ns.html?id=G-NVZE75RYKR"
   height="0"
   width="0"
   style="display: none; visibility: hidden"
