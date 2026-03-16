@@ -10280,26 +10280,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 30,
             "kickoff": "2026-03-16 20:00:00",
             "awayTeam": {
+              "score": 2,
               "name": "Wolverhampton Wanderers",
               "id": "39",
+              "halfTimeScore": 1,
               "shortName": "Wolves",
-              "abbr": "WOL"
+              "abbr": "WOL",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Brentford",
               "id": "94",
+              "halfTimeScore": 2,
               "shortName": "Brentford",
-              "abbr": "BRE"
+              "abbr": "BRE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Gtech Community Stadium, Brentford",
-            "matchId": "2562186"
+            "resultType": "NormalResult",
+            "matchId": "2562186",
+            "attendance": 17155
           },
           {
             "phase": "1",
@@ -10434,7 +10443,8 @@
             "season": "2025",
             "ground": "Anfield, Liverpool",
             "resultType": "NormalResult",
-            "matchId": "2562190"
+            "matchId": "2562190",
+            "attendance": 60386
           },
           {
             "phase": "1",

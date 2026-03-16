@@ -74,13 +74,13 @@
   {
     "name": "Brentford",
     "abbr": "BRE",
-    "points": 44,
-    "played": 29,
+    "points": 45,
+    "played": 30,
     "wins": 13,
-    "draws": 5,
+    "draws": 6,
     "losses": 11,
-    "gf": 44,
-    "ga": 40,
+    "gf": 46,
+    "ga": 42,
     "gd": 4
   },
   {
@@ -230,13 +230,13 @@
   {
     "name": "Wolverhampton Wanderers",
     "abbr": "WOL",
-    "played": 30,
+    "played": 31,
     "wins": 3,
-    "draws": 7,
+    "draws": 8,
     "losses": 20,
-    "points": 16,
-    "gf": 22,
-    "ga": 52,
+    "points": 17,
+    "gf": 24,
+    "ga": 54,
     "gd": -30
   }
 ]
