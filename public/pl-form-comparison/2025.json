@@ -10598,26 +10598,35 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 31,
             "kickoff": "2026-03-20 20:00:00",
             "awayTeam": {
+              "score": 2,
               "name": "Manchester United",
               "id": "1",
+              "halfTimeScore": 0,
               "shortName": "Man Utd",
-              "abbr": "MUN"
+              "abbr": "MUN",
+              "redCards": 1
             },
             "competition": "Premier League",
+            "clock": "101",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Bournemouth",
               "id": "91",
+              "halfTimeScore": 0,
               "shortName": "Bournemouth",
-              "abbr": "BOU"
+              "abbr": "BOU",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Vitality Stadium, Bournemouth",
-            "matchId": "2562195"
+            "resultType": "NormalResult",
+            "matchId": "2562195",
+            "attendance": 11250
           },
           {
             "phase": "1",
@@ -10945,7 +10954,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 32,
-            "kickoff": "2026-04-11 15:00:00",
+            "kickoff": "2026-04-12 14:00:00",
             "awayTeam": {
               "name": "Newcastle United",
               "id": "4",
@@ -11020,7 +11029,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 32,
-            "kickoff": "2026-04-11 15:00:00",
+            "kickoff": "2026-04-12 14:00:00",
             "awayTeam": {
               "name": "Aston Villa",
               "id": "7",
@@ -11107,7 +11116,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 33,
-            "kickoff": "2026-04-18 15:00:00",
+            "kickoff": "2026-04-19 14:00:00",
             "awayTeam": {
               "name": "Sunderland",
               "id": "56",
@@ -11132,7 +11141,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 33,
-            "kickoff": "2026-04-18 15:00:00",
+            "kickoff": "2026-04-18 12:30:00",
             "awayTeam": {
               "name": "Fulham",
               "id": "54",
@@ -11157,7 +11166,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 33,
-            "kickoff": "2026-04-18 15:00:00",
+            "kickoff": "2026-04-18 20:00:00",
             "awayTeam": {
               "name": "Manchester United",
               "id": "1",
@@ -11182,7 +11191,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 33,
-            "kickoff": "2026-04-18 15:00:00",
+            "kickoff": "2026-04-20 20:00:00",
             "awayTeam": {
               "name": "West Ham United",
               "id": "21",
@@ -11207,7 +11216,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 33,
-            "kickoff": "2026-04-18 15:00:00",
+            "kickoff": "2026-04-19 14:00:00",
             "awayTeam": {
               "name": "Liverpool",
               "id": "14",
@@ -11257,7 +11266,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 33,
-            "kickoff": "2026-04-18 15:00:00",
+            "kickoff": "2026-04-19 16:30:00",
             "awayTeam": {
               "name": "Arsenal",
               "id": "3",
@@ -11307,7 +11316,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 33,
-            "kickoff": "2026-04-18 15:00:00",
+            "kickoff": "2026-04-19 14:00:00",
             "awayTeam": {
               "name": "Burnley",
               "id": "90",
@@ -11332,7 +11341,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 33,
-            "kickoff": "2026-04-18 15:00:00",
+            "kickoff": "2026-04-18 17:30:00",
             "awayTeam": {
               "name": "Brighton and Hove Albion",
               "id": "36",

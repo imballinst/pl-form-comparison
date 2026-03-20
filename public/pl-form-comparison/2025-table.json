@@ -26,13 +26,13 @@
   {
     "name": "Manchester United",
     "abbr": "MUN",
-    "played": 30,
+    "played": 31,
     "wins": 15,
-    "draws": 9,
+    "draws": 10,
     "losses": 6,
-    "points": 54,
-    "gf": 54,
-    "ga": 41,
+    "points": 55,
+    "gf": 56,
+    "ga": 43,
     "gd": 13
   },
   {
@@ -110,13 +110,13 @@
   {
     "name": "Bournemouth",
     "abbr": "BOU",
-    "points": 41,
-    "played": 30,
+    "points": 42,
+    "played": 31,
     "wins": 9,
-    "draws": 14,
+    "draws": 15,
     "losses": 7,
-    "gf": 44,
-    "ga": 46,
+    "gf": 46,
+    "ga": 48,
     "gd": -2
   },
   {
