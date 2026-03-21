@@ -10657,101 +10657,135 @@
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 31,
-            "kickoff": "2026-03-21 12:30:00",
+            "kickoff": "2026-03-21 12:45:00",
             "awayTeam": {
+              "score": 1,
               "name": "Liverpool",
               "id": "14",
+              "halfTimeScore": 1,
               "shortName": "Liverpool",
-              "abbr": "LIV"
+              "abbr": "LIV",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "98",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Brighton and Hove Albion",
               "id": "36",
+              "halfTimeScore": 1,
               "shortName": "Brighton",
-              "abbr": "BHA"
+              "abbr": "BHA",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "American Express Stadium, Falmer",
+            "resultType": "NormalResult",
             "matchId": "2562197"
           },
           {
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 31,
             "kickoff": "2026-03-21 17:30:00",
             "awayTeam": {
+              "score": 0,
               "name": "Chelsea",
               "id": "8",
+              "halfTimeScore": 0,
               "shortName": "Chelsea",
-              "abbr": "CHE"
+              "abbr": "CHE",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "96",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 3,
               "name": "Everton",
               "id": "11",
+              "halfTimeScore": 1,
               "shortName": "Everton",
-              "abbr": "EVE"
+              "abbr": "EVE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Hill Dickinson Stadium, Liverpool",
-            "matchId": "2562198"
+            "resultType": "NormalResult",
+            "matchId": "2562198",
+            "attendance": 52547
           },
           {
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 31,
             "kickoff": "2026-03-21 15:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Burnley",
               "id": "90",
+              "halfTimeScore": 0,
               "shortName": "Burnley",
-              "abbr": "BUR"
+              "abbr": "BUR",
+              "redCards": 1
             },
             "competition": "Premier League",
+            "clock": "98",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 3,
               "name": "Fulham",
               "id": "54",
+              "halfTimeScore": 0,
               "shortName": "Fulham",
-              "abbr": "FUL"
+              "abbr": "FUL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Craven Cottage, London",
+            "resultType": "NormalResult",
             "matchId": "2562199"
           },
           {
             "phase": "1",
             "kickoffTimezone": "GMT",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 31,
             "kickoff": "2026-03-21 20:00:00",
             "awayTeam": {
+              "score": 0,
               "name": "Brentford",
               "id": "94",
+              "halfTimeScore": 0,
               "shortName": "Brentford",
-              "abbr": "BRE"
+              "abbr": "BRE",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "98",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "Leeds United",
               "id": "2",
+              "halfTimeScore": 0,
               "shortName": "Leeds",
-              "abbr": "LEE"
+              "abbr": "LEE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Elland Road, Leeds",
-            "matchId": "2562200"
+            "resultType": "NormalResult",
+            "matchId": "2562200",
+            "attendance": 36386
           },
           {
             "phase": "1",
