@@ -38,14 +38,14 @@
   {
     "name": "Aston Villa",
     "abbr": "AVL",
-    "played": 30,
-    "wins": 15,
+    "played": 31,
+    "wins": 16,
     "draws": 6,
     "losses": 9,
-    "points": 51,
-    "gf": 40,
+    "points": 54,
+    "gf": 42,
     "ga": 37,
-    "gd": 3
+    "gd": 5
   },
   {
     "name": "Liverpool",
@@ -120,16 +120,28 @@
     "gd": 4
   },
   {
+    "name": "Sunderland",
+    "abbr": "SUN",
+    "played": 31,
+    "wins": 11,
+    "draws": 10,
+    "losses": 10,
+    "points": 43,
+    "gf": 32,
+    "ga": 36,
+    "gd": -4
+  },
+  {
     "name": "Newcastle United",
     "abbr": "NEW",
     "points": 42,
-    "played": 30,
+    "played": 31,
     "wins": 12,
     "draws": 6,
-    "losses": 12,
-    "gf": 43,
-    "ga": 43,
-    "gd": 0
+    "losses": 13,
+    "gf": 44,
+    "ga": 45,
+    "gd": -1
   },
   {
     "name": "Bournemouth",
@@ -142,18 +154,6 @@
     "gf": 46,
     "ga": 48,
     "gd": -2
-  },
-  {
-    "name": "Sunderland",
-    "abbr": "SUN",
-    "played": 30,
-    "wins": 10,
-    "draws": 10,
-    "losses": 10,
-    "points": 40,
-    "gf": 30,
-    "ga": 35,
-    "gd": -5
   },
   {
     "name": "Crystal Palace",
@@ -180,40 +180,40 @@
     "gd": -11
   },
   {
-    "name": "Tottenham Hotspur",
-    "abbr": "TOT",
-    "played": 30,
-    "wins": 7,
-    "draws": 9,
-    "losses": 14,
-    "points": 30,
-    "gf": 40,
-    "ga": 47,
-    "gd": -7
-  },
-  {
     "name": "Nottingham Forest",
     "abbr": "NFO",
-    "played": 30,
-    "wins": 7,
+    "played": 31,
+    "wins": 8,
     "draws": 8,
     "losses": 15,
-    "points": 29,
-    "gf": 28,
+    "points": 32,
+    "gf": 31,
     "ga": 43,
-    "gd": -15
+    "gd": -12
+  },
+  {
+    "name": "Tottenham Hotspur",
+    "abbr": "TOT",
+    "played": 31,
+    "wins": 7,
+    "draws": 9,
+    "losses": 15,
+    "points": 30,
+    "gf": 40,
+    "ga": 50,
+    "gd": -10
   },
   {
     "name": "West Ham United",
     "abbr": "WHU",
     "points": 29,
-    "played": 30,
+    "played": 31,
     "wins": 7,
     "draws": 8,
-    "losses": 15,
+    "losses": 16,
     "gf": 36,
-    "ga": 55,
-    "gd": -19
+    "ga": 57,
+    "gd": -21
   },
   {
     "name": "Burnley",
