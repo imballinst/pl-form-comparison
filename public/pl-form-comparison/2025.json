@@ -11422,6 +11422,105 @@
             "season": "2025",
             "ground": "Tottenham Hotspur Stadium, London",
             "matchId": "2562224"
+          },
+          {
+            "phase": "1",
+            "kickoffTimezone": "BST",
+            "competitionId": "8",
+            "period": "PreMatch",
+            "matchWeek": 33,
+            "kickoff": "2026-04-22 20:00:00",
+            "awayTeam": {
+              "score": 0,
+              "name": "Leeds United",
+              "id": "2",
+              "halfTimeScore": 0,
+              "shortName": "Leeds",
+              "abbr": "LEE",
+              "redCards": 0
+            },
+            "competition": "Premier League",
+            "clock": "0",
+            "kickoffTimezoneString": "Europe/London",
+            "homeTeam": {
+              "score": 0,
+              "name": "Bournemouth",
+              "id": "91",
+              "halfTimeScore": 0,
+              "shortName": "Bournemouth",
+              "abbr": "BOU",
+              "redCards": 0
+            },
+            "season": "2025",
+            "ground": "Vitality Stadium, Bournemouth",
+            "resultType": "Postponed",
+            "matchId": "2562225"
+          },
+          {
+            "phase": "1",
+            "kickoffTimezone": "BST",
+            "competitionId": "8",
+            "period": "PreMatch",
+            "matchWeek": 33,
+            "kickoff": "2026-04-21 20:00:00",
+            "awayTeam": {
+              "score": 0,
+              "name": "Chelsea",
+              "id": "8",
+              "halfTimeScore": 0,
+              "shortName": "Chelsea",
+              "abbr": "CHE",
+              "redCards": 0
+            },
+            "competition": "Premier League",
+            "clock": "0",
+            "kickoffTimezoneString": "Europe/London",
+            "homeTeam": {
+              "score": 0,
+              "name": "Brighton and Hove Albion",
+              "id": "36",
+              "halfTimeScore": 0,
+              "shortName": "Brighton",
+              "abbr": "BHA",
+              "redCards": 0
+            },
+            "season": "2025",
+            "ground": "American Express Stadium, Falmer",
+            "resultType": "Postponed",
+            "matchId": "2562227"
+          },
+          {
+            "phase": "1",
+            "kickoffTimezone": "BST",
+            "competitionId": "8",
+            "period": "PreMatch",
+            "matchWeek": 33,
+            "kickoff": "2026-04-22 20:00:00",
+            "awayTeam": {
+              "score": 0,
+              "name": "Manchester City",
+              "id": "43",
+              "halfTimeScore": 0,
+              "shortName": "Man City",
+              "abbr": "MCI",
+              "redCards": 0
+            },
+            "competition": "Premier League",
+            "clock": "0",
+            "kickoffTimezoneString": "Europe/London",
+            "homeTeam": {
+              "score": 0,
+              "name": "Burnley",
+              "id": "90",
+              "halfTimeScore": 0,
+              "shortName": "Burnley",
+              "abbr": "BUR",
+              "redCards": 0
+            },
+            "season": "2025",
+            "ground": "Turf Moor, Burnley",
+            "resultType": "Postponed",
+            "matchId": "2562228"
           }
         ]
       }
