@@ -192,6 +192,18 @@
     "gd": -12
   },
   {
+    "name": "West Ham United",
+    "abbr": "WHU",
+    "points": 32,
+    "played": 32,
+    "wins": 8,
+    "draws": 8,
+    "losses": 16,
+    "gf": 40,
+    "ga": 57,
+    "gd": -17
+  },
+  {
     "name": "Tottenham Hotspur",
     "abbr": "TOT",
     "played": 31,
@@ -202,18 +214,6 @@
     "gf": 40,
     "ga": 50,
     "gd": -10
-  },
-  {
-    "name": "West Ham United",
-    "abbr": "WHU",
-    "points": 29,
-    "played": 31,
-    "wins": 7,
-    "draws": 8,
-    "losses": 16,
-    "gf": 36,
-    "ga": 57,
-    "gd": -21
   },
   {
     "name": "Burnley",
@@ -230,13 +230,13 @@
   {
     "name": "Wolverhampton Wanderers",
     "abbr": "WOL",
-    "played": 31,
+    "played": 32,
     "wins": 3,
     "draws": 8,
-    "losses": 20,
+    "losses": 21,
     "points": 17,
     "gf": 24,
-    "ga": 54,
-    "gd": -30
+    "ga": 58,
+    "gd": -34
   }
 ]
