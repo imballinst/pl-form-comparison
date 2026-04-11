@@ -10915,76 +10915,103 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 32,
             "kickoff": "2026-04-11 12:30:00",
             "awayTeam": {
+              "score": 2,
               "name": "Bournemouth",
               "id": "91",
+              "halfTimeScore": 1,
               "shortName": "Bournemouth",
-              "abbr": "BOU"
+              "abbr": "BOU",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "96",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Arsenal",
               "id": "3",
+              "halfTimeScore": 1,
               "shortName": "Arsenal",
-              "abbr": "ARS"
+              "abbr": "ARS",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Emirates Stadium, London",
-            "matchId": "2562205"
+            "resultType": "NormalResult",
+            "matchId": "2562205",
+            "attendance": 60210
           },
           {
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 32,
             "kickoff": "2026-04-11 15:00:00",
             "awayTeam": {
+              "score": 2,
               "name": "Everton",
               "id": "11",
+              "halfTimeScore": 1,
               "shortName": "Everton",
-              "abbr": "EVE"
+              "abbr": "EVE",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "94",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Brentford",
               "id": "94",
+              "halfTimeScore": 1,
               "shortName": "Brentford",
-              "abbr": "BRE"
+              "abbr": "BRE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Gtech Community Stadium, Brentford",
-            "matchId": "2562206"
+            "resultType": "NormalResult",
+            "matchId": "2562206",
+            "attendance": 17220
           },
           {
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 32,
             "kickoff": "2026-04-11 15:00:00",
             "awayTeam": {
+              "score": 2,
               "name": "Brighton and Hove Albion",
               "id": "36",
+              "halfTimeScore": 1,
               "shortName": "Brighton",
-              "abbr": "BHA"
+              "abbr": "BHA",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "Burnley",
               "id": "90",
+              "halfTimeScore": 0,
               "shortName": "Burnley",
-              "abbr": "BUR"
+              "abbr": "BUR",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Turf Moor, Burnley",
-            "matchId": "2562207"
+            "resultType": "NormalResult",
+            "matchId": "2562207",
+            "attendance": 20408
           },
           {
             "phase": "1",
@@ -11040,26 +11067,35 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 32,
             "kickoff": "2026-04-11 17:30:00",
             "awayTeam": {
+              "score": 0,
               "name": "Fulham",
               "id": "54",
+              "halfTimeScore": 0,
               "shortName": "Fulham",
-              "abbr": "FUL"
+              "abbr": "FUL",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "94",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Liverpool",
               "id": "14",
+              "halfTimeScore": 2,
               "shortName": "Liverpool",
-              "abbr": "LIV"
+              "abbr": "LIV",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Anfield, Liverpool",
-            "matchId": "2562210"
+            "resultType": "NormalResult",
+            "matchId": "2562210",
+            "attendance": 60401
           },
           {
             "phase": "1",
@@ -11167,7 +11203,8 @@
             "season": "2025",
             "ground": "London Stadium, London",
             "resultType": "NormalResult",
-            "matchId": "2562214"
+            "matchId": "2562214",
+            "attendance": 62457
           }
         ]
       }

@@ -3,13 +3,13 @@
     "name": "Arsenal",
     "abbr": "ARS",
     "points": 70,
-    "played": 31,
+    "played": 32,
     "wins": 21,
     "draws": 7,
-    "losses": 3,
-    "gf": 61,
-    "ga": 22,
-    "gd": 39
+    "losses": 4,
+    "gf": 62,
+    "ga": 24,
+    "gd": 38
   },
   {
     "name": "Manchester City",
@@ -50,14 +50,14 @@
   {
     "name": "Liverpool",
     "abbr": "LIV",
-    "played": 31,
-    "wins": 14,
+    "played": 32,
+    "wins": 15,
     "draws": 7,
     "losses": 10,
-    "points": 49,
-    "gf": 50,
+    "points": 52,
+    "gf": 52,
     "ga": 42,
-    "gd": 8
+    "gd": 10
   },
   {
     "name": "Chelsea",
@@ -74,50 +74,62 @@
   {
     "name": "Brentford",
     "abbr": "BRE",
-    "points": 46,
-    "played": 31,
+    "points": 47,
+    "played": 32,
     "wins": 13,
-    "draws": 7,
+    "draws": 8,
     "losses": 11,
-    "gf": 46,
-    "ga": 42,
+    "gf": 48,
+    "ga": 44,
     "gd": 4
   },
   {
     "name": "Everton",
     "abbr": "EVE",
-    "points": 46,
-    "played": 31,
+    "points": 47,
+    "played": 32,
     "wins": 13,
-    "draws": 7,
+    "draws": 8,
     "losses": 11,
-    "gf": 37,
-    "ga": 35,
+    "gf": 39,
+    "ga": 37,
     "gd": 2
+  },
+  {
+    "name": "Brighton and Hove Albion",
+    "abbr": "BHA",
+    "played": 32,
+    "wins": 12,
+    "draws": 10,
+    "losses": 10,
+    "points": 46,
+    "gf": 43,
+    "ga": 37,
+    "gd": 6
+  },
+  {
+    "name": "Bournemouth",
+    "abbr": "BOU",
+    "points": 45,
+    "played": 32,
+    "wins": 10,
+    "draws": 15,
+    "losses": 7,
+    "gf": 48,
+    "ga": 49,
+    "gd": -1
   },
   {
     "name": "Fulham",
     "abbr": "FUL",
     "points": 44,
-    "played": 31,
+    "played": 32,
     "wins": 13,
     "draws": 5,
-    "losses": 13,
+    "losses": 14,
     "gf": 43,
-    "ga": 44,
-    "gd": -1
-  },
-  {
-    "name": "Brighton and Hove Albion",
-    "abbr": "BHA",
-    "played": 31,
-    "wins": 11,
-    "draws": 10,
-    "losses": 10,
-    "points": 43,
-    "gf": 41,
-    "ga": 37,
-    "gd": 4
+    "ga": 46,
+    "gd": -3
   },
   {
     "name": "Sunderland",
@@ -142,18 +154,6 @@
     "gf": 44,
     "ga": 45,
     "gd": -1
-  },
-  {
-    "name": "Bournemouth",
-    "abbr": "BOU",
-    "points": 42,
-    "played": 31,
-    "wins": 9,
-    "draws": 15,
-    "losses": 7,
-    "gf": 46,
-    "ga": 48,
-    "gd": -2
   },
   {
     "name": "Crystal Palace",
@@ -219,13 +219,13 @@
     "name": "Burnley",
     "abbr": "BUR",
     "points": 20,
-    "played": 31,
+    "played": 32,
     "wins": 4,
     "draws": 8,
-    "losses": 19,
+    "losses": 20,
     "gf": 33,
-    "ga": 61,
-    "gd": -28
+    "ga": 63,
+    "gd": -30
   },
   {
     "name": "Wolverhampton Wanderers",
