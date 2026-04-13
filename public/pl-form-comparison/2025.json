@@ -11044,7 +11044,8 @@
             "season": "2025",
             "ground": "Stamford Bridge, London",
             "resultType": "NormalResult",
-            "matchId": "2562208"
+            "matchId": "2562208",
+            "attendance": 39552
           },
           {
             "phase": "1",
@@ -11118,25 +11119,33 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 32,
             "kickoff": "2026-04-13 20:00:00",
             "awayTeam": {
+              "score": 2,
               "name": "Leeds United",
               "id": "2",
+              "halfTimeScore": 2,
               "shortName": "Leeds",
-              "abbr": "LEE"
+              "abbr": "LEE",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "98",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Manchester United",
               "id": "1",
+              "halfTimeScore": 0,
               "shortName": "Man Utd",
-              "abbr": "MUN"
+              "abbr": "MUN",
+              "redCards": 1
             },
             "season": "2025",
             "ground": "Old Trafford, Manchester",
+            "resultType": "NormalResult",
             "matchId": "2562211"
           },
           {
@@ -11620,32 +11629,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 34,
-            "kickoff": "2026-04-25 15:00:00",
-            "awayTeam": {
-              "name": "Leeds United",
-              "id": "2",
-              "shortName": "Leeds",
-              "abbr": "LEE"
-            },
-            "competition": "Premier League",
-            "kickoffTimezoneString": "Europe/London",
-            "homeTeam": {
-              "name": "Bournemouth",
-              "id": "91",
-              "shortName": "Bournemouth",
-              "abbr": "BOU"
-            },
-            "season": "2025",
-            "ground": "Vitality Stadium, Bournemouth",
-            "matchId": "2562225"
-          },
-          {
-            "phase": "1",
-            "kickoffTimezone": "BST",
-            "competitionId": "8",
-            "period": "PreMatch",
-            "matchWeek": 34,
-            "kickoff": "2026-04-25 15:00:00",
+            "kickoff": "2026-04-25 17:30:00",
             "awayTeam": {
               "name": "Newcastle United",
               "id": "4",
@@ -11670,57 +11654,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 34,
-            "kickoff": "2026-04-25 15:00:00",
-            "awayTeam": {
-              "name": "Chelsea",
-              "id": "8",
-              "shortName": "Chelsea",
-              "abbr": "CHE"
-            },
-            "competition": "Premier League",
-            "kickoffTimezoneString": "Europe/London",
-            "homeTeam": {
-              "name": "Brighton and Hove Albion",
-              "id": "36",
-              "shortName": "Brighton",
-              "abbr": "BHA"
-            },
-            "season": "2025",
-            "ground": "American Express Stadium, Falmer",
-            "matchId": "2562227"
-          },
-          {
-            "phase": "1",
-            "kickoffTimezone": "BST",
-            "competitionId": "8",
-            "period": "PreMatch",
-            "matchWeek": 34,
-            "kickoff": "2026-04-25 15:00:00",
-            "awayTeam": {
-              "name": "Manchester City",
-              "id": "43",
-              "shortName": "Man City",
-              "abbr": "MCI"
-            },
-            "competition": "Premier League",
-            "kickoffTimezoneString": "Europe/London",
-            "homeTeam": {
-              "name": "Burnley",
-              "id": "90",
-              "shortName": "Burnley",
-              "abbr": "BUR"
-            },
-            "season": "2025",
-            "ground": "Turf Moor, Burnley",
-            "matchId": "2562228"
-          },
-          {
-            "phase": "1",
-            "kickoffTimezone": "BST",
-            "competitionId": "8",
-            "period": "PreMatch",
-            "matchWeek": 34,
-            "kickoff": "2026-04-25 15:00:00",
+            "kickoff": "2026-04-25 12:30:00",
             "awayTeam": {
               "name": "Aston Villa",
               "id": "7",
@@ -11770,7 +11704,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 34,
-            "kickoff": "2026-04-25 15:00:00",
+            "kickoff": "2026-04-27 20:00:00",
             "awayTeam": {
               "name": "Brentford",
               "id": "94",
@@ -11795,7 +11729,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 34,
-            "kickoff": "2026-04-25 15:00:00",
+            "kickoff": "2026-04-24 20:00:00",
             "awayTeam": {
               "name": "Nottingham Forest",
               "id": "17",

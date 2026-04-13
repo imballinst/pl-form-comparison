@@ -26,14 +26,14 @@
   {
     "name": "Manchester United",
     "abbr": "MUN",
-    "played": 31,
+    "played": 32,
     "wins": 15,
     "draws": 10,
-    "losses": 6,
+    "losses": 7,
     "points": 55,
-    "gf": 56,
-    "ga": 43,
-    "gd": 13
+    "gf": 57,
+    "ga": 45,
+    "gd": 12
   },
   {
     "name": "Aston Villa",
@@ -170,14 +170,14 @@
   {
     "name": "Leeds United",
     "abbr": "LEE",
-    "played": 31,
-    "wins": 7,
+    "played": 32,
+    "wins": 8,
     "draws": 12,
     "losses": 12,
-    "points": 33,
-    "gf": 37,
-    "ga": 48,
-    "gd": -11
+    "points": 36,
+    "gf": 39,
+    "ga": 49,
+    "gd": -10
   },
   {
     "name": "Nottingham Forest",
