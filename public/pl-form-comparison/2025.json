@@ -11266,26 +11266,35 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 33,
             "kickoff": "2026-04-19 14:00:00",
             "awayTeam": {
+              "score": 3,
               "name": "Sunderland",
               "id": "56",
+              "halfTimeScore": 1,
               "shortName": "Sunderland",
-              "abbr": "SUN"
+              "abbr": "SUN",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "98",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 4,
               "name": "Aston Villa",
               "id": "7",
+              "halfTimeScore": 2,
               "shortName": "Aston Villa",
-              "abbr": "AVL"
+              "abbr": "AVL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Villa Park, Birmingham",
-            "matchId": "2562215"
+            "resultType": "NormalResult",
+            "matchId": "2562215",
+            "attendance": 42599
           },
           {
             "phase": "1",
@@ -11352,7 +11361,8 @@
             "season": "2025",
             "ground": "Stamford Bridge, London",
             "resultType": "NormalResult",
-            "matchId": "2562217"
+            "matchId": "2562217",
+            "attendance": 39733
           },
           {
             "phase": "1",
@@ -11383,26 +11393,35 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 33,
             "kickoff": "2026-04-19 14:00:00",
             "awayTeam": {
+              "score": 2,
               "name": "Liverpool",
               "id": "14",
+              "halfTimeScore": 1,
               "shortName": "Liverpool",
-              "abbr": "LIV"
+              "abbr": "LIV",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "103",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Everton",
               "id": "11",
+              "halfTimeScore": 0,
               "shortName": "Everton",
-              "abbr": "EVE"
+              "abbr": "EVE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Hill Dickinson Stadium, Liverpool",
-            "matchId": "2562219"
+            "resultType": "NormalResult",
+            "matchId": "2562219",
+            "attendance": 52585
           },
           {
             "phase": "1",
@@ -11442,25 +11461,33 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 33,
             "kickoff": "2026-04-19 16:30:00",
             "awayTeam": {
+              "score": 1,
               "name": "Arsenal",
               "id": "3",
+              "halfTimeScore": 1,
               "shortName": "Arsenal",
-              "abbr": "ARS"
+              "abbr": "ARS",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "98",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Manchester City",
               "id": "43",
+              "halfTimeScore": 1,
               "shortName": "Man City",
-              "abbr": "MCI"
+              "abbr": "MCI",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Etihad Stadium, Manchester",
+            "resultType": "NormalResult",
             "matchId": "2562221"
           },
           {
@@ -11501,26 +11528,35 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 33,
             "kickoff": "2026-04-19 14:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Burnley",
               "id": "90",
+              "halfTimeScore": 1,
               "shortName": "Burnley",
-              "abbr": "BUR"
+              "abbr": "BUR",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "99",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 4,
               "name": "Nottingham Forest",
               "id": "17",
+              "halfTimeScore": 0,
               "shortName": "Nott'm Forest",
-              "abbr": "NFO"
+              "abbr": "NFO",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "The City Ground, Nottingham",
-            "matchId": "2562223"
+            "resultType": "NormalResult",
+            "matchId": "2562223",
+            "attendance": 29458
           },
           {
             "phase": "1",
