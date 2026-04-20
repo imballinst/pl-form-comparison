@@ -11368,26 +11368,35 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 33,
             "kickoff": "2026-04-20 20:00:00",
             "awayTeam": {
+              "score": 0,
               "name": "West Ham United",
               "id": "21",
+              "halfTimeScore": 0,
               "shortName": "West Ham",
-              "abbr": "WHU"
+              "abbr": "WHU",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "95",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "Crystal Palace",
               "id": "31",
+              "halfTimeScore": 0,
               "shortName": "Crystal Palace",
-              "abbr": "CRY"
+              "abbr": "CRY",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Selhurst Park, London",
-            "matchId": "2562218"
+            "resultType": "NormalResult",
+            "matchId": "2562218",
+            "attendance": 24974
           },
           {
             "phase": "1",
@@ -11488,7 +11497,8 @@
             "season": "2025",
             "ground": "Etihad Stadium, Manchester",
             "resultType": "NormalResult",
-            "matchId": "2562221"
+            "matchId": "2562221",
+            "attendance": 52523
           },
           {
             "phase": "1",
