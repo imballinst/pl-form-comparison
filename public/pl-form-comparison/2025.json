@@ -11639,7 +11639,7 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 33,
             "kickoff": "2026-04-21 20:00:00",
             "awayTeam": {
@@ -11652,21 +11652,22 @@
               "redCards": 0
             },
             "competition": "Premier League",
-            "clock": "0",
+            "clock": "95",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
-              "score": 0,
+              "score": 3,
               "name": "Brighton and Hove Albion",
               "id": "36",
-              "halfTimeScore": 0,
+              "halfTimeScore": 1,
               "shortName": "Brighton",
               "abbr": "BHA",
               "redCards": 0
             },
             "season": "2025",
             "ground": "American Express Stadium, Falmer",
-            "resultType": "Postponed",
-            "matchId": "2562227"
+            "resultType": "NormalResult",
+            "matchId": "2562227",
+            "attendance": 31220
           },
           {
             "phase": "1",

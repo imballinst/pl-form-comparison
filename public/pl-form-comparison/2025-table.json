@@ -60,16 +60,28 @@
     "gd": 11
   },
   {
+    "name": "Brighton and Hove Albion",
+    "abbr": "BHA",
+    "played": 34,
+    "wins": 13,
+    "draws": 11,
+    "losses": 10,
+    "points": 50,
+    "gf": 48,
+    "ga": 39,
+    "gd": 9
+  },
+  {
     "name": "Chelsea",
     "abbr": "CHE",
-    "played": 33,
+    "played": 34,
     "wins": 13,
     "draws": 9,
-    "losses": 11,
+    "losses": 12,
     "points": 48,
     "gf": 53,
-    "ga": 42,
-    "gd": 11
+    "ga": 45,
+    "gd": 8
   },
   {
     "name": "Brentford",
@@ -94,18 +106,6 @@
     "gf": 50,
     "ga": 50,
     "gd": 0
-  },
-  {
-    "name": "Brighton and Hove Albion",
-    "abbr": "BHA",
-    "played": 33,
-    "wins": 12,
-    "draws": 11,
-    "losses": 10,
-    "points": 47,
-    "gf": 45,
-    "ga": 39,
-    "gd": 6
   },
   {
     "name": "Everton",
