@@ -1,5 +1,17 @@
 [
   {
+    "name": "Manchester City",
+    "abbr": "MCI",
+    "points": 70,
+    "played": 33,
+    "wins": 21,
+    "draws": 7,
+    "losses": 5,
+    "gf": 66,
+    "ga": 29,
+    "gd": 37
+  },
+  {
     "name": "Arsenal",
     "abbr": "ARS",
     "points": 70,
@@ -10,18 +22,6 @@
     "gf": 63,
     "ga": 26,
     "gd": 37
-  },
-  {
-    "name": "Manchester City",
-    "abbr": "MCI",
-    "points": 67,
-    "played": 32,
-    "wins": 20,
-    "draws": 7,
-    "losses": 5,
-    "gf": 65,
-    "ga": 29,
-    "gd": 36
   },
   {
     "name": "Manchester United",
@@ -72,6 +72,18 @@
     "gd": 9
   },
   {
+    "name": "Bournemouth",
+    "abbr": "BOU",
+    "points": 49,
+    "played": 34,
+    "wins": 11,
+    "draws": 16,
+    "losses": 7,
+    "gf": 52,
+    "ga": 52,
+    "gd": 0
+  },
+  {
     "name": "Chelsea",
     "abbr": "CHE",
     "played": 34,
@@ -94,18 +106,6 @@
     "gf": 48,
     "ga": 44,
     "gd": 4
-  },
-  {
-    "name": "Bournemouth",
-    "abbr": "BOU",
-    "points": 48,
-    "played": 33,
-    "wins": 11,
-    "draws": 15,
-    "losses": 7,
-    "gf": 50,
-    "ga": 50,
-    "gd": 0
   },
   {
     "name": "Everton",
@@ -170,13 +170,13 @@
   {
     "name": "Leeds United",
     "abbr": "LEE",
-    "played": 33,
+    "played": 34,
     "wins": 9,
-    "draws": 12,
+    "draws": 13,
     "losses": 12,
-    "points": 39,
-    "gf": 42,
-    "ga": 49,
+    "points": 40,
+    "gf": 44,
+    "ga": 51,
     "gd": -7
   },
   {
@@ -219,13 +219,13 @@
     "name": "Burnley",
     "abbr": "BUR",
     "points": 20,
-    "played": 33,
+    "played": 34,
     "wins": 4,
     "draws": 8,
-    "losses": 21,
+    "losses": 22,
     "gf": 34,
-    "ga": 67,
-    "gd": -33
+    "ga": 68,
+    "gd": -34
   },
   {
     "name": "Wolverhampton Wanderers",

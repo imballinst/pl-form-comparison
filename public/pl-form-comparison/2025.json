@@ -11606,11 +11606,11 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 33,
             "kickoff": "2026-04-22 20:00:00",
             "awayTeam": {
-              "score": 0,
+              "score": 2,
               "name": "Leeds United",
               "id": "2",
               "halfTimeScore": 0,
@@ -11619,10 +11619,10 @@
               "redCards": 0
             },
             "competition": "Premier League",
-            "clock": "0",
+            "clock": "99",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
-              "score": 0,
+              "score": 2,
               "name": "Bournemouth",
               "id": "91",
               "halfTimeScore": 0,
@@ -11632,8 +11632,9 @@
             },
             "season": "2025",
             "ground": "Vitality Stadium, Bournemouth",
-            "resultType": "Postponed",
-            "matchId": "2562225"
+            "resultType": "NormalResult",
+            "matchId": "2562225",
+            "attendance": 11226
           },
           {
             "phase": "1",
@@ -11673,20 +11674,20 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 33,
             "kickoff": "2026-04-22 20:00:00",
             "awayTeam": {
-              "score": 0,
+              "score": 1,
               "name": "Manchester City",
               "id": "43",
-              "halfTimeScore": 0,
+              "halfTimeScore": 1,
               "shortName": "Man City",
               "abbr": "MCI",
               "redCards": 0
             },
             "competition": "Premier League",
-            "clock": "0",
+            "clock": "95",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
               "score": 0,
@@ -11699,8 +11700,9 @@
             },
             "season": "2025",
             "ground": "Turf Moor, Burnley",
-            "resultType": "Postponed",
-            "matchId": "2562228"
+            "resultType": "NormalResult",
+            "matchId": "2562228",
+            "attendance": 21259
           }
         ]
       }
