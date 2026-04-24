@@ -122,14 +122,14 @@
   {
     "name": "Sunderland",
     "abbr": "SUN",
-    "played": 33,
+    "played": 34,
     "wins": 12,
     "draws": 10,
-    "losses": 11,
+    "losses": 12,
     "points": 46,
     "gf": 36,
-    "ga": 40,
-    "gd": -4
+    "ga": 45,
+    "gd": -9
   },
   {
     "name": "Fulham",
@@ -182,14 +182,14 @@
   {
     "name": "Nottingham Forest",
     "abbr": "NFO",
-    "played": 33,
-    "wins": 9,
+    "played": 34,
+    "wins": 10,
     "draws": 9,
     "losses": 15,
-    "points": 36,
-    "gf": 36,
+    "points": 39,
+    "gf": 41,
     "ga": 45,
-    "gd": -9
+    "gd": -4
   },
   {
     "name": "West Ham United",
