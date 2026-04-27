@@ -11822,26 +11822,35 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 34,
             "kickoff": "2026-04-27 20:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Brentford",
               "id": "94",
+              "halfTimeScore": 0,
               "shortName": "Brentford",
-              "abbr": "BRE"
+              "abbr": "BRE",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "96",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Manchester United",
               "id": "1",
+              "halfTimeScore": 2,
               "shortName": "Man Utd",
-              "abbr": "MUN"
+              "abbr": "MUN",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Old Trafford, Manchester",
-            "matchId": "2562231"
+            "resultType": "NormalResult",
+            "matchId": "2562231",
+            "attendance": 73773
           },
           {
             "phase": "1",

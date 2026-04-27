@@ -26,14 +26,14 @@
   {
     "name": "Manchester United",
     "abbr": "MUN",
-    "played": 33,
-    "wins": 16,
+    "played": 34,
+    "wins": 17,
     "draws": 10,
     "losses": 7,
-    "points": 58,
-    "gf": 58,
-    "ga": 45,
-    "gd": 13
+    "points": 61,
+    "gf": 60,
+    "ga": 46,
+    "gd": 14
   },
   {
     "name": "Liverpool",
@@ -99,13 +99,13 @@
     "name": "Brentford",
     "abbr": "BRE",
     "points": 48,
-    "played": 33,
+    "played": 34,
     "wins": 13,
     "draws": 9,
-    "losses": 11,
-    "gf": 48,
-    "ga": 44,
-    "gd": 4
+    "losses": 12,
+    "gf": 49,
+    "ga": 46,
+    "gd": 3
   },
   {
     "name": "Fulham",
