@@ -12119,26 +12119,35 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 35,
             "kickoff": "2026-05-01 20:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Burnley",
               "id": "90",
+              "halfTimeScore": 0,
               "shortName": "Burnley",
-              "abbr": "BUR"
+              "abbr": "BUR",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "100",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 3,
               "name": "Leeds United",
               "id": "2",
+              "halfTimeScore": 1,
               "shortName": "Leeds",
-              "abbr": "LEE"
+              "abbr": "LEE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Elland Road, Leeds",
-            "matchId": "2562241"
+            "resultType": "NormalResult",
+            "matchId": "2562241",
+            "attendance": 36265
           },
           {
             "phase": "1",
@@ -12227,6 +12236,39 @@
           "_next": null
         },
         "data": [
+          {
+            "phase": "1",
+            "kickoffTimezone": "BST",
+            "competitionId": "8",
+            "period": "PreMatch",
+            "matchWeek": 36,
+            "kickoff": "2026-05-13 20:00:00",
+            "awayTeam": {
+              "score": 0,
+              "name": "Crystal Palace",
+              "id": "31",
+              "halfTimeScore": 0,
+              "shortName": "Crystal Palace",
+              "abbr": "CRY",
+              "redCards": 0
+            },
+            "competition": "Premier League",
+            "clock": "0",
+            "kickoffTimezoneString": "Europe/London",
+            "homeTeam": {
+              "score": 0,
+              "name": "Manchester City",
+              "id": "43",
+              "halfTimeScore": 0,
+              "shortName": "Man City",
+              "abbr": "MCI",
+              "redCards": 0
+            },
+            "season": "2025",
+            "ground": "Etihad Stadium, Manchester",
+            "resultType": "Postponed",
+            "matchId": "2562201"
+          },
           {
             "phase": "1",
             "kickoffTimezone": "BST",
@@ -12495,23 +12537,31 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 37,
-            "kickoff": "2026-05-17 15:00:00",
+            "kickoff": "2026-05-19 19:30:00",
             "awayTeam": {
+              "score": 0,
               "name": "Manchester City",
               "id": "43",
+              "halfTimeScore": 0,
               "shortName": "Man City",
-              "abbr": "MCI"
+              "abbr": "MCI",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "0",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "Bournemouth",
               "id": "91",
+              "halfTimeScore": 0,
               "shortName": "Bournemouth",
-              "abbr": "BOU"
+              "abbr": "BOU",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Vitality Stadium, Bournemouth",
+            "resultType": "Postponed",
             "matchId": "2562255"
           },
           {
@@ -12520,7 +12570,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 37,
-            "kickoff": "2026-05-17 15:00:00",
+            "kickoff": "2026-05-18 20:00:00",
             "awayTeam": {
               "name": "Burnley",
               "id": "90",
@@ -12545,7 +12595,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 37,
-            "kickoff": "2026-05-17 15:00:00",
+            "kickoff": "2026-05-17 12:30:00",
             "awayTeam": {
               "name": "Liverpool",
               "id": "14",
@@ -12595,23 +12645,31 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 37,
-            "kickoff": "2026-05-17 15:00:00",
+            "kickoff": "2026-05-19 20:15:00",
             "awayTeam": {
+              "score": 0,
               "name": "Tottenham Hotspur",
               "id": "6",
+              "halfTimeScore": 0,
               "shortName": "Spurs",
-              "abbr": "TOT"
+              "abbr": "TOT",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "0",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "Chelsea",
               "id": "8",
+              "halfTimeScore": 0,
               "shortName": "Chelsea",
-              "abbr": "CHE"
+              "abbr": "CHE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Stamford Bridge, London",
+            "resultType": "Postponed",
             "matchId": "2562259"
           },
           {
@@ -12670,7 +12728,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 37,
-            "kickoff": "2026-05-17 15:00:00",
+            "kickoff": "2026-05-17 12:30:00",
             "awayTeam": {
               "name": "Nottingham Forest",
               "id": "17",
@@ -12695,7 +12753,7 @@
             "competitionId": "8",
             "period": "PreMatch",
             "matchWeek": 37,
-            "kickoff": "2026-05-17 15:00:00",
+            "kickoff": "2026-05-17 17:30:00",
             "awayTeam": {
               "name": "West Ham United",
               "id": "21",

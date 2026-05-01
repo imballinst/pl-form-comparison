@@ -156,6 +156,18 @@
     "gd": -3
   },
   {
+    "name": "Leeds United",
+    "abbr": "LEE",
+    "played": 35,
+    "wins": 10,
+    "draws": 13,
+    "losses": 12,
+    "points": 43,
+    "gf": 47,
+    "ga": 52,
+    "gd": -5
+  },
+  {
     "name": "Newcastle United",
     "abbr": "NEW",
     "points": 42,
@@ -166,18 +178,6 @@
     "gf": 46,
     "ga": 50,
     "gd": -4
-  },
-  {
-    "name": "Leeds United",
-    "abbr": "LEE",
-    "played": 34,
-    "wins": 9,
-    "draws": 13,
-    "losses": 12,
-    "points": 40,
-    "gf": 44,
-    "ga": 51,
-    "gd": -7
   },
   {
     "name": "Nottingham Forest",
@@ -219,13 +219,13 @@
     "name": "Burnley",
     "abbr": "BUR",
     "points": 20,
-    "played": 34,
+    "played": 35,
     "wins": 4,
     "draws": 8,
-    "losses": 22,
-    "gf": 34,
-    "ga": 68,
-    "gd": -34
+    "losses": 23,
+    "gf": 35,
+    "ga": 71,
+    "gd": -36
   },
   {
     "name": "Wolverhampton Wanderers",
