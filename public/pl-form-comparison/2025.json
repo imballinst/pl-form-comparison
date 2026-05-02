@@ -11994,26 +11994,35 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 35,
             "kickoff": "2026-05-02 17:30:00",
             "awayTeam": {
+              "score": 0,
               "name": "Fulham",
               "id": "54",
+              "halfTimeScore": 0,
               "shortName": "Fulham",
-              "abbr": "FUL"
+              "abbr": "FUL",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "95",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 3,
               "name": "Arsenal",
               "id": "3",
+              "halfTimeScore": 3,
               "shortName": "Arsenal",
-              "abbr": "ARS"
+              "abbr": "ARS",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Emirates Stadium, London",
-            "matchId": "2562236"
+            "resultType": "NormalResult",
+            "matchId": "2562236",
+            "attendance": 60196
           },
           {
             "phase": "1",
@@ -12044,26 +12053,35 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 35,
             "kickoff": "2026-05-02 15:00:00",
             "awayTeam": {
+              "score": 0,
               "name": "West Ham United",
               "id": "21",
+              "halfTimeScore": 0,
               "shortName": "West Ham",
-              "abbr": "WHU"
+              "abbr": "WHU",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "99",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 3,
               "name": "Brentford",
               "id": "94",
+              "halfTimeScore": 1,
               "shortName": "Brentford",
-              "abbr": "BRE"
+              "abbr": "BRE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Gtech Community Stadium, Brentford",
-            "matchId": "2562238"
+            "resultType": "NormalResult",
+            "matchId": "2562238",
+            "attendance": 17194
           },
           {
             "phase": "1",
@@ -12178,51 +12196,69 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 35,
             "kickoff": "2026-05-02 15:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Brighton and Hove Albion",
               "id": "36",
+              "halfTimeScore": 0,
               "shortName": "Brighton",
-              "abbr": "BHA"
+              "abbr": "BHA",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 3,
               "name": "Newcastle United",
               "id": "4",
+              "halfTimeScore": 2,
               "shortName": "Newcastle",
-              "abbr": "NEW"
+              "abbr": "NEW",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "St. James' Park, Newcastle",
-            "matchId": "2562243"
+            "resultType": "NormalResult",
+            "matchId": "2562243",
+            "attendance": 52099
           },
           {
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 35,
             "kickoff": "2026-05-02 15:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Sunderland",
               "id": "56",
+              "halfTimeScore": 1,
               "shortName": "Sunderland",
-              "abbr": "SUN"
+              "abbr": "SUN",
+              "redCards": 1
             },
             "competition": "Premier League",
+            "clock": "94",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Wolverhampton Wanderers",
               "id": "39",
+              "halfTimeScore": 0,
               "shortName": "Wolves",
-              "abbr": "WOL"
+              "abbr": "WOL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Molineux Stadium, Wolverhampton",
-            "matchId": "2562244"
+            "resultType": "NormalResult",
+            "matchId": "2562244",
+            "attendance": 29632
           }
         ]
       }
