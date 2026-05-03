@@ -11969,26 +11969,35 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 35,
             "kickoff": "2026-05-03 14:00:00",
             "awayTeam": {
+              "score": 0,
               "name": "Crystal Palace",
               "id": "31",
+              "halfTimeScore": 0,
               "shortName": "Crystal Palace",
-              "abbr": "CRY"
+              "abbr": "CRY",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "96",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 3,
               "name": "Bournemouth",
               "id": "91",
+              "halfTimeScore": 2,
               "shortName": "Bournemouth",
-              "abbr": "BOU"
+              "abbr": "BOU",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Vitality Stadium, Bournemouth",
-            "matchId": "2562235"
+            "resultType": "NormalResult",
+            "matchId": "2562235",
+            "attendance": 11122
           },
           {
             "phase": "1",
@@ -12028,26 +12037,35 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 35,
             "kickoff": "2026-05-03 19:00:00",
             "awayTeam": {
+              "score": 2,
               "name": "Tottenham Hotspur",
               "id": "6",
+              "halfTimeScore": 2,
               "shortName": "Spurs",
-              "abbr": "TOT"
+              "abbr": "TOT",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Aston Villa",
               "id": "7",
+              "halfTimeScore": 0,
               "shortName": "Aston Villa",
-              "abbr": "AVL"
+              "abbr": "AVL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Villa Park, Birmingham",
-            "matchId": "2562237"
+            "resultType": "NormalResult",
+            "matchId": "2562237",
+            "attendance": 42767
           },
           {
             "phase": "1",
@@ -12171,26 +12189,35 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 35,
             "kickoff": "2026-05-03 15:30:00",
             "awayTeam": {
+              "score": 2,
               "name": "Liverpool",
               "id": "14",
+              "halfTimeScore": 0,
               "shortName": "Liverpool",
-              "abbr": "LIV"
+              "abbr": "LIV",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "96",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 3,
               "name": "Manchester United",
               "id": "1",
+              "halfTimeScore": 2,
               "shortName": "Man Utd",
-              "abbr": "MUN"
+              "abbr": "MUN",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Old Trafford, Manchester",
-            "matchId": "2562242"
+            "resultType": "NormalResult",
+            "matchId": "2562242",
+            "attendance": 74027
           },
           {
             "phase": "1",

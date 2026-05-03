@@ -26,38 +26,50 @@
   {
     "name": "Manchester United",
     "abbr": "MUN",
-    "played": 34,
-    "wins": 17,
+    "played": 35,
+    "wins": 18,
     "draws": 10,
     "losses": 7,
-    "points": 61,
-    "gf": 60,
-    "ga": 46,
-    "gd": 14
+    "points": 64,
+    "gf": 63,
+    "ga": 48,
+    "gd": 15
   },
   {
     "name": "Liverpool",
     "abbr": "LIV",
-    "played": 34,
+    "played": 35,
     "wins": 17,
     "draws": 7,
-    "losses": 10,
+    "losses": 11,
     "points": 58,
-    "gf": 57,
-    "ga": 44,
-    "gd": 13
+    "gf": 59,
+    "ga": 47,
+    "gd": 12
   },
   {
     "name": "Aston Villa",
     "abbr": "AVL",
-    "played": 34,
+    "played": 35,
     "wins": 17,
     "draws": 7,
-    "losses": 10,
+    "losses": 11,
     "points": 58,
-    "gf": 47,
-    "ga": 42,
-    "gd": 5
+    "gf": 48,
+    "ga": 44,
+    "gd": 4
+  },
+  {
+    "name": "Bournemouth",
+    "abbr": "BOU",
+    "points": 52,
+    "played": 35,
+    "wins": 12,
+    "draws": 16,
+    "losses": 7,
+    "gf": 55,
+    "ga": 52,
+    "gd": 3
   },
   {
     "name": "Brentford",
@@ -82,18 +94,6 @@
     "gf": 49,
     "ga": 42,
     "gd": 7
-  },
-  {
-    "name": "Bournemouth",
-    "abbr": "BOU",
-    "points": 49,
-    "played": 34,
-    "wins": 11,
-    "draws": 16,
-    "losses": 7,
-    "gf": 52,
-    "ga": 52,
-    "gd": 0
   },
   {
     "name": "Chelsea",
@@ -156,18 +156,6 @@
     "gd": -2
   },
   {
-    "name": "Crystal Palace",
-    "abbr": "CRY",
-    "points": 43,
-    "played": 33,
-    "wins": 11,
-    "draws": 10,
-    "losses": 12,
-    "gf": 36,
-    "ga": 39,
-    "gd": -3
-  },
-  {
     "name": "Leeds United",
     "abbr": "LEE",
     "played": 35,
@@ -178,6 +166,18 @@
     "gf": 47,
     "ga": 52,
     "gd": -5
+  },
+  {
+    "name": "Crystal Palace",
+    "abbr": "CRY",
+    "points": 43,
+    "played": 34,
+    "wins": 11,
+    "draws": 10,
+    "losses": 13,
+    "gf": 36,
+    "ga": 42,
+    "gd": -6
   },
   {
     "name": "Nottingham Forest",
@@ -192,6 +192,18 @@
     "gd": -4
   },
   {
+    "name": "Tottenham Hotspur",
+    "abbr": "TOT",
+    "played": 35,
+    "wins": 9,
+    "draws": 10,
+    "losses": 16,
+    "points": 37,
+    "gf": 45,
+    "ga": 54,
+    "gd": -9
+  },
+  {
     "name": "West Ham United",
     "abbr": "WHU",
     "points": 36,
@@ -202,18 +214,6 @@
     "gf": 42,
     "ga": 61,
     "gd": -19
-  },
-  {
-    "name": "Tottenham Hotspur",
-    "abbr": "TOT",
-    "played": 34,
-    "wins": 8,
-    "draws": 10,
-    "losses": 16,
-    "points": 34,
-    "gf": 43,
-    "ga": 53,
-    "gd": -10
   },
   {
     "name": "Burnley",
