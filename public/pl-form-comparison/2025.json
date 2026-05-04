@@ -12105,50 +12105,67 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 35,
             "kickoff": "2026-05-04 15:00:00",
             "awayTeam": {
+              "score": 3,
               "name": "Nottingham Forest",
               "id": "17",
+              "halfTimeScore": 2,
               "shortName": "Nott'm Forest",
-              "abbr": "NFO"
+              "abbr": "NFO",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "100",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Chelsea",
               "id": "8",
+              "halfTimeScore": 0,
               "shortName": "Chelsea",
-              "abbr": "CHE"
+              "abbr": "CHE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Stamford Bridge, London",
-            "matchId": "2562239"
+            "resultType": "NormalResult",
+            "matchId": "2562239",
+            "attendance": 39605
           },
           {
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 35,
             "kickoff": "2026-05-04 20:00:00",
             "awayTeam": {
+              "score": 3,
               "name": "Manchester City",
               "id": "43",
+              "halfTimeScore": 1,
               "shortName": "Man City",
-              "abbr": "MCI"
+              "abbr": "MCI",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "98",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 3,
               "name": "Everton",
               "id": "11",
+              "halfTimeScore": 0,
               "shortName": "Everton",
-              "abbr": "EVE"
+              "abbr": "EVE",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Hill Dickinson Stadium, Liverpool",
+            "resultType": "NormalResult",
             "matchId": "2562240"
           },
           {

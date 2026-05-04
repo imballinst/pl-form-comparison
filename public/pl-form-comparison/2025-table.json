@@ -14,13 +14,13 @@
   {
     "name": "Manchester City",
     "abbr": "MCI",
-    "points": 70,
-    "played": 33,
+    "points": 71,
+    "played": 34,
     "wins": 21,
-    "draws": 7,
+    "draws": 8,
     "losses": 5,
-    "gf": 66,
-    "ga": 29,
+    "gf": 69,
+    "ga": 32,
     "gd": 37
   },
   {
@@ -98,14 +98,26 @@
   {
     "name": "Chelsea",
     "abbr": "CHE",
-    "played": 34,
+    "played": 35,
     "wins": 13,
     "draws": 9,
-    "losses": 12,
+    "losses": 13,
     "points": 48,
-    "gf": 53,
-    "ga": 45,
-    "gd": 8
+    "gf": 54,
+    "ga": 48,
+    "gd": 6
+  },
+  {
+    "name": "Everton",
+    "abbr": "EVE",
+    "points": 48,
+    "played": 35,
+    "wins": 13,
+    "draws": 9,
+    "losses": 13,
+    "gf": 44,
+    "ga": 44,
+    "gd": 0
   },
   {
     "name": "Fulham",
@@ -118,18 +130,6 @@
     "gf": 44,
     "ga": 49,
     "gd": -5
-  },
-  {
-    "name": "Everton",
-    "abbr": "EVE",
-    "points": 47,
-    "played": 34,
-    "wins": 13,
-    "draws": 8,
-    "losses": 13,
-    "gf": 41,
-    "ga": 41,
-    "gd": 0
   },
   {
     "name": "Sunderland",
@@ -182,14 +182,14 @@
   {
     "name": "Nottingham Forest",
     "abbr": "NFO",
-    "played": 34,
-    "wins": 10,
+    "played": 35,
+    "wins": 11,
     "draws": 9,
     "losses": 15,
-    "points": 39,
-    "gf": 41,
-    "ga": 45,
-    "gd": -4
+    "points": 42,
+    "gf": 44,
+    "ga": 46,
+    "gd": -2
   },
   {
     "name": "Tottenham Hotspur",
