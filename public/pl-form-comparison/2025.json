@@ -12483,106 +12483,142 @@
             "season": "2025",
             "ground": "Etihad Stadium, Manchester",
             "resultType": "NormalResult",
-            "matchId": "2562250"
+            "matchId": "2562250",
+            "attendance": 52489
           },
           {
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 36,
             "kickoff": "2026-05-10 14:00:00",
             "awayTeam": {
+              "score": 2,
               "name": "Aston Villa",
               "id": "7",
+              "halfTimeScore": 1,
               "shortName": "Aston Villa",
-              "abbr": "AVL"
+              "abbr": "AVL",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Burnley",
               "id": "90",
+              "halfTimeScore": 1,
               "shortName": "Burnley",
-              "abbr": "BUR"
+              "abbr": "BUR",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Turf Moor, Burnley",
-            "matchId": "2562246"
+            "resultType": "NormalResult",
+            "matchId": "2562246",
+            "attendance": 21196
           },
           {
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 36,
             "kickoff": "2026-05-10 14:00:00",
             "awayTeam": {
+              "score": 2,
               "name": "Everton",
               "id": "11",
+              "halfTimeScore": 1,
               "shortName": "Everton",
-              "abbr": "EVE"
+              "abbr": "EVE",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 2,
               "name": "Crystal Palace",
               "id": "31",
+              "halfTimeScore": 1,
               "shortName": "Crystal Palace",
-              "abbr": "CRY"
+              "abbr": "CRY",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Selhurst Park, London",
-            "matchId": "2562247"
+            "resultType": "NormalResult",
+            "matchId": "2562247",
+            "attendance": 24958
           },
           {
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 36,
             "kickoff": "2026-05-10 14:00:00",
             "awayTeam": {
+              "score": 1,
               "name": "Newcastle United",
               "id": "4",
+              "halfTimeScore": 0,
               "shortName": "Newcastle",
-              "abbr": "NEW"
+              "abbr": "NEW",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "98",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 1,
               "name": "Nottingham Forest",
               "id": "17",
+              "halfTimeScore": 0,
               "shortName": "Nott'm Forest",
-              "abbr": "NFO"
+              "abbr": "NFO",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "The City Ground, Nottingham",
-            "matchId": "2562251"
+            "resultType": "NormalResult",
+            "matchId": "2562251",
+            "attendance": 30691
           },
           {
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 36,
             "kickoff": "2026-05-10 16:30:00",
             "awayTeam": {
+              "score": 1,
               "name": "Arsenal",
               "id": "3",
+              "halfTimeScore": 0,
               "shortName": "Arsenal",
-              "abbr": "ARS"
+              "abbr": "ARS",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "102",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 0,
               "name": "West Ham United",
               "id": "21",
+              "halfTimeScore": 0,
               "shortName": "West Ham",
-              "abbr": "WHU"
+              "abbr": "WHU",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "London Stadium, London",
+            "resultType": "NormalResult",
             "matchId": "2562254"
           },
           {
