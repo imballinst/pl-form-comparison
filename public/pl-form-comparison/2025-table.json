@@ -156,6 +156,18 @@
     "gd": -2
   },
   {
+    "name": "Leeds United",
+    "abbr": "LEE",
+    "played": 36,
+    "wins": 10,
+    "draws": 14,
+    "losses": 12,
+    "points": 44,
+    "gf": 48,
+    "ga": 53,
+    "gd": -5
+  },
+  {
     "name": "Crystal Palace",
     "abbr": "CRY",
     "points": 44,
@@ -180,27 +192,15 @@
     "gd": -2
   },
   {
-    "name": "Leeds United",
-    "abbr": "LEE",
-    "played": 35,
-    "wins": 10,
-    "draws": 13,
-    "losses": 12,
-    "points": 43,
-    "gf": 47,
-    "ga": 52,
-    "gd": -5
-  },
-  {
     "name": "Tottenham Hotspur",
     "abbr": "TOT",
-    "played": 35,
+    "played": 36,
     "wins": 9,
-    "draws": 10,
+    "draws": 11,
     "losses": 16,
-    "points": 37,
-    "gf": 45,
-    "ga": 54,
+    "points": 38,
+    "gf": 46,
+    "ga": 55,
     "gd": -9
   },
   {
