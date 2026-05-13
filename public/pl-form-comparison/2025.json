@@ -12653,13 +12653,14 @@
             "season": "2025",
             "ground": "Tottenham Hotspur Stadium, London",
             "resultType": "NormalResult",
-            "matchId": "2562253"
+            "matchId": "2562253",
+            "attendance": 61048
           },
           {
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 36,
             "kickoff": "2026-05-13 20:00:00",
             "awayTeam": {
@@ -12672,20 +12673,20 @@
               "redCards": 0
             },
             "competition": "Premier League",
-            "clock": "0",
+            "clock": "96",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
-              "score": 0,
+              "score": 3,
               "name": "Manchester City",
               "id": "43",
-              "halfTimeScore": 0,
+              "halfTimeScore": 2,
               "shortName": "Man City",
               "abbr": "MCI",
               "redCards": 0
             },
             "season": "2025",
             "ground": "Etihad Stadium, Manchester",
-            "resultType": "Postponed",
+            "resultType": "NormalResult",
             "matchId": "2562201"
           }
         ]

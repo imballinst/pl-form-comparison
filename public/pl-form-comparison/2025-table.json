@@ -14,14 +14,14 @@
   {
     "name": "Manchester City",
     "abbr": "MCI",
-    "points": 74,
-    "played": 35,
-    "wins": 22,
+    "points": 77,
+    "played": 36,
+    "wins": 23,
     "draws": 8,
     "losses": 5,
-    "gf": 72,
+    "gf": 75,
     "ga": 32,
-    "gd": 40
+    "gd": 43
   },
   {
     "name": "Manchester United",
@@ -171,13 +171,13 @@
     "name": "Crystal Palace",
     "abbr": "CRY",
     "points": 44,
-    "played": 35,
+    "played": 36,
     "wins": 11,
     "draws": 11,
-    "losses": 13,
+    "losses": 14,
     "gf": 38,
-    "ga": 44,
-    "gd": -6
+    "ga": 47,
+    "gd": -9
   },
   {
     "name": "Nottingham Forest",
