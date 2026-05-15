@@ -36,28 +36,28 @@
     "gd": 15
   },
   {
-    "name": "Liverpool",
-    "abbr": "LIV",
-    "played": 36,
-    "wins": 17,
-    "draws": 8,
-    "losses": 11,
-    "points": 59,
-    "gf": 60,
-    "ga": 48,
-    "gd": 12
-  },
-  {
     "name": "Aston Villa",
     "abbr": "AVL",
-    "played": 36,
-    "wins": 17,
+    "played": 37,
+    "wins": 18,
     "draws": 8,
     "losses": 11,
+    "points": 62,
+    "gf": 54,
+    "ga": 48,
+    "gd": 6
+  },
+  {
+    "name": "Liverpool",
+    "abbr": "LIV",
+    "played": 37,
+    "wins": 17,
+    "draws": 8,
+    "losses": 12,
     "points": 59,
-    "gf": 50,
-    "ga": 46,
-    "gd": 4
+    "gf": 62,
+    "ga": 52,
+    "gd": 10
   },
   {
     "name": "Bournemouth",

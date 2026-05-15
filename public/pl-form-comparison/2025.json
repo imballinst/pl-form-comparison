@@ -12705,26 +12705,35 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 37,
             "kickoff": "2026-05-15 20:00:00",
             "awayTeam": {
+              "score": 2,
               "name": "Liverpool",
               "id": "14",
+              "halfTimeScore": 0,
               "shortName": "Liverpool",
-              "abbr": "LIV"
+              "abbr": "LIV",
+              "redCards": 0
             },
             "competition": "Premier League",
+            "clock": "99",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
+              "score": 4,
               "name": "Aston Villa",
               "id": "7",
+              "halfTimeScore": 1,
               "shortName": "Aston Villa",
-              "abbr": "AVL"
+              "abbr": "AVL",
+              "redCards": 0
             },
             "season": "2025",
             "ground": "Villa Park, Birmingham",
-            "matchId": "2562257"
+            "resultType": "NormalResult",
+            "matchId": "2562257",
+            "attendance": 43033
           },
           {
             "phase": "1",
@@ -13230,6 +13239,17 @@
             "matchId": "2562274"
           }
         ]
+      }
+    },
+    {
+      "matchweek": 39,
+      "data": {
+        "pagination": {
+          "_limit": 100,
+          "_prev": null,
+          "_next": null
+        },
+        "data": []
       }
     }
   ]
