@@ -26,14 +26,14 @@
   {
     "name": "Manchester United",
     "abbr": "MUN",
-    "played": 36,
-    "wins": 18,
+    "played": 37,
+    "wins": 19,
     "draws": 11,
     "losses": 7,
-    "points": 65,
-    "gf": 63,
-    "ga": 48,
-    "gd": 15
+    "points": 68,
+    "gf": 66,
+    "ga": 50,
+    "gd": 16
   },
   {
     "name": "Aston Villa",
@@ -74,26 +74,38 @@
   {
     "name": "Brighton and Hove Albion",
     "abbr": "BHA",
-    "played": 36,
+    "played": 37,
     "wins": 14,
     "draws": 11,
-    "losses": 11,
+    "losses": 12,
     "points": 53,
     "gf": 52,
-    "ga": 42,
-    "gd": 10
+    "ga": 43,
+    "gd": 9
   },
   {
     "name": "Brentford",
     "abbr": "BRE",
-    "points": 51,
-    "played": 36,
+    "points": 52,
+    "played": 37,
     "wins": 14,
-    "draws": 9,
+    "draws": 10,
     "losses": 13,
-    "gf": 52,
-    "ga": 49,
+    "gf": 54,
+    "ga": 51,
     "gd": 3
+  },
+  {
+    "name": "Sunderland",
+    "abbr": "SUN",
+    "played": 37,
+    "wins": 13,
+    "draws": 12,
+    "losses": 12,
+    "points": 51,
+    "gf": 40,
+    "ga": 47,
+    "gd": -7
   },
   {
     "name": "Chelsea",
@@ -108,88 +120,76 @@
     "gd": 6
   },
   {
+    "name": "Newcastle United",
+    "abbr": "NEW",
+    "points": 49,
+    "played": 37,
+    "wins": 14,
+    "draws": 7,
+    "losses": 16,
+    "gf": 53,
+    "ga": 53,
+    "gd": 0
+  },
+  {
     "name": "Everton",
     "abbr": "EVE",
     "points": 49,
-    "played": 36,
+    "played": 37,
     "wins": 13,
     "draws": 10,
-    "losses": 13,
-    "gf": 46,
-    "ga": 46,
-    "gd": 0
+    "losses": 14,
+    "gf": 47,
+    "ga": 49,
+    "gd": -2
   },
   {
     "name": "Fulham",
     "abbr": "FUL",
-    "points": 48,
-    "played": 36,
+    "points": 49,
+    "played": 37,
     "wins": 14,
-    "draws": 6,
-    "losses": 16,
-    "gf": 44,
-    "ga": 50,
-    "gd": -6
-  },
-  {
-    "name": "Sunderland",
-    "abbr": "SUN",
-    "played": 36,
-    "wins": 12,
-    "draws": 12,
-    "losses": 12,
-    "points": 48,
-    "gf": 37,
-    "ga": 46,
-    "gd": -9
-  },
-  {
-    "name": "Newcastle United",
-    "abbr": "NEW",
-    "points": 46,
-    "played": 36,
-    "wins": 13,
     "draws": 7,
     "losses": 16,
-    "gf": 50,
-    "ga": 52,
-    "gd": -2
+    "gf": 45,
+    "ga": 51,
+    "gd": -6
   },
   {
     "name": "Leeds United",
     "abbr": "LEE",
-    "played": 36,
-    "wins": 10,
+    "played": 37,
+    "wins": 11,
     "draws": 14,
     "losses": 12,
-    "points": 44,
-    "gf": 48,
+    "points": 47,
+    "gf": 49,
     "ga": 53,
-    "gd": -5
+    "gd": -4
   },
   {
     "name": "Crystal Palace",
     "abbr": "CRY",
-    "points": 44,
-    "played": 36,
+    "points": 45,
+    "played": 37,
     "wins": 11,
-    "draws": 11,
+    "draws": 12,
     "losses": 14,
-    "gf": 38,
-    "ga": 47,
+    "gf": 40,
+    "ga": 49,
     "gd": -9
   },
   {
     "name": "Nottingham Forest",
     "abbr": "NFO",
-    "played": 36,
+    "played": 37,
     "wins": 11,
     "draws": 10,
-    "losses": 15,
+    "losses": 16,
     "points": 43,
-    "gf": 45,
-    "ga": 47,
-    "gd": -2
+    "gf": 47,
+    "ga": 50,
+    "gd": -3
   },
   {
     "name": "Tottenham Hotspur",
@@ -207,13 +207,13 @@
     "name": "West Ham United",
     "abbr": "WHU",
     "points": 36,
-    "played": 36,
+    "played": 37,
     "wins": 9,
     "draws": 9,
-    "losses": 18,
-    "gf": 42,
-    "ga": 62,
-    "gd": -20
+    "losses": 19,
+    "gf": 43,
+    "ga": 65,
+    "gd": -22
   },
   {
     "name": "Burnley",
@@ -230,13 +230,13 @@
   {
     "name": "Wolverhampton Wanderers",
     "abbr": "WOL",
-    "played": 36,
+    "played": 37,
     "wins": 3,
-    "draws": 9,
+    "draws": 10,
     "losses": 24,
-    "points": 18,
-    "gf": 25,
-    "ga": 66,
+    "points": 19,
+    "gf": 26,
+    "ga": 67,
     "gd": -41
   }
 ]
