@@ -2,14 +2,14 @@
   {
     "name": "Arsenal",
     "abbr": "ARS",
-    "points": 79,
-    "played": 36,
-    "wins": 24,
+    "points": 82,
+    "played": 37,
+    "wins": 25,
     "draws": 7,
     "losses": 5,
-    "gf": 68,
+    "gf": 69,
     "ga": 26,
-    "gd": 42
+    "gd": 43
   },
   {
     "name": "Manchester City",
@@ -219,13 +219,13 @@
     "name": "Burnley",
     "abbr": "BUR",
     "points": 21,
-    "played": 36,
+    "played": 37,
     "wins": 4,
     "draws": 9,
-    "losses": 23,
+    "losses": 24,
     "gf": 37,
-    "ga": 73,
-    "gd": -36
+    "ga": 74,
+    "gd": -37
   },
   {
     "name": "Wolverhampton Wanderers",
