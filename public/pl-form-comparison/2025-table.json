@@ -14,13 +14,13 @@
   {
     "name": "Manchester City",
     "abbr": "MCI",
-    "points": 77,
-    "played": 36,
+    "points": 78,
+    "played": 37,
     "wins": 23,
-    "draws": 8,
+    "draws": 9,
     "losses": 5,
-    "gf": 75,
-    "ga": 32,
+    "gf": 76,
+    "ga": 33,
     "gd": 43
   },
   {
@@ -62,13 +62,13 @@
   {
     "name": "Bournemouth",
     "abbr": "BOU",
-    "points": 55,
-    "played": 36,
+    "points": 56,
+    "played": 37,
     "wins": 13,
-    "draws": 16,
+    "draws": 17,
     "losses": 7,
-    "gf": 56,
-    "ga": 52,
+    "gf": 57,
+    "ga": 53,
     "gd": 4
   },
   {
@@ -82,6 +82,18 @@
     "gf": 52,
     "ga": 43,
     "gd": 9
+  },
+  {
+    "name": "Chelsea",
+    "abbr": "CHE",
+    "played": 37,
+    "wins": 14,
+    "draws": 10,
+    "losses": 13,
+    "points": 52,
+    "gf": 57,
+    "ga": 50,
+    "gd": 7
   },
   {
     "name": "Brentford",
@@ -106,18 +118,6 @@
     "gf": 40,
     "ga": 47,
     "gd": -7
-  },
-  {
-    "name": "Chelsea",
-    "abbr": "CHE",
-    "played": 36,
-    "wins": 13,
-    "draws": 10,
-    "losses": 13,
-    "points": 49,
-    "gf": 55,
-    "ga": 49,
-    "gd": 6
   },
   {
     "name": "Newcastle United",
@@ -194,14 +194,14 @@
   {
     "name": "Tottenham Hotspur",
     "abbr": "TOT",
-    "played": 36,
+    "played": 37,
     "wins": 9,
     "draws": 11,
-    "losses": 16,
+    "losses": 17,
     "points": 38,
-    "gf": 46,
-    "ga": 55,
-    "gd": -9
+    "gf": 47,
+    "ga": 57,
+    "gd": -10
   },
   {
     "name": "West Ham United",

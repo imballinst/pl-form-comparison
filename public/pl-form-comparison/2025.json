@@ -12766,7 +12766,8 @@
             "season": "2025",
             "ground": "Old Trafford, Manchester",
             "resultType": "NormalResult",
-            "matchId": "2562262"
+            "matchId": "2562262",
+            "attendance": 74015
           },
           {
             "phase": "1",
@@ -12976,11 +12977,11 @@
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 37,
             "kickoff": "2026-05-19 19:30:00",
             "awayTeam": {
-              "score": 0,
+              "score": 1,
               "name": "Manchester City",
               "id": "43",
               "halfTimeScore": 0,
@@ -12989,31 +12990,32 @@
               "redCards": 0
             },
             "competition": "Premier League",
-            "clock": "0",
+            "clock": "97",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
-              "score": 0,
+              "score": 1,
               "name": "Bournemouth",
               "id": "91",
-              "halfTimeScore": 0,
+              "halfTimeScore": 1,
               "shortName": "Bournemouth",
               "abbr": "BOU",
               "redCards": 0
             },
             "season": "2025",
             "ground": "Vitality Stadium, Bournemouth",
-            "resultType": "Postponed",
-            "matchId": "2562255"
+            "resultType": "NormalResult",
+            "matchId": "2562255",
+            "attendance": 11218
           },
           {
             "phase": "1",
             "kickoffTimezone": "BST",
             "competitionId": "8",
-            "period": "PreMatch",
+            "period": "FullTime",
             "matchWeek": 37,
             "kickoff": "2026-05-19 20:15:00",
             "awayTeam": {
-              "score": 0,
+              "score": 1,
               "name": "Tottenham Hotspur",
               "id": "6",
               "halfTimeScore": 0,
@@ -13022,20 +13024,20 @@
               "redCards": 0
             },
             "competition": "Premier League",
-            "clock": "0",
+            "clock": "98",
             "kickoffTimezoneString": "Europe/London",
             "homeTeam": {
-              "score": 0,
+              "score": 2,
               "name": "Chelsea",
               "id": "8",
-              "halfTimeScore": 0,
+              "halfTimeScore": 1,
               "shortName": "Chelsea",
               "abbr": "CHE",
               "redCards": 0
             },
             "season": "2025",
             "ground": "Stamford Bridge, London",
-            "resultType": "Postponed",
+            "resultType": "NormalResult",
             "matchId": "2562259"
           }
         ]
