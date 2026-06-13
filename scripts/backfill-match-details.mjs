@@ -36,14 +36,14 @@ async function main() {
         },
       ])
 
-      await setTimeout(2500)
+      await setTimeout(1000)
     }
   }
-
-  await fs.writeFile(MATCH_DETAILS_FILE_PATH, JSON.stringify(matchDetails), 'utf-8')
 }
 
-main()
+main().finally(async () => {
+  await fs.writeFile(MATCH_DETAILS_FILE_PATH, JSON.stringify(matchDetails), 'utf-8')
+})
 
 /**
  *
@@ -77,7 +77,7 @@ async function populateCurrentMatchStats(id, teams) {
   const { stats, officials } = currentMatch
 
   for (const team of teams) {
-    matchDetails[team.name] = getNewDefaultObject()
+    if (!matchDetails[team.name]) matchDetails[team.name] = getNewDefaultObject()
   }
 
   for (const team of teams) {
