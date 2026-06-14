@@ -15,7 +15,7 @@ const STATS_LIST = Object.keys(getGameStats())
 // const MOMENTUM_ENDPOINT = `https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v1/matches/{MATCH_ID}/momentum`
 
 const allMatchweeks = await readFileAsJSON(RAW_MATCHWEEKS_FILE_PATH, {})
-const matchDetails = await readFileAsJSON(MATCH_DETAILS_FILE_PATH, { processedMatches: [] })
+const matchDetails = await readFileAsJSON(MATCH_DETAILS_FILE_PATH, { processedMatches: [], teams: {} })
 
 async function main() {
   for (const matchweek of allMatchweeks.matchweeks) {
@@ -77,7 +77,7 @@ async function populateCurrentMatchStats(id, teams) {
   const { stats, officials } = currentMatch
 
   for (const team of teams) {
-    if (!matchDetails[team.name]) matchDetails[team.name] = getNewDefaultObject()
+    if (!matchDetails.teams[team.name]) matchDetails.teams[team.name] = getNewDefaultObject()
   }
 
   for (const team of teams) {
@@ -86,7 +86,7 @@ async function populateCurrentMatchStats(id, teams) {
     // Stats.
     const teamStat = stats.find((/** @type {*} */ stat) => stat.side === side).stats
     const statToBePushed = getGameStats()
-    matchDetails[teamName].games.push(statToBePushed)
+    matchDetails.teams[teamName].games.push(statToBePushed)
 
     for (const stat of STATS_LIST) {
       statToBePushed[stat] += teamStat[stat] ?? 0
@@ -100,7 +100,7 @@ async function populateCurrentMatchStats(id, teams) {
       const type = rawType.includes('#') ? rawType.slice(0, rawType.indexOf('#')) : rawType
 
       // Officials.
-      let teamOfficialObject = matchDetails[teamName].officials[name]
+      let teamOfficialObject = matchDetails.teams[teamName].officials[name]
       if (!teamOfficialObject) {
         teamOfficialObject = {
           Home: {
@@ -118,7 +118,7 @@ async function populateCurrentMatchStats(id, teams) {
             'Assistant VAR Official': 0,
           },
         }
-        matchDetails[teamName].officials[name] = teamOfficialObject
+        matchDetails.teams[teamName].officials[name] = teamOfficialObject
       }
 
       teamOfficialObject[side][type]++

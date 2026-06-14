@@ -69,3 +69,49 @@ export interface SeasonTableData {
   ga: number
   gd: number
 }
+
+export interface MatchOfficialTeamAssignmentData {
+  Home: {
+    Referee: number
+    'Assistant Referee': number
+    'Fourth official': number
+    'Video Assistant Referee': number
+    'Assistant VAR Official': number
+  }
+  Away: {
+    Referee: number
+    'Assistant Referee': number
+    'Fourth official': number
+    'Video Assistant Referee': number
+    'Assistant VAR Official': number
+  }
+}
+
+export interface MatchFullStatData {
+  expectedGoals: number
+  wonCorners: number
+  duelWon: number
+  totalDistance: number
+  fkFoulLost: number
+  totalOffside: number
+  penaltyConceded: number
+  yellowCard: number
+  redCard: number
+}
+
+export interface MatchOfficialTeamAssignmentDataTableData {
+  name: string
+  referees: Record<string, MatchOfficialTeamAssignmentData>
+}
+
+export interface RawTeamStatRecapData {
+  // Team name is the index.
+  processed: number[]
+  teams: Record<
+    string,
+    {
+      officials: Record<string, MatchOfficialTeamAssignmentData>
+      games: MatchFullStatData[]
+    }
+  >
+}

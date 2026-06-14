@@ -1,9 +1,24 @@
 import { BASE_PATH } from '@/constants'
-import type { MatchInfo, SeasonMatchesResponse, SeasonTableData } from '@/types'
+import type {
+  MatchInfo,
+  MatchOfficialTeamAssignmentDataTableData,
+  RawTeamStatRecapData,
+  SeasonMatchesResponse,
+  SeasonTableData,
+} from '@/types'
 import axios from 'axios'
 
 let seasons: Record<string, MatchInfo[]> | undefined
 let seasonTable: Record<string, Array<SeasonTableData>> | undefined
+let matchOfficialsTable:
+  | Record<
+      string,
+      {
+        officialNames: string[]
+        tableData: Array<MatchOfficialTeamAssignmentDataTableData>
+      }
+    >
+  | undefined
 
 export async function fetchSeasons() {
   if (seasons) {
@@ -39,4 +54,39 @@ export async function fetchSeasonTable(season: string) {
   seasonTable[season] = seasonTableData
 
   return seasonTableData
+}
+
+export async function fetchMatchOfficialAssignments(season: string) {
+  if (matchOfficialsTable && matchOfficialsTable[season]) {
+    return Promise.resolve(matchOfficialsTable[season])
+  }
+
+  const response = await axios(`${BASE_PATH}/${season}-matches.json`)
+  const teamStatRecapData = response.data as RawTeamStatRecapData
+
+  if (!matchOfficialsTable) {
+    matchOfficialsTable = {}
+  }
+
+  if (!matchOfficialsTable[season]) {
+    matchOfficialsTable[season] = {
+      officialNames: [],
+      tableData: [],
+    }
+  }
+
+  for (const team in teamStatRecapData.teams) {
+    const officialAssignments = teamStatRecapData.teams[team].officials
+
+    matchOfficialsTable[season].tableData.push({ name: team, referees: officialAssignments })
+
+    // TODO: sort by occurrences.
+    const officialNames = Object.keys(officialAssignments)
+    for (const officialName of officialNames) {
+      if (matchOfficialsTable[season].officialNames.includes(officialName)) continue
+      matchOfficialsTable[season].officialNames.push(officialName)
+    }
+  }
+
+  return matchOfficialsTable[season]
 }
