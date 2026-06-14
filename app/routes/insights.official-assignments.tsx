@@ -1,17 +1,10 @@
-import { MatchweekNumber, RescheduleInfo } from '@/components/custom/match'
 import { Button } from '@/components/ui/button'
-import { HybridTooltip, HybridTooltipContent, HybridTooltipTrigger } from '@/components/ui/hybrid-tooltip'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
-import type { FullMatchInfo, MatchInfo, SeasonTableData, Team } from '@/types'
-import { formatFdr, getDifficultyRating, getFdrColorClass, getTeamPoints } from '@/utils/difficulty-rating'
-import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, isMatchFinished } from '@/utils/match'
-import { fetchMatchOfficialAssignments, fetchSeasonTable, fetchSeasons } from '@/utils/seasons-fetcher'
-import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
-import clsx from 'clsx'
-import { Info, X } from 'lucide-react'
+import type { FullMatchInfo, SeasonTableData, Team } from '@/types'
+import { fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
 import { useState } from 'react'
 import { useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/compare.remaining-matches'
@@ -55,6 +48,7 @@ export default function MatchOfficialAssignments() {
   const { teams, currentSeasonOfficialAssignments } = useLoaderData<typeof clientLoader>()
   const [, setSearchParams] = useSearchParams()
   const [selectedTeam, setSelectedTeam] = useState('Arsenal')
+  const isMobile = useIsMobile()
 
   return (
     <>
@@ -62,7 +56,8 @@ export default function MatchOfficialAssignments() {
 
       <h1 className="text-3xl font-bold mb-4">Match Official Assignments</h1>
       <p className="text-md text-gray-500 mb-4">
-        Compare the match official assignments between clubs. Get some insights on the match results on the officials, but do remember that correlation is not causation.
+        Compare the match official assignments between clubs. Get some insights on the match results on the officials, but do remember that
+        correlation is not causation. Only referees, VAR, and assistant VAR roles are counted.
       </p>
 
       <div className="flex flex-col gap-y-4">
@@ -105,393 +100,34 @@ export default function MatchOfficialAssignments() {
         </div>
 
         <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Team</th>
-                {currentSeasonOfficialAssignments.officialNames.map(name => (
-                  <th>{name}</th>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Team</TableHead>
+                {currentSeasonOfficialAssignments.officialNames.map((name) => (
+                  <TableHead>{name}</TableHead>
                 ))}
-              </tr>
-            </thead>
-            <tbody>
-              {currentSeasonOfficialAssignments.tableData.map(row => (
-                <tr>
-                  <td>{row.name}</td>
-                  {currentSeasonOfficialAssignments.officialNames.map(name => (
-                    <th>{(row.referees[name]?.Home.Referee ?? 0) + (row.referees[name]?.Away.Referee ?? 0)}</th>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {currentSeasonOfficialAssignments.tableData.map((row) => (
+                <TableRow>
+                  <TableCell>{isMobile ? row.abbr : row.name}</TableCell>
+                  {currentSeasonOfficialAssignments.officialNames.map((name) => (
+                    <TableCell
+                      style={{
+                        background: row.referees[name]?.background ?? 'black',
+                      }}
+                    >
+                      {row.referees[name]?.score ?? 0}
+                    </TableCell>
                   ))}
-                </tr>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
+            </TableBody>
+          </Table>
         </div>
-
-        <div>
-          {JSON.stringify(currentSeasonOfficialAssignments, null, 2)}
-        </div>
-
-        {/* <div>
-          {teams.length === 0 ? (
-            <div>Select 1 or more teams to compare the remaining fixtures.</div>
-          ) : (
-            <RemainingMatchesTable teams={teams} matchesAcrossSeasons={matchesAcrossSeasons} />
-          )}
-        </div> */}
       </div>
     </>
   )
-}
-
-function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossSeasons: MatchesAcrossSeasons; teams: string[] }) {
-  const [, setSearchParams] = useSearchParams()
-  const isMobile = useIsMobile()
-  // Each array element represents a gameweek, in each item is a record for each team's match.
-  const data: Record<string, TableData> = {}
-  const gameWeeks = Object.keys(matchesAcrossSeasons.matchesByGameweekByTeamRecord).sort()
-
-  // Track FDR values for averaging (home and away separately)
-  const fdrTracker: Record<string, { home: number[]; away: number[] }> = {}
-  teams.forEach((team) => {
-    fdrTracker[team] = { home: [], away: [] }
-  })
-
-  for (const gameweek of gameWeeks) {
-    const matchesByTeamRecord = matchesAcrossSeasons.matchesByGameweekByTeamRecord[gameweek]
-    const teams = Object.keys(matchesByTeamRecord)
-
-    let existingData = data[gameweek]
-    if (!existingData) {
-      const [gameweekNumber, rescheduleInfo] = gameweek.split('-')
-
-      existingData = {
-        key: gameweek,
-        gameweek: gameweekNumber,
-        isRescheduled: !!rescheduleInfo,
-        teamMatchRecord: {},
-      }
-      data[gameweek] = existingData
-    }
-
-    for (const team of teams) {
-      const teamMatch = matchesByTeamRecord[team]
-      if (teamMatch === null) {
-        existingData.teamMatchRecord[team] = null
-        continue
-      }
-
-      const teamInPreviousSeason = getEquivalentTeamFromAnotherSeason(
-        teamMatch.opponent.name,
-        Number(CURRENT_SEASON),
-        Number(CURRENT_SEASON) - 1,
-      )
-      const teamInTwoSeasonsAgo = getEquivalentTeamFromAnotherSeason(
-        teamMatch.opponent.name,
-        Number(CURRENT_SEASON),
-        Number(CURRENT_SEASON) - 2,
-      )
-
-      // Calculate FDR based on opponent's points as percentile within league
-      const leaderPoints = matchesAcrossSeasons.currentSeasonTable[0]?.points ?? 0
-      const lastPlacePoints = matchesAcrossSeasons.currentSeasonTable[matchesAcrossSeasons.currentSeasonTable.length - 1]?.points ?? 0
-      const opponentPoints = getTeamPoints(teamMatch.opponent.name, matchesAcrossSeasons.currentSeasonTable)
-      const difficultyRating =
-        opponentPoints !== undefined
-          ? getDifficultyRating(opponentPoints, leaderPoints, lastPlacePoints, teamMatch.venue as 'home' | 'away')
-          : 3 // Default to mid-tier if not found
-
-      // Track FDR by venue for averaging
-      if (teamMatch.venue === 'home') {
-        fdrTracker[team].home.push(difficultyRating)
-      } else {
-        fdrTracker[team].away.push(difficultyRating)
-      }
-
-      existingData.teamMatchRecord[team] = {
-        opponent: teamMatch.opponent,
-        venue: teamMatch.venue,
-        pastTwoSeasonsMatchInfo: [
-          getMatchFromOtherSeason(
-            matchesAcrossSeasons.comparison[Number(CURRENT_SEASON) - 1],
-            Number(CURRENT_SEASON),
-            Number(CURRENT_SEASON) - 1,
-            teamInPreviousSeason,
-            team,
-            teamMatch.venue,
-          ),
-          getMatchFromOtherSeason(
-            matchesAcrossSeasons.comparison[Number(CURRENT_SEASON) - 2],
-            Number(CURRENT_SEASON),
-            Number(CURRENT_SEASON) - 2,
-            teamInTwoSeasonsAgo,
-            team,
-            teamMatch.venue,
-          ),
-        ],
-        difficultyRating,
-      }
-    }
-  }
-
-  // Calculate averages
-  const averageFdr = Object.fromEntries(
-    teams.map((team) => [
-      team,
-      {
-        home: fdrTracker[team].home.length > 0 ? fdrTracker[team].home.reduce((a, b) => a + b, 0) / fdrTracker[team].home.length : 0,
-        away: fdrTracker[team].away.length > 0 ? fdrTracker[team].away.reduce((a, b) => a + b, 0) / fdrTracker[team].away.length : 0,
-      },
-    ]),
-  )
-
-  console.info(data)
-
-  return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead>GW</TableHead>
-          {teams.map((team) => (
-            <TableHead key={team} className="text-center">
-              <div className="flex gap-x-2 justify-center items-center">
-                <div>{team}</div>
-
-                <Button
-                  variant="outline"
-                  size="icon-sm"
-                  className="rounded-full w-5 h-5"
-                  onClick={() => {
-                    setSearchParams((prev) => {
-                      const newSearchParams = new URLSearchParams(prev)
-                      const teamsParam = newSearchParams.getAll('teams') ?? []
-                      teamsParam.splice(teamsParam.indexOf(team), 1)
-                      newSearchParams.delete('teams')
-
-                      for (const team of teamsParam) {
-                        newSearchParams.append('teams', team)
-                      }
-
-                      return newSearchParams
-                    })
-                  }}
-                >
-                  <X className="w-3! h-3!" aria-label="Remove column" />
-                </Button>
-              </div>
-            </TableHead>
-          ))}
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {gameWeeks.map((gameweek) => {
-          const row = data[gameweek]
-
-          return (
-            <TableRow key={row.gameweek}>
-              <TableCell>
-                <MatchweekNumber gameweek={row.gameweek} isRescheduled={row.isRescheduled} />
-              </TableCell>
-
-              {teams.map((team, idx) => {
-                const teamMatchInfo = row.teamMatchRecord[team]
-                if (!teamMatchInfo) {
-                  return (
-                    <TableCell key={idx} className="text-center">
-                      -
-                    </TableCell>
-                  )
-                }
-
-                const [lastSeasonMatch, twoSeasonsAgoMatch] = teamMatchInfo.pastTwoSeasonsMatchInfo
-
-                return (
-                  <TableCell key={idx} className="text-center">
-                    <div className="flex flex-col gap-1">
-                      <div className="flex gap-x-2 justify-center items-center">
-                        <div>
-                          {isMobile ? teamMatchInfo.opponent.shortName : teamMatchInfo.opponent.name}{' '}
-                          <span className="font-bold">({teamMatchInfo.venue === 'home' ? 'H' : 'A'})</span>
-                        </div>
-                        <div className={clsx('px-2 py-1 rounded text-xs font-semibold', getFdrColorClass(teamMatchInfo.difficultyRating))}>
-                          FDR {formatFdr(teamMatchInfo.difficultyRating)}
-                        </div>
-                      </div>
-                      <div className="flex justify-center items-center">
-                        <ul className="flex gap-x-2">
-                          <li>
-                            <ScoreTag
-                              match={lastSeasonMatch}
-                              currentSeasonOpponent={teamMatchInfo.opponent.name}
-                              currentColumnTeam={team}
-                            />
-                          </li>
-                          <li>
-                            <ScoreTag
-                              match={twoSeasonsAgoMatch}
-                              currentSeasonOpponent={teamMatchInfo.opponent.name}
-                              currentColumnTeam={team}
-                            />
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </TableCell>
-                )
-              })}
-            </TableRow>
-          )
-        })}
-        <TableRow className="font-semibold bg-muted">
-          <TableCell className="text-xs">Avg FDR</TableCell>
-          {teams.map((team, idx) => (
-            <TableCell key={idx}>
-              <div className="flex flex-row justify-center items-center gap-1 text-xs">
-                <div>
-                  <span className="text-green-700">H:</span> {formatFdr(averageFdr[team].home)}
-                </div>
-                <div className="w-px h-4 border border-slate-300" />
-                <div>
-                  <span className="text-red-700">A:</span> {formatFdr(averageFdr[team].away)}
-                </div>
-              </div>
-            </TableCell>
-          ))}
-        </TableRow>
-      </TableBody>
-      <TableFooter>
-        <TableRow>
-          <TableCell colSpan={isMobile ? 4 : 5} className="italic">
-            <RescheduleInfo />
-          </TableCell>
-        </TableRow>
-      </TableFooter>
-    </Table>
-  )
-}
-
-function ScoreTag({
-  match,
-  currentSeasonOpponent,
-  currentColumnTeam,
-}: {
-  match: FullMatchInfo
-  currentSeasonOpponent: string
-  currentColumnTeam: string
-}) {
-  return (
-    <div className={clsx(match.color, 'p-1 py-0.5 rounded text-sm flex items-center justify-center gap-x-1 font-mono')}>
-      <div>
-        {match.homeTeam.score}-{match.awayTeam.score}
-      </div>
-      {currentSeasonOpponent !== match.opponent.name && currentColumnTeam !== match.opponent.name ? (
-        <HybridTooltip>
-          <HybridTooltipTrigger asChild>
-            <Info className="inline-block w-4 h-4" aria-label={`(equivalent team: ${match.opponent})`} />
-          </HybridTooltipTrigger>
-          <HybridTooltipContent>{match.opponent.name}</HybridTooltipContent>
-        </HybridTooltip>
-      ) : null}
-    </div>
-  )
-}
-
-function fillRemainingMatchAnchorRecord(record: MatchAnchorRecord, seasonMatches: MatchInfo[], team: string, year: string) {
-  let seasonRecord = record[year]
-  if (!seasonRecord) {
-    record[year] = {}
-    seasonRecord = record[year]
-  }
-
-  for (const match of seasonMatches) {
-    const anchorKey = getAnchorKeyFromMatch(match, team)
-    seasonRecord[anchorKey] = {
-      ...match,
-      ...getEssentialMatchInfo(match, team, { scoreColor: 'border' }),
-    }
-  }
-}
-
-function getMatchFromOtherSeason(
-  record: Record<string, FullMatchInfo>,
-  year: number,
-  targetYear: number,
-  opponent: string,
-  team: string,
-  venue: string,
-) {
-  const teamFromOtherSeason = getEquivalentTeamFromAnotherSeason(opponent, year, targetYear)
-  let anchorKey: string
-
-  if (venue === 'home') {
-    anchorKey = getAnchorKeyFromString(team, teamFromOtherSeason, team)
-  } else {
-    anchorKey = getAnchorKeyFromString(teamFromOtherSeason, team, team)
-  }
-
-  return record[anchorKey]
-}
-
-function getMatchesAcrossSeasons(
-  teams: string[],
-  matchesResponses: Record<string, MatchInfo[]>,
-  currentSeasonTable: SeasonTableData[],
-): MatchesAcrossSeasons {
-  const matchesByGameweekByTeamRecord: MatchesAcrossSeasons['matchesByGameweekByTeamRecord'] = {}
-  const comparison: MatchAnchorRecord = {}
-  let previousMatchweek = -1
-
-  for (const match of matchesResponses[CURRENT_SEASON]) {
-    const { homeTeam, awayTeam, matchWeek } = match
-
-    if (!teams.includes(homeTeam.name) && !teams.includes(awayTeam.name)) continue
-    if (!matchesByGameweekByTeamRecord[matchWeek]) {
-      matchesByGameweekByTeamRecord[matchWeek] = {}
-    }
-
-    const iteratedTeams = [homeTeam.name, awayTeam.name].filter((team) => teams.includes(team))
-    for (const team of iteratedTeams) {
-      if (isMatchFinished(match)) {
-        matchesByGameweekByTeamRecord[match.matchWeek][team] = null
-        continue
-      }
-
-      let key: string = `${match.matchWeek}`
-      if (matchesByGameweekByTeamRecord[match.matchWeek][team]) {
-        key = `${match.matchWeek}-rescheduled`
-        matchesByGameweekByTeamRecord[key] = matchesByGameweekByTeamRecord[key] ?? {}
-      }
-
-      matchesByGameweekByTeamRecord[key][team] = {
-        ...match,
-        ...getEssentialMatchInfo(match, team),
-      }
-    }
-
-    if (previousMatchweek !== -1 && previousMatchweek !== matchWeek) {
-      const isAllNull = Object.values(matchesByGameweekByTeamRecord[previousMatchweek]).every((match) => match === null)
-      if (isAllNull) {
-        delete matchesByGameweekByTeamRecord[previousMatchweek]
-      }
-    }
-
-    previousMatchweek = matchWeek
-  }
-
-  for (const team of teams) {
-    const previousYears = Object.keys(matchesResponses).filter((year) => year !== CURRENT_SEASON)
-    for (const previousYear of previousYears) {
-      fillRemainingMatchAnchorRecord(
-        comparison,
-        matchesResponses[previousYear].filter((match) => match.homeTeam.name === team || match.awayTeam.name === team),
-        team,
-        previousYear,
-      )
-    }
-  }
-
-  return {
-    matchesByGameweekByTeamRecord,
-    comparison,
-    currentSeasonTable,
-  }
 }

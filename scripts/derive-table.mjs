@@ -21,6 +21,7 @@ async function main() {
       teamsObject[homeTeam.name] = {
         name: homeTeam.name,
         abbr: homeTeam.abbr,
+        shortName: homeTeam.shortName,
         played: 0,
         wins: 0,
         draws: 0,
@@ -35,6 +36,7 @@ async function main() {
       teamsObject[awayTeam.name] = {
         name: awayTeam.name,
         abbr: awayTeam.abbr,
+        shortName: awayTeam.shortName,
         points: 0,
         played: 0,
         wins: 0,

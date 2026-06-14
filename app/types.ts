@@ -60,6 +60,7 @@ export interface Team {
 export interface SeasonTableData {
   name: string
   abbr: string
+  shortName: string
   played: number
   points: number
   wins: number
@@ -101,7 +102,9 @@ export interface MatchFullStatData {
 
 export interface MatchOfficialTeamAssignmentDataTableData {
   name: string
-  referees: Record<string, MatchOfficialTeamAssignmentData>
+  shortName: string
+  abbr: string
+  referees: Record<string, MatchOfficialTeamAssignmentData & { background: string; score: number }>
 }
 
 export interface RawTeamStatRecapData {

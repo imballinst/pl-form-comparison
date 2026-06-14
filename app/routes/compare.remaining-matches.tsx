@@ -220,8 +220,6 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
     ]),
   )
 
-  console.info(data)
-
   return (
     <Table>
       <TableHeader>

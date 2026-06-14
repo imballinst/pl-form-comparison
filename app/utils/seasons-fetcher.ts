@@ -75,18 +75,75 @@ export async function fetchMatchOfficialAssignments(season: string) {
     }
   }
 
+  const seasonTable = await fetchSeasonTable(season)
+  const teamRankByNameRecord = seasonTable.reduce(
+    (obj, cur, index) => {
+      obj[cur.name] = {
+        ...cur,
+        position: index + 1,
+      }
+      return obj
+    },
+    {} as Record<string, SeasonTableData & { position: number }>,
+  )
+  const matchOfficialScores: Record<string, number> = {}
+
   for (const team in teamStatRecapData.teams) {
     const officialAssignments = teamStatRecapData.teams[team].officials
 
-    matchOfficialsTable[season].tableData.push({ name: team, referees: officialAssignments })
-
-    // TODO: sort by occurrences.
     const officialNames = Object.keys(officialAssignments)
+    const officialScorePerNameRecord: Record<string, number> = {}
+
     for (const officialName of officialNames) {
-      if (matchOfficialsTable[season].officialNames.includes(officialName)) continue
-      matchOfficialsTable[season].officialNames.push(officialName)
+      if (!matchOfficialScores[officialName]) {
+        matchOfficialScores[officialName] = 0
+      }
+      if (!officialScorePerNameRecord[officialName]) {
+        officialScorePerNameRecord[officialName] = 0
+      }
+
+      let officialScoreRecord = 0
+
+      for (const side in officialAssignments[officialName]) {
+        const roleRecord = officialAssignments[officialName][side as 'Home' | 'Away']
+        for (const role in roleRecord) {
+          if (!['Referee', 'Video Assistant Referee', 'Assistant VAR Official'].includes(role)) continue
+
+          officialScoreRecord += roleRecord[role as keyof typeof roleRecord]
+        }
+      }
+
+      matchOfficialScores[officialName] += officialScoreRecord
+      officialScorePerNameRecord[officialName] = officialScoreRecord
     }
+
+    const effectiveOfficialAssignments: MatchOfficialTeamAssignmentDataTableData['referees'] = {}
+    const min = Math.min(...Object.values(officialScorePerNameRecord))
+    const max = Math.max(...Object.values(officialScorePerNameRecord))
+    const factor = 1 / (max - min)
+
+    for (const officialName of officialNames) {
+      effectiveOfficialAssignments[officialName] = {
+        ...officialAssignments[officialName],
+        score: officialScorePerNameRecord[officialName],
+        background: `rgba(0,255,0,${(officialScorePerNameRecord[officialName] - min) * factor * 0.8})`,
+      }
+    }
+
+    matchOfficialsTable[season].tableData.push({
+      name: team,
+      abbr: teamRankByNameRecord[team].abbr,
+      shortName: teamRankByNameRecord[team].shortName,
+      referees: effectiveOfficialAssignments,
+    })
   }
+
+  const sortedOfficialNames = Object.entries(matchOfficialScores)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 20)
+  matchOfficialsTable[season].officialNames = sortedOfficialNames.map((item) => item[0])
+
+  matchOfficialsTable[season].tableData.sort((a, b) => teamRankByNameRecord[a.name].position - teamRankByNameRecord[b.name].position)
 
   return matchOfficialsTable[season]
 }
