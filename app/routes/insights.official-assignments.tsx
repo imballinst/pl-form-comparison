@@ -3,36 +3,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
-import type { FullMatchInfo, SeasonTableData, Team } from '@/types'
 import { fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
+import { InspectionPanelIcon } from 'lucide-react'
 import { useState } from 'react'
 import { useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/compare.remaining-matches'
-
-// { "2024": { "Arsenal vs Tottenham": FullMatchInfo } }.
-type MatchAnchorRecord = Record<string, Record<string, FullMatchInfo>>
-
-interface MatchesAcrossSeasons {
-  // { "16": { "Arsenal": FullMatchInfo | null } }
-  matchesByGameweekByTeamRecord: Record<string, Record<string, FullMatchInfo | null>>
-  comparison: MatchAnchorRecord
-  currentSeasonTable: SeasonTableData[]
-}
-
-interface TableData {
-  key: string
-  gameweek: string
-  isRescheduled: boolean
-  teamMatchRecord: Record<
-    string,
-    {
-      opponent: Team
-      venue: string
-      pastTwoSeasonsMatchInfo: [FullMatchInfo, FullMatchInfo]
-      difficultyRating: number
-    } | null
-  >
-}
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const params = new URL(request.url).searchParams
@@ -57,7 +32,8 @@ export default function MatchOfficialAssignments() {
       <h1 className="text-3xl font-bold mb-4">Match Official Assignments</h1>
       <p className="text-md text-gray-500 mb-4">
         Compare the match official assignments between clubs. Get some insights on the match results on the officials, but do remember that
-        correlation is not causation. Only referees, VAR, and assistant VAR roles are counted.
+        correlation is not causation. Only referee, VAR, and assistant VAR roles are counted (assistant referee and fourth official are
+        ignored).
       </p>
 
       <div className="flex flex-col gap-y-4">
@@ -100,7 +76,7 @@ export default function MatchOfficialAssignments() {
         </div>
 
         <div>
-          <Table>
+          <Table className="tabular-nums">
             <TableHeader>
               <TableRow>
                 <TableHead>Team</TableHead>
@@ -119,7 +95,12 @@ export default function MatchOfficialAssignments() {
                         background: row.referees[name]?.background ?? 'black',
                       }}
                     >
-                      {row.referees[name]?.score ?? 0}
+                      <div className="flex justify-end">
+                        <Button className="flex items-center gap-0.5" variant="ghost">
+                          {row.referees[name]?.score ?? 0}
+                          <InspectionPanelIcon size={14} className="mt-0.5" />
+                        </Button>
+                      </div>
                     </TableCell>
                   ))}
                 </TableRow>
