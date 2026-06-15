@@ -9,6 +9,7 @@ const STATS_ENDPOINT = `https://sdp-prem-prod.premier-league-prod.pulselive.com/
 const OFFICIALS_ENDPOINT = `https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v1/matches/{MATCH_ID}/officials`
 const RAW_MATCHWEEKS_FILE_PATH = path.join(process.cwd(), `public/pl-form-comparison/${YEAR}.json`)
 const MATCH_DETAILS_FILE_PATH = path.join(process.cwd(), `public/pl-form-comparison/${YEAR}-matches.json`)
+const RAW_MATCH_DETAILS_FILE_PATH = path.join(process.cwd(), `scripts/references/${YEAR}-stats.json`)
 
 const STATS_LIST = Object.keys(getGameStats())
 // Unused.
@@ -16,6 +17,8 @@ const STATS_LIST = Object.keys(getGameStats())
 
 const allMatchweeks = await readFileAsJSON(RAW_MATCHWEEKS_FILE_PATH, {})
 const matchDetails = await readFileAsJSON(MATCH_DETAILS_FILE_PATH, { processedMatches: [], teams: {} })
+/** @type {*} */
+const rawMatchDetails = {}
 
 async function main() {
   for (const matchweek of allMatchweeks.matchweeks) {
@@ -43,6 +46,7 @@ async function main() {
 
 main().finally(async () => {
   await fs.writeFile(MATCH_DETAILS_FILE_PATH, JSON.stringify(matchDetails), 'utf-8')
+  await fs.writeFile(RAW_MATCH_DETAILS_FILE_PATH, JSON.stringify(rawMatchDetails), 'utf-8')
 })
 
 /**
@@ -55,7 +59,7 @@ async function populateCurrentMatchStats(id, teams) {
   let currentMatch = {}
   try {
     const debugText = `Match details between ${teams.map((team) => team.name).join(' and ')}`
-    if (matchDetails.processedMatches.includes(id)) {
+    if (matchDetails.processedMatches.includes(id) && process.env.START_FRESH !== 'true') {
       console.debug(`${debugText} found, skipping...`)
       return
     }
@@ -69,6 +73,7 @@ async function populateCurrentMatchStats(id, teams) {
       stats: statsResponse.data,
       officials: officialsResponse.data.matchOfficials,
     }
+    rawMatchDetails[id] = currentMatch
   } catch (err) {
     console.error(err)
     return
