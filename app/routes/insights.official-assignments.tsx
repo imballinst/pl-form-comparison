@@ -95,12 +95,15 @@ export default function MatchOfficialAssignments() {
                         background: row.referees[name]?.background ?? 'black',
                       }}
                     >
-                      <div className="flex justify-end">
-                        <Button className="flex items-center gap-0.5" variant="ghost">
-                          {row.referees[name]?.score ?? 0}
-                          <InspectionPanelIcon size={14} className="mt-0.5" />
-                        </Button>
-                      </div>
+                      {
+                        row.referees[name]?.score && (
+                          <div className="flex justify-end">
+                            <Button className="flex items-center gap-0.5 underline" variant="link" size='sm'>
+                              {row.referees[name].score}
+                            </Button>
+                          </div>
+                        )
+                      }
                     </TableCell>
                   ))}
                 </TableRow>

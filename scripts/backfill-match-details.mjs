@@ -27,11 +27,11 @@ async function main() {
       const id = match.matchId
       await populateCurrentMatchStats(id, [
         {
-          name: match.homeTeam.name,
+          ...match.homeTeam,
           side: 'Home',
         },
         {
-          name: match.awayTeam.name,
+          ...match.awayTeam,
           side: 'Away',
         },
       ])
@@ -48,7 +48,7 @@ main().finally(async () => {
 /**
  *
  * @param {string} id
- * @param {Array<{ name: string, side: string}>} teams
+ * @param {Array<{ name: string, score: number, side: string}>} teams
  */
 async function populateCurrentMatchStats(id, teams) {
   /** @type {*} */
