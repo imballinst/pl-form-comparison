@@ -73,18 +73,16 @@ export interface SeasonTableData {
 
 export interface MatchOfficialTeamAssignmentData {
   Home: {
-    Referee: number
-    'Assistant Referee': number
-    'Fourth official': number
-    'Video Assistant Referee': number
-    'Assistant VAR Official': number
+    Referee: number[]
+    'Assistant Referee': number[]
+    'Video Assistant Referee': number[]
+    'Assistant VAR Official': number[]
   }
   Away: {
-    Referee: number
-    'Assistant Referee': number
-    'Fourth official': number
-    'Video Assistant Referee': number
-    'Assistant VAR Official': number
+    Referee: number[]
+    'Assistant Referee': number[]
+    'Video Assistant Referee': number[]
+    'Assistant VAR Official': number[]
   }
 }
 
@@ -109,12 +107,8 @@ export interface MatchOfficialTeamAssignmentDataTableData {
 
 export interface RawTeamStatRecapData {
   // Team name is the index.
-  processed: number[]
-  teams: Record<
-    string,
-    {
-      officials: Record<string, MatchOfficialTeamAssignmentData>
-      games: MatchFullStatData[]
-    }
-  >
+  teams: Record<string, Record<string, MatchOfficialTeamAssignmentData>>
+  // Match ID is the index.
+  // Second index is the team name.
+  matchStatRecord: Record<string, Record<string, MatchFullStatData>>
 }

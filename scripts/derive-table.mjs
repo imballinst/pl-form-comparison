@@ -1,10 +1,10 @@
 // @ts-check
 import { readFile, writeFile } from 'fs/promises'
+import { YEAR } from './utils.mjs'
 
 // API Configuration
-const SEASON_YEAR = 2025
-const INPUT = `public/pl-form-comparison/${SEASON_YEAR}.json`
-const OUTPUT = `public/pl-form-comparison/${SEASON_YEAR}-table.json`
+const INPUT = `public/pl-form-comparison/${YEAR}.json`
+const OUTPUT = `public/pl-form-comparison/${YEAR}-table.json`
 
 async function main() {
   /** @type {*} */

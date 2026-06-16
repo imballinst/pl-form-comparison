@@ -1,28 +1,36 @@
 import { Button } from '@/components/ui/button'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
+import { CURRENT_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
+import { toPercentage, truncateDecimals } from '@/lib/format'
+import type { MatchFullStatData } from '@/types'
 import { fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
-import { InspectionPanelIcon } from 'lucide-react'
-import { useState } from 'react'
-import { useLoaderData, useSearchParams } from 'react-router'
+import { useLoaderData } from 'react-router'
 import type { Route } from './+types/compare.remaining-matches'
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
-  const params = new URL(request.url).searchParams
-  const teamsString = params.getAll('teams') ?? []
-  const teamsArray = teamsString.filter((team) => TEAMS_PER_SEASON[CURRENT_SEASON].includes(team))
+  const result = await fetchMatchOfficialAssignments(CURRENT_SEASON)
 
-  const currentSeasonOfficialAssignments = await fetchMatchOfficialAssignments(CURRENT_SEASON)
+  return result
+}
 
-  return { teams: teamsArray, currentSeasonOfficialAssignments }
+const GAME_STATS = Object.keys(getGameStats())
+const GAME_STATS_LABEL_RECORD: Record<keyof ReturnType<typeof getGameStats>, string> = {
+  expectedGoals: 'expected goals',
+  wonCorners: 'corners won',
+  duelWon: 'duels won',
+  totalDistance: 'distance covered (metres)',
+  // Fouls.
+  fkFoulLost: 'fouls',
+  totalOffside: 'offsides',
+  penaltyConceded: 'penalties conceded',
+  yellowCard: 'yellow cards',
+  redCard: 'red cards',
 }
 
 export default function MatchOfficialAssignments() {
-  const { teams, currentSeasonOfficialAssignments } = useLoaderData<typeof clientLoader>()
-  const [, setSearchParams] = useSearchParams()
-  const [selectedTeam, setSelectedTeam] = useState('Arsenal')
+  const { tableData, officialNames, matchStatRecord } = useLoaderData<typeof clientLoader>()
   const isMobile = useIsMobile()
 
   return (
@@ -37,73 +45,113 @@ export default function MatchOfficialAssignments() {
       </p>
 
       <div className="flex flex-col gap-y-4">
-        <div className="flex gap-2 flex-col md:flex-row">
-          <Select
-            value={selectedTeam}
-            onValueChange={(value) => {
-              setSelectedTeam(value)
-            }}
-          >
-            <SelectTrigger className="w-full md:w-[50%]" id="select-team-button">
-              <SelectValue placeholder="Team" />
-            </SelectTrigger>
-            <SelectContent>
-              {TEAMS_PER_SEASON[CURRENT_SEASON].map((item) => (
-                <SelectItem key={item} value={item}>
-                  {item}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-
-          <Button
-            id="add-team-button"
-            onClick={() => {
-              if (teams.includes(selectedTeam)) {
-                // TODO: add alert.
-                return
-              }
-
-              setSearchParams((prev) => {
-                const newSearchParams = new URLSearchParams(prev)
-                newSearchParams.append('teams', selectedTeam)
-                return newSearchParams
-              })
-            }}
-          >
-            Add to table
-          </Button>
-        </div>
-
         <div>
           <Table className="tabular-nums">
             <TableHeader>
               <TableRow>
                 <TableHead>Team</TableHead>
-                {currentSeasonOfficialAssignments.officialNames.map((name) => (
+                {officialNames.map((name) => (
                   <TableHead>{name}</TableHead>
                 ))}
               </TableRow>
             </TableHeader>
             <TableBody>
-              {currentSeasonOfficialAssignments.tableData.map((row) => (
+              {tableData.map((row) => (
                 <TableRow>
                   <TableCell>{isMobile ? row.abbr : row.name}</TableCell>
-                  {currentSeasonOfficialAssignments.officialNames.map((name) => (
+                  {officialNames.map((name) => (
                     <TableCell
                       style={{
                         background: row.referees[name]?.background ?? 'black',
                       }}
                     >
-                      {
-                        row.referees[name]?.score && (
-                          <div className="flex justify-end">
-                            <Button className="flex items-center gap-0.5 underline" variant="link" size='sm'>
-                              {row.referees[name].score}
-                            </Button>
-                          </div>
-                        )
-                      }
+                      {row.referees[name]?.score && (
+                        <div className="flex justify-end">
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <Button className="flex items-center gap-0.5 underline size-auto!" variant="link" size="sm">
+                                {row.referees[name].score}
+                              </Button>
+                            </DialogTrigger>
+                            <DialogContent>
+                              <DialogHeader>
+                                <DialogTitle>
+                                  {name} officiating stats for {row.name}
+                                </DialogTitle>
+                              </DialogHeader>
+
+                              <div>
+                                {(() => {
+                                  const officiatingAssignments = Object.entries(row.referees[name].Home).concat(
+                                    Object.entries(row.referees[name].Away),
+                                  ) as Array<[string, number[]]>
+                                  console.info(officiatingAssignments)
+
+                                  const roles: Record<string, number> = {}
+                                  const totalStats: Record<string, number> = {}
+                                  const effectiveStats: Record<string, number> = {}
+
+                                  for (const officiatingAssignment of officiatingAssignments) {
+                                    const [role, matchIds] = officiatingAssignment
+
+                                    for (const matchId of matchIds) {
+                                      for (const statKey of GAME_STATS) {
+                                        if (totalStats[statKey] === undefined) {
+                                          totalStats[statKey] = 0
+                                        }
+                                        if (roles[role] === undefined) {
+                                          roles[role] = 0
+                                        }
+
+                                        totalStats[statKey] += matchStatRecord[matchId][row.name][statKey as keyof MatchFullStatData]
+                                      }
+                                    }
+
+                                    roles[role] += matchIds.length
+                                  }
+
+                                  for (const statKey in totalStats) {
+                                    effectiveStats[statKey] = truncateDecimals(totalStats[statKey] / officiatingAssignments.length)
+                                  }
+
+                                  return (
+                                    <div className="flex flex-col gap-y-4">
+                                      <div>
+                                        {name} is assigned to {row.name}'s matches in {row.referees[name].score} out of 38 matches occasions{' '}
+                                        (<strong>{toPercentage(truncateDecimals(row.referees[name].score / 38))}</strong>):{' '}
+                                        {Object.entries(roles)
+                                          .filter(([_, count]) => count > 0)
+                                          .map(([role, count]) => `${count}x ${role}`)
+                                          .join(', ')}
+                                        .
+                                      </div>
+
+                                      <Table className="tabular-nums">
+                                        <TableHeader>
+                                          <TableRow>
+                                            <TableHead>Statistic</TableHead>
+                                            <TableHead className="text-right">Value</TableHead>
+                                          </TableRow>
+                                        </TableHeader>
+                                        <TableBody>
+                                          {Object.entries(effectiveStats).map(([stat, value]) => (
+                                            <TableRow>
+                                              <TableCell>
+                                                Average {GAME_STATS_LABEL_RECORD[stat as keyof typeof GAME_STATS_LABEL_RECORD]}
+                                              </TableCell>
+                                              <TableCell className="text-right">{value}</TableCell>
+                                            </TableRow>
+                                          ))}
+                                        </TableBody>
+                                      </Table>
+                                    </div>
+                                  )
+                                })()}
+                              </div>
+                            </DialogContent>
+                          </Dialog>
+                        </div>
+                      )}
                     </TableCell>
                   ))}
                 </TableRow>
@@ -114,4 +162,20 @@ export default function MatchOfficialAssignments() {
       </div>
     </>
   )
+}
+
+// Synchronize this with scripts/enhance-match-official-with-stats.mjs.
+function getGameStats() {
+  return {
+    expectedGoals: 0,
+    wonCorners: 0,
+    duelWon: 0,
+    totalDistance: 0, // metres
+    // Fouls.
+    fkFoulLost: 0,
+    totalOffside: 0,
+    penaltyConceded: 0,
+    yellowCard: 0,
+    redCard: 0,
+  }
 }
