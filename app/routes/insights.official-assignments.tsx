@@ -1,20 +1,17 @@
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { CURRENT_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { toPercentage, truncateDecimals } from '@/lib/format'
 import type { MatchFullStatData } from '@/types'
-import { fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
-import { useLoaderData } from 'react-router'
+import { AVAILABLE_SEASONS, fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
+import { CheckIcon, ChevronDown } from 'lucide-react'
+import { useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/compare.remaining-matches'
 
-export async function clientLoader({ request }: Route.ClientLoaderArgs) {
-  const result = await fetchMatchOfficialAssignments(CURRENT_SEASON)
-
-  return result
-}
-
+const SEASONS_PARAMETER = 'seasons'
 const GAME_STATS = Object.keys(getGameStats())
 const GAME_STATS_LABEL_RECORD: Record<keyof ReturnType<typeof getGameStats>, string> = {
   goals: 'goals scored',
@@ -29,6 +26,13 @@ const GAME_STATS_LABEL_RECORD: Record<keyof ReturnType<typeof getGameStats>, str
   penaltyConceded: 'penalties conceded',
   yellowCard: 'yellow cards',
   redCard: 'red cards',
+}
+
+export async function clientLoader({ request }: Route.ClientLoaderArgs) {
+  const seasons = new URL(request.url).searchParams.get(SEASONS_PARAMETER) ?? [CURRENT_SEASON]
+  const result = await fetchMatchOfficialAssignments(seasons)
+
+  return result
 }
 
 export default function MatchOfficialAssignments() {
@@ -47,6 +51,10 @@ export default function MatchOfficialAssignments() {
       </p>
 
       <div className="flex flex-col gap-y-4">
+        <div>
+          <SeasonsSelector />
+        </div>
+
         <div>
           <Table className="tabular-nums">
             <TableHeader>
@@ -87,7 +95,6 @@ export default function MatchOfficialAssignments() {
                                   const officiatingAssignments = Object.entries(row.referees[name].Home).concat(
                                     Object.entries(row.referees[name].Away),
                                   ) as Array<[string, number[]]>
-                                  console.info(officiatingAssignments)
 
                                   const roles: Record<string, number> = {}
                                   const totalStats: Record<string, number> = {}
@@ -163,6 +170,56 @@ export default function MatchOfficialAssignments() {
         </div>
       </div>
     </>
+  )
+}
+
+function SeasonsSelector() {
+  const [searchParams, setSearchParams] = useSearchParams()
+  const seasons = searchParams.get(SEASONS_PARAMETER) ?? CURRENT_SEASON
+  const seasonsArray = seasons.split(',')
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button className="flex justify-between max-w-80" variant="outline">
+          <div>Currently selected seasons: {seasonsArray.join(', ')}</div>
+
+          <ChevronDown />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuLabel>Select seasons (max 3)</DropdownMenuLabel>
+        {AVAILABLE_SEASONS.map((season) => (
+          <DropdownMenuItem
+            onClick={() =>
+              setSearchParams((prev) => {
+                const newSearchParams = new URLSearchParams(prev)
+                const newSeasonsArray = [...seasonsArray]
+
+                const seasonIdx = newSeasonsArray.indexOf(season)
+
+                if (seasonIdx > -1) {
+                  newSeasonsArray.splice(seasonIdx, 1)
+                } else {
+                  newSeasonsArray.push(season)
+                }
+
+                newSearchParams.set(SEASONS_PARAMETER, newSeasonsArray.sort().join(','))
+
+                return newSearchParams
+              })
+            }
+          >
+            <div className="w-full flex justify-between">
+              <div>{season}</div>
+              <div style={{ display: !seasonsArray.includes(season) ? 'none' : undefined }}>
+                <CheckIcon />
+              </div>
+            </div>
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }
 
