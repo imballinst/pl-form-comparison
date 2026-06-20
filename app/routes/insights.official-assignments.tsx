@@ -29,10 +29,10 @@ const GAME_STATS_LABEL_RECORD: Record<keyof ReturnType<typeof getGameStats>, str
 }
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
-  const seasons = new URL(request.url).searchParams.get(SEASONS_PARAMETER) ?? [CURRENT_SEASON]
-  const result = await fetchMatchOfficialAssignments(seasons)
+  const seasons = new URL(request.url).searchParams.get(SEASONS_PARAMETER)
+  const seasonsArray = seasons ? seasons.split(',') : [CURRENT_SEASON]
 
-  return result
+  return fetchMatchOfficialAssignments(seasonsArray)
 }
 
 export default function MatchOfficialAssignments() {
