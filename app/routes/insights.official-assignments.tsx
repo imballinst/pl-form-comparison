@@ -17,6 +17,8 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
 
 const GAME_STATS = Object.keys(getGameStats())
 const GAME_STATS_LABEL_RECORD: Record<keyof ReturnType<typeof getGameStats>, string> = {
+  goals: 'goals scored',
+  goalsConceded: 'goals conceded',
   expectedGoals: 'expected goals',
   wonCorners: 'corners won',
   duelWon: 'duels won',
@@ -117,8 +119,8 @@ export default function MatchOfficialAssignments() {
                                   return (
                                     <div className="flex flex-col gap-y-4">
                                       <div>
-                                        {name} is assigned to {row.name}'s matches in {row.referees[name].score} out of 38 matches occasions{' '}
-                                        (<strong>{toPercentage(truncateDecimals(row.referees[name].score / 38))}</strong>):{' '}
+                                        {name} is assigned to {row.name}'s matches in {row.referees[name].score} out of 38 matches (
+                                        <strong>{toPercentage(truncateDecimals(row.referees[name].score / 38))}</strong>):{' '}
                                         {Object.entries(roles)
                                           .filter(([_, count]) => count > 0)
                                           .map(([role, count]) => `${count}x ${role}`)
@@ -167,6 +169,8 @@ export default function MatchOfficialAssignments() {
 // Synchronize this with scripts/enhance-match-official-with-stats.mjs.
 function getGameStats() {
   return {
+    goals: 0,
+    goalsConceded: 0,
     expectedGoals: 0,
     wonCorners: 0,
     duelWon: 0,

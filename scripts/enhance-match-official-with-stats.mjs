@@ -32,8 +32,8 @@ async function main() {
       }
 
       const teams = [
-        { name: match.homeTeam.name, side: 'Home' },
-        { name: match.awayTeam.name, side: 'Away' },
+        { ...match.homeTeam, side: 'Home' },
+        { ...match.awayTeam, side: 'Away' },
       ]
 
       for (const team of teams) {
@@ -101,6 +101,8 @@ main().finally(async () => {
 /** @returns {Record<string, number>} */
 function getGameStats() {
   return {
+    goals: 0,
+    goalsConceded: 0,
     expectedGoals: 0,
     wonCorners: 0,
     duelWon: 0,
