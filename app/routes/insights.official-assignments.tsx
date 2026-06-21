@@ -6,6 +6,7 @@ import { CURRENT_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { toPercentage, truncateDecimals } from '@/lib/format'
 import type { MatchFullStatData } from '@/types'
+import { formatSeason } from '@/utils/match'
 import { AVAILABLE_SEASONS, fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
 import { CheckIcon, ChevronDown } from 'lucide-react'
 import { useLoaderData, useSearchParams } from 'react-router'
@@ -30,14 +31,18 @@ const GAME_STATS_LABEL_RECORD: Record<keyof ReturnType<typeof getGameStats>, str
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const seasons = new URL(request.url).searchParams.get(SEASONS_PARAMETER)
+  console.info('seasons', seasons)
   const seasonsArray = seasons ? seasons.split(',') : [CURRENT_SEASON]
 
-  return fetchMatchOfficialAssignments(seasonsArray)
+  const result = await fetchMatchOfficialAssignments(seasonsArray)
+  return { ...result, seasons: seasonsArray }
 }
 
 export default function MatchOfficialAssignments() {
-  const { tableData, officialNames, matchStatRecord } = useLoaderData<typeof clientLoader>()
+  const { perSeasonRecord, allSeasons, seasons } = useLoaderData<typeof clientLoader>()
   const isMobile = useIsMobile()
+
+  console.info(allSeasons.tableData)
 
   return (
     <>
@@ -60,16 +65,16 @@ export default function MatchOfficialAssignments() {
             <TableHeader>
               <TableRow>
                 <TableHead>Team</TableHead>
-                {officialNames.map((name) => (
+                {allSeasons.officialNames.map((name) => (
                   <TableHead>{name}</TableHead>
                 ))}
               </TableRow>
             </TableHeader>
             <TableBody>
-              {tableData.map((row) => (
+              {allSeasons.tableData.map((row) => (
                 <TableRow>
                   <TableCell>{isMobile ? row.abbr : row.name}</TableCell>
-                  {officialNames.map((name) => (
+                  {allSeasons.officialNames.map((name) => (
                     <TableCell
                       style={{
                         background: row.referees[name]?.background ?? 'black',
@@ -92,35 +97,51 @@ export default function MatchOfficialAssignments() {
 
                               <div>
                                 {(() => {
-                                  const officiatingAssignments = Object.entries(row.referees[name].Home).concat(
-                                    Object.entries(row.referees[name].Away),
+                                  const officiatingAssignments = (
+                                    row.referees[name]
+                                      ? Object.entries(row.referees[name].Home).concat(Object.entries(row.referees[name].Away))
+                                      : []
                                   ) as Array<[string, number[]]>
 
                                   const roles: Record<string, number> = {}
-                                  const totalStats: Record<string, number> = {}
-                                  const effectiveStats: Record<string, number> = {}
+                                  const totalStatsPerSeason: Record<string, Record<string, number>> = {}
+                                  const effectiveStatsPerSeason: Record<string, Record<string, number>> = {}
 
-                                  for (const officiatingAssignment of officiatingAssignments) {
-                                    const [role, matchIds] = officiatingAssignment
-
-                                    for (const matchId of matchIds) {
-                                      for (const statKey of GAME_STATS) {
-                                        if (totalStats[statKey] === undefined) {
-                                          totalStats[statKey] = 0
-                                        }
-                                        if (roles[role] === undefined) {
-                                          roles[role] = 0
-                                        }
-
-                                        totalStats[statKey] += matchStatRecord[matchId][row.name][statKey as keyof MatchFullStatData]
-                                      }
+                                  for (const season of seasons) {
+                                    let totalStats = totalStatsPerSeason[season]
+                                    let effectiveStats = totalStatsPerSeason[season]
+                                    if (!totalStats) {
+                                      totalStats = {}
+                                      totalStatsPerSeason[season] = totalStats
+                                    }
+                                    if (!effectiveStats) {
+                                      effectiveStats = {}
+                                      effectiveStatsPerSeason[season] = effectiveStats
                                     }
 
-                                    roles[role] += matchIds.length
-                                  }
+                                    for (const officiatingAssignment of officiatingAssignments) {
+                                      const [role, matchIds] = officiatingAssignment
 
-                                  for (const statKey in totalStats) {
-                                    effectiveStats[statKey] = truncateDecimals(totalStats[statKey] / officiatingAssignments.length)
+                                      for (const matchId of matchIds) {
+                                        for (const statKey of GAME_STATS) {
+                                          if (totalStats[statKey] === undefined) {
+                                            totalStats[statKey] = 0
+                                          }
+                                          if (roles[role] === undefined) {
+                                            roles[role] = 0
+                                          }
+
+                                          totalStats[statKey] +=
+                                            perSeasonRecord[season].matchStatRecord[matchId][row.name][statKey as keyof MatchFullStatData]
+                                        }
+                                      }
+
+                                      roles[role] += matchIds.length
+                                    }
+
+                                    for (const statKey in totalStats) {
+                                      effectiveStats[statKey] = truncateDecimals(totalStats[statKey] / officiatingAssignments.length)
+                                    }
                                   }
 
                                   return (
@@ -139,16 +160,20 @@ export default function MatchOfficialAssignments() {
                                         <TableHeader>
                                           <TableRow>
                                             <TableHead>Statistic</TableHead>
-                                            <TableHead className="text-right">Value</TableHead>
+                                            {seasons.map((season) => (
+                                              <TableHead className="text-right">{formatSeason(season)}</TableHead>
+                                            ))}
                                           </TableRow>
                                         </TableHeader>
                                         <TableBody>
-                                          {Object.entries(effectiveStats).map(([stat, value]) => (
+                                          {Object.keys(GAME_STATS_LABEL_RECORD).map((stat) => (
                                             <TableRow>
                                               <TableCell>
                                                 Average {GAME_STATS_LABEL_RECORD[stat as keyof typeof GAME_STATS_LABEL_RECORD]}
                                               </TableCell>
-                                              <TableCell className="text-right">{value}</TableCell>
+                                              {seasons.map((season) => (
+                                                <TableCell className="text-right">{effectiveStatsPerSeason[season][stat]}</TableCell>
+                                              ))}
                                             </TableRow>
                                           ))}
                                         </TableBody>

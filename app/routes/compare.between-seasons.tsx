@@ -5,7 +5,7 @@ import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, Table
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
 import type { FullMatchInfo, MatchInfo, Team } from '@/types'
-import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, getSeasonShortText, isMatchFinished } from '@/utils/match'
+import { formatSeason, getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, isMatchFinished } from '@/utils/match'
 import { fetchSeasons } from '@/utils/seasons-fetcher'
 import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
@@ -288,8 +288,8 @@ function ComparisonTable({
 
           {opponentAndvenueTableHeaders}
 
-          <TableHead className="text-center min-w-[70px]">{getSeasonShortText(comparedYear)}</TableHead>
-          <TableHead className="text-center min-w-[70px]">{getSeasonShortText(anchorYear)}</TableHead>
+          <TableHead className="text-center min-w-[70px]">{formatSeason(comparedYear)}</TableHead>
+          <TableHead className="text-center min-w-[70px]">{formatSeason(anchorYear)}</TableHead>
 
           {!isMobile && <TableHead className="text-right">+/-</TableHead>}
 

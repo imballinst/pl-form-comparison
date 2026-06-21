@@ -70,7 +70,7 @@ export function getAnchorKeyFromString(home: string, away: string, identifier: s
   return [home, away, identifier].join(' vs ')
 }
 
-export function getSeasonShortText(year: string) {
+export function formatSeason(year: string) {
   return `${year.slice(2)}/${(Number(year) + 1).toString().slice(2)}`
 }
 
