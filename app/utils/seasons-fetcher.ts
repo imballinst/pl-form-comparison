@@ -125,8 +125,6 @@ export async function fetchMatchOfficialAssignments(seasons: string[]): Promise<
         assignmentCountAllSeasonPerRefereeRecord[officialName] += assignmentCountForTeamPerReferee[officialName]
       }
 
-      console.info(team, effectiveOfficialAssignments)
-
       matchOfficialAssignmentPerSeason[season].teamsRecord[team] = {
         name: team,
         abbr: teamRankByNameRecord[team].abbr,
@@ -157,7 +155,6 @@ async function populateAllSeasonsRecord(seasons: string[]): Promise<AllSeasonInf
     tableData: [],
   }
   const allSeasonAssignmentCountPerRefereeRecord: Record<string, number> = {}
-  const allSeasonMatchTableDataRecord: Record<string, MatchOfficialTeamAssignmentDataTableData> = {}
 
   for (const season of seasons) {
     const { assignmentCountPerRefereeRecord, teamsRecord } = matchOfficialAssignmentPerSeason[season]
@@ -195,19 +192,23 @@ async function populateAllSeasonsRecord(seasons: string[]): Promise<AllSeasonInf
     abbr: v.abbr,
     referees: (() => {
       const effectiveOfficialAssignments: MatchOfficialTeamAssignmentDataTableData['referees'] = {}
-      const min = Math.min(...Object.values(allSeasonAssignmentCountPerRefereeRecord))
-      const max = Math.max(...Object.values(allSeasonAssignmentCountPerRefereeRecord))
+      const scores = Object.values(matchOfficialAssignmentPerSeason[lastSeason].teamsRecord[v.name].referees).map((v) => v.score)
+      const min = Math.min(...scores)
+      const max = Math.max(...scores)
       const factor = 1 / (max - min)
 
       for (const [officialName] of sortedOfficialNames) {
-        const numberOfTimesOfficiating = allSeasonAssignmentCountPerRefereeRecord[officialName]
         const current = matchOfficialAssignmentPerSeason[lastSeason].teamsRecord[v.name].referees[officialName]
-        if (!current) continue
 
         effectiveOfficialAssignments[officialName] = {
           ...current,
-          score: current.score,
-          background: `rgba(0,255,0,${(numberOfTimesOfficiating - min) * factor * 0.8})`,
+          score: 0,
+          background: 'black',
+        }
+
+        if (current && current.score > 0) {
+          effectiveOfficialAssignments[officialName].score = current.score
+          effectiveOfficialAssignments[officialName].background = `rgba(0,255,0,${(current.score - min) * factor * 0.8})`
         }
       }
 
@@ -230,6 +231,7 @@ function populateMatchOfficialInfo({
   officialName: string
   assignmentCountPerRefereeRecord: Record<string, number>
 }) {
+  // TODO: this has to be stored.
   const matchIdsPerRefereeRecord: Record<string, number[]> = {}
 
   if (!assignmentCountPerRefereeRecord[officialName]) {
@@ -246,12 +248,12 @@ function populateMatchOfficialInfo({
     for (const role in roleRecord) {
       if (!OFFICIAL_ROLES.includes(role)) continue
 
-      const matchIdsPerRefereeRecord = roleRecord[role as keyof typeof roleRecord]
-      officialScoreRecord += matchIdsPerRefereeRecord.length
+      const matchIds = roleRecord[role as keyof typeof roleRecord]
 
-      for (const matchId of matchIdsPerRefereeRecord) {
-        if (!matchIdsPerRefereeRecord.includes(matchId)) {
-          matchIdsPerRefereeRecord.push(matchId)
+      for (const matchId of matchIds) {
+        if (!matchIdsPerRefereeRecord[officialName].includes(matchId)) {
+          officialScoreRecord += 1
+          matchIdsPerRefereeRecord[officialName].push(matchId)
         }
       }
     }

@@ -78,10 +78,11 @@ async function main() {
             matchDetails.teams[teamName][name] = teamOfficialObject
           }
 
-          if (!teamOfficialObject[side][type]) {
-            // Skip if the type is not "identified".
+          if (!teamOfficialObject[side][type] || teamOfficialObject[side][type].includes(id)) {
+            // Skip if the type is not "identified" or already exists.
             continue
           }
+
           teamOfficialObject[side][type].push(id)
         }
 

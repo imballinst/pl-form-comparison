@@ -1,6 +1,6 @@
 import fs from 'fs/promises'
 
-export const YEAR = 2024
+export const YEAR = 2025
 
 /**
  *

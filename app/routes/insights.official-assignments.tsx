@@ -8,30 +8,30 @@ import { toPercentage, truncateDecimals } from '@/lib/format'
 import type { MatchFullStatData } from '@/types'
 import { formatSeason } from '@/utils/match'
 import { AVAILABLE_SEASONS, fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
-import { CheckIcon, ChevronDown } from 'lucide-react'
+import { CheckIcon, ChevronDown, LoaderIcon } from 'lucide-react'
+import { useState } from 'react'
 import { useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/compare.remaining-matches'
 
 const SEASONS_PARAMETER = 'seasons'
 const GAME_STATS = Object.keys(getGameStats())
 const GAME_STATS_LABEL_RECORD: Record<keyof ReturnType<typeof getGameStats>, string> = {
-  goals: 'goals scored',
-  goalsConceded: 'goals conceded',
-  expectedGoals: 'expected goals',
-  wonCorners: 'corners won',
-  duelWon: 'duels won',
-  totalDistance: 'distance covered (metres)',
+  goals: 'Goals scored',
+  goalsConceded: 'Goals conceded',
+  expectedGoals: 'Expected goals',
+  wonCorners: 'Corners won',
+  duelWon: 'Duels won',
+  totalDistance: 'Distance covered (metres)',
   // Fouls.
-  fkFoulLost: 'fouls',
-  totalOffside: 'offsides',
-  penaltyConceded: 'penalties conceded',
-  yellowCard: 'yellow cards',
-  redCard: 'red cards',
+  fkFoulLost: 'Fouls',
+  totalOffside: 'Offsides',
+  penaltyConceded: 'Penalties conceded',
+  yellowCard: 'Yellow cards',
+  redCard: 'Red cards',
 }
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const seasons = new URL(request.url).searchParams.get(SEASONS_PARAMETER)
-  console.info('seasons', seasons)
   const seasonsArray = seasons ? seasons.split(',') : [CURRENT_SEASON]
 
   const result = await fetchMatchOfficialAssignments(seasonsArray)
@@ -41,8 +41,7 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
 export default function MatchOfficialAssignments() {
   const { perSeasonRecord, allSeasons, seasons } = useLoaderData<typeof clientLoader>()
   const isMobile = useIsMobile()
-
-  console.info(allSeasons.tableData)
+  const [dialogKey, setDialogKey] = useState<string | null>(null)
 
   return (
     <>
@@ -66,21 +65,22 @@ export default function MatchOfficialAssignments() {
               <TableRow>
                 <TableHead>Team</TableHead>
                 {allSeasons.officialNames.map((name) => (
-                  <TableHead>{name}</TableHead>
+                  <TableHead key={name}>{name}</TableHead>
                 ))}
               </TableRow>
             </TableHeader>
             <TableBody>
               {allSeasons.tableData.map((row) => (
-                <TableRow>
+                <TableRow key={row.name}>
                   <TableCell>{isMobile ? row.abbr : row.name}</TableCell>
                   {allSeasons.officialNames.map((name) => (
                     <TableCell
+                      key={name}
                       style={{
                         background: row.referees[name]?.background ?? 'black',
                       }}
                     >
-                      {row.referees[name]?.score && (
+                      {!!row.referees[name]?.score && (
                         <div className="flex justify-end">
                           <Dialog>
                             <DialogTrigger asChild>
@@ -88,7 +88,12 @@ export default function MatchOfficialAssignments() {
                                 {row.referees[name].score}
                               </Button>
                             </DialogTrigger>
-                            <DialogContent>
+                            <DialogContent
+                              onAnimationEnd={(e) => {
+                                setDialogKey(`${row.name}-${name}`)
+                              }}
+                              className="min-h-[600px]"
+                            >
                               <DialogHeader>
                                 <DialogTitle>
                                   {name} officiating stats for {row.name}
@@ -97,19 +102,30 @@ export default function MatchOfficialAssignments() {
 
                               <div>
                                 {(() => {
-                                  const officiatingAssignments = (
-                                    row.referees[name]
-                                      ? Object.entries(row.referees[name].Home).concat(Object.entries(row.referees[name].Away))
-                                      : []
-                                  ) as Array<[string, number[]]>
+                                  if (dialogKey !== `${row.name}-${name}`) {
+                                    return (
+                                      <div className="w-full flex justify-center items-center">
+                                        <LoaderIcon className="animate-spin" />
+                                      </div>
+                                    )
+                                  }
 
                                   const roles: Record<string, number> = {}
                                   const totalStatsPerSeason: Record<string, Record<string, number>> = {}
                                   const effectiveStatsPerSeason: Record<string, Record<string, number>> = {}
 
                                   for (const season of seasons) {
+                                    const refereeEntry = perSeasonRecord[season].teamsRecord[row.name]?.referees ?? {}
+                                    const officiatingAssignments = (
+                                      refereeEntry[name]
+                                        ? Object.entries(refereeEntry[name].Home).concat(Object.entries(refereeEntry[name].Away))
+                                        : []
+                                    ) as Array<[string, number[]]>
+
                                     let totalStats = totalStatsPerSeason[season]
                                     let effectiveStats = totalStatsPerSeason[season]
+                                    let numberOfGames = 0
+
                                     if (!totalStats) {
                                       totalStats = {}
                                       totalStatsPerSeason[season] = totalStats
@@ -123,12 +139,15 @@ export default function MatchOfficialAssignments() {
                                       const [role, matchIds] = officiatingAssignment
 
                                       for (const matchId of matchIds) {
+                                        // Match ID not in this season, skip.
+                                        console.info(season, matchId, perSeasonRecord[season].matchStatRecord[matchId])
+                                        if (!perSeasonRecord[season].matchStatRecord[matchId]) {
+                                          continue
+                                        }
+
                                         for (const statKey of GAME_STATS) {
                                           if (totalStats[statKey] === undefined) {
                                             totalStats[statKey] = 0
-                                          }
-                                          if (roles[role] === undefined) {
-                                            roles[role] = 0
                                           }
 
                                           totalStats[statKey] +=
@@ -136,13 +155,19 @@ export default function MatchOfficialAssignments() {
                                         }
                                       }
 
+                                      if (roles[role] === undefined) {
+                                        roles[role] = 0
+                                      }
                                       roles[role] += matchIds.length
+                                      numberOfGames += matchIds.length
                                     }
 
                                     for (const statKey in totalStats) {
-                                      effectiveStats[statKey] = truncateDecimals(totalStats[statKey] / officiatingAssignments.length)
+                                      effectiveStats[statKey] = truncateDecimals(totalStats[statKey] / numberOfGames)
                                     }
                                   }
+
+                                  console.info(effectiveStatsPerSeason)
 
                                   return (
                                     <div className="flex flex-col gap-y-4">
@@ -159,20 +184,22 @@ export default function MatchOfficialAssignments() {
                                       <Table className="tabular-nums">
                                         <TableHeader>
                                           <TableRow>
-                                            <TableHead>Statistic</TableHead>
+                                            <TableHead>Avg. stat</TableHead>
                                             {seasons.map((season) => (
-                                              <TableHead className="text-right">{formatSeason(season)}</TableHead>
+                                              <TableHead key={season} className="text-right">
+                                                {formatSeason(season)}
+                                              </TableHead>
                                             ))}
                                           </TableRow>
                                         </TableHeader>
                                         <TableBody>
                                           {Object.keys(GAME_STATS_LABEL_RECORD).map((stat) => (
-                                            <TableRow>
-                                              <TableCell>
-                                                Average {GAME_STATS_LABEL_RECORD[stat as keyof typeof GAME_STATS_LABEL_RECORD]}
-                                              </TableCell>
+                                            <TableRow key={stat}>
+                                              <TableCell>{GAME_STATS_LABEL_RECORD[stat as keyof typeof GAME_STATS_LABEL_RECORD]}</TableCell>
                                               {seasons.map((season) => (
-                                                <TableCell className="text-right">{effectiveStatsPerSeason[season][stat]}</TableCell>
+                                                <TableCell key={season} className="text-right">
+                                                  {effectiveStatsPerSeason[season][stat]}
+                                                </TableCell>
                                               ))}
                                             </TableRow>
                                           ))}
@@ -216,6 +243,7 @@ function SeasonsSelector() {
         <DropdownMenuLabel>Select seasons (max 3)</DropdownMenuLabel>
         {AVAILABLE_SEASONS.map((season) => (
           <DropdownMenuItem
+            disabled={seasonsArray.length === 1 && seasonsArray[0] === season}
             onClick={() =>
               setSearchParams((prev) => {
                 const newSearchParams = new URLSearchParams(prev)
