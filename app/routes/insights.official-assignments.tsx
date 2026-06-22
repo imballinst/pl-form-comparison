@@ -5,7 +5,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { CURRENT_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { toPercentage, truncateDecimals } from '@/lib/format'
-import type { MatchFullStatData } from '@/types'
+import type { MatchFullStatData, RefereeAdditionalInformation } from '@/types'
 import { formatSeason } from '@/utils/match'
 import { AVAILABLE_SEASONS, fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
 import { CheckIcon, ChevronDown, LoaderIcon } from 'lucide-react'
@@ -13,14 +13,12 @@ import { useState } from 'react'
 import { useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/compare.remaining-matches'
 
-const FILTERED_GAME_STAT = ['totalDistance', 'duelWon', 'expectedGoals'] as const
-
 type GameStat = keyof ReturnType<typeof getGameStats>
-type FilteredGameStat = Exclude<GameStat, (typeof FILTERED_GAME_STAT)[number]>
+type RefereeStat = Exclude<keyof RefereeAdditionalInformation, 'score'>
 
 const SEASONS_PARAMETER = 'seasons'
-const GAME_STATS = Object.keys(getGameStats()).filter((stat) => (!FILTERED_GAME_STAT as string[]).includes(stat))
-const GAME_STATS_LABEL_RECORD: Record<FilteredGameStat, string> = {
+const GAME_STATS = filterGameStatKeys(Object.keys(getGameStats()) as Array<GameStat>, ['totalDistance', 'duelWon', 'expectedGoals'])
+const GAME_STATS_LABEL_RECORD: Record<(typeof GAME_STATS)[number], string> = {
   goals: 'Goals scored',
   goalsConceded: 'Goals conceded',
   wonCorners: 'Corners won',
@@ -30,6 +28,16 @@ const GAME_STATS_LABEL_RECORD: Record<FilteredGameStat, string> = {
   penaltyConceded: 'Penalties conceded',
   totalYelCard: 'Yellow cards',
   totalRedCard: 'Red cards',
+}
+const REFEREE_STATS_LABEL_RECORD: Record<RefereeStat, { short: string; long: string }> = {
+  foulsPerRedCard: {
+    short: 'FPR',
+    long: 'Fouls per red card',
+  },
+  foulsPerYellowCard: {
+    short: 'FPY',
+    long: 'Fouls per yellow card',
+  },
 }
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
@@ -45,6 +53,8 @@ export default function MatchOfficialAssignments() {
   const isMobile = useIsMobile()
   const [dialogKey, setDialogKey] = useState<string | null>(null)
 
+  console.info(perSeasonRecord)
+
   return (
     <>
       <title>Match Official Assignments | Premier League Form Comparison</title>
@@ -53,7 +63,7 @@ export default function MatchOfficialAssignments() {
       <p className="text-md text-gray-500 mb-4">
         Compare the match official assignments between clubs. Get some insights on the match results on the officials, but do remember that
         correlation is not causation. Only referee, VAR, and assistant VAR roles are counted (assistant referee and fourth official are
-        ignored).
+        ignored). The greener a cell is, the more often they officiate the club in the selected seasons.
       </p>
 
       <div className="flex flex-col gap-y-4">
@@ -62,7 +72,7 @@ export default function MatchOfficialAssignments() {
         </div>
 
         <div>
-          <Table className="tabular-nums">
+          <Table className="tabular-nums text-xs">
             <TableHeader>
               <TableRow>
                 <TableHead>Team</TableHead>
@@ -83,13 +93,33 @@ export default function MatchOfficialAssignments() {
                       }}
                     >
                       {!!row.referees[name]?.totalScore && (
-                        <div className="flex justify-end">
+                        <div className="flex">
                           <Dialog>
-                            <DialogTrigger asChild>
-                              <Button className="flex items-center gap-0.5 underline size-auto!" variant="link" size="sm">
-                                {seasons.map((season) => row.referees[name].perSeasonRecord[season] ?? 0).join(' / ')}
-                              </Button>
-                            </DialogTrigger>
+                            <div className="flex flex-col items-start gap-y-2">
+                              <DialogTrigger asChild>
+                                <Button className="flex gap-0.5 underline size-auto! p-0 text-xs" variant="link" size="sm">
+                                  {seasons.map((season) => row.referees[name].perSeasonRecord[season]?.score ?? 0).join(' → ')}
+                                </Button>
+                              </DialogTrigger>
+
+                              <div className="flex flex-col gap-y-2">
+                                {seasons.map((season) => (
+                                  <div key={season}>
+                                    <div className="font-bold">{season}</div>
+                                    <ol>
+                                      {Object.entries(row.referees[name].perSeasonRecord[season] ?? {})
+                                        .filter(([stat]) => REFEREE_STATS_LABEL_RECORD[stat as RefereeStat])
+                                        .map(([stat, value]) => (
+                                          <li key={stat}>
+                                            {REFEREE_STATS_LABEL_RECORD[stat as RefereeStat].short}: {value === -1 ? '-' : value}
+                                          </li>
+                                        ))}
+                                    </ol>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
                             <DialogContent
                               onAnimationEnd={(e) => {
                                 setDialogKey(`${row.name}-${name}`)
@@ -183,7 +213,7 @@ export default function MatchOfficialAssignments() {
                                       <Table className="tabular-nums">
                                         <TableHeader>
                                           <TableRow>
-                                            <TableHead>Stat</TableHead>
+                                            <TableHead>Stat (total)</TableHead>
                                             {seasons.map((season) => (
                                               <TableHead key={season} className="text-right">
                                                 {formatSeason(season)}
@@ -242,7 +272,7 @@ function SeasonsSelector() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button className="flex justify-between max-w-80" variant="outline">
-          <div>Currently selected seasons: {seasonsArray.join(', ')}</div>
+          <div>Seasons: {seasonsArray.join(', ')}</div>
 
           <ChevronDown />
         </Button>
@@ -300,4 +330,8 @@ function getGameStats() {
     totalYelCard: 0,
     totalRedCard: 0,
   }
+}
+
+function filterGameStatKeys<T extends readonly GameStat[]>(original: GameStat[], excludedStats: T): Array<Exclude<GameStat, T[number]>> {
+  return original.filter((stat): stat is Exclude<GameStat, T[number]> => !excludedStats.includes(stat))
 }

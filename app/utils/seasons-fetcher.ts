@@ -1,10 +1,12 @@
 import { BASE_PATH } from '@/constants'
+import { truncateDecimals } from '@/lib/format'
 import type {
   AllSeasonMatchOfficialAssignmentTableData,
   MatchInfo,
   MatchOfficialAssignmentData,
   MatchOfficialTeamAssignmentData,
   RawTeamStatRecapData,
+  RefereeAdditionalInformation,
   SeasonMatchesResponse,
   SeasonTableData,
 } from '@/types'
@@ -15,7 +17,7 @@ export const AVAILABLE_SEASONS = ['2023', '2024', '2025']
 
 interface MatchOfficiatingSeasonInfo {
   teamsRecord: Record<string, MatchOfficialAssignmentData>
-  assignmentCountPerRefereeRecord: Record<string, number>
+  assignmentCountPerRefereeRecord: Record<string, RefereeAdditionalInformation>
   matchStatRecord: RawTeamStatRecapData['matchStatRecord']
 }
 interface AllSeasonInfo {
@@ -23,28 +25,62 @@ interface AllSeasonInfo {
   tableData: Array<AllSeasonMatchOfficialAssignmentTableData>
 }
 
-let seasons: Record<string, MatchInfo[]> | undefined
+let seasons: Record<string, MatchInfo[]> = {}
 let seasonTable: Record<string, Array<SeasonTableData>> | undefined
 let matchOfficialAssignmentPerSeason: Record<string, MatchOfficiatingSeasonInfo> = {}
 
-export async function fetchSeasons() {
-  if (seasons) {
-    return Promise.resolve(seasons)
+export async function fetchSeasons(seasonsParam: string[] = AVAILABLE_SEASONS) {
+  const missingSeasons = seasonsParam.filter((season) => seasons?.[season] === undefined)
+  if (missingSeasons.length === 0) {
+    return seasonsParam.reduce(
+      (obj, cur) => {
+        obj[cur] = seasons![cur]
+        return obj
+      },
+      {} as Record<string, MatchInfo[]>,
+    )
   }
 
-  const responses = await Promise.all(AVAILABLE_SEASONS.map((season) => axios(`${BASE_PATH}/${season}.json`)))
-  const [season2025Response, season2024Response, season2023Response] = responses.map((item) =>
-    (item.data as SeasonMatchesResponse).matchweeks.flatMap((mw) => mw.data.data).sort((a, b) => a.kickoff.localeCompare(b.kickoff)),
+  const existingSeasons = seasonsParam
+    .filter((season) => seasons?.[season] !== undefined)
+    .map((season) => [season, seasons[season]] as const)
+  const responses = await Promise.all(missingSeasons.map((season) => axios(`${BASE_PATH}/${season}.json`)))
+  const seasonResponses = responses
+    .map((item) =>
+      (item.data as SeasonMatchesResponse).matchweeks.flatMap((mw) => mw.data.data).sort((a, b) => a.kickoff.localeCompare(b.kickoff)),
+    )
+    .map((v, i) => [missingSeasons[i], v] as const)
+
+  const matchesResponses: Record<string, MatchInfo[]> = existingSeasons.concat(seasonResponses).reduce(
+    (obj, [season, matches]) => {
+      obj[season] = matches
+      return obj
+    },
+    {} as Record<string, MatchInfo[]>,
   )
-
-  const matchesResponses: Record<string, MatchInfo[]> = {
-    '2025': season2025Response,
-    '2024': season2024Response,
-    '2023': season2023Response,
-  }
   seasons = matchesResponses
 
   return matchesResponses
+}
+
+export async function fetchSeasonsAsRecord(seasonsParam: string[]) {
+  const seasonMatches = await fetchSeasons(seasonsParam)
+
+  return Object.entries(seasonMatches).reduce(
+    (obj, [season, matches]) => {
+      const matchesRecord = matches.reduce(
+        (record, cur) => {
+          record[cur.matchId] = cur
+          return record
+        },
+        {} as Record<string, MatchInfo>,
+      )
+      obj[season] = matchesRecord
+
+      return obj
+    },
+    {} as Record<string, Record<string, MatchInfo>>,
+  )
 }
 
 export async function fetchSeasonTable(season: string) {
@@ -63,14 +99,14 @@ export async function fetchSeasonTable(season: string) {
   return seasonTableData
 }
 
-export async function fetchMatchOfficialAssignments(seasons: string[]): Promise<{
+export async function fetchMatchOfficialAssignments(seasonsParam: string[]): Promise<{
   perSeasonRecord: Record<string, MatchOfficiatingSeasonInfo>
   allSeasons: AllSeasonInfo
 }> {
-  const missingSeasons = seasons.filter((season) => matchOfficialAssignmentPerSeason[season] === undefined)
+  const missingSeasons = seasonsParam.filter((season) => matchOfficialAssignmentPerSeason[season] === undefined)
   if (missingSeasons.length === 0) {
     return {
-      allSeasons: await populateAllSeasonsRecord(seasons),
+      allSeasons: await populateAllSeasonsRecord(seasonsParam),
       perSeasonRecord: matchOfficialAssignmentPerSeason,
     }
   }
@@ -98,12 +134,12 @@ export async function fetchMatchOfficialAssignments(seasons: string[]): Promise<
       },
       {} as Record<string, SeasonTableData & { position: number }>,
     )
-    const assignmentCountAllSeasonPerRefereeRecord: Record<string, number> = {}
+    const assignmentCountAllSeasonPerRefereeRecord: Record<string, RefereeAdditionalInformation> = {}
 
     for (const team in teamStatRecapData.teams) {
       const officialAssignments = teamStatRecapData.teams[team]
       const effectiveOfficialAssignments: MatchOfficialAssignmentData['referees'] = {}
-      const assignmentCountForTeamPerReferee: Record<string, number> = {}
+      const assignmentCountForTeamPerReferee: Record<string, RefereeAdditionalInformation> = {}
 
       const officialNames = Object.keys(officialAssignments)
       for (const officialName of officialNames) {
@@ -111,18 +147,28 @@ export async function fetchMatchOfficialAssignments(seasons: string[]): Promise<
           officialName,
           rolePerRefereeRecord: officialAssignments,
           assignmentCountPerRefereeRecord: assignmentCountForTeamPerReferee,
+          team,
+          seasonMatchesStat: teamStatRecapData.matchStatRecord,
         })
 
         effectiveOfficialAssignments[officialName] = {
           ...officialAssignments[officialName],
-          score: assignmentCountForTeamPerReferee[officialName],
+          ...assignmentCountForTeamPerReferee[officialName],
         }
 
         if (!assignmentCountAllSeasonPerRefereeRecord[officialName]) {
-          assignmentCountAllSeasonPerRefereeRecord[officialName] = 0
+          assignmentCountAllSeasonPerRefereeRecord[officialName] = {
+            foulsPerRedCard: 0,
+            foulsPerYellowCard: 0,
+            score: 0,
+          }
         }
 
-        assignmentCountAllSeasonPerRefereeRecord[officialName] += assignmentCountForTeamPerReferee[officialName]
+        assignmentCountAllSeasonPerRefereeRecord[officialName].score += assignmentCountForTeamPerReferee[officialName].score
+      }
+
+      if (team === 'Arsenal') {
+        console.info(season, team, effectiveOfficialAssignments)
       }
 
       matchOfficialAssignmentPerSeason[season].teamsRecord[team] = {
@@ -138,7 +184,7 @@ export async function fetchMatchOfficialAssignments(seasons: string[]): Promise<
   }
 
   return {
-    allSeasons: await populateAllSeasonsRecord(seasons),
+    allSeasons: await populateAllSeasonsRecord(seasonsParam),
     perSeasonRecord: matchOfficialAssignmentPerSeason,
   }
 }
@@ -146,25 +192,26 @@ export async function fetchMatchOfficialAssignments(seasons: string[]): Promise<
 // Helper functions.
 const ALL_SEASONS_CACHE: Record<string, AllSeasonInfo> = {}
 
-async function populateAllSeasonsRecord(seasons: string[]): Promise<AllSeasonInfo> {
-  const seasonsString = seasons.join(',')
+async function populateAllSeasonsRecord(seasonsParam: string[]): Promise<AllSeasonInfo> {
+  const seasonsString = seasonsParam.join(',')
   if (ALL_SEASONS_CACHE[seasonsString]) return ALL_SEASONS_CACHE[seasonsString]
 
+  const seasonMatchesRecord = await fetchSeasonsAsRecord(seasonsParam)
   const result: AllSeasonInfo = {
     officialNames: [],
     tableData: [],
   }
   const allSeasonAssignmentCountPerRefereeRecord: Record<string, number> = {}
 
-  for (const season of seasons) {
-    const { assignmentCountPerRefereeRecord, teamsRecord } = matchOfficialAssignmentPerSeason[season]
+  for (const season of seasonsParam) {
+    const { assignmentCountPerRefereeRecord, matchStatRecord, teamsRecord } = matchOfficialAssignmentPerSeason[season]
 
     for (const officialName in assignmentCountPerRefereeRecord) {
       if (!allSeasonAssignmentCountPerRefereeRecord[officialName]) {
         allSeasonAssignmentCountPerRefereeRecord[officialName] = 0
       }
 
-      allSeasonAssignmentCountPerRefereeRecord[officialName] += assignmentCountPerRefereeRecord[officialName]
+      allSeasonAssignmentCountPerRefereeRecord[officialName] += assignmentCountPerRefereeRecord[officialName].score
     }
 
     for (const teamName in teamsRecord) {
@@ -175,6 +222,8 @@ async function populateAllSeasonsRecord(seasons: string[]): Promise<AllSeasonInf
           rolePerRefereeRecord: teamData.referees,
           officialName: refereeName,
           assignmentCountPerRefereeRecord,
+          team: teamName,
+          seasonMatchesStat: matchStatRecord,
         })
       }
     }
@@ -183,7 +232,7 @@ async function populateAllSeasonsRecord(seasons: string[]): Promise<AllSeasonInf
   const sortedOfficialNames = Object.entries(allSeasonAssignmentCountPerRefereeRecord)
     .sort((a, b) => b[1] - a[1])
     .slice(0, 20)
-  const lastSeason = `${seasons.at(-1)}`
+  const lastSeason = `${seasonsParam.at(-1)}`
   const tableData = await fetchSeasonTable(lastSeason)
 
   result.officialNames = sortedOfficialNames.map((item) => item[0])
@@ -198,7 +247,7 @@ async function populateAllSeasonsRecord(seasons: string[]): Promise<AllSeasonInf
       for (const [officialName] of sortedOfficialNames) {
         let total = 0
 
-        for (const season of seasons) {
+        for (const season of seasonsParam) {
           if (!effectiveOfficialAssignments[officialName]) {
             effectiveOfficialAssignments[officialName] = {
               totalScore: 0,
@@ -207,12 +256,20 @@ async function populateAllSeasonsRecord(seasons: string[]): Promise<AllSeasonInf
             }
           }
 
-          if (!matchOfficialAssignmentPerSeason[season].teamsRecord[v.name]) continue
-
-          const current = matchOfficialAssignmentPerSeason[season].teamsRecord[v.name].referees[officialName]
+          const current = matchOfficialAssignmentPerSeason[season].teamsRecord[v.name]?.referees[officialName]
           if (!current) continue
 
-          effectiveOfficialAssignments[officialName].perSeasonRecord[season] = current.score
+          if (!effectiveOfficialAssignments[officialName].perSeasonRecord[season]) {
+            effectiveOfficialAssignments[officialName].perSeasonRecord[season] = {
+              foulsPerRedCard: 0,
+              foulsPerYellowCard: 0,
+              score: 0,
+            }
+          }
+
+          effectiveOfficialAssignments[officialName].perSeasonRecord[season].score = current.score
+          effectiveOfficialAssignments[officialName].perSeasonRecord[season].foulsPerRedCard = current.foulsPerRedCard
+          effectiveOfficialAssignments[officialName].perSeasonRecord[season].foulsPerYellowCard = current.foulsPerYellowCard
           total += current.score
         }
 
@@ -246,25 +303,30 @@ async function populateAllSeasonsRecord(seasons: string[]): Promise<AllSeasonInf
 }
 
 function populateMatchOfficialInfo({
+  seasonMatchesStat,
+  team,
   officialName,
   rolePerRefereeRecord,
   assignmentCountPerRefereeRecord,
 }: {
+  seasonMatchesStat: RawTeamStatRecapData['matchStatRecord']
   rolePerRefereeRecord: Record<string, MatchOfficialTeamAssignmentData>
+  team: string
   officialName: string
-  assignmentCountPerRefereeRecord: Record<string, number>
+  assignmentCountPerRefereeRecord: Record<string, RefereeAdditionalInformation>
 }) {
-  // TODO: this has to be stored.
-  const matchIdsPerRefereeRecord: Record<string, number[]> = {}
-
   if (!assignmentCountPerRefereeRecord[officialName]) {
-    assignmentCountPerRefereeRecord[officialName] = 0
-  }
-  if (!matchIdsPerRefereeRecord[officialName]) {
-    matchIdsPerRefereeRecord[officialName] = []
+    assignmentCountPerRefereeRecord[officialName] = {
+      foulsPerRedCard: 0,
+      foulsPerYellowCard: 0,
+      score: 0,
+    }
   }
 
   let officialScoreRecord = 0
+  let totalFouls = 0
+  let totalRedCards = 0
+  let totalYellowCards = 0
 
   for (const side in rolePerRefereeRecord[officialName]) {
     const roleRecord = rolePerRefereeRecord[officialName][side as 'Home' | 'Away']
@@ -274,13 +336,17 @@ function populateMatchOfficialInfo({
       const matchIds = roleRecord[role as keyof typeof roleRecord]
 
       for (const matchId of matchIds) {
-        if (!matchIdsPerRefereeRecord[officialName].includes(matchId)) {
-          officialScoreRecord += 1
-          matchIdsPerRefereeRecord[officialName].push(matchId)
-        }
+        const { fkFoulLost, penaltyConceded, totalYelCard, totalRedCard } = seasonMatchesStat[matchId][team]
+
+        totalFouls += fkFoulLost + penaltyConceded
+        totalYellowCards += totalYelCard
+        totalRedCards += totalRedCard
+        officialScoreRecord += 1
       }
     }
   }
 
-  assignmentCountPerRefereeRecord[officialName] += officialScoreRecord
+  assignmentCountPerRefereeRecord[officialName].score = officialScoreRecord
+  assignmentCountPerRefereeRecord[officialName].foulsPerRedCard = totalRedCards ? truncateDecimals(totalFouls / totalRedCards) : -1
+  assignmentCountPerRefereeRecord[officialName].foulsPerYellowCard = totalYellowCards ? truncateDecimals(totalFouls / totalYellowCards) : -1
 }
