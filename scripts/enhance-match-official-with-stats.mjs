@@ -112,7 +112,7 @@ function getGameStats() {
     fkFoulLost: 0,
     totalOffside: 0,
     penaltyConceded: 0,
-    yellowCard: 0,
-    redCard: 0,
+    totalYelCard: 0,
+    totalRedCard: 0,
   }
 }

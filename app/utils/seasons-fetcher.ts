@@ -1,8 +1,9 @@
 import { BASE_PATH } from '@/constants'
 import type {
+  AllSeasonMatchOfficialAssignmentTableData,
   MatchInfo,
+  MatchOfficialAssignmentData,
   MatchOfficialTeamAssignmentData,
-  MatchOfficialTeamAssignmentDataTableData,
   RawTeamStatRecapData,
   SeasonMatchesResponse,
   SeasonTableData,
@@ -13,13 +14,13 @@ export const OFFICIAL_ROLES = ['Referee', 'Video Assistant Referee', 'Assistant 
 export const AVAILABLE_SEASONS = ['2023', '2024', '2025']
 
 interface MatchOfficiatingSeasonInfo {
-  teamsRecord: Record<string, MatchOfficialTeamAssignmentDataTableData>
+  teamsRecord: Record<string, MatchOfficialAssignmentData>
   assignmentCountPerRefereeRecord: Record<string, number>
   matchStatRecord: RawTeamStatRecapData['matchStatRecord']
 }
 interface AllSeasonInfo {
   officialNames: string[]
-  tableData: Array<MatchOfficialTeamAssignmentDataTableData>
+  tableData: Array<AllSeasonMatchOfficialAssignmentTableData>
 }
 
 let seasons: Record<string, MatchInfo[]> | undefined
@@ -101,7 +102,7 @@ export async function fetchMatchOfficialAssignments(seasons: string[]): Promise<
 
     for (const team in teamStatRecapData.teams) {
       const officialAssignments = teamStatRecapData.teams[team]
-      const effectiveOfficialAssignments: MatchOfficialTeamAssignmentDataTableData['referees'] = {}
+      const effectiveOfficialAssignments: MatchOfficialAssignmentData['referees'] = {}
       const assignmentCountForTeamPerReferee: Record<string, number> = {}
 
       const officialNames = Object.keys(officialAssignments)
@@ -114,7 +115,6 @@ export async function fetchMatchOfficialAssignments(seasons: string[]): Promise<
 
         effectiveOfficialAssignments[officialName] = {
           ...officialAssignments[officialName],
-          background: '',
           score: assignmentCountForTeamPerReferee[officialName],
         }
 
@@ -191,24 +191,47 @@ async function populateAllSeasonsRecord(seasons: string[]): Promise<AllSeasonInf
     name: v.name,
     abbr: v.abbr,
     referees: (() => {
-      const effectiveOfficialAssignments: MatchOfficialTeamAssignmentDataTableData['referees'] = {}
-      const scores = Object.values(matchOfficialAssignmentPerSeason[lastSeason].teamsRecord[v.name].referees).map((v) => v.score)
-      const min = Math.min(...scores)
-      const max = Math.max(...scores)
-      const factor = 1 / (max - min)
+      const effectiveOfficialAssignments: AllSeasonMatchOfficialAssignmentTableData['referees'] = {}
+      let minPerOfficial = 999
+      let maxPerOfficial = -999
 
       for (const [officialName] of sortedOfficialNames) {
-        const current = matchOfficialAssignmentPerSeason[lastSeason].teamsRecord[v.name].referees[officialName]
+        let total = 0
 
-        effectiveOfficialAssignments[officialName] = {
-          ...current,
-          score: 0,
-          background: 'black',
+        for (const season of seasons) {
+          if (!effectiveOfficialAssignments[officialName]) {
+            effectiveOfficialAssignments[officialName] = {
+              totalScore: 0,
+              background: 'black',
+              perSeasonRecord: {},
+            }
+          }
+
+          if (!matchOfficialAssignmentPerSeason[season].teamsRecord[v.name]) continue
+
+          const current = matchOfficialAssignmentPerSeason[season].teamsRecord[v.name].referees[officialName]
+          if (!current) continue
+
+          effectiveOfficialAssignments[officialName].perSeasonRecord[season] = current.score
+          total += current.score
         }
 
-        if (current && current.score > 0) {
-          effectiveOfficialAssignments[officialName].score = current.score
-          effectiveOfficialAssignments[officialName].background = `rgba(0,255,0,${(current.score - min) * factor * 0.8})`
+        if (total < minPerOfficial) {
+          minPerOfficial = total
+        }
+        if (total > maxPerOfficial) {
+          maxPerOfficial = total
+        }
+
+        effectiveOfficialAssignments[officialName].totalScore = total
+      }
+
+      for (const [officialName] of sortedOfficialNames) {
+        const factor = 1 / (maxPerOfficial - minPerOfficial)
+        const totalScore = effectiveOfficialAssignments[officialName].totalScore
+
+        if (totalScore > 0) {
+          effectiveOfficialAssignments[officialName].background = `rgba(0,255,0,${(totalScore - minPerOfficial) * factor * 0.8})`
         }
       }
 

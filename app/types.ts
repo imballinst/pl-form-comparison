@@ -94,15 +94,18 @@ export interface MatchFullStatData {
   fkFoulLost: number
   totalOffside: number
   penaltyConceded: number
-  yellowCard: number
-  redCard: number
+  totalYelCard: number
+  totalRedCard: number
 }
 
-export interface MatchOfficialTeamAssignmentDataTableData {
+export interface MatchOfficialAssignmentData {
   name: string
   shortName: string
   abbr: string
-  referees: Record<string, MatchOfficialTeamAssignmentData & { background: string; score: number }>
+  referees: Record<string, MatchOfficialTeamAssignmentData & { score: number }>
+}
+export interface AllSeasonMatchOfficialAssignmentTableData extends Omit<MatchOfficialAssignmentData, 'referees'> {
+  referees: Record<string, { background: string; totalScore: number; perSeasonRecord: Record<string, number> }>
 }
 
 export interface RawTeamStatRecapData {

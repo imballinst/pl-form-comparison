@@ -13,21 +13,23 @@ import { useState } from 'react'
 import { useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/compare.remaining-matches'
 
+const FILTERED_GAME_STAT = ['totalDistance', 'duelWon', 'expectedGoals'] as const
+
+type GameStat = keyof ReturnType<typeof getGameStats>
+type FilteredGameStat = Exclude<GameStat, (typeof FILTERED_GAME_STAT)[number]>
+
 const SEASONS_PARAMETER = 'seasons'
-const GAME_STATS = Object.keys(getGameStats())
-const GAME_STATS_LABEL_RECORD: Record<keyof ReturnType<typeof getGameStats>, string> = {
+const GAME_STATS = Object.keys(getGameStats()).filter((stat) => (!FILTERED_GAME_STAT as string[]).includes(stat))
+const GAME_STATS_LABEL_RECORD: Record<FilteredGameStat, string> = {
   goals: 'Goals scored',
   goalsConceded: 'Goals conceded',
-  expectedGoals: 'Expected goals',
   wonCorners: 'Corners won',
-  duelWon: 'Duels won',
-  totalDistance: 'Distance covered (metres)',
   // Fouls.
   fkFoulLost: 'Fouls',
   totalOffside: 'Offsides',
   penaltyConceded: 'Penalties conceded',
-  yellowCard: 'Yellow cards',
-  redCard: 'Red cards',
+  totalYelCard: 'Yellow cards',
+  totalRedCard: 'Red cards',
 }
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
@@ -80,19 +82,19 @@ export default function MatchOfficialAssignments() {
                         background: row.referees[name]?.background ?? 'black',
                       }}
                     >
-                      {!!row.referees[name]?.score && (
+                      {!!row.referees[name]?.totalScore && (
                         <div className="flex justify-end">
                           <Dialog>
                             <DialogTrigger asChild>
                               <Button className="flex items-center gap-0.5 underline size-auto!" variant="link" size="sm">
-                                {row.referees[name].score}
+                                {seasons.map((season) => row.referees[name].perSeasonRecord[season] ?? 0).join(' / ')}
                               </Button>
                             </DialogTrigger>
                             <DialogContent
                               onAnimationEnd={(e) => {
                                 setDialogKey(`${row.name}-${name}`)
                               }}
-                              className="min-h-[600px]"
+                              className="min-h-[525px]"
                             >
                               <DialogHeader>
                                 <DialogTitle>
@@ -110,9 +112,11 @@ export default function MatchOfficialAssignments() {
                                     )
                                   }
 
+                                  const totalNumberOfGamesAcrossSeasons = 38 * seasons.length
+
                                   const roles: Record<string, number> = {}
+                                  const assignmentCountPerSeason: Record<string, number> = {}
                                   const totalStatsPerSeason: Record<string, Record<string, number>> = {}
-                                  const effectiveStatsPerSeason: Record<string, Record<string, number>> = {}
 
                                   for (const season of seasons) {
                                     const refereeEntry = perSeasonRecord[season].teamsRecord[row.name]?.referees ?? {}
@@ -123,16 +127,10 @@ export default function MatchOfficialAssignments() {
                                     ) as Array<[string, number[]]>
 
                                     let totalStats = totalStatsPerSeason[season]
-                                    let effectiveStats = totalStatsPerSeason[season]
-                                    let numberOfGames = 0
 
                                     if (!totalStats) {
                                       totalStats = {}
                                       totalStatsPerSeason[season] = totalStats
-                                    }
-                                    if (!effectiveStats) {
-                                      effectiveStats = {}
-                                      effectiveStatsPerSeason[season] = effectiveStats
                                     }
 
                                     for (const officiatingAssignment of officiatingAssignments) {
@@ -140,7 +138,6 @@ export default function MatchOfficialAssignments() {
 
                                       for (const matchId of matchIds) {
                                         // Match ID not in this season, skip.
-                                        console.info(season, matchId, perSeasonRecord[season].matchStatRecord[matchId])
                                         if (!perSeasonRecord[season].matchStatRecord[matchId]) {
                                           continue
                                         }
@@ -158,22 +155,24 @@ export default function MatchOfficialAssignments() {
                                       if (roles[role] === undefined) {
                                         roles[role] = 0
                                       }
-                                      roles[role] += matchIds.length
-                                      numberOfGames += matchIds.length
-                                    }
+                                      if (assignmentCountPerSeason[season] === undefined) {
+                                        assignmentCountPerSeason[season] = 0
+                                      }
 
-                                    for (const statKey in totalStats) {
-                                      effectiveStats[statKey] = truncateDecimals(totalStats[statKey] / numberOfGames)
+                                      roles[role] += matchIds.length
+                                      assignmentCountPerSeason[season] += matchIds.length
                                     }
                                   }
-
-                                  console.info(effectiveStatsPerSeason)
 
                                   return (
                                     <div className="flex flex-col gap-y-4">
                                       <div>
-                                        {name} is assigned to {row.name}'s matches in {row.referees[name].score} out of 38 matches (
-                                        <strong>{toPercentage(truncateDecimals(row.referees[name].score / 38))}</strong>):{' '}
+                                        {name} is assigned to {row.name}'s matches in {row.referees[name].totalScore} out of{' '}
+                                        {totalNumberOfGamesAcrossSeasons} matches (
+                                        <strong>
+                                          {toPercentage(truncateDecimals(row.referees[name].totalScore / totalNumberOfGamesAcrossSeasons))}
+                                        </strong>
+                                        ):{' '}
                                         {Object.entries(roles)
                                           .filter(([_, count]) => count > 0)
                                           .map(([role, count]) => `${count}x ${role}`)
@@ -184,7 +183,7 @@ export default function MatchOfficialAssignments() {
                                       <Table className="tabular-nums">
                                         <TableHeader>
                                           <TableRow>
-                                            <TableHead>Avg. stat</TableHead>
+                                            <TableHead>Stat</TableHead>
                                             {seasons.map((season) => (
                                               <TableHead key={season} className="text-right">
                                                 {formatSeason(season)}
@@ -193,12 +192,21 @@ export default function MatchOfficialAssignments() {
                                           </TableRow>
                                         </TableHeader>
                                         <TableBody>
+                                          <TableRow>
+                                            <TableCell>Number of games</TableCell>
+                                            {seasons.map((season) => (
+                                              <TableCell key={season} className="text-right">
+                                                {assignmentCountPerSeason[season]}
+                                              </TableCell>
+                                            ))}
+                                          </TableRow>
+
                                           {Object.keys(GAME_STATS_LABEL_RECORD).map((stat) => (
                                             <TableRow key={stat}>
                                               <TableCell>{GAME_STATS_LABEL_RECORD[stat as keyof typeof GAME_STATS_LABEL_RECORD]}</TableCell>
                                               {seasons.map((season) => (
                                                 <TableCell key={season} className="text-right">
-                                                  {effectiveStatsPerSeason[season][stat]}
+                                                  {truncateDecimals(totalStatsPerSeason[season][stat])}
                                                 </TableCell>
                                               ))}
                                             </TableRow>
@@ -289,7 +297,7 @@ function getGameStats() {
     fkFoulLost: 0,
     totalOffside: 0,
     penaltyConceded: 0,
-    yellowCard: 0,
-    redCard: 0,
+    totalYelCard: 0,
+    totalRedCard: 0,
   }
 }
