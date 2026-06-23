@@ -1,3 +1,4 @@
+import { Header } from '@/components/custom/header'
 import { MatchweekNumber, RescheduleInfo } from '@/components/custom/match'
 import { HybridTooltip, HybridTooltipContent, HybridTooltipTrigger } from '@/components/ui/hybrid-tooltip'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -67,11 +68,11 @@ export default function ResultComparisonBySeason() {
     <>
       <title>Compare Between Seasons | Premier League Form Comparison</title>
 
-      <h1 className="text-3xl font-bold mb-4">Form Comparison</h1>
-      <p className="text-md text-gray-500 mb-8">
-        Compare the current season's Premier League team's form with the same fixtures from previous seasons, adjusting for promoted and
-        relegated teams.
-      </p>
+      <Header
+        heading="Form Comparison"
+        description="Compare the current season's Premier League team's form with the same fixtures from previous seasons, adjusting for promoted and
+        relegated teams."
+      />
 
       <div className="flex flex-col gap-y-4">
         <div className="flex gap-2 flex-col md:flex-row">

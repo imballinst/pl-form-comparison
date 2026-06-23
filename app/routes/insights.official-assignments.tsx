@@ -1,4 +1,5 @@
 import { CheckboxWithField } from '@/components/custom/form'
+import { Header } from '@/components/custom/header'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { FieldGroup, FieldLegend, FieldSet } from '@/components/ui/field'
@@ -10,9 +11,9 @@ import { toPercentage, truncateDecimals } from '@/lib/format'
 import type { MatchFullStatData, RefereeAdditionalInformation } from '@/types'
 import { formatSeason } from '@/utils/match'
 import { AVAILABLE_SEASONS, OFFICIAL_ROLES, fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
-import { CheckIcon, ChevronDown, LoaderIcon } from 'lucide-react'
+import { ChevronDown, LoaderIcon } from 'lucide-react'
 import { useRef, useState } from 'react'
-import { useForm, useWatch } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/compare.remaining-matches'
 
@@ -40,6 +41,10 @@ const GAME_STATS_LABEL_RECORD: Record<(typeof GAME_STATS)[number], string> = {
   totalRedCard: 'Red cards',
 }
 const REFEREE_STATS_LABEL_RECORD: Record<RefereeStat, { short: string; long: string }> = {
+  wdl: {
+    short: 'WR',
+    long: 'Win rate',
+  },
   foulsPerRedCard: {
     short: 'FPR',
     long: 'Fouls per red card',
@@ -47,10 +52,6 @@ const REFEREE_STATS_LABEL_RECORD: Record<RefereeStat, { short: string; long: str
   foulsPerYellowCard: {
     short: 'FPY',
     long: 'Fouls per yellow card',
-  },
-  wdl: {
-    short: 'WR',
-    long: 'Win rate',
   },
 }
 const ROLES_LABEL_RECORD: Record<(typeof OFFICIAL_ROLES)[number], { short: string; long: string }> = {
@@ -69,15 +70,18 @@ const ROLES_LABEL_RECORD: Record<(typeof OFFICIAL_ROLES)[number], { short: strin
 }
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
-  const seasons = new URL(request.url).searchParams.get(SEASONS_PARAMETER)
-  const seasonsArray = seasons ? seasons.split(',') : [CURRENT_SEASON]
+  const { [SEASONS_PARAMETER]: seasons = CURRENT_SEASON, [ROLES_PARAMETER]: roles = DEFAULT_SELECTED_ROLES } = Object.fromEntries(
+    new URL(request.url).searchParams,
+  )
+  const seasonsArray = seasons.split(',').sort()
+  const rolesArray = roles.split(',').sort()
 
-  const result = await fetchMatchOfficialAssignments(seasonsArray)
-  return { ...result, seasons: seasonsArray }
+  const result = await fetchMatchOfficialAssignments(seasonsArray, rolesArray)
+  return { ...result, seasons: seasonsArray, roles: rolesArray }
 }
 
 export default function MatchOfficialAssignments() {
-  const { perSeasonRecord, allSeasons, seasons } = useLoaderData<typeof clientLoader>()
+  const { perSeasonRecord, allSeasons, seasons, roles } = useLoaderData<typeof clientLoader>()
   const isMobile = useIsMobile()
   const [dialogKey, setDialogKey] = useState<string | null>(null)
 
@@ -85,25 +89,29 @@ export default function MatchOfficialAssignments() {
     <>
       <title>Match Official Assignments | Premier League Form Comparison</title>
 
-      <h1 className="text-3xl font-bold mb-4">Match Official Assignments</h1>
-      <p className="text-md text-gray-500 mb-4">
-        Compare the match official assignments between clubs. Get some insights on the match results on the officials, but do remember that
-        correlation is not causation. Only referee, VAR, and assistant VAR roles are counted (assistant referee and fourth official are
-        ignored). The greener a cell is, the more often they officiate the club in the selected seasons.
-      </p>
+      <Header
+        heading="Match Official Assignments"
+        description={
+          <>
+            Compare the match official assignments between clubs. Get some insights on the match results on the officials, but do remember
+            that correlation is not causation. The greener a cell is, the more often they officiate the club in the selected seasons.{' '}
+            <Legend />
+          </>
+        }
+      />
 
       <div className="flex flex-col gap-y-4">
         <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
-          <SeasonsSelector />
+          <SeasonsSelector seasons={seasons} />
 
-          <RolesSelector />
+          <RolesSelector roles={roles} />
         </div>
 
         <div>
           <Table className="tabular-nums text-xs">
             <TableHeader>
               <TableRow>
-                <TableHead>Team</TableHead>
+                <TableHead className="sticky left-0">Team</TableHead>
                 {allSeasons.officialNames.map((name) => (
                   <TableHead key={name}>{name}</TableHead>
                 ))}
@@ -112,7 +120,7 @@ export default function MatchOfficialAssignments() {
             <TableBody>
               {allSeasons.tableData.map((row) => (
                 <TableRow key={row.name}>
-                  <TableCell>{isMobile ? row.abbr : row.name}</TableCell>
+                  <TableCell className="sticky left-0 bg-white">{isMobile ? row.abbr : row.name}</TableCell>
                   {allSeasons.officialNames.map((name) => (
                     <TableCell
                       key={name}
@@ -126,7 +134,7 @@ export default function MatchOfficialAssignments() {
                             <div className="flex flex-col items-start gap-y-2">
                               <DialogTrigger asChild>
                                 <Button className="flex gap-0.5 underline size-auto! p-0 text-xs" variant="link" size="sm">
-                                  {seasons.map((season) => row.referees[name].perSeasonRecord[season]?.score ?? 0).join(' → ')}
+                                  {seasons.map((season) => row.referees[name].perSeasonRecord[season]?.score ?? 0).join(' → ')} games
                                 </Button>
                               </DialogTrigger>
 
@@ -143,12 +151,7 @@ export default function MatchOfficialAssignments() {
                                             {value === -1
                                               ? '-'
                                               : stat === 'wdl'
-                                                ? toPercentage(
-                                                    truncateDecimals(
-                                                      row.referees[name].perSeasonRecord[season].wdl[0] /
-                                                        row.referees[name].perSeasonRecord[season].wdl.reduce((sum, cur) => sum + cur, 0),
-                                                    ),
-                                                  )
+                                                ? getWinrate(row.referees[name].perSeasonRecord[season].wdl)
                                                 : value}
                                           </li>
                                         ))}
@@ -308,70 +311,87 @@ export default function MatchOfficialAssignments() {
   )
 }
 
-function SeasonsSelector() {
-  const [searchParams, setSearchParams] = useSearchParams()
-  const seasons = searchParams.get(SEASONS_PARAMETER) ?? CURRENT_SEASON
-  const seasonsArray = seasons.split(',')
+function SeasonsSelector({ seasons: seasonsArraySearchParams }: { seasons: string[] }) {
+  const [, setSearchParams] = useSearchParams()
+
+  const closeBtnRef = useRef<HTMLButtonElement>(null)
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      seasons: seasonsArraySearchParams,
+    },
+  })
+
+  function onSubmit(data: { seasons: string[] }) {
+    setSearchParams((prev) => {
+      const newSearchParams = new URLSearchParams(prev)
+      const newSeasonsArray = data.seasons
+      newSearchParams.set(SEASONS_PARAMETER, newSeasonsArray.sort().join(','))
+
+      return newSearchParams
+    })
+    closeBtnRef.current?.click()
+  }
 
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button className="flex justify-between max-w-80" variant="outline">
-          <div>Seasons: {seasonsArray.join(', ')}</div>
+        <Button className="flex justify-between" variant="outline">
+          <div>Seasons: {seasonsArraySearchParams.join(', ')}</div>
 
           <ChevronDown />
         </Button>
       </PopoverTrigger>
-      <PopoverContent align="end">
-        <div>Select seasons (max 3)</div>
-        {AVAILABLE_SEASONS.map((season) => (
-          <Button
-            disabled={seasonsArray.length === 1 && seasonsArray[0] === season}
-            onClick={() =>
-              setSearchParams((prev) => {
-                const newSearchParams = new URLSearchParams(prev)
-                const newSeasonsArray = [...seasonsArray]
 
-                const seasonIdx = newSeasonsArray.indexOf(season)
+      <PopoverContent className="flex flex-col popover-available-width">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
+          <FieldSet>
+            <FieldLegend variant="label">Select seasons:</FieldLegend>
+            <FieldGroup className="gap-3">
+              {AVAILABLE_SEASONS.map((season) => (
+                <CheckboxWithField
+                  key={season}
+                  value={season}
+                  name="seasons"
+                  defaultChecked={seasonsArraySearchParams.includes(season)}
+                  control={control}
+                  getNextValue={(checked, v) => {
+                    const nextValue = [...v]
+                    if (checked) {
+                      nextValue.push(season)
+                    } else {
+                      const idx = nextValue.indexOf(season)
+                      nextValue.splice(idx, 1)
+                    }
 
-                if (seasonIdx > -1) {
-                  newSeasonsArray.splice(seasonIdx, 1)
-                } else {
-                  newSeasonsArray.push(season)
-                }
+                    return nextValue
+                  }}
+                />
+              ))}
+            </FieldGroup>
+          </FieldSet>
 
-                newSearchParams.set(SEASONS_PARAMETER, newSeasonsArray.sort().join(','))
-
-                return newSearchParams
-              })
-            }
-          >
-            <div className="w-full flex justify-between">
-              <div>{season}</div>
-              <div style={{ display: !seasonsArray.includes(season) ? 'none' : undefined }}>
-                <CheckIcon />
-              </div>
-            </div>
+          <Button type="submit" className="mt-4">
+            Update seasons
           </Button>
-        ))}
+        </form>
+
+        <PopoverClose asChild hidden ref={closeBtnRef}>
+          <Button>Close</Button>
+        </PopoverClose>
       </PopoverContent>
     </Popover>
   )
 }
 
-function RolesSelector() {
-  const [searchParams, setSearchParams] = useSearchParams()
-  const roles = searchParams.get(ROLES_PARAMETER) ?? DEFAULT_SELECTED_ROLES
-  const rolesArraySearchParams = roles.split(',')
-
+function RolesSelector({ roles: rolesArraySearchParams }: { roles: string[] }) {
+  const [, setSearchParams] = useSearchParams()
   const closeBtnRef = useRef<HTMLButtonElement>(null)
   const isMobile = useIsMobile()
-  const { register, control, handleSubmit } = useForm({
+  const { control, handleSubmit } = useForm({
     defaultValues: {
       roles: rolesArraySearchParams,
     },
   })
-  console.info(useWatch({ control }))
 
   const labelLength = isMobile ? 'short' : 'long'
 
@@ -389,7 +409,7 @@ function RolesSelector() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button className="flex justify-between max-w-80" variant="outline">
+        <Button className="flex justify-between" variant="outline">
           <div>
             Roles:{' '}
             {rolesArraySearchParams.map((role) => ROLES_LABEL_RECORD[role as (typeof OFFICIAL_ROLES)[number]][labelLength]).join(', ')}
@@ -438,6 +458,35 @@ function RolesSelector() {
       </PopoverContent>
     </Popover>
   )
+}
+
+function Legend() {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="link" className="text-base p-0 text-[unset] underline decoration-dashed h-[unset]">
+          Click here to display legends.
+        </Button>
+      </PopoverTrigger>
+
+      <PopoverContent className="p-2 text-sm w-auto">
+        <ul className="list-disc pl-4">
+          {Object.values(REFEREE_STATS_LABEL_RECORD).map((v) => (
+            <li key={v.short}>
+              <span className="font-bold">{v.short}</span>: {v.long}
+            </li>
+          ))}
+        </ul>
+      </PopoverContent>
+    </Popover>
+  )
+}
+
+function getWinrate(wdl: [number, number, number]) {
+  const total = wdl.reduce((sum, cur) => sum + cur, 0)
+  if (total === 0) return '-'
+
+  return toPercentage(truncateDecimals(wdl[0] / wdl.reduce((sum, cur) => sum + cur, 0)))
 }
 
 // Synchronize this with scripts/enhance-match-official-with-stats.mjs.

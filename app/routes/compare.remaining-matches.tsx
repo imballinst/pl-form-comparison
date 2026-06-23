@@ -1,3 +1,4 @@
+import { Header } from '@/components/custom/header'
 import { MatchweekNumber, RescheduleInfo } from '@/components/custom/match'
 import { Button } from '@/components/ui/button'
 import { HybridTooltip, HybridTooltipContent, HybridTooltipTrigger } from '@/components/ui/hybrid-tooltip'
@@ -62,11 +63,15 @@ export default function RemainingMatches() {
     <>
       <title>Compare Remaining Matches | Premier League Form Comparison</title>
 
-      <h1 className="text-3xl font-bold mb-4">Remaining Matches</h1>
-      <p className="text-md text-gray-500 mb-8">
-        Compare the remaining matches of the current Premier League teams and show the equivalent fixture's results for the past 2 seasons.
-        Teams with higher points have a higher FDR. Away matches have a slightly higher FDR.
-      </p>
+      <Header
+        heading="Remaining Matches"
+        description={
+          <>
+            Compare the remaining matches of the current Premier League teams and show the equivalent fixture's results for the past 2
+            seasons. Teams with higher points have a higher FDR. Away matches have a slightly higher FDR.
+          </>
+        }
+      />
 
       <div className="flex flex-col gap-y-4">
         <div className="flex gap-2 flex-col md:flex-row">
