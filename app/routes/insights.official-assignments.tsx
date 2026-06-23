@@ -133,7 +133,13 @@ export default function MatchOfficialAssignments() {
                           <Dialog>
                             <div className="flex flex-col items-start gap-y-2">
                               <DialogTrigger asChild>
-                                <Button className="flex gap-0.5 underline size-auto! p-0 text-xs" variant="link" size="sm">
+                                <Button
+                                  className="flex gap-0.5 underline size-auto! p-0 text-xs"
+                                  variant="link"
+                                  size="sm"
+                                  data-ga-label="ga-official-assignments-view-referee-detail-button"
+                                  data-ga-value={`${name} - ${row.name}`}
+                                >
                                   {seasons.map((season) => row.referees[name].perSeasonRecord[season]?.score ?? 0).join(' → ')} games
                                 </Button>
                               </DialogTrigger>
