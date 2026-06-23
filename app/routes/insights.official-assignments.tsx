@@ -1,22 +1,18 @@
+import { CheckboxWithField } from '@/components/custom/form'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+import { FieldGroup, FieldLegend, FieldSet } from '@/components/ui/field'
+import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { CURRENT_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { toPercentage, truncateDecimals } from '@/lib/format'
 import type { MatchFullStatData, RefereeAdditionalInformation } from '@/types'
 import { formatSeason } from '@/utils/match'
-import { AVAILABLE_SEASONS, fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
+import { AVAILABLE_SEASONS, OFFICIAL_ROLES, fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
 import { CheckIcon, ChevronDown, LoaderIcon } from 'lucide-react'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { useForm, useWatch } from 'react-hook-form'
 import { useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/compare.remaining-matches'
 
@@ -24,6 +20,9 @@ type GameStat = keyof ReturnType<typeof getGameStats>
 type RefereeStat = Exclude<keyof RefereeAdditionalInformation, 'score'>
 
 const SEASONS_PARAMETER = 'seasons'
+const ROLES_PARAMETER = 'roles'
+const DEFAULT_SELECTED_ROLES = OFFICIAL_ROLES.join(',')
+
 const GAME_STATS = filterGameStatKeys(Object.keys(getGameStats()) as Array<GameStat>, [
   'totalDistance',
   'duelWon',
@@ -54,6 +53,20 @@ const REFEREE_STATS_LABEL_RECORD: Record<RefereeStat, { short: string; long: str
     long: 'Win rate',
   },
 }
+const ROLES_LABEL_RECORD: Record<(typeof OFFICIAL_ROLES)[number], { short: string; long: string }> = {
+  Referee: {
+    short: 'Ref',
+    long: 'Referee',
+  },
+  'Assistant VAR Official': {
+    short: 'AVAR',
+    long: 'Assistant VAR',
+  },
+  'Video Assistant Referee': {
+    short: 'VAR',
+    long: 'VAR',
+  },
+}
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const seasons = new URL(request.url).searchParams.get(SEASONS_PARAMETER)
@@ -68,8 +81,6 @@ export default function MatchOfficialAssignments() {
   const isMobile = useIsMobile()
   const [dialogKey, setDialogKey] = useState<string | null>(null)
 
-  console.info(perSeasonRecord)
-
   return (
     <>
       <title>Match Official Assignments | Premier League Form Comparison</title>
@@ -82,8 +93,10 @@ export default function MatchOfficialAssignments() {
       </p>
 
       <div className="flex flex-col gap-y-4">
-        <div>
+        <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
           <SeasonsSelector />
+
+          <RolesSelector />
         </div>
 
         <div>
@@ -301,19 +314,18 @@ function SeasonsSelector() {
   const seasonsArray = seasons.split(',')
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+    <Popover>
+      <PopoverTrigger asChild>
         <Button className="flex justify-between max-w-80" variant="outline">
           <div>Seasons: {seasonsArray.join(', ')}</div>
 
           <ChevronDown />
         </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuLabel>Select seasons (max 3)</DropdownMenuLabel>
-        <DropdownMenuSeparator />
+      </PopoverTrigger>
+      <PopoverContent align="end">
+        <div>Select seasons (max 3)</div>
         {AVAILABLE_SEASONS.map((season) => (
-          <DropdownMenuItem
+          <Button
             disabled={seasonsArray.length === 1 && seasonsArray[0] === season}
             onClick={() =>
               setSearchParams((prev) => {
@@ -340,10 +352,91 @@ function SeasonsSelector() {
                 <CheckIcon />
               </div>
             </div>
-          </DropdownMenuItem>
+          </Button>
         ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </PopoverContent>
+    </Popover>
+  )
+}
+
+function RolesSelector() {
+  const [searchParams, setSearchParams] = useSearchParams()
+  const roles = searchParams.get(ROLES_PARAMETER) ?? DEFAULT_SELECTED_ROLES
+  const rolesArraySearchParams = roles.split(',')
+
+  const closeBtnRef = useRef<HTMLButtonElement>(null)
+  const isMobile = useIsMobile()
+  const { register, control, handleSubmit } = useForm({
+    defaultValues: {
+      roles: rolesArraySearchParams,
+    },
+  })
+  console.info(useWatch({ control }))
+
+  const labelLength = isMobile ? 'short' : 'long'
+
+  function onSubmit(data: { roles: string[] }) {
+    setSearchParams((prev) => {
+      const newSearchParams = new URLSearchParams(prev)
+      const newRolesArray = data.roles
+      newSearchParams.set(ROLES_PARAMETER, newRolesArray.sort().join(','))
+
+      return newSearchParams
+    })
+    closeBtnRef.current?.click()
+  }
+
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button className="flex justify-between max-w-80" variant="outline">
+          <div>
+            Roles:{' '}
+            {rolesArraySearchParams.map((role) => ROLES_LABEL_RECORD[role as (typeof OFFICIAL_ROLES)[number]][labelLength]).join(', ')}
+          </div>
+
+          <ChevronDown />
+        </Button>
+      </PopoverTrigger>
+
+      <PopoverContent className="flex flex-col popover-available-width">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
+          <FieldSet>
+            <FieldLegend variant="label">Select roles:</FieldLegend>
+            <FieldGroup className="gap-3">
+              {OFFICIAL_ROLES.map((role) => (
+                <CheckboxWithField
+                  key={role}
+                  value={role}
+                  name="roles"
+                  defaultChecked={rolesArraySearchParams.includes(role)}
+                  control={control}
+                  getNextValue={(checked, v) => {
+                    const nextValue = [...v]
+                    if (checked) {
+                      nextValue.push(role)
+                    } else {
+                      const idx = nextValue.indexOf(role)
+                      nextValue.splice(idx, 1)
+                    }
+
+                    return nextValue
+                  }}
+                />
+              ))}
+            </FieldGroup>
+          </FieldSet>
+
+          <Button type="submit" className="mt-4">
+            Update roles
+          </Button>
+        </form>
+
+        <PopoverClose asChild hidden ref={closeBtnRef}>
+          <Button>Close</Button>
+        </PopoverClose>
+      </PopoverContent>
+    </Popover>
   )
 }
 

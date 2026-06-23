@@ -13,7 +13,7 @@ import type {
 import axios from 'axios'
 import { getScoreResult } from './match'
 
-export const OFFICIAL_ROLES = ['Referee', 'Video Assistant Referee', 'Assistant VAR Official']
+export const OFFICIAL_ROLES = ['Referee', 'Video Assistant Referee', 'Assistant VAR Official'] as const
 export const AVAILABLE_SEASONS = ['2023', '2024', '2025']
 
 interface MatchOfficiatingSeasonInfo {
@@ -168,10 +168,6 @@ export async function fetchMatchOfficialAssignments(seasonsParam: string[]): Pro
 
         assignmentCountAllSeasonPerRefereeRecord[officialName].score += assignmentCountForTeamPerReferee[officialName].score
         assignmentCountAllSeasonPerRefereeRecord[officialName].wdl = assignmentCountForTeamPerReferee[officialName].wdl
-      }
-
-      if (team === 'Arsenal') {
-        console.info(season, team, effectiveOfficialAssignments)
       }
 
       matchOfficialAssignmentPerSeason[season].teamsRecord[team] = {
@@ -342,7 +338,7 @@ function populateMatchOfficialInfo({
   for (const side in rolePerRefereeRecord[officialName]) {
     const roleRecord = rolePerRefereeRecord[officialName][side as 'Home' | 'Away']
     for (const role in roleRecord) {
-      if (!OFFICIAL_ROLES.includes(role)) continue
+      if (!OFFICIAL_ROLES.includes(role as (typeof OFFICIAL_ROLES)[number])) continue
 
       const matchIds = roleRecord[role as keyof typeof roleRecord]
 
