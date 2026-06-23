@@ -93,9 +93,9 @@ export default function MatchOfficialAssignments() {
         heading="Match Official Assignments"
         description={
           <>
-            Compare the match official assignments between clubs. Get some insights on the match results on the officials, but do remember
-            that correlation is not causation. The greener a cell is, the more often they officiate the club in the selected seasons.{' '}
-            <Legend />
+            Compare the match official assignments between clubs and get insights on the stats. The greener a cell is, the more often they
+            officiate the club in the selected seasons. Click on an underlined text in a table cell to view the stats of a team per
+            official. <Legend />
           </>
         }
       />
