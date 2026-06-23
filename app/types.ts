@@ -87,6 +87,8 @@ export interface MatchOfficialTeamAssignmentData {
 }
 
 export interface MatchFullStatData {
+  goals: number
+  goalsConceded: number
   expectedGoals: number
   wonCorners: number
   duelWon: number
@@ -100,17 +102,18 @@ export interface MatchFullStatData {
 
 export interface RefereeAdditionalInformation {
   score: number
+  wdl: [number, number, number]
   foulsPerYellowCard: number
   foulsPerRedCard: number
 }
 
-export interface MatchOfficialAssignmentData {
+export interface MatchOfficialAssignmentPerTeamData {
   name: string
   shortName: string
   abbr: string
   referees: Record<string, MatchOfficialTeamAssignmentData & RefereeAdditionalInformation>
 }
-export interface AllSeasonMatchOfficialAssignmentTableData extends Omit<MatchOfficialAssignmentData, 'referees'> {
+export interface AllSeasonMatchOfficialAssignmentTableData extends Omit<MatchOfficialAssignmentPerTeamData, 'referees'> {
   referees: Record<
     string,
     {

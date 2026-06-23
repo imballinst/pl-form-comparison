@@ -3,5 +3,5 @@ export function truncateDecimals(val: number) {
 }
 
 export function toPercentage(val: number) {
-  return `${Math.trunc(val * 100)}%`
+  return `${Math.trunc(val * 10000) / 100}%`
 }

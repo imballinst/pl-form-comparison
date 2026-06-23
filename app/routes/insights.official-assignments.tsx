@@ -1,6 +1,13 @@
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { CURRENT_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -17,11 +24,15 @@ type GameStat = keyof ReturnType<typeof getGameStats>
 type RefereeStat = Exclude<keyof RefereeAdditionalInformation, 'score'>
 
 const SEASONS_PARAMETER = 'seasons'
-const GAME_STATS = filterGameStatKeys(Object.keys(getGameStats()) as Array<GameStat>, ['totalDistance', 'duelWon', 'expectedGoals'])
+const GAME_STATS = filterGameStatKeys(Object.keys(getGameStats()) as Array<GameStat>, [
+  'totalDistance',
+  'duelWon',
+  'expectedGoals',
+  'wonCorners',
+])
 const GAME_STATS_LABEL_RECORD: Record<(typeof GAME_STATS)[number], string> = {
   goals: 'Goals scored',
   goalsConceded: 'Goals conceded',
-  wonCorners: 'Corners won',
   // Fouls.
   fkFoulLost: 'Fouls',
   totalOffside: 'Offsides',
@@ -37,6 +48,10 @@ const REFEREE_STATS_LABEL_RECORD: Record<RefereeStat, { short: string; long: str
   foulsPerYellowCard: {
     short: 'FPY',
     long: 'Fouls per yellow card',
+  },
+  wdl: {
+    short: 'WR',
+    long: 'Win rate',
   },
 }
 
@@ -111,7 +126,17 @@ export default function MatchOfficialAssignments() {
                                         .filter(([stat]) => REFEREE_STATS_LABEL_RECORD[stat as RefereeStat])
                                         .map(([stat, value]) => (
                                           <li key={stat}>
-                                            {REFEREE_STATS_LABEL_RECORD[stat as RefereeStat].short}: {value === -1 ? '-' : value}
+                                            {REFEREE_STATS_LABEL_RECORD[stat as RefereeStat].short}:{' '}
+                                            {value === -1
+                                              ? '-'
+                                              : stat === 'wdl'
+                                                ? toPercentage(
+                                                    truncateDecimals(
+                                                      row.referees[name].perSeasonRecord[season].wdl[0] /
+                                                        row.referees[name].perSeasonRecord[season].wdl.reduce((sum, cur) => sum + cur, 0),
+                                                    ),
+                                                  )
+                                                : value}
                                           </li>
                                         ))}
                                     </ol>
@@ -199,9 +224,7 @@ export default function MatchOfficialAssignments() {
                                       <div>
                                         {name} is assigned to {row.name}'s matches in {row.referees[name].totalScore} out of{' '}
                                         {totalNumberOfGamesAcrossSeasons} matches (
-                                        <strong>
-                                          {toPercentage(truncateDecimals(row.referees[name].totalScore / totalNumberOfGamesAcrossSeasons))}
-                                        </strong>
+                                        <strong>{toPercentage(row.referees[name].totalScore / totalNumberOfGamesAcrossSeasons)}</strong>
                                         ):{' '}
                                         {Object.entries(roles)
                                           .filter(([_, count]) => count > 0)
@@ -227,6 +250,15 @@ export default function MatchOfficialAssignments() {
                                             {seasons.map((season) => (
                                               <TableCell key={season} className="text-right">
                                                 {assignmentCountPerSeason[season]}
+                                              </TableCell>
+                                            ))}
+                                          </TableRow>
+
+                                          <TableRow>
+                                            <TableCell>Wins/draws/losses</TableCell>
+                                            {seasons.map((season) => (
+                                              <TableCell key={season} className="text-right">
+                                                {row.referees[name].perSeasonRecord[season].wdl.join('/')}
                                               </TableCell>
                                             ))}
                                           </TableRow>
@@ -279,6 +311,7 @@ function SeasonsSelector() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuLabel>Select seasons (max 3)</DropdownMenuLabel>
+        <DropdownMenuSeparator />
         {AVAILABLE_SEASONS.map((season) => (
           <DropdownMenuItem
             disabled={seasonsArray.length === 1 && seasonsArray[0] === season}

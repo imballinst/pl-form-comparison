@@ -3,7 +3,7 @@ import { truncateDecimals } from '@/lib/format'
 import type {
   AllSeasonMatchOfficialAssignmentTableData,
   MatchInfo,
-  MatchOfficialAssignmentData,
+  MatchOfficialAssignmentPerTeamData,
   MatchOfficialTeamAssignmentData,
   RawTeamStatRecapData,
   RefereeAdditionalInformation,
@@ -11,12 +11,13 @@ import type {
   SeasonTableData,
 } from '@/types'
 import axios from 'axios'
+import { getScoreResult } from './match'
 
 export const OFFICIAL_ROLES = ['Referee', 'Video Assistant Referee', 'Assistant VAR Official']
 export const AVAILABLE_SEASONS = ['2023', '2024', '2025']
 
 interface MatchOfficiatingSeasonInfo {
-  teamsRecord: Record<string, MatchOfficialAssignmentData>
+  teamsRecord: Record<string, MatchOfficialAssignmentPerTeamData>
   assignmentCountPerRefereeRecord: Record<string, RefereeAdditionalInformation>
   matchStatRecord: RawTeamStatRecapData['matchStatRecord']
 }
@@ -138,7 +139,7 @@ export async function fetchMatchOfficialAssignments(seasonsParam: string[]): Pro
 
     for (const team in teamStatRecapData.teams) {
       const officialAssignments = teamStatRecapData.teams[team]
-      const effectiveOfficialAssignments: MatchOfficialAssignmentData['referees'] = {}
+      const effectiveOfficialAssignments: MatchOfficialAssignmentPerTeamData['referees'] = {}
       const assignmentCountForTeamPerReferee: Record<string, RefereeAdditionalInformation> = {}
 
       const officialNames = Object.keys(officialAssignments)
@@ -158,6 +159,7 @@ export async function fetchMatchOfficialAssignments(seasonsParam: string[]): Pro
 
         if (!assignmentCountAllSeasonPerRefereeRecord[officialName]) {
           assignmentCountAllSeasonPerRefereeRecord[officialName] = {
+            wdl: [0, 0, 0],
             foulsPerRedCard: 0,
             foulsPerYellowCard: 0,
             score: 0,
@@ -165,6 +167,7 @@ export async function fetchMatchOfficialAssignments(seasonsParam: string[]): Pro
         }
 
         assignmentCountAllSeasonPerRefereeRecord[officialName].score += assignmentCountForTeamPerReferee[officialName].score
+        assignmentCountAllSeasonPerRefereeRecord[officialName].wdl = assignmentCountForTeamPerReferee[officialName].wdl
       }
 
       if (team === 'Arsenal') {
@@ -261,6 +264,7 @@ async function populateAllSeasonsRecord(seasonsParam: string[]): Promise<AllSeas
 
           if (!effectiveOfficialAssignments[officialName].perSeasonRecord[season]) {
             effectiveOfficialAssignments[officialName].perSeasonRecord[season] = {
+              wdl: [0, 0, 0],
               foulsPerRedCard: 0,
               foulsPerYellowCard: 0,
               score: 0,
@@ -270,6 +274,7 @@ async function populateAllSeasonsRecord(seasonsParam: string[]): Promise<AllSeas
           effectiveOfficialAssignments[officialName].perSeasonRecord[season].score = current.score
           effectiveOfficialAssignments[officialName].perSeasonRecord[season].foulsPerRedCard = current.foulsPerRedCard
           effectiveOfficialAssignments[officialName].perSeasonRecord[season].foulsPerYellowCard = current.foulsPerYellowCard
+          effectiveOfficialAssignments[officialName].perSeasonRecord[season].wdl = current.wdl
           total += current.score
         }
 
@@ -317,6 +322,7 @@ function populateMatchOfficialInfo({
 }) {
   if (!assignmentCountPerRefereeRecord[officialName]) {
     assignmentCountPerRefereeRecord[officialName] = {
+      wdl: [0, 0, 0],
       foulsPerRedCard: 0,
       foulsPerYellowCard: 0,
       score: 0,
@@ -327,6 +333,11 @@ function populateMatchOfficialInfo({
   let totalFouls = 0
   let totalRedCards = 0
   let totalYellowCards = 0
+  let totalResults = {
+    win: 0,
+    draw: 0,
+    loss: 0,
+  }
 
   for (const side in rolePerRefereeRecord[officialName]) {
     const roleRecord = rolePerRefereeRecord[officialName][side as 'Home' | 'Away']
@@ -336,12 +347,15 @@ function populateMatchOfficialInfo({
       const matchIds = roleRecord[role as keyof typeof roleRecord]
 
       for (const matchId of matchIds) {
-        const { fkFoulLost, penaltyConceded, totalYelCard, totalRedCard } = seasonMatchesStat[matchId][team]
+        const { fkFoulLost, penaltyConceded, totalYelCard, totalRedCard, goals, goalsConceded } = seasonMatchesStat[matchId][team]
+        const { teamResult } = getScoreResult('home', [goals, goalsConceded])
 
         totalFouls += fkFoulLost + penaltyConceded
         totalYellowCards += totalYelCard
         totalRedCards += totalRedCard
         officialScoreRecord += 1
+
+        totalResults[teamResult]++
       }
     }
   }
@@ -349,4 +363,5 @@ function populateMatchOfficialInfo({
   assignmentCountPerRefereeRecord[officialName].score = officialScoreRecord
   assignmentCountPerRefereeRecord[officialName].foulsPerRedCard = totalRedCards ? truncateDecimals(totalFouls / totalRedCards) : -1
   assignmentCountPerRefereeRecord[officialName].foulsPerYellowCard = totalYellowCards ? truncateDecimals(totalFouls / totalYellowCards) : -1
+  assignmentCountPerRefereeRecord[officialName].wdl = [totalResults.win, totalResults.draw, totalResults.loss]
 }

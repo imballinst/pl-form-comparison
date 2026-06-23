@@ -24,7 +24,7 @@ export function getScoreResult(position: string, score: [number, number], option
   const colorMode = options?.scoreColor || 'bg'
 
   if (score[0] === score[1]) {
-    return { color: SCORE_COLORS.draw[colorMode], teamResult: 'draw' }
+    return { color: SCORE_COLORS.draw[colorMode], teamResult: 'draw' as const }
   }
 
   const isHome = position === 'home'
@@ -33,13 +33,13 @@ export function getScoreResult(position: string, score: [number, number], option
   if (isWin) {
     return {
       color: SCORE_COLORS.win[colorMode],
-      teamResult: 'win',
+      teamResult: 'win' as const,
     }
   }
 
   return {
     color: SCORE_COLORS.loss[colorMode],
-    teamResult: 'loss',
+    teamResult: 'loss' as const,
   }
 }
 
