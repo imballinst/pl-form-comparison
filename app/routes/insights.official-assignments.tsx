@@ -329,13 +329,17 @@ function SeasonsSelector({ seasons: seasonsArraySearchParams }: { seasons: strin
 
       return newSearchParams
     })
-    closeBtnRef.current?.click()
+
+    if (closeBtnRef.current) {
+      closeBtnRef.current.dataset.gaValue = data.seasons.join(',')
+      closeBtnRef.current.click()
+    }
   }
 
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button className="flex justify-between" variant="outline">
+        <Button className="flex justify-between" variant="outline" data-ga-label="ga-official-assignments-start-update-seasons-button">
           <div>Seasons: {seasonsArraySearchParams.join(', ')}</div>
 
           <ChevronDown />
@@ -376,8 +380,10 @@ function SeasonsSelector({ seasons: seasonsArraySearchParams }: { seasons: strin
           </Button>
         </form>
 
-        <PopoverClose asChild hidden ref={closeBtnRef}>
-          <Button>Close</Button>
+        <PopoverClose asChild>
+          <Button data-ga-label="ga-official-assignments-finish-update-seasons-button" ref={closeBtnRef} hidden>
+            Close
+          </Button>
         </PopoverClose>
       </PopoverContent>
     </Popover>
@@ -404,13 +410,17 @@ function RolesSelector({ roles: rolesArraySearchParams }: { roles: string[] }) {
 
       return newSearchParams
     })
-    closeBtnRef.current?.click()
+
+    if (closeBtnRef.current) {
+      closeBtnRef.current.dataset.gaValue = data.roles.join(',')
+      closeBtnRef.current.click()
+    }
   }
 
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button className="flex justify-between" variant="outline">
+        <Button className="flex justify-between" variant="outline" data-ga-label="ga-official-assignments-start-update-roles-button">
           <div>
             Roles:{' '}
             {rolesArraySearchParams.map((role) => ROLES_LABEL_RECORD[role as (typeof OFFICIAL_ROLES)[number]][labelLength]).join(', ')}
@@ -454,7 +464,7 @@ function RolesSelector({ roles: rolesArraySearchParams }: { roles: string[] }) {
         </form>
 
         <PopoverClose asChild>
-          <Button ref={closeBtnRef} hidden>
+          <Button data-ga-label="ga-official-assignments-finish-update-roles-button" ref={closeBtnRef} hidden>
             Close
           </Button>
         </PopoverClose>
@@ -467,7 +477,11 @@ function Legend() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="link" className="text-base p-0 text-[unset] underline decoration-dashed h-[unset]">
+        <Button
+          variant="link"
+          className="text-base p-0 text-[unset] underline decoration-dashed h-[unset]"
+          data-ga-label="ga-official-assignments-show-legends-button"
+        >
           Click here to display legends.
         </Button>
       </PopoverTrigger>

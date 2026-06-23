@@ -81,7 +81,7 @@ export default function RemainingMatches() {
               setSelectedTeam(value)
             }}
           >
-            <SelectTrigger className="w-full md:w-[50%]" id="select-team-button">
+            <SelectTrigger className="w-full md:w-[50%]" data-ga-label="ga-select-team-button">
               <SelectValue placeholder="Team" />
             </SelectTrigger>
             <SelectContent>
@@ -94,7 +94,7 @@ export default function RemainingMatches() {
           </Select>
 
           <Button
-            id="add-team-button"
+            data-ga-label="ga-add-team-button"
             onClick={() => {
               if (teams.includes(selectedTeam)) {
                 // TODO: add alert.

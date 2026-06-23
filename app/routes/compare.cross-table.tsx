@@ -75,7 +75,7 @@ export default function CrossTableRoute() {
               })
             }}
           >
-            <SelectTrigger className="w-full md:w-[50%]" id="select-order-by-button">
+            <SelectTrigger className="w-full md:w-[50%]" data-ga-label="ga-select-order-by-button">
               <SelectValue placeholder="Order by..." />
             </SelectTrigger>
             <SelectContent>

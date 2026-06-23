@@ -56,7 +56,7 @@ export function SeasonTable({ data, initialShownRows = 5 }: Props) {
                 variant="ghost"
                 className="w-full font-semibold"
                 onClick={() => setIsShowAll((prev) => !prev)}
-                id="show-all-clubs-button"
+                data-ga-label="ga-show-all-clubs-button"
               >
                 Show all
               </Button>

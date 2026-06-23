@@ -147,7 +147,7 @@ export default function HomePage() {
               }}
               size="sm"
               variant="outline"
-              id="add-widget-button"
+              data-ga-label="ga-add-widget-button"
             >
               <Plus size={16} aria-hidden />
               Add Widget
@@ -163,7 +163,7 @@ export default function HomePage() {
                   addWidget('')
                   revalidator.revalidate()
                 }}
-                id="add-widget-button-placeholder"
+                data-ga-label="ga-add-widget-button-placeholder"
               >
                 <Plus size={32} className="text-gray-400" aria-hidden="true" />
                 Add your first widget
