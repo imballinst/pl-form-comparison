@@ -30,6 +30,11 @@ const components: { title: string; href: string; description: string }[] = [
     href: `/compare/cross-table`,
     description: `Compare all home and away matches from every team in the current season.`,
   },
+  {
+    title: 'Match Official Assignments',
+    href: `/insights/official-assignments`,
+    description: `Compare the match official assignments between clubs.`,
+  },
 ]
 
 export function Navbar({ className }: { className?: string }) {

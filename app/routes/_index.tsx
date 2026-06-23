@@ -206,7 +206,6 @@ function getTeamInfoRecord(allMatches: FullMatchInfo[], seasonTable: SeasonTable
     teamPositions[position.name] = index + 1
   })
 
-  const now = new Date()
   const result: Record<string, TeamInfoData> = {}
 
   // Initialize data structures for all teams

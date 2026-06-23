@@ -119,6 +119,10 @@
   }
 }
 
+* {
+  --tw-animation-fill-mode: forwards;
+}
+
 main,
 footer {
   a {
@@ -128,4 +132,9 @@ footer {
 
 th {
   @apply font-bold bg-gray-200;
+}
+
+.popover-available-width {
+  width: var(--radix-popover-trigger-width);
+  max-height: var(--radix-popover-content-available-height);
 }

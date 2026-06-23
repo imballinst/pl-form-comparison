@@ -60,6 +60,7 @@ export interface Team {
 export interface SeasonTableData {
   name: string
   abbr: string
+  shortName: string
   played: number
   points: number
   wins: number
@@ -68,4 +69,65 @@ export interface SeasonTableData {
   gf: number
   ga: number
   gd: number
+}
+
+export interface MatchOfficialTeamAssignmentData {
+  Home: {
+    Referee: number[]
+    'Assistant Referee': number[]
+    'Video Assistant Referee': number[]
+    'Assistant VAR Official': number[]
+  }
+  Away: {
+    Referee: number[]
+    'Assistant Referee': number[]
+    'Video Assistant Referee': number[]
+    'Assistant VAR Official': number[]
+  }
+}
+
+export interface MatchFullStatData {
+  goals: number
+  goalsConceded: number
+  expectedGoals: number
+  wonCorners: number
+  duelWon: number
+  totalDistance: number
+  fkFoulLost: number
+  totalOffside: number
+  penaltyConceded: number
+  totalYelCard: number
+  totalRedCard: number
+}
+
+export interface RefereeAdditionalInformation {
+  score: number
+  wdl: [number, number, number]
+  foulsPerYellowCard: number
+  foulsPerRedCard: number
+}
+
+export interface MatchOfficialAssignmentPerTeamData {
+  name: string
+  shortName: string
+  abbr: string
+  referees: Record<string, MatchOfficialTeamAssignmentData & RefereeAdditionalInformation>
+}
+export interface AllSeasonMatchOfficialAssignmentTableData extends Omit<MatchOfficialAssignmentPerTeamData, 'referees'> {
+  referees: Record<
+    string,
+    {
+      background: string
+      totalScore: number
+      perSeasonRecord: Record<string, RefereeAdditionalInformation>
+    }
+  >
+}
+
+export interface RawTeamStatRecapData {
+  // Team name is the index.
+  teams: Record<string, Record<string, MatchOfficialTeamAssignmentData>>
+  // Match ID is the index.
+  // Second index is the team name.
+  matchStatRecord: Record<string, Record<string, MatchFullStatData>>
 }

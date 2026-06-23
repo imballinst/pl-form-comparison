@@ -24,7 +24,7 @@ export function getScoreResult(position: string, score: [number, number], option
   const colorMode = options?.scoreColor || 'bg'
 
   if (score[0] === score[1]) {
-    return { color: SCORE_COLORS.draw[colorMode], teamResult: 'draw' }
+    return { color: SCORE_COLORS.draw[colorMode], teamResult: 'draw' as const }
   }
 
   const isHome = position === 'home'
@@ -33,13 +33,13 @@ export function getScoreResult(position: string, score: [number, number], option
   if (isWin) {
     return {
       color: SCORE_COLORS.win[colorMode],
-      teamResult: 'win',
+      teamResult: 'win' as const,
     }
   }
 
   return {
     color: SCORE_COLORS.loss[colorMode],
-    teamResult: 'loss',
+    teamResult: 'loss' as const,
   }
 }
 
@@ -70,8 +70,12 @@ export function getAnchorKeyFromString(home: string, away: string, identifier: s
   return [home, away, identifier].join(' vs ')
 }
 
-export function getSeasonShortText(year: string) {
-  return `${year.slice(2)}/${(Number(year) + 1).toString().slice(2)}`
+export function formatSeason(year: string, mode: 'short' | 'long' = 'short') {
+  let fromYear = year
+  let toYear = Number(year) + 1
+
+  if (mode === 'long') return `${fromYear}/${toYear}`
+  return `${fromYear.slice(2)}/${toYear.toString().slice(2)}`
 }
 
 export function isMatchFinished<T extends { period: string }>(match: T) {

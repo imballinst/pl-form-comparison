@@ -1,3 +1,4 @@
+import { Header } from '@/components/custom/header'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
@@ -52,10 +53,10 @@ export default function CrossTableRoute() {
     <>
       <title>Cross-table | Premier League Form Comparison</title>
 
-      <h1 className="text-3xl font-bold mb-4">Home-Away Cross Table</h1>
-      <p className="text-md text-gray-500 mb-4">
-        Compare all home and away matches from every team in the current season. Column represents away team and row represents home team.
-      </p>
+      <Header
+        heading="Home-Away Cross Table"
+        description="Compare all home and away matches from every team in the current season. Column represents away team and row represents home team."
+      />
 
       <div className="flex flex-col gap-4">
         <div>

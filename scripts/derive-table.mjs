@@ -1,10 +1,10 @@
 // @ts-check
 import { readFile, writeFile } from 'fs/promises'
+import { YEAR } from './utils.mjs'
 
 // API Configuration
-const SEASON_YEAR = 2025
-const INPUT = `public/pl-form-comparison/${SEASON_YEAR}.json`
-const OUTPUT = `public/pl-form-comparison/${SEASON_YEAR}-table.json`
+const INPUT = `public/pl-form-comparison/${YEAR}.json`
+const OUTPUT = `public/pl-form-comparison/${YEAR}-table.json`
 
 async function main() {
   /** @type {*} */
@@ -21,6 +21,7 @@ async function main() {
       teamsObject[homeTeam.name] = {
         name: homeTeam.name,
         abbr: homeTeam.abbr,
+        shortName: homeTeam.shortName,
         played: 0,
         wins: 0,
         draws: 0,
@@ -35,6 +36,7 @@ async function main() {
       teamsObject[awayTeam.name] = {
         name: awayTeam.name,
         abbr: awayTeam.abbr,
+        shortName: awayTeam.shortName,
         points: 0,
         played: 0,
         wins: 0,
