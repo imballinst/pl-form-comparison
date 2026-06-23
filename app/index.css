@@ -119,6 +119,10 @@
   }
 }
 
+* {
+  --tw-animation-fill-mode: forwards;
+}
+
 main,
 footer {
   a {

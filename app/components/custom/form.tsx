@@ -6,6 +6,7 @@ import { Field, FieldLabel } from '../ui/field'
 type CheckboxWithFieldProps<T extends FieldValues, P extends Path<T>> = ComponentProps<typeof Checkbox> & {
   name: P
   control: Control<T>
+  formatValue?: (value: string) => string
   getNextValue: (checked: boolean | 'indeterminate', v: PathValue<T, P>) => PathValue<T, P>
 }
 
@@ -13,6 +14,7 @@ export function CheckboxWithField<T extends FieldValues, P extends Path<T>>({
   control,
   name,
   value,
+  formatValue,
   getNextValue,
   ...restProps
 }: CheckboxWithFieldProps<T, P>) {
@@ -36,7 +38,7 @@ export function CheckboxWithField<T extends FieldValues, P extends Path<T>>({
               id={id}
             />
             <FieldLabel htmlFor={id} className="font-normal">
-              {value}
+              {formatValue ? formatValue(value as string) : value}
             </FieldLabel>
           </>
         )}

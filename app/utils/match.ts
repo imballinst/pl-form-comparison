@@ -70,8 +70,12 @@ export function getAnchorKeyFromString(home: string, away: string, identifier: s
   return [home, away, identifier].join(' vs ')
 }
 
-export function formatSeason(year: string) {
-  return `${year.slice(2)}/${(Number(year) + 1).toString().slice(2)}`
+export function formatSeason(year: string, mode: 'short' | 'long' = 'short') {
+  let fromYear = year
+  let toYear = Number(year) + 1
+
+  if (mode === 'long') return `${fromYear}/${toYear}`
+  return `${fromYear.slice(2)}/${toYear.toString().slice(2)}`
 }
 
 export function isMatchFinished<T extends { period: string }>(match: T) {

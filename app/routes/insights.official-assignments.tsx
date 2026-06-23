@@ -141,7 +141,7 @@ export default function MatchOfficialAssignments() {
                               <div className="flex flex-col gap-y-2">
                                 {seasons.map((season) => (
                                   <div key={season}>
-                                    <div className="font-bold">{season}</div>
+                                    <div className="font-bold">{formatSeason(season)}</div>
                                     <ol>
                                       {Object.entries(row.referees[name].perSeasonRecord[season] ?? {})
                                         .filter(([stat]) => REFEREE_STATS_LABEL_RECORD[stat as RefereeStat])
@@ -351,6 +351,7 @@ function SeasonsSelector({ seasons: seasonsArraySearchParams }: { seasons: strin
                 <CheckboxWithField
                   key={season}
                   value={season}
+                  formatValue={(v) => formatSeason(v, 'long')}
                   name="seasons"
                   defaultChecked={seasonsArraySearchParams.includes(season)}
                   control={control}
@@ -452,8 +453,10 @@ function RolesSelector({ roles: rolesArraySearchParams }: { roles: string[] }) {
           </Button>
         </form>
 
-        <PopoverClose asChild hidden ref={closeBtnRef}>
-          <Button>Close</Button>
+        <PopoverClose asChild>
+          <Button ref={closeBtnRef} hidden>
+            Close
+          </Button>
         </PopoverClose>
       </PopoverContent>
     </Popover>
