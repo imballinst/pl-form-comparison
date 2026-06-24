@@ -11,8 +11,20 @@ import { toPercentage, truncateDecimals } from '@/lib/format'
 import type { AllSeasonMatchOfficialAssignmentTableData, MatchFullStatData, RefereeAdditionalInformation } from '@/types'
 import { formatSeason } from '@/utils/match'
 import { AVAILABLE_SEASONS, OFFICIAL_ROLES, fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
+import {
+  flexRender,
+  getCoreRowModel,
+  getSortedRowModel,
+  useReactTable,
+  type ColumnDef,
+  type HeaderGroup,
+  type Row,
+  type Header as TanstackHeaderType,
+  type Table as TanstackTableType,
+} from '@tanstack/react-table'
+import { Virtualizer, useVirtualizer, type VirtualItem } from '@tanstack/react-virtual'
 import { ChevronDown, LoaderIcon } from 'lucide-react'
-import { useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/compare.remaining-matches'
@@ -68,13 +80,14 @@ const ROLES_LABEL_RECORD: Record<(typeof OFFICIAL_ROLES)[number], { short: strin
     long: 'VAR',
   },
 }
+const ROLE_KEYS = Object.keys(ROLES_LABEL_RECORD)
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const { [SEASONS_PARAMETER]: seasons = CURRENT_SEASON, [ROLES_PARAMETER]: roles = DEFAULT_SELECTED_ROLES } = Object.fromEntries(
     new URL(request.url).searchParams,
   )
   const seasonsArray = seasons.split(',').sort()
-  const rolesArray = roles.split(',').sort()
+  const rolesArray = roles.split(',').sort((a, b) => ROLE_KEYS.indexOf(a) - ROLE_KEYS.indexOf(b))
 
   const result = await fetchMatchOfficialAssignments(seasonsArray, rolesArray)
 
@@ -86,6 +99,99 @@ export default function MatchOfficialAssignments() {
   const isMobile = useIsMobile()
   const [selectedCell, setSelectedCell] = useState<[AllSeasonMatchOfficialAssignmentTableData, string] | null>(null)
   const openDialogBtnRef = useRef<HTMLButtonElement>(null)
+
+  const columns = useMemo<ColumnDef<AllSeasonMatchOfficialAssignmentTableData>[]>(
+    () => [
+      {
+        header: 'Team',
+        accessorFn(row) {
+          return isMobile ? row.abbr : row.name
+        },
+      },
+      ...allSeasons.officialNames.map(
+        (name) =>
+          ({
+            id: name,
+            header: name,
+            accessorFn: (row) => row,
+            meta: {
+              type: 'referee',
+            },
+            cell(row) {
+              const rowValue = row.getValue<AllSeasonMatchOfficialAssignmentTableData>()
+              const refereeData = rowValue.referees[name]
+
+              return (
+                !!refereeData?.totalScore && (
+                  <div className="flex">
+                    <div className="flex flex-col items-start gap-y-2">
+                      <Button
+                        className="flex gap-0.5 underline size-auto! p-0 text-xs"
+                        variant="link"
+                        size="sm"
+                        data-ga-label="ga-official-assignments-view-referee-detail-button"
+                        data-ga-value={`${name} - ${rowValue.name}`}
+                        onClick={() => {
+                          setSelectedCell([rowValue, name])
+                          openDialogBtnRef.current?.click()
+                        }}
+                      >
+                        {seasons.map((season) => refereeData.perSeasonRecord[season]?.score ?? 0).join(' → ')} games
+                      </Button>
+
+                      <div className="flex flex-col gap-y-2">
+                        {seasons.map((season) => (
+                          <div key={season}>
+                            <div className="font-bold">{formatSeason(season)}</div>
+                            <ol>
+                              {Object.entries(refereeData.perSeasonRecord[season] ?? {})
+                                .filter(([stat]) => REFEREE_STATS_LABEL_RECORD[stat as RefereeStat])
+                                .map(([stat, value]) => (
+                                  <li key={stat}>
+                                    {REFEREE_STATS_LABEL_RECORD[stat as RefereeStat].short}:{' '}
+                                    {value === -1 ? '-' : stat === 'wdl' ? getWinrate(refereeData.perSeasonRecord[season].wdl) : value}
+                                  </li>
+                                ))}
+                            </ol>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )
+              )
+            },
+          }) satisfies ColumnDef<AllSeasonMatchOfficialAssignmentTableData>,
+      ),
+    ],
+    [isMobile, seasons, allSeasons.officialNames],
+  )
+  const tableContainerRef = useRef<HTMLDivElement>(null)
+  const table = useReactTable({
+    data: allSeasons.tableData,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    debugTable: true,
+  })
+
+  const visibleColumns = table.getVisibleLeafColumns()
+  const columnVirtualizer = useVirtualizer<HTMLDivElement, HTMLTableCellElement>({
+    count: visibleColumns.length,
+    estimateSize: (index) => visibleColumns[index].getSize(),
+    getScrollElement: () => tableContainerRef.current,
+    horizontal: true,
+    overscan: 3,
+  })
+
+  const virtualColumns = columnVirtualizer.getVirtualItems()
+  let virtualPaddingLeft: number | undefined
+  let virtualPaddingRight: number | undefined
+
+  if (columnVirtualizer && virtualColumns?.length) {
+    virtualPaddingLeft = virtualColumns[0]?.start ?? 0
+    virtualPaddingRight = columnVirtualizer.getTotalSize() - (virtualColumns[virtualColumns.length - 1]?.end ?? 0)
+  }
 
   return (
     <>
@@ -110,73 +216,31 @@ export default function MatchOfficialAssignments() {
         </div>
 
         <div>
-          <Table className="tabular-nums text-xs">
-            <TableHeader>
-              <TableRow>
-                <TableHead className="sticky left-0">Team</TableHead>
-                {allSeasons.officialNames.map((name) => (
-                  <TableHead key={name}>{name}</TableHead>
-                ))}
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {allSeasons.tableData.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell className="sticky left-0 bg-white">{isMobile ? row.abbr : row.name}</TableCell>
-                  {allSeasons.officialNames.map((name) => (
-                    <TableCell
-                      key={name}
-                      style={{
-                        background: row.referees[name]?.background ?? 'black',
-                      }}
-                    >
-                      {!!row.referees[name]?.totalScore && (
-                        <div className="flex">
-                          <div className="flex flex-col items-start gap-y-2">
-                            <Button
-                              className="flex gap-0.5 underline size-auto! p-0 text-xs"
-                              variant="link"
-                              size="sm"
-                              data-ga-label="ga-official-assignments-view-referee-detail-button"
-                              data-ga-value={`${name} - ${row.name}`}
-                              onClick={() => {
-                                setSelectedCell([row, name])
-                                openDialogBtnRef.current?.click()
-                              }}
-                            >
-                              {seasons.map((season) => row.referees[name].perSeasonRecord[season]?.score ?? 0).join(' → ')} games
-                            </Button>
-
-                            <div className="flex flex-col gap-y-2">
-                              {seasons.map((season) => (
-                                <div key={season}>
-                                  <div className="font-bold">{formatSeason(season)}</div>
-                                  <ol>
-                                    {Object.entries(row.referees[name].perSeasonRecord[season] ?? {})
-                                      .filter(([stat]) => REFEREE_STATS_LABEL_RECORD[stat as RefereeStat])
-                                      .map(([stat, value]) => (
-                                        <li key={stat}>
-                                          {REFEREE_STATS_LABEL_RECORD[stat as RefereeStat].short}:{' '}
-                                          {value === -1
-                                            ? '-'
-                                            : stat === 'wdl'
-                                              ? getWinrate(row.referees[name].perSeasonRecord[season].wdl)
-                                              : value}
-                                        </li>
-                                      ))}
-                                  </ol>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+          <div
+            className="container"
+            ref={tableContainerRef}
+            style={{
+              overflow: 'auto',
+              position: 'relative',
+              height: '800px',
+            }}
+          >
+            <Table className="tabular-nums text-xs grid">
+              <TableHeadComponent
+                columnVirtualizer={columnVirtualizer}
+                table={table}
+                virtualPaddingLeft={virtualPaddingLeft}
+                virtualPaddingRight={virtualPaddingRight}
+              />
+              <TableBodyComponent
+                columnVirtualizer={columnVirtualizer}
+                table={table}
+                tableContainerRef={tableContainerRef}
+                virtualPaddingLeft={virtualPaddingLeft}
+                virtualPaddingRight={virtualPaddingRight}
+              />
+            </Table>
+          </div>
         </div>
       </div>
 
@@ -185,137 +249,250 @@ export default function MatchOfficialAssignments() {
           <Button hidden ref={openDialogBtnRef} />
         </DialogTrigger>
 
-        <DialogContent className="min-h-[525px]">
-          <div>
-            {(() => {
-              if (!selectedCell) {
-                return (
-                  <div className="w-full flex justify-center items-center">
-                    <LoaderIcon className="animate-spin" />
-                  </div>
-                )
-              }
-
-              const [row, name] = selectedCell
-              const totalNumberOfGamesAcrossSeasons = 38 * seasons.length
-
-              const roles: Record<string, number> = {}
-              const assignmentCountPerSeason: Record<string, number> = {}
-              const totalStatsPerSeason: Record<string, Record<string, number>> = {}
-
-              for (const season of seasons) {
-                const refereeEntry = perSeasonRecord[season].teamsRecord[row.name]?.referees ?? {}
-                const officiatingAssignments = (
-                  refereeEntry[name] ? Object.entries(refereeEntry[name].Home).concat(Object.entries(refereeEntry[name].Away)) : []
-                ) as Array<[string, number[]]>
-
-                let totalStats = totalStatsPerSeason[season]
-
-                if (!totalStats) {
-                  totalStats = {}
-                  totalStatsPerSeason[season] = totalStats
-                }
-
-                for (const officiatingAssignment of officiatingAssignments) {
-                  const [role, matchIds] = officiatingAssignment
-
-                  for (const matchId of matchIds) {
-                    // Match ID not in this season, skip.
-                    if (!perSeasonRecord[season].matchStatRecord[matchId]) {
-                      continue
-                    }
-
-                    for (const statKey of GAME_STATS) {
-                      if (totalStats[statKey] === undefined) {
-                        totalStats[statKey] = 0
-                      }
-
-                      totalStats[statKey] += perSeasonRecord[season].matchStatRecord[matchId][row.name][statKey as keyof MatchFullStatData]
-                    }
-                  }
-
-                  if (roles[role] === undefined) {
-                    roles[role] = 0
-                  }
-                  if (assignmentCountPerSeason[season] === undefined) {
-                    assignmentCountPerSeason[season] = 0
-                  }
-
-                  roles[role] += matchIds.length
-                  assignmentCountPerSeason[season] += matchIds.length
-                }
-              }
-
+        <DialogContent className="flex flex-col gap-y-4 min-h-[525px]">
+          {(() => {
+            if (!selectedCell) {
               return (
-                <>
-                  <DialogHeader>
-                    <DialogTitle>
-                      {selectedCell?.[1]} officiating stats for {selectedCell?.[0].name}
-                    </DialogTitle>
-                  </DialogHeader>
-
-                  <div className="flex flex-col gap-y-4">
-                    <div>
-                      {name} is assigned to {row.name}'s matches in {row.referees[name].totalScore} out of {totalNumberOfGamesAcrossSeasons}{' '}
-                      matches (<strong>{toPercentage(row.referees[name].totalScore / totalNumberOfGamesAcrossSeasons)}</strong>
-                      ):{' '}
-                      {Object.entries(roles)
-                        .filter(([_, count]) => count > 0)
-                        .map(([role, count]) => `${count}x ${role}`)
-                        .join(', ')}
-                      .
-                    </div>
-
-                    <Table className="tabular-nums">
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead>Stat (total)</TableHead>
-                          {seasons.map((season) => (
-                            <TableHead key={season} className="text-right">
-                              {formatSeason(season)}
-                            </TableHead>
-                          ))}
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        <TableRow>
-                          <TableCell>Number of games</TableCell>
-                          {seasons.map((season) => (
-                            <TableCell key={season} className="text-right">
-                              {assignmentCountPerSeason[season]}
-                            </TableCell>
-                          ))}
-                        </TableRow>
-
-                        <TableRow>
-                          <TableCell>Wins/draws/losses</TableCell>
-                          {seasons.map((season) => (
-                            <TableCell key={season} className="text-right">
-                              {row.referees[name].perSeasonRecord[season].wdl.join('/')}
-                            </TableCell>
-                          ))}
-                        </TableRow>
-
-                        {Object.keys(GAME_STATS_LABEL_RECORD).map((stat) => (
-                          <TableRow key={stat}>
-                            <TableCell>{GAME_STATS_LABEL_RECORD[stat as keyof typeof GAME_STATS_LABEL_RECORD]}</TableCell>
-                            {seasons.map((season) => (
-                              <TableCell key={season} className="text-right">
-                                {truncateDecimals(totalStatsPerSeason[season][stat])}
-                              </TableCell>
-                            ))}
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </div>
-                </>
+                <div className="w-full flex justify-center items-center">
+                  <LoaderIcon className="animate-spin" />
+                </div>
               )
-            })()}
-          </div>
+            }
+
+            const [row, name] = selectedCell
+            const totalNumberOfGamesAcrossSeasons = 38 * seasons.length
+
+            const roles: Record<string, number> = {}
+            const assignmentCountPerSeason: Record<string, number> = {}
+            const totalStatsPerSeason: Record<string, Record<string, number>> = {}
+
+            for (const season of seasons) {
+              const refereeEntry = perSeasonRecord[season].teamsRecord[row.name]?.referees ?? {}
+              const officiatingAssignments = (
+                refereeEntry[name] ? Object.entries(refereeEntry[name].Home).concat(Object.entries(refereeEntry[name].Away)) : []
+              ) as Array<[string, number[]]>
+
+              let totalStats = totalStatsPerSeason[season]
+
+              if (!totalStats) {
+                totalStats = {}
+                totalStatsPerSeason[season] = totalStats
+              }
+
+              for (const officiatingAssignment of officiatingAssignments) {
+                const [role, matchIds] = officiatingAssignment
+
+                for (const matchId of matchIds) {
+                  // Match ID not in this season, skip.
+                  if (!perSeasonRecord[season].matchStatRecord[matchId]) {
+                    continue
+                  }
+
+                  for (const statKey of GAME_STATS) {
+                    if (totalStats[statKey] === undefined) {
+                      totalStats[statKey] = 0
+                    }
+
+                    totalStats[statKey] += perSeasonRecord[season].matchStatRecord[matchId][row.name][statKey as keyof MatchFullStatData]
+                  }
+                }
+
+                if (roles[role] === undefined) {
+                  roles[role] = 0
+                }
+                if (assignmentCountPerSeason[season] === undefined) {
+                  assignmentCountPerSeason[season] = 0
+                }
+
+                roles[role] += matchIds.length
+                assignmentCountPerSeason[season] += matchIds.length
+              }
+            }
+
+            return (
+              <>
+                <DialogHeader>
+                  <DialogTitle>
+                    {selectedCell?.[1]} officiating stats for {selectedCell?.[0].name}
+                  </DialogTitle>
+                </DialogHeader>
+
+                <div className="flex flex-col gap-y-4">
+                  <div>
+                    {name} is assigned to {row.name}'s matches in {row.referees[name].totalScore} out of {totalNumberOfGamesAcrossSeasons}{' '}
+                    matches (<strong>{toPercentage(row.referees[name].totalScore / totalNumberOfGamesAcrossSeasons)}</strong>
+                    ):{' '}
+                    {Object.entries(roles)
+                      .filter(([_, count]) => count > 0)
+                      .map(([role, count]) => `${count}x ${role}`)
+                      .join(', ')}
+                    .
+                  </div>
+
+                  <Table className="tabular-nums">
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Stat (total)</TableHead>
+                        {seasons.map((season) => (
+                          <TableHead key={season} className="text-right">
+                            {formatSeason(season)}
+                          </TableHead>
+                        ))}
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell>Number of games</TableCell>
+                        {seasons.map((season) => (
+                          <TableCell key={season} className="text-right">
+                            {assignmentCountPerSeason[season]}
+                          </TableCell>
+                        ))}
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell>Wins/draws/losses</TableCell>
+                        {seasons.map((season) => (
+                          <TableCell key={season} className="text-right">
+                            {row.referees[name].perSeasonRecord[season].wdl.join('/')}
+                          </TableCell>
+                        ))}
+                      </TableRow>
+
+                      {Object.keys(GAME_STATS_LABEL_RECORD).map((stat) => (
+                        <TableRow key={stat}>
+                          <TableCell>{GAME_STATS_LABEL_RECORD[stat as keyof typeof GAME_STATS_LABEL_RECORD]}</TableCell>
+                          {seasons.map((season) => (
+                            <TableCell key={season} className="text-right">
+                              {truncateDecimals(totalStatsPerSeason[season][stat])}
+                            </TableCell>
+                          ))}
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+              </>
+            )
+          })()}
         </DialogContent>
       </Dialog>
     </>
+  )
+}
+
+interface TableBodyComponentProps {
+  columnVirtualizer: Virtualizer<HTMLDivElement, HTMLTableCellElement>
+  table: TanstackTableType<AllSeasonMatchOfficialAssignmentTableData>
+  tableContainerRef: React.RefObject<HTMLDivElement | null>
+  virtualPaddingLeft: number | undefined
+  virtualPaddingRight: number | undefined
+}
+
+function TableBodyComponent({
+  columnVirtualizer,
+  table,
+  tableContainerRef,
+  virtualPaddingLeft,
+  virtualPaddingRight,
+}: TableBodyComponentProps) {
+  const { rows } = table.getRowModel()
+
+  //dynamic row height virtualization - alternatively you could use a simpler fixed row height strategy without the need for `measureElement`
+  const rowVirtualizer = useVirtualizer<HTMLDivElement, HTMLTableRowElement>({
+    count: rows.length,
+    estimateSize: () => 33, //estimate row height for accurate scrollbar dragging
+    getScrollElement: () => tableContainerRef.current,
+    //measure dynamic row height, except in firefox because it measures table border height incorrectly
+    measureElement:
+      typeof window !== 'undefined' && navigator.userAgent.indexOf('Firefox') === -1
+        ? (element) => element?.getBoundingClientRect().height
+        : undefined,
+    overscan: 5,
+  })
+
+  const virtualRows = rowVirtualizer.getVirtualItems()
+
+  return (
+    <TableBody
+      style={{
+        display: 'grid',
+        height: `${rowVirtualizer.getTotalSize()}px`, //tells scrollbar how big the table is
+        position: 'relative', //needed for absolute positioning of rows
+      }}
+    >
+      {rowVirtualizer.getVirtualItems().map((virtualRow) => {
+        const row = rows[virtualRow.index] as Row<AllSeasonMatchOfficialAssignmentTableData>
+        return (
+          <TableBodyRow
+            columnVirtualizer={columnVirtualizer}
+            key={row.id}
+            row={row}
+            rowVirtualizer={rowVirtualizer}
+            virtualPaddingLeft={virtualPaddingLeft}
+            virtualPaddingRight={virtualPaddingRight}
+            virtualRow={virtualRow}
+          />
+        )
+      })}
+    </TableBody>
+  )
+}
+
+interface TableBodyRowProps {
+  columnVirtualizer: Virtualizer<HTMLDivElement, HTMLTableCellElement>
+  row: Row<AllSeasonMatchOfficialAssignmentTableData>
+  rowVirtualizer: Virtualizer<HTMLDivElement, HTMLTableRowElement>
+  virtualPaddingLeft: number | undefined
+  virtualPaddingRight: number | undefined
+  virtualRow: VirtualItem
+}
+
+function TableBodyRow({ columnVirtualizer, row, rowVirtualizer, virtualPaddingLeft, virtualPaddingRight, virtualRow }: TableBodyRowProps) {
+  const visibleCells = row.getVisibleCells()
+  const virtualColumns = columnVirtualizer.getVirtualItems()
+
+  return (
+    <TableRow
+      data-index={virtualRow.index} //needed for dynamic row height measurement
+      ref={(node) => rowVirtualizer.measureElement(node)} //measure dynamic row height
+      key={row.id}
+      style={{
+        display: 'flex',
+        position: 'absolute',
+        transform: `translateY(${virtualRow.start}px)`, //this should always be a `style` as it changes on scroll
+        width: '100%',
+      }}
+    >
+      {virtualPaddingLeft ? (
+        //fake empty column to the left for virtualization scroll padding
+        <td style={{ display: 'flex', width: virtualPaddingLeft }} />
+      ) : null}
+      {virtualColumns.map((vc) => {
+        const cell = visibleCells[vc.index]
+        const refereeKey = cell.column.columnDef.header?.toString() ?? ''
+        const isRefereeColumn = cell.column.columnDef.meta?.type === 'referee'
+
+        return (
+          <TableCell
+            key={cell.id}
+            className="flex items-center whitespace-normal"
+            style={{
+              width: cell.column.getSize(),
+              background: isRefereeColumn
+                ? (cell.getValue<AllSeasonMatchOfficialAssignmentTableData>().referees[refereeKey]?.background ?? 'black')
+                : undefined,
+            }}
+          >
+            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+          </TableCell>
+        )
+      })}
+      {virtualPaddingRight ? (
+        //fake empty column to the right for virtualization scroll padding
+        <td style={{ display: 'flex', width: virtualPaddingRight }} />
+      ) : null}
+    </TableRow>
   )
 }
 
@@ -534,4 +711,79 @@ function getGameStats() {
 
 function filterGameStatKeys<T extends readonly GameStat[]>(original: GameStat[], excludedStats: T): Array<Exclude<GameStat, T[number]>> {
   return original.filter((stat): stat is Exclude<GameStat, T[number]> => !excludedStats.includes(stat))
+}
+
+interface TableHeadComponentProps {
+  columnVirtualizer: Virtualizer<HTMLDivElement, HTMLTableCellElement>
+  table: TanstackTableType<AllSeasonMatchOfficialAssignmentTableData>
+  virtualPaddingLeft: number | undefined
+  virtualPaddingRight: number | undefined
+}
+
+function TableHeadComponent({ columnVirtualizer, table, virtualPaddingLeft, virtualPaddingRight }: TableHeadComponentProps) {
+  return (
+    <TableHeader
+      style={{
+        display: 'grid',
+        position: 'sticky',
+        top: 0,
+        zIndex: 1,
+      }}
+    >
+      {table.getHeaderGroups().map((headerGroup) => (
+        <TableHeadComponentRow
+          columnVirtualizer={columnVirtualizer}
+          headerGroup={headerGroup}
+          key={headerGroup.id}
+          virtualPaddingLeft={virtualPaddingLeft}
+          virtualPaddingRight={virtualPaddingRight}
+        />
+      ))}
+    </TableHeader>
+  )
+}
+
+interface TableHeadComponentRowProps {
+  columnVirtualizer: Virtualizer<HTMLDivElement, HTMLTableCellElement>
+  headerGroup: HeaderGroup<AllSeasonMatchOfficialAssignmentTableData>
+  virtualPaddingLeft: number | undefined
+  virtualPaddingRight: number | undefined
+}
+
+function TableHeadComponentRow({ columnVirtualizer, headerGroup, virtualPaddingLeft, virtualPaddingRight }: TableHeadComponentRowProps) {
+  const virtualColumns = columnVirtualizer.getVirtualItems()
+  return (
+    <TableRow key={headerGroup.id} style={{ display: 'flex', width: '100%' }}>
+      {virtualPaddingLeft ? (
+        //fake empty column to the left for virtualization scroll padding
+        <th style={{ display: 'flex', width: virtualPaddingLeft }} />
+      ) : null}
+      {virtualColumns.map((virtualColumn) => {
+        const header = headerGroup.headers[virtualColumn.index]
+        return <TableHeadComponentCell key={header.id} header={header} />
+      })}
+      {virtualPaddingRight ? (
+        //fake empty column to the right for virtualization scroll padding
+        <th style={{ display: 'flex', width: virtualPaddingRight }} />
+      ) : null}
+    </TableRow>
+  )
+}
+
+interface TableHeadComponentCellProps {
+  header: TanstackHeaderType<AllSeasonMatchOfficialAssignmentTableData, unknown>
+}
+
+function TableHeadComponentCell({ header }: TableHeadComponentCellProps) {
+  return (
+    <TableHead
+      key={header.id}
+      className="h-10 flex items-center"
+      style={{
+        width: header.getSize(),
+      }}
+    >
+      {flexRender(header.column.columnDef.header, header.getContext())}
+    </TableHead>
+  )
 }
