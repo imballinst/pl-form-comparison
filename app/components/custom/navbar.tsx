@@ -12,9 +12,10 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import { useIsMobile } from '@/hooks/use-mobile'
+import dayjs from 'dayjs'
 import { Link } from 'react-router'
 
-const components: { title: string; href: string; description: string }[] = [
+const components: { title: string; href: string; description: string; lastUpdatedAt?: string }[] = [
   {
     title: 'Compare between seasons',
     href: `/compare/between-seasons`,
@@ -34,11 +35,15 @@ const components: { title: string; href: string; description: string }[] = [
     title: 'Match Official Assignments',
     href: `/insights/official-assignments`,
     description: `Compare the match official assignments between clubs.`,
+    lastUpdatedAt: '2026-06-24T04:40:59.172Z',
   },
 ]
 
 export function Navbar({ className }: { className?: string }) {
   const isMobile = useIsMobile()
+  const componentWithNewUpdates = components
+    .filter((c) => c.lastUpdatedAt && dayjs(c.lastUpdatedAt).diff(dayjs(), 'month', true) < 1)
+    .map((c) => c.title)
 
   return (
     <NavigationMenu viewport={isMobile} className={className}>
@@ -49,11 +54,20 @@ export function Navbar({ className }: { className?: string }) {
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
+          <NavigationMenuTrigger>
+            Tools
+            {componentWithNewUpdates.length > 0 && <NewFeature position="absolute" />}
+          </NavigationMenuTrigger>
           <NavigationMenuContent className="z-50">
             <ul className="grid gap-2 w-[300px] max-w-screen sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               {components.map((component) => (
-                <ListItem key={component.title} title={component.title} href={component.href}>
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                  className="relative"
+                  hasUpdates={componentWithNewUpdates.includes(component.title)}
+                >
                   {component.description}
                 </ListItem>
               ))}
@@ -65,15 +79,30 @@ export function Navbar({ className }: { className?: string }) {
   )
 }
 
-function ListItem({ title, children, href, ...props }: React.ComponentPropsWithoutRef<'li'> & { href: string }) {
+function ListItem({
+  title,
+  children,
+  href,
+  hasUpdates,
+  ...props
+}: React.ComponentPropsWithoutRef<'li'> & { href: string; hasUpdates: boolean }) {
   return (
     <li {...props}>
       <NavigationMenuLink asChild>
-        <Link to={href}>
-          <div className="text-sm leading-none font-medium">{title}</div>
+        <Link to={href} data-ga-label="ga-navbar-link" data-ga-value={title}>
+          <div className="text-sm leading-none font-medium">
+            {title} {hasUpdates && <NewFeature />}
+          </div>
           <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">{children}</p>
         </Link>
       </NavigationMenuLink>
     </li>
   )
+}
+
+function NewFeature({ position = 'static' }: { position?: 'absolute' | 'static' }) {
+  const text = <span className="text-[10px] text-orange-600">New!</span>
+  if (position === 'static') return text
+
+  return <div className="flex absolute right-2 top-0">{text}</div>
 }

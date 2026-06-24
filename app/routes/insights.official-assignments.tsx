@@ -76,7 +76,10 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const seasonsArray = seasons.split(',').sort()
   const rolesArray = roles.split(',').sort()
 
+  console.info('start', new Date().toISOString())
   const result = await fetchMatchOfficialAssignments(seasonsArray, rolesArray)
+  console.info('end', new Date().toISOString())
+
   return { ...result, seasons: seasonsArray, roles: rolesArray }
 }
 

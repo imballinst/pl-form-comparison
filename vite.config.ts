@@ -16,6 +16,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './app'),
+      // Correct React 19 entrypoint mapping for profiling
+      'react-dom/client': 'react-dom/profiling',
     },
   },
   define: {

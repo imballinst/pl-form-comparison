@@ -96,8 +96,17 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       <Header heading={message} description={details} />
 
       <p>
-        Don't worry, it's not your fault. Let's get you back to safety. <Link to={pathname}>Click here to reset the page</Link>, or{' '}
-        <Button onClick={() => navigate(-1)} variant="link" className="p-0 text-[var(--color-blue-500)] underline text-base">
+        Don't worry, it's not your fault. Let's get you back to safety.{' '}
+        <Link to={pathname} data-ga-label="ga-error-reset-link" data-ga-value={pathname}>
+          Click here to reset the page
+        </Link>
+        , or{' '}
+        <Button
+          onClick={() => navigate(-1)}
+          variant="link"
+          className="p-0 text-[var(--color-blue-500)] underline text-base"
+          data-ga-label="ga-error-back-button"
+        >
           go back to your previous working state
         </Button>
         .
