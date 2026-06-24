@@ -1,10 +1,11 @@
 // Shamelessly copied from https://github.com/shadcn-ui/ui/issues/2402#issuecomment-1930895113.
-import { Arrow, type PopoverContentProps, type PopoverProps, type PopoverTriggerProps } from '@radix-ui/react-popover'
-import type { TooltipContentProps, TooltipProps, TooltipTriggerProps } from '@radix-ui/react-tooltip'
 import clsx from 'clsx'
+import { Popover as PopoverPrimitive, Tooltip as TooltipPrimitive } from 'radix-ui'
 import { createContext, useContext, useEffect, useState, type PropsWithChildren } from 'react'
 import { Popover, PopoverContent, PopoverTrigger } from './popover'
 import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip'
+
+const { Arrow } = PopoverPrimitive
 
 const TouchContext = createContext<boolean | undefined>(undefined)
 const useTouch = () => useContext(TouchContext)
@@ -24,19 +25,23 @@ export const TouchProvider = (props: PropsWithChildren) => {
   return <TouchContext.Provider value={isTouch} {...props} />
 }
 
-export const HybridTooltip = (props: TooltipProps & PopoverProps) => {
+export const HybridTooltip = (props: TooltipPrimitive.TooltipProps & PopoverPrimitive.PopoverProps) => {
   const isTouch = useTouch()
 
   return isTouch ? <Popover {...props} /> : <Tooltip {...props} />
 }
 
-export const HybridTooltipTrigger = (props: TooltipTriggerProps & PopoverTriggerProps) => {
+export const HybridTooltipTrigger = (props: TooltipPrimitive.TooltipTriggerProps & PopoverPrimitive.PopoverTriggerProps) => {
   const isTouch = useTouch()
 
   return isTouch ? <PopoverTrigger {...props} /> : <TooltipTrigger {...props} />
 }
 
-export const HybridTooltipContent = ({ className, children, ...props }: TooltipContentProps & PopoverContentProps) => {
+export const HybridTooltipContent = ({
+  className,
+  children,
+  ...props
+}: TooltipPrimitive.TooltipContentProps & PopoverPrimitive.PopoverContentProps) => {
   const isTouch = useTouch()
 
   return isTouch ? (
