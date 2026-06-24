@@ -8,6 +8,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { CURRENT_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { toPercentage, truncateDecimals } from '@/lib/format'
+import { cn } from '@/lib/utils'
 import type { AllSeasonMatchOfficialAssignmentTableData, MatchFullStatData, RefereeAdditionalInformation } from '@/types'
 import { formatSeason } from '@/utils/match'
 import { AVAILABLE_SEASONS, OFFICIAL_ROLES, fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
@@ -192,8 +193,6 @@ export default function MatchOfficialAssignments() {
     virtualPaddingRight = columnVirtualizer.getTotalSize() - (virtualColumns[virtualColumns.length - 1]?.end ?? 0)
   }
 
-  console.info(columnVirtualizer.getTotalSize(), columnVirtualizer.getVirtualItems(), visibleColumns.length)
-
   return (
     <>
       <title>Match Official Assignments | Premier League Form Comparison</title>
@@ -209,14 +208,14 @@ export default function MatchOfficialAssignments() {
         }
       />
 
-      <div className="flex flex-col gap-y-4">
+      <div className="flex flex-col gap-y-4 flex-1 min-h-0">
         <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
           <SeasonsSelector seasons={seasons} />
 
           <RolesSelector roles={roles} />
         </div>
 
-        <div>
+        <div className="flex-1 flex flex-col min-h-0">
           <Table
             className="tabular-nums text-xs grid"
             containerProps={{
@@ -224,7 +223,7 @@ export default function MatchOfficialAssignments() {
               style: {
                 overflow: 'auto',
                 position: 'relative',
-                height: '800px',
+                height: '100%',
               },
             }}
           >
@@ -467,8 +466,27 @@ function TableBodyRow({ columnVirtualizer, row, rowVirtualizer, virtualPaddingLe
         //fake empty column to the left for virtualization scroll padding
         <td style={{ display: 'flex', width: virtualPaddingLeft }} />
       ) : null}
+
+      {(() => {
+        const cell = visibleCells[0]
+        const refereeKey = cell.column.columnDef.header?.toString() ?? ''
+        const isRefereeColumn = cell.column.columnDef.meta?.type === 'referee'
+
+        return (
+          <TableCell
+            key={cell.id}
+            className="flex items-center whitespace-normal sticky left-0 bg-white"
+            style={{
+              width: cell.column.getSize(),
+            }}
+          >
+            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+          </TableCell>
+        )
+      })()}
+
       {virtualColumns.map((vc) => {
-        const cell = visibleCells[vc.index]
+        const cell = visibleCells[vc.index + 1]
         const refereeKey = cell.column.columnDef.header?.toString() ?? ''
         const isRefereeColumn = cell.column.columnDef.meta?.type === 'referee'
 
@@ -757,10 +775,16 @@ function TableHeadComponentRow({ columnVirtualizer, headerGroup, virtualPaddingL
         //fake empty column to the left for virtualization scroll padding
         <th style={{ display: 'flex', width: virtualPaddingLeft }} />
       ) : null}
+
+      {(() => {
+        const header = headerGroup.headers[0]
+        return <TableHeadComponentCell key={header.id} header={header} className="sticky left-0" />
+      })()}
       {virtualColumns.map((virtualColumn) => {
-        const header = headerGroup.headers[virtualColumn.index]
+        const header = headerGroup.headers[virtualColumn.index + 1]
         return <TableHeadComponentCell key={header.id} header={header} />
       })}
+
       {virtualPaddingRight ? (
         //fake empty column to the right for virtualization scroll padding
         <th style={{ display: 'flex', width: virtualPaddingRight }} />
@@ -771,13 +795,14 @@ function TableHeadComponentRow({ columnVirtualizer, headerGroup, virtualPaddingL
 
 interface TableHeadComponentCellProps {
   header: TanstackHeaderType<AllSeasonMatchOfficialAssignmentTableData, unknown>
+  className?: string
 }
 
-function TableHeadComponentCell({ header }: TableHeadComponentCellProps) {
+function TableHeadComponentCell({ header, className }: TableHeadComponentCellProps) {
   return (
     <TableHead
       key={header.id}
-      className="h-10 flex items-center"
+      className={cn('h-10 flex items-center', className)}
       style={{
         width: header.getSize(),
       }}
