@@ -95,26 +95,42 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     <main className="p-4 container mx-auto flex flex-col gap-y-4">
       <Header heading={message} description={details} />
 
-      <p>
-        Don't worry, it's not your fault. Let's get you back to safety.{' '}
-        <Link to={pathname} data-ga-label="ga-error-reset-link" data-ga-value={pathname}>
-          Click here to reset the page
-        </Link>
-        , or{' '}
-        <Button
-          onClick={() => navigate(-1)}
-          variant="link"
-          className="p-0 text-[var(--color-blue-500)] underline text-base"
-          data-ga-label="ga-error-back-button"
-        >
-          go back to your previous working state
-        </Button>
-        .
-      </p>
+      <p>Don't worry, it's not your fault. Let's get you back to safety:</p>
+
+      <ul className="list-disc pl-4">
+        <li>
+          <Button
+            onClick={() => window.location.reload()}
+            variant="link"
+            className="p-0 text-[var(--color-blue-500)] underline text-base h-[unset] wrap-normal text-left whitespace-normal"
+            data-ga-label="ga-error-try-again-button"
+          >
+            Reload the page
+          </Button>
+          : use this when you are not sure if the error will persist or not.
+        </li>
+        <li>
+          <Button
+            onClick={() => navigate(-1)}
+            variant="link"
+            className="p-0 text-[var(--color-blue-500)] underline text-base h-[unset] wrap-normal text-left whitespace-normal"
+            data-ga-label="ga-error-back-button"
+          >
+            Go back
+          </Button>
+          : use this when you want to return to previous working state (possibly previous page).
+        </li>
+        <li>
+          <Link to={pathname} data-ga-label="ga-error-reset-link" data-ga-value={pathname}>
+            Reset the page
+          </Link>
+          : use this when you want to reset the page to initial condition.
+        </li>
+      </ul>
 
       {stack && (
         <details>
-          <summary className="cursor-pointer">Feeling adventorous? Click here to expand error</summary>
+          <summary className="cursor-pointer">Feeling adventorous? Click here to expand error.</summary>
           <pre className="w-full p-4 overflow-x-auto">
             <code>{stack}</code>
           </pre>
