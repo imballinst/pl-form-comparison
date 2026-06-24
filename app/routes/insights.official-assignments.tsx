@@ -106,7 +106,7 @@ export default function MatchOfficialAssignments() {
       {
         header: 'Team',
         accessorFn(row) {
-          return isMobile ? row.abbr : row.name
+          return row.name
         },
       },
       ...allSeasons.officialNames.map(
