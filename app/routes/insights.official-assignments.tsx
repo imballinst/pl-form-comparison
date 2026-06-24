@@ -345,7 +345,7 @@ export default function MatchOfficialAssignments() {
                         <TableCell>Number of games</TableCell>
                         {seasons.map((season) => (
                           <TableCell key={season} className="text-right">
-                            {assignmentCountPerSeason[season]}
+                            {assignmentCountPerSeason[season] ?? '-'}
                           </TableCell>
                         ))}
                       </TableRow>
@@ -354,7 +354,7 @@ export default function MatchOfficialAssignments() {
                         <TableCell>Wins/draws/losses</TableCell>
                         {seasons.map((season) => (
                           <TableCell key={season} className="text-right">
-                            {row.referees[name].perSeasonRecord[season].wdl.join('/')}
+                            {row.referees[name].perSeasonRecord[season]?.wdl.join('/') ?? '-'}
                           </TableCell>
                         ))}
                       </TableRow>
@@ -364,7 +364,7 @@ export default function MatchOfficialAssignments() {
                           <TableCell>{GAME_STATS_LABEL_RECORD[stat as keyof typeof GAME_STATS_LABEL_RECORD]}</TableCell>
                           {seasons.map((season) => (
                             <TableCell key={season} className="text-right">
-                              {truncateDecimals(totalStatsPerSeason[season][stat])}
+                              {totalStatsPerSeason[season][stat] ?? '-'}
                             </TableCell>
                           ))}
                         </TableRow>
