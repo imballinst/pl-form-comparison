@@ -172,7 +172,6 @@ export default function MatchOfficialAssignments() {
     columns,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    debugTable: true,
   })
 
   const visibleColumns = table.getVisibleLeafColumns()
@@ -192,6 +191,8 @@ export default function MatchOfficialAssignments() {
     virtualPaddingLeft = virtualColumns[0]?.start ?? 0
     virtualPaddingRight = columnVirtualizer.getTotalSize() - (virtualColumns[virtualColumns.length - 1]?.end ?? 0)
   }
+
+  console.info(columnVirtualizer.getTotalSize(), columnVirtualizer.getVirtualItems(), visibleColumns.length)
 
   return (
     <>
@@ -216,31 +217,31 @@ export default function MatchOfficialAssignments() {
         </div>
 
         <div>
-          <div
-            className="container"
-            ref={tableContainerRef}
-            style={{
-              overflow: 'auto',
-              position: 'relative',
-              height: '800px',
+          <Table
+            className="tabular-nums text-xs grid"
+            containerProps={{
+              ref: tableContainerRef,
+              style: {
+                overflow: 'auto',
+                position: 'relative',
+                height: '800px',
+              },
             }}
           >
-            <Table className="tabular-nums text-xs grid">
-              <TableHeadComponent
-                columnVirtualizer={columnVirtualizer}
-                table={table}
-                virtualPaddingLeft={virtualPaddingLeft}
-                virtualPaddingRight={virtualPaddingRight}
-              />
-              <TableBodyComponent
-                columnVirtualizer={columnVirtualizer}
-                table={table}
-                tableContainerRef={tableContainerRef}
-                virtualPaddingLeft={virtualPaddingLeft}
-                virtualPaddingRight={virtualPaddingRight}
-              />
-            </Table>
-          </div>
+            <TableHeadComponent
+              columnVirtualizer={columnVirtualizer}
+              table={table}
+              virtualPaddingLeft={virtualPaddingLeft}
+              virtualPaddingRight={virtualPaddingRight}
+            />
+            <TableBodyComponent
+              columnVirtualizer={columnVirtualizer}
+              table={table}
+              tableContainerRef={tableContainerRef}
+              virtualPaddingLeft={virtualPaddingLeft}
+              virtualPaddingRight={virtualPaddingRight}
+            />
+          </Table>
         </div>
       </div>
 
@@ -410,8 +411,6 @@ function TableBodyComponent({
         : undefined,
     overscan: 5,
   })
-
-  const virtualRows = rowVirtualizer.getVirtualItems()
 
   return (
     <TableBody
