@@ -35,7 +35,7 @@ type RefereeStat = Exclude<keyof RefereeAdditionalInformation, 'score'>
 
 const SEASONS_PARAMETER = 'seasons'
 const ROLES_PARAMETER = 'roles'
-const DEFAULT_SELECTED_ROLES = OFFICIAL_ROLES.join(',')
+const DEFAULT_SELECTED_ROLES = (['Referee'] as Array<(typeof OFFICIAL_ROLES)[number]>).join(',')
 
 const GAME_STATS = filterGameStatKeys(Object.keys(getGameStats()) as Array<GameStat>, [
   'totalDistance',
