@@ -15,23 +15,18 @@ export interface MatchOfficial {
   role: string
 }
 
-export interface MatchCards {
-  homeYellow: number
-  homeRed: number
-  awayYellow: number
-  awayRed: number
-}
-
-export interface MatchExtraStats {
-  fouls: { home: number; away: number }
-  corners: { home: number; away: number }
-  offsides: { home: number; away: number }
+export interface MatchTeamStats {
+  yellowCards: number
+  redCards: number
+  fouls: number
+  corners: number
+  offsides: number
 }
 
 export interface MatchDetail {
   officials: MatchOfficial[]
-  cards: MatchCards
-  extraStats: MatchExtraStats
+  home: MatchTeamStats
+  away: MatchTeamStats
 }
 
 export interface UnderstatDateEntry {

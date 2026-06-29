@@ -158,18 +158,17 @@ export interface SeasonMatchStats {
   understat: UnderstatStats
 }
 
+export interface FbrefTeamStats {
+  yellowCards: number
+  redCards: number
+  fouls: number
+  corners: number
+  offsides: number
+}
+
 export interface FbrefStats {
-  cards: {
-    homeYellow: number
-    homeRed: number
-    awayYellow: number
-    awayRed: number
-  }
-  extraStats: {
-    fouls: { home: number; away: number }
-    corners: { home: number; away: number }
-    offsides: { home: number; away: number }
-  }
+  home: FbrefTeamStats
+  away: FbrefTeamStats
 }
 
 export interface UnderstatStats {

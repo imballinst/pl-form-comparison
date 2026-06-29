@@ -26,18 +26,20 @@ def parse_officials(soup: BeautifulSoup) -> list[dict]:
                 span_text = span.get_text(strip=True)
                 m = re.match(r"^(.+?)\s*\((.+?)\)$", span_text)
                 if m:
-                    officials.append({"name": m.group(1).strip(), "role": m.group(2).strip()})
+                    name = m.group(1).strip().replace('\u00a0', ' ')
+                    officials.append({"name": name, "role": m.group(2).strip()})
                 else:
                     parts = re.split(r"\s*·\s*", span_text)
                     for part in parts:
                         m = re.match(r"^(.+?)\s*\((.+?)\)$", part)
                         if m:
-                            officials.append({"name": m.group(1).strip(), "role": m.group(2).strip()})
+                            name = m.group(1).strip().replace('\u00a0', ' ')
+                            officials.append({"name": name, "role": m.group(2).strip()})
             return officials
     return []
 
 
-def parse_cards(soup: BeautifulSoup) -> dict:
+def parse_cards(soup: BeautifulSoup) -> tuple[int, int, int, int]:
     team_stats = soup.select_one("#team_stats")
     if not team_stats:
         return {"homeYellow": 0, "homeRed": 0, "awayYellow": 0, "awayRed": 0}
@@ -64,49 +66,58 @@ def parse_cards(soup: BeautifulSoup) -> dict:
     away_yellow = len(away_cards_div.select(".yellow_card"))
     away_red = len(away_cards_div.select(".red_card, .yellow_red_card"))
 
-    return {"homeYellow": home_yellow, "homeRed": home_red, "awayYellow": away_yellow, "awayRed": away_red}
+    return home_yellow, home_red, away_yellow, away_red
 
 
-def parse_extra_stats(soup: BeautifulSoup) -> dict:
+def parse_extra_stats(soup: BeautifulSoup) -> tuple[dict, dict]:
+    empty = {"fouls": 0, "corners": 0, "offsides": 0}
+
     extra_stats_div = soup.select_one("#team_stats_extra")
     if not extra_stats_div:
-        return {"fouls": {"home": 0, "away": 0}, "corners": {"home": 0, "away": 0}, "offsides": {"home": 0, "away": 0}}
+        return empty, empty
 
-    result = {"fouls": {"home": 0, "away": 0}, "corners": {"home": 0, "away": 0}, "offsides": {"home": 0, "away": 0}}
+    home = {"fouls": 0, "corners": 0, "offsides": 0}
+    away = {"fouls": 0, "corners": 0, "offsides": 0}
 
     group_containers = list(extra_stats_div.children)
     for container in group_containers:
         if not hasattr(container, "select"):
             continue
         divs = container.select("div")
-        if len(divs) < 3:
+        if len(divs) < 6:
             continue
 
-        is_header = "th" in divs[0].get("class", []) and len(divs) > 2 and "th" in divs[2].get("class", [])
-        if is_header:
+        is_header = "th" in divs[0].get("class", []) and "th" in divs[2].get("class", [])
+        if not is_header:
             continue
 
-        home_val = divs[0].get_text(strip=True)
-        label = divs[1].get_text(strip=True)
-        away_val = divs[2].get_text(strip=True)
+        for i in range(3, len(divs), 3):
+            if i + 2 >= len(divs):
+                break
+            home_val = divs[i].get_text(strip=True)
+            label = divs[i + 1].get_text(strip=True)
+            away_val = divs[i + 2].get_text(strip=True)
 
-        try:
-            home_num = int(home_val)
-        except ValueError:
-            home_num = 0
-        try:
-            away_num = int(away_val)
-        except ValueError:
-            away_num = 0
+            try:
+                home_num = int(home_val)
+            except ValueError:
+                home_num = 0
+            try:
+                away_num = int(away_val)
+            except ValueError:
+                away_num = 0
 
-        if label == "Fouls":
-            result["fouls"] = {"home": home_num, "away": away_num}
-        elif label == "Corners":
-            result["corners"] = {"home": home_num, "away": away_num}
-        elif label == "Offsides":
-            result["offsides"] = {"home": home_num, "away": away_num}
+            if label == "Fouls":
+                home["fouls"] = home_num
+                away["fouls"] = away_num
+            elif label == "Corners":
+                home["corners"] = home_num
+                away["corners"] = away_num
+            elif label == "Offsides":
+                home["offsides"] = home_num
+                away["offsides"] = away_num
 
-    return result
+    return home, away
 
 
 def main():
@@ -138,6 +149,10 @@ def main():
     print(f"Processing {len(matches)} finished matches for {YEAR}...")
 
     details: dict[str, dict] = {}
+    if os.path.exists(OUTPUT_PATH):
+        with open(OUTPUT_PATH) as f:
+            details = json.load(f)
+        print(f"Loaded {len(details)} existing match details from {OUTPUT_PATH}")
 
     for i, match in enumerate(matches):
         match_url = match.get("matchReportUrl")
@@ -151,17 +166,31 @@ def main():
             soup = BeautifulSoup(page, "html.parser")
 
             officials = parse_officials(soup)
-            cards = parse_cards(soup)
-            extra_stats = parse_extra_stats(soup)
+            home_yellow, home_red, away_yellow, away_red = parse_cards(soup)
+            home_extra, away_extra = parse_extra_stats(soup)
 
             match_key = f"{match['datetime'][:10]}_{match['home']}_{match['away']}"
+            if match_key in details:
+                print(f"    Already exists, skipping")
+                continue
+
             details[match_key] = {
                 "officials": officials,
-                "cards": cards,
-                "extraStats": extra_stats,
+                "home": {
+                    "yellowCards": home_yellow,
+                    "redCards": home_red,
+                    **home_extra,
+                },
+                "away": {
+                    "yellowCards": away_yellow,
+                    "redCards": away_red,
+                    **away_extra,
+                },
             }
         except Exception as err:
             print(f"  Error fetching match details: {err}")
+
+        break
 
     with open(OUTPUT_PATH, "w") as f:
         json.dump(details, f, indent=2, ensure_ascii=False)

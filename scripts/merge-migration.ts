@@ -185,9 +185,9 @@ async function main() {
         ensureTeamOfficials(awayName, official.name, 'Away', matchId, official.role)
       }
 
-      if (detail.cards) {
-        homeTeam.redCards = detail.cards.homeRed || 0
-        awayTeam.redCards = detail.cards.awayRed || 0
+      if (detail.home) {
+        homeTeam.redCards = detail.home.redCards || 0
+        awayTeam.redCards = detail.away.redCards || 0
       }
     }
 
@@ -209,25 +209,19 @@ async function main() {
         referee,
         fbref: detail
           ? {
-              cards: {
-                homeYellow: detail.cards?.homeYellow || 0,
-                homeRed: detail.cards?.homeRed || 0,
-                awayYellow: detail.cards?.awayYellow || 0,
-                awayRed: detail.cards?.awayRed || 0,
+              home: {
+                yellowCards: detail.home?.yellowCards || 0,
+                redCards: detail.home?.redCards || 0,
+                fouls: detail.home?.fouls || 0,
+                corners: detail.home?.corners || 0,
+                offsides: detail.home?.offsides || 0,
               },
-              extraStats: {
-                fouls: {
-                  home: detail.extraStats?.fouls?.home || 0,
-                  away: detail.extraStats?.fouls?.away || 0,
-                },
-                corners: {
-                  home: detail.extraStats?.corners?.home || 0,
-                  away: detail.extraStats?.corners?.away || 0,
-                },
-                offsides: {
-                  home: detail.extraStats?.offsides?.home || 0,
-                  away: detail.extraStats?.offsides?.away || 0,
-                },
+              away: {
+                yellowCards: detail.away?.yellowCards || 0,
+                redCards: detail.away?.redCards || 0,
+                fouls: detail.away?.fouls || 0,
+                corners: detail.away?.corners || 0,
+                offsides: detail.away?.offsides || 0,
               },
             }
           : null,
@@ -238,28 +232,28 @@ async function main() {
         goals: homeScore || 0,
         goalsConceded: awayScore || 0,
         expectedGoals: homeXg,
-        wonCorners: stats.fbref?.extraStats.corners.home || 0,
+        wonCorners: stats.fbref?.home.corners || 0,
         duelWon: 0,
         totalDistance: 0,
-        fkFoulLost: stats.fbref?.extraStats.fouls.home || 0,
-        totalOffside: stats.fbref?.extraStats.offsides.home || 0,
+        fkFoulLost: stats.fbref?.home.fouls || 0,
+        totalOffside: stats.fbref?.home.offsides || 0,
         penaltyConceded: 0,
-        totalYelCard: stats.fbref?.cards.homeYellow || 0,
-        totalRedCard: stats.fbref?.cards.homeRed || 0,
+        totalYelCard: stats.fbref?.home.yellowCards || 0,
+        totalRedCard: stats.fbref?.home.redCards || 0,
       }
 
       const awayStats: MatchFullStatData = {
         goals: awayScore || 0,
         goalsConceded: homeScore || 0,
         expectedGoals: awayXg,
-        wonCorners: stats.fbref?.extraStats.corners.away || 0,
+        wonCorners: stats.fbref?.away.corners || 0,
         duelWon: 0,
         totalDistance: 0,
-        fkFoulLost: stats.fbref?.extraStats.fouls.away || 0,
-        totalOffside: stats.fbref?.extraStats.offsides.away || 0,
+        fkFoulLost: stats.fbref?.away.fouls || 0,
+        totalOffside: stats.fbref?.away.offsides || 0,
         penaltyConceded: 0,
-        totalYelCard: stats.fbref?.cards.awayYellow || 0,
-        totalRedCard: stats.fbref?.cards.awayRed || 0,
+        totalYelCard: stats.fbref?.away.yellowCards || 0,
+        totalRedCard: stats.fbref?.away.redCards || 0,
       }
 
       matchStatRecord[matchId] = {
