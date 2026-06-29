@@ -1,18 +1,17 @@
-// @ts-check
 import { readFile, writeFile } from 'fs/promises'
-import { YEAR } from './utils.mjs'
+import type { SeasonTableData, SeasonMatchesResponse } from '../app/types'
 
-// API Configuration
-const INPUT = `public/pl-form-comparison/${YEAR}.json`
-const OUTPUT = `public/pl-form-comparison/${YEAR}-table.json`
+const YEARS = [2023, 2024, 2025]
 
-async function main() {
-  /** @type {*} */
-  const inputJSON = JSON.parse(await readFile(INPUT, 'utf-8'))
-  const rawMatches = inputJSON.matchweeks.flatMap((/** @type {{ data: { data: any; }; }} */ matches) => matches.data.data)
-  const finishedMatches = rawMatches.filter((/** @type {{ period: string; }} */ match) => match.period === 'FullTime')
-  /** @type {*} */
-  const teamsObject = {}
+async function deriveTable(year: number): Promise<void> {
+  const inputPath = `public/pl-form-comparison/${year}.json`
+  const outputPath = `public/pl-form-comparison/${year}-table.json`
+
+  const inputJSON: SeasonMatchesResponse = JSON.parse(await readFile(inputPath, 'utf-8'))
+  const rawMatches = inputJSON.matchweeks.flatMap((matches) => matches.data.data)
+  const finishedMatches = rawMatches.filter((match) => match.period === 'FullTime')
+
+  const teamsObject: Record<string, SeasonTableData> = {}
 
   for (const match of finishedMatches) {
     const { homeTeam, awayTeam } = match
@@ -37,11 +36,11 @@ async function main() {
         name: awayTeam.name,
         abbr: awayTeam.abbr,
         shortName: awayTeam.shortName,
-        points: 0,
         played: 0,
         wins: 0,
         draws: 0,
         losses: 0,
+        points: 0,
         gf: 0,
         ga: 0,
         gd: 0,
@@ -84,32 +83,29 @@ async function main() {
   }
 
   const table = Object.values(teamsObject).sort((a, b) => {
-    if (b.points > a.points) {
-      return 1
-    } else if (b.points < a.points) {
-      return -1
-    }
+    if (b.points > a.points) return 1
+    if (b.points < a.points) return -1
 
-    if (b.gd > a.gd) {
-      return 1
-    } else if (b.gd < a.gd) {
-      return -1
-    }
+    if (b.gd > a.gd) return 1
+    if (b.gd < a.gd) return -1
 
-    if (b.gf > a.gf) {
-      return 1
-    } else if (b.gf < a.gf) {
-      return -1
-    }
+    if (b.gf > a.gf) return 1
+    if (b.gf < a.gf) return -1
 
     return 0
   })
 
-  await writeFile(OUTPUT, JSON.stringify(table, null, 2))
-  console.log(`Data saved to ${OUTPUT}`)
+  await writeFile(outputPath, JSON.stringify(table, null, 2))
+  console.log(`Table data saved to ${outputPath}`)
 }
 
-main().catch((error) => {
+async function main() {
+  for (const year of YEARS) {
+    await deriveTable(year)
+  }
+}
+
+main().catch((error: unknown) => {
   console.error('Fatal error:', error)
   process.exit(1)
 })
