@@ -1,16 +1,28 @@
 import dayjs from 'dayjs'
+import { useMatches } from 'react-router'
 import { Navbar } from './components/custom/navbar'
 
+interface Handle {
+  pageHeightClassName?: string
+}
+
 export function PageLayout({ children }: { children?: React.ReactNode }) {
+  const matches = useMatches()
+  const pageClassName =
+    matches
+      .filter((m) => (m.handle as Handle)?.pageHeightClassName)
+      .map((m) => (m.handle as Handle)?.pageHeightClassName)
+      .join(' ') || 'min-h-screen'
+
   return (
-    <div className="h-screen flex flex-col bg-background text-foreground">
+    <div className={`${pageClassName} flex flex-col bg-background text-foreground`}>
       <div className="border-b border-gray-200 w-full">
         <div className="container mx-auto py-2">
           <Navbar className="w-full" />
         </div>
       </div>
 
-      <main className="min-h-0 flex-1 overflow-y-auto">
+      <main className="min-h-0 flex-1 flex">
         <div className="container mx-auto p-4 flex-1 flex flex-col">{children}</div>
       </main>
 

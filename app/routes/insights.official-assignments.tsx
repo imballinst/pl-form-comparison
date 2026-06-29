@@ -83,6 +83,10 @@ const ROLES_LABEL_RECORD: Record<(typeof OFFICIAL_ROLES)[number], { short: strin
 }
 const ROLE_KEYS = Object.keys(ROLES_LABEL_RECORD)
 
+export const handle = {
+  pageHeightClassName: 'h-screen',
+}
+
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const { [SEASONS_PARAMETER]: seasons = CURRENT_SEASON, [ROLES_PARAMETER]: roles = DEFAULT_SELECTED_ROLES } = Object.fromEntries(
     new URL(request.url).searchParams,
