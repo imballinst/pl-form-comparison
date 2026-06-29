@@ -1,13 +1,12 @@
 import fs from 'fs/promises'
 import path from 'path'
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc.js'
-import timezone from 'dayjs/plugin/timezone.js'
-import type { MatchFullStatData } from '../app/types'
-import type { FbrefScheduleEntry, MatchDetail, UnderstatRawData, UnderstatTeamHistory } from './types'
-
-dayjs.extend(utc)
-dayjs.extend(timezone)
+import type { MatchFullStatData, SeasonFile, SeasonMatch, SeasonMatchStats } from '../app/types'
+import type {
+  FbrefScheduleEntry,
+  MatchDetail,
+  UnderstatRawData,
+  UnderstatTeamHistory,
+} from './types'
 
 const YEARS = [2023, 2024, 2025]
 
@@ -57,12 +56,6 @@ function normalizeFbrefName(name: string): string {
 
 function getMatchDateKey(datetime: string): string {
   return datetime.split(' ')[0]
-}
-
-function isBST(dateStr: string): boolean {
-  const d = dayjs(dateStr)
-  const month = d.month()
-  return month >= 2 && month <= 9
 }
 
 function createEmptyOfficialAssignment(): OfficialAssignment {
@@ -128,41 +121,7 @@ async function main() {
       scheduleByDateAndTeams[key] = match
     }
 
-    interface MatchData {
-      kickoffTimezone: string
-      competitionId: string
-      period: string
-      matchWeek: number | null
-      kickoff: string
-      awayTeam: {
-        score: number | null
-        name: string
-        id: string
-        halfTimeScore: number | null
-        shortName: string
-        abbr: string
-        redCards: number
-      }
-      competition: string
-      clock: null
-      kickoffTimezoneString: string
-      homeTeam: {
-        score: number | null
-        name: string
-        id: string
-        halfTimeScore: number | null
-        shortName: string
-        abbr: string
-        redCards: number
-      }
-      season: string
-      ground: string | null
-      resultType: string | null
-      matchId: string
-      attendance: number | null
-    }
-
-    const matchesByMatchweek: Record<number, MatchData[]> = {}
+    const matchesByMatchweek: Record<string, SeasonMatch[]> = {}
     const matchStatRecord: Record<string, Record<string, MatchFullStatData>> = {}
     const teamOfficialsRecord: Record<string, Record<string, OfficialAssignment>> = {}
 
@@ -219,54 +178,22 @@ async function main() {
         referee = scheduleMatch.referee
       }
 
-      const homeTeam = {
+      const homeTeam: SeasonMatch['homeTeam'] = {
         score: homeScore,
         name: homeName,
         id: dateEntry.h.id,
-        halfTimeScore: null as number | null,
         shortName: homeName,
         abbr: homeAbbr,
         redCards: 0,
       }
 
-      const awayTeam = {
+      const awayTeam: SeasonMatch['awayTeam'] = {
         score: awayScore,
         name: awayName,
         id: dateEntry.a.id,
-        halfTimeScore: null as number | null,
         shortName: awayName,
         abbr: awayAbbr,
         redCards: 0,
-      }
-
-      const matchData: MatchData = {
-        kickoffTimezone: isBST(datetime) ? 'BST' : 'GMT',
-        competitionId: '8',
-        period: isResult ? 'FullTime' : 'Scheduled',
-        matchWeek: matchweek,
-        kickoff: datetime,
-        awayTeam,
-        competition: 'Premier League',
-        clock: null,
-        kickoffTimezoneString: 'Europe/London',
-        homeTeam,
-        season: String(year),
-        ground: venue,
-        resultType: isResult ? 'NormalResult' : null,
-        matchId,
-        attendance,
-      }
-
-      const matchweekKey = matchweek !== null && matchweek !== undefined ? matchweek : 0
-
-      if (!matchesByMatchweek[matchweekKey]) {
-        matchesByMatchweek[matchweekKey] = []
-      }
-      matchesByMatchweek[matchweekKey].push(matchData)
-
-      if (referee) {
-        ensureTeamOfficials(homeName, referee, 'Home', matchId, 'Referee')
-        ensureTeamOfficials(awayName, referee, 'Away', matchId, 'Referee')
       }
 
       const matchDetailKey = `${dateKey}_${homeName}_${awayName}`
@@ -284,59 +211,75 @@ async function main() {
         }
       }
 
+      if (referee) {
+        ensureTeamOfficials(homeName, referee, 'Home', matchId, 'Referee')
+        ensureTeamOfficials(awayName, referee, 'Away', matchId, 'Referee')
+      }
+
       const homeHistory = findTeamHistory(understatTeams, dateEntry.h.id, datetime, 'h')
       const awayHistory = findTeamHistory(understatTeams, dateEntry.a.id, datetime, 'a')
 
+      let stats: SeasonMatchStats | null = null
+
       if (isResult) {
+        const homeXg = homeHistory ? homeHistory.xG : 0
+        const awayXg = awayHistory ? awayHistory.xG : 0
+
+        stats = {
+          referee,
+          fbref: detail
+            ? {
+                cards: {
+                  homeYellow: detail.cards?.homeYellow || 0,
+                  homeRed: detail.cards?.homeRed || 0,
+                  awayYellow: detail.cards?.awayYellow || 0,
+                  awayRed: detail.cards?.awayRed || 0,
+                },
+                extraStats: {
+                  fouls: {
+                    home: detail.extraStats?.fouls?.home || 0,
+                    away: detail.extraStats?.fouls?.away || 0,
+                  },
+                  corners: {
+                    home: detail.extraStats?.corners?.home || 0,
+                    away: detail.extraStats?.corners?.away || 0,
+                  },
+                  offsides: {
+                    home: detail.extraStats?.offsides?.home || 0,
+                    away: detail.extraStats?.offsides?.away || 0,
+                  },
+                },
+              }
+            : null,
+          understat: { homeXg, awayXg },
+        }
+
         const homeStats: MatchFullStatData = {
           goals: homeScore || 0,
           goalsConceded: awayScore || 0,
-          expectedGoals: homeHistory ? homeHistory.xG : 0,
-          wonCorners: 0,
+          expectedGoals: homeXg,
+          wonCorners: stats.fbref?.extraStats.corners.home || 0,
           duelWon: 0,
           totalDistance: 0,
-          fkFoulLost: 0,
-          totalOffside: 0,
+          fkFoulLost: stats.fbref?.extraStats.fouls.home || 0,
+          totalOffside: stats.fbref?.extraStats.offsides.home || 0,
           penaltyConceded: 0,
-          totalYelCard: 0,
-          totalRedCard: 0,
+          totalYelCard: stats.fbref?.cards.homeYellow || 0,
+          totalRedCard: stats.fbref?.cards.homeRed || 0,
         }
 
         const awayStats: MatchFullStatData = {
           goals: awayScore || 0,
           goalsConceded: homeScore || 0,
-          expectedGoals: awayHistory ? awayHistory.xG : 0,
-          wonCorners: 0,
+          expectedGoals: awayXg,
+          wonCorners: stats.fbref?.extraStats.corners.away || 0,
           duelWon: 0,
           totalDistance: 0,
-          fkFoulLost: 0,
-          totalOffside: 0,
+          fkFoulLost: stats.fbref?.extraStats.fouls.away || 0,
+          totalOffside: stats.fbref?.extraStats.offsides.away || 0,
           penaltyConceded: 0,
-          totalYelCard: 0,
-          totalRedCard: 0,
-        }
-
-        if (detail) {
-          if (detail.extraStats) {
-            if (detail.extraStats.corners) {
-              homeStats.wonCorners = detail.extraStats.corners.home || 0
-              awayStats.wonCorners = detail.extraStats.corners.away || 0
-            }
-            if (detail.extraStats.fouls) {
-              homeStats.fkFoulLost = detail.extraStats.fouls.home || 0
-              awayStats.fkFoulLost = detail.extraStats.fouls.away || 0
-            }
-            if (detail.extraStats.offsides) {
-              homeStats.totalOffside = detail.extraStats.offsides.home || 0
-              awayStats.totalOffside = detail.extraStats.offsides.away || 0
-            }
-          }
-          if (detail.cards) {
-            homeStats.totalYelCard = detail.cards.homeYellow || 0
-            homeStats.totalRedCard = detail.cards.homeRed || 0
-            awayStats.totalYelCard = detail.cards.awayYellow || 0
-            awayStats.totalRedCard = detail.cards.awayRed || 0
-          }
+          totalYelCard: stats.fbref?.cards.awayYellow || 0,
+          totalRedCard: stats.fbref?.cards.awayRed || 0,
         }
 
         matchStatRecord[matchId] = {
@@ -344,27 +287,35 @@ async function main() {
           [awayName]: awayStats,
         }
       }
+
+      const matchEntry: SeasonMatch = {
+        matchId,
+        matchweek: matchweek ?? 0,
+        kickoff: datetime,
+        period: isResult ? 'FullTime' : 'Scheduled',
+        homeTeam,
+        awayTeam,
+        ground: venue,
+        attendance,
+        stats,
+      }
+
+      const mwKey = String(matchweek !== null && matchweek !== undefined ? matchweek : 0)
+      if (!matchesByMatchweek[mwKey]) {
+        matchesByMatchweek[mwKey] = []
+      }
+      matchesByMatchweek[mwKey].push(matchEntry)
     }
 
-    const sortedMatchweeks = Object.entries(matchesByMatchweek)
-      .sort(([a], [b]) => parseInt(a) - parseInt(b))
-      .map(([matchweek, matches]) => ({
-        matchweek: parseInt(matchweek),
-        data: {
-          pagination: {
-            _limit: 100,
-            _prev: null,
-            _next: null,
-          },
-          data: matches,
-        },
-      }))
+    // Sort matches within each matchweek by kickoff time.
+    for (const mwKey in matchesByMatchweek) {
+      matchesByMatchweek[mwKey].sort((a, b) => a.kickoff.localeCompare(b.kickoff))
+    }
 
     const outputDir = 'public/pl-form-comparison'
-    const matchesOutput = {
+    const matchesOutput: SeasonFile = {
       season: year,
-      competition: 8,
-      matchweeks: sortedMatchweeks,
+      matches: matchesByMatchweek,
     }
 
     await fs.mkdir(outputDir, { recursive: true })
@@ -372,7 +323,7 @@ async function main() {
       path.join(outputDir, `${year}.json`),
       JSON.stringify(matchesOutput, null, 2),
     )
-    console.log(`  Saved ${year}.json with ${sortedMatchweeks.length} matchweeks`)
+    console.log(`  Saved ${year}.json with ${Object.keys(matchesByMatchweek).length} matchweeks`)
 
     const statsOutput = {
       teams: teamOfficialsRecord,

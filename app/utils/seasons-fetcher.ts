@@ -1,5 +1,6 @@
 import { BASE_PATH } from '@/constants'
 import { truncateDecimals } from '@/lib/format'
+import dayjs from 'dayjs'
 import type {
   AllSeasonMatchOfficialAssignmentTableData,
   MatchInfo,
@@ -7,6 +8,7 @@ import type {
   MatchOfficialTeamAssignmentData,
   RawTeamStatRecapData,
   RefereeAdditionalInformation,
+  SeasonFile,
   SeasonMatchesResponse,
   SeasonTableData,
 } from '@/types'
@@ -31,6 +33,48 @@ let seasonTable: Record<string, Array<SeasonTableData>> | undefined
 // First index is by roles param, second index is by seasons param.
 let matchOfficialAssignmentPerSeason: Record<string, Record<string, MatchOfficiatingSeasonInfo>> = {}
 
+function isBST(dateStr: string): boolean {
+  const d = dayjs(dateStr)
+  const month = d.month()
+  return month >= 2 && month <= 9
+}
+
+function normalizeSeasonMatch(match: SeasonFile['matches'][string][number], season: string): MatchInfo {
+  return {
+    kickoffTimezone: isBST(match.kickoff) ? 'BST' : 'GMT',
+    competitionId: '8',
+    period: match.period,
+    matchWeek: match.matchweek,
+    kickoff: match.kickoff,
+    awayTeam: {
+      score: match.awayTeam.score ?? 0,
+      name: match.awayTeam.name,
+      id: match.awayTeam.id,
+      halfTimeScore: null as unknown as number,
+      shortName: match.awayTeam.shortName,
+      abbr: match.awayTeam.abbr,
+      redCards: match.awayTeam.redCards,
+    },
+    competition: 'Premier League',
+    clock: null as unknown as string,
+    kickoffTimezoneString: 'Europe/London',
+    homeTeam: {
+      score: match.homeTeam.score ?? 0,
+      name: match.homeTeam.name,
+      id: match.homeTeam.id,
+      halfTimeScore: null as unknown as number,
+      shortName: match.homeTeam.shortName,
+      abbr: match.homeTeam.abbr,
+      redCards: match.homeTeam.redCards,
+    },
+    season,
+    ground: match.ground as string,
+    resultType: match.period === 'FullTime' ? 'NormalResult' : (null as unknown as string),
+    matchId: match.matchId,
+    attendance: match.attendance ?? undefined,
+  }
+}
+
 export async function fetchSeasons(seasonsParam: string[] = AVAILABLE_SEASONS) {
   const missingSeasons = seasonsParam.filter((season) => seasons?.[season] === undefined)
   if (missingSeasons.length === 0) {
@@ -48,9 +92,20 @@ export async function fetchSeasons(seasonsParam: string[] = AVAILABLE_SEASONS) {
     .map((season) => [season, seasons[season]] as const)
   const responses = await Promise.all(missingSeasons.map((season) => axios(`${BASE_PATH}/${season}.json`)))
   const seasonResponses = responses
-    .map((item) =>
-      (item.data as SeasonMatchesResponse).matchweeks.flatMap((mw) => mw.data.data).sort((a, b) => a.kickoff.localeCompare(b.kickoff)),
-    )
+    .map((item) => {
+      const data = item.data as Record<string, unknown>
+      // New format: { season, matches: Record<string, SeasonMatch[]> }
+      if (data.matches) {
+        const file = data as unknown as SeasonFile
+        return Object.values(file.matches)
+          .flat()
+          .map((m) => normalizeSeasonMatch(m, file.season.toString()))
+          .sort((a, b) => a.kickoff.localeCompare(b.kickoff))
+      }
+      // Legacy format: { season, competition, matchweeks: [{ matchweek, data: { data: MatchInfo[] } }] }
+      const legacy = data as unknown as SeasonMatchesResponse
+      return legacy.matchweeks.flatMap((mw) => mw.data.data).sort((a, b) => a.kickoff.localeCompare(b.kickoff))
+    })
     .map((v, i) => [missingSeasons[i], v] as const)
 
   const matchesResponses: Record<string, MatchInfo[]> = existingSeasons.concat(seasonResponses).reduce(

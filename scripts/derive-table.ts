@@ -1,5 +1,5 @@
 import { readFile, writeFile } from 'fs/promises'
-import type { SeasonTableData, SeasonMatchesResponse } from '../app/types'
+import type { SeasonFile, SeasonTableData } from '../app/types'
 
 const YEARS = [2023, 2024, 2025]
 
@@ -7,8 +7,8 @@ async function deriveTable(year: number): Promise<void> {
   const inputPath = `public/pl-form-comparison/${year}.json`
   const outputPath = `public/pl-form-comparison/${year}-table.json`
 
-  const inputJSON: SeasonMatchesResponse = JSON.parse(await readFile(inputPath, 'utf-8'))
-  const rawMatches = inputJSON.matchweeks.flatMap((matches) => matches.data.data)
+  const inputJSON: SeasonFile = JSON.parse(await readFile(inputPath, 'utf-8'))
+  const rawMatches = Object.values(inputJSON.matches).flat()
   const finishedMatches = rawMatches.filter((match) => match.period === 'FullTime')
 
   const teamsObject: Record<string, SeasonTableData> = {}
@@ -50,13 +50,16 @@ async function deriveTable(year: number): Promise<void> {
     const homeTeamResult = teamsObject[homeTeam.name]
     const awayTeamResult = teamsObject[awayTeam.name]
 
-    if (homeTeam.score === awayTeam.score) {
+    const homeScore = homeTeam.score!
+    const awayScore = awayTeam.score!
+
+    if (homeScore === awayScore) {
       homeTeamResult.points += 1
       homeTeamResult.draws += 1
 
       awayTeamResult.points += 1
       awayTeamResult.draws += 1
-    } else if (homeTeam.score > awayTeam.score) {
+    } else if (homeScore > awayScore) {
       homeTeamResult.points += 3
       awayTeamResult.points += 0
 
@@ -73,13 +76,13 @@ async function deriveTable(year: number): Promise<void> {
     homeTeamResult.played += 1
     awayTeamResult.played += 1
 
-    homeTeamResult.gf += homeTeam.score
-    homeTeamResult.ga += awayTeam.score
-    homeTeamResult.gd += homeTeam.score - awayTeam.score
+    homeTeamResult.gf += homeScore
+    homeTeamResult.ga += awayScore
+    homeTeamResult.gd += homeScore - awayScore
 
-    awayTeamResult.gf += awayTeam.score
-    awayTeamResult.ga += homeTeam.score
-    awayTeamResult.gd += awayTeam.score - homeTeam.score
+    awayTeamResult.gf += awayScore
+    awayTeamResult.ga += homeScore
+    awayTeamResult.gd += awayScore - homeScore
   }
 
   const table = Object.values(teamsObject).sort((a, b) => {

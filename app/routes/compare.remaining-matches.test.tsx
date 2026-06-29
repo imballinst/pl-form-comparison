@@ -1,6 +1,6 @@
 import { CURRENT_SEASON } from '@/constants'
 import { renderTest } from '@/lib/testutils'
-import type { SeasonMatchesResponse } from '@/types'
+import type { SeasonFile, SeasonMatchesResponse } from '@/types'
 import '@testing-library/jest-dom'
 import { screen } from '@testing-library/react'
 import { readFile } from 'fs/promises'
@@ -22,13 +22,26 @@ vi.mock('axios', async (importOriginal) => {
 
       if (url.endsWith(`${CURRENT_SEASON}.json`)) {
         // Matches. We don't really care about table data and FDR here, we just want to ensure if the table really shows the "remaining matches".
-        const typed = parsed as SeasonMatchesResponse
-        for (const mw of typed.matchweeks) {
-          for (const match of mw.data.data) {
-            if (mw.matchweek <= 18) {
-              match.period = 'FullTime'
-            } else {
-              match.period = 'PreMatch'
+        if ((parsed as SeasonFile).matches) {
+          const typed = parsed as SeasonFile
+          for (const matchweekKey in typed.matches) {
+            for (const match of typed.matches[matchweekKey]) {
+              if (match.matchweek <= 18) {
+                match.period = 'FullTime'
+              } else {
+                match.period = 'PreMatch'
+              }
+            }
+          }
+        } else {
+          const typed = parsed as SeasonMatchesResponse
+          for (const mw of typed.matchweeks) {
+            for (const match of mw.data.data) {
+              if (mw.matchweek <= 18) {
+                match.period = 'FullTime'
+              } else {
+                match.period = 'PreMatch'
+              }
             }
           }
         }

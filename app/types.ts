@@ -124,6 +124,59 @@ export interface AllSeasonMatchOfficialAssignmentTableData extends Omit<MatchOff
   >
 }
 
+// New consolidated season file types.
+
+export interface SeasonFile {
+  season: number
+  matches: Record<string, SeasonMatch[]>
+}
+
+export interface SeasonMatch {
+  matchId: string
+  matchweek: number
+  kickoff: string
+  period: string
+  homeTeam: SeasonMatchTeam
+  awayTeam: SeasonMatchTeam
+  ground: string | null
+  attendance: number | null
+  stats: SeasonMatchStats | null
+}
+
+export interface SeasonMatchTeam {
+  name: string
+  score: number | null
+  id: string
+  shortName: string
+  abbr: string
+  redCards: number
+}
+
+export interface SeasonMatchStats {
+  referee: string | null
+  fbref: FbrefStats | null
+  understat: UnderstatStats
+}
+
+export interface FbrefStats {
+  cards: {
+    homeYellow: number
+    homeRed: number
+    awayYellow: number
+    awayRed: number
+  }
+  extraStats: {
+    fouls: { home: number; away: number }
+    corners: { home: number; away: number }
+    offsides: { home: number; away: number }
+  }
+}
+
+export interface UnderstatStats {
+  homeXg: number
+  awayXg: number
+}
+
 export interface RawTeamStatRecapData {
   // Team name is the index.
   teams: Record<string, Record<string, MatchOfficialTeamAssignmentData>>
