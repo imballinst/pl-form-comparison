@@ -1,8 +1,7 @@
 import { reactRouter } from '@react-router/dev/vite'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
-import { defineConfig } from 'vite'
-import tsconfigPaths from 'vite-tsconfig-paths'
+import { defineConfig } from 'vitest/config'
 
 const BASE = 'pl-form-comparison'
 
@@ -12,8 +11,9 @@ export default defineConfig({
     outDir: `build/${BASE}`,
     assetsDir: `${BASE}/assets`,
   },
-  plugins: [tsconfigPaths(), reactRouter(), tailwindcss()],
+  plugins: [!process.env.VITEST && reactRouter(), tailwindcss()],
   resolve: {
+    tsconfigPaths: true,
     alias: {
       '@': path.resolve(__dirname, './app'),
       // Correct React 19 entrypoint mapping for profiling
@@ -21,6 +21,11 @@ export default defineConfig({
     },
   },
   define: {
-    __BUILD_TIMESTAMP__: JSON.stringify(new Date().toISOString()),
+    'process.env.__BUILD_TIMESTAMP__': JSON.stringify(new Date().toISOString()),
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['vitest.setup.ts'],
   },
 })

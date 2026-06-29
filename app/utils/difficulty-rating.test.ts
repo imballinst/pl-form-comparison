@@ -100,11 +100,18 @@ describe('getDifficultyRating', () => {
 })
 
 describe('getTeamPoints', () => {
+  const commonStats: Pick<SeasonTableData, 'draws' | 'shortName' | 'played' | 'wins' | 'losses'> = {
+    draws: 0,
+    losses: 0,
+    played: 0,
+    shortName: '',
+    wins: 0,
+  }
   const mockTable: SeasonTableData[] = [
-    { name: 'Arsenal', abbr: 'ARS', points: 48, gf: 40, ga: 14, gd: 26 },
-    { name: 'Manchester City', abbr: 'MCI', points: 42, gf: 44, ga: 18, gd: 26 },
-    { name: 'Liverpool', abbr: 'LIV', points: 41, gf: 38, ga: 15, gd: 23 },
-    { name: 'Wolverhampton Wanderers', abbr: 'WOL', points: 6, gf: 14, ga: 40, gd: -26 },
+    { name: 'Arsenal', abbr: 'ARS', points: 48, gf: 40, ga: 14, gd: 26, ...commonStats },
+    { name: 'Manchester City', abbr: 'MCI', points: 42, gf: 44, ga: 18, gd: 26, ...commonStats },
+    { name: 'Liverpool', abbr: 'LIV', points: 41, gf: 38, ga: 15, gd: 23, ...commonStats },
+    { name: 'Wolverhampton Wanderers', abbr: 'WOL', points: 6, gf: 14, ga: 40, gd: -26, ...commonStats },
   ]
 
   it('should return points for the leader', () => {

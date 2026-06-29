@@ -3,10 +3,9 @@ import { isRouteErrorResponse, Link, Links, Meta, Outlet, Scripts, ScrollRestora
 import type { Route } from './+types/root'
 import { Header } from './components/custom/header'
 import { Button } from './components/ui/button'
-import { TouchProvider } from './components/ui/hybrid-tooltip'
-import { TooltipProvider } from './components/ui/tooltip'
 import './index.css'
 import { PageLayout } from './PageLayout'
+import { Providers } from './providers'
 
 export const links: Route.LinksFunction = () => [
   {
@@ -66,13 +65,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <TooltipProvider>
-      <TouchProvider>
-        <PageLayout>
-          <Outlet />
-        </PageLayout>
-      </TouchProvider>
-    </TooltipProvider>
+    <Providers>
+      <PageLayout>
+        <Outlet />
+      </PageLayout>
+    </Providers>
   )
 }
 

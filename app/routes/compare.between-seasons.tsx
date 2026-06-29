@@ -110,7 +110,7 @@ export default function ResultComparisonBySeason() {
                   })
                 }}
               >
-                <SelectTrigger className="w-[50%]">
+                <SelectTrigger className="w-[50%]" aria-label="Select anchor year">
                   <SelectValue placeholder="Anchor year" />
                 </SelectTrigger>
                 <SelectContent>
@@ -132,7 +132,7 @@ export default function ResultComparisonBySeason() {
                   })
                 }}
               >
-                <SelectTrigger className="w-[50%]">
+                <SelectTrigger className="w-[50%]" aria-label="Select compared year">
                   <SelectValue placeholder="Compared year" />
                 </SelectTrigger>
                 <SelectContent>
@@ -149,7 +149,7 @@ export default function ResultComparisonBySeason() {
 
         <div>
           {yearOptions.length < 2 ? (
-            <div>
+            <div className="italic text-center">
               Your selected team has not been in at least 2 Premier League seasons in the past {Object.keys(TEAMS_PER_SEASON).length} years.
             </div>
           ) : !anchorYear || !comparedYear || !anchorMatches ? (

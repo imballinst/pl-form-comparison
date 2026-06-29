@@ -23,4 +23,4 @@ jobs:
 
       - name: Build
         working-directory: .
-        run: yarn && yarn build
+        run: yarn && yarn typecheck && yarn test && yarn build

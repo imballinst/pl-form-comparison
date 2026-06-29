@@ -114,7 +114,7 @@ export default function RemainingMatches() {
 
         <div>
           {teams.length === 0 ? (
-            <div>Select 1 or more teams to compare the remaining fixtures.</div>
+            <div className="italic text-center">Select 1 or more teams to compare the remaining fixtures.</div>
           ) : (
             <RemainingMatchesTable teams={teams} matchesAcrossSeasons={matchesAcrossSeasons} />
           )}
@@ -266,7 +266,7 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
           const row = data[gameweek]
 
           return (
-            <TableRow key={row.gameweek}>
+            <TableRow key={`${row.gameweek}-${row.isRescheduled}`}>
               <TableCell>
                 <MatchweekNumber gameweek={row.gameweek} isRescheduled={row.isRescheduled} />
               </TableCell>

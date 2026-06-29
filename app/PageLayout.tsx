@@ -37,5 +37,5 @@ export function PageLayout({ children }: { children?: React.ReactNode }) {
 }
 
 function getLastUpdatedTime() {
-  return dayjs(__BUILD_TIMESTAMP__).format('MMM D, YYYY HH:mm')
+  return dayjs(process.env.__BUILD_TIMESTAMP__).format('MMM D, YYYY HH:mm')
 }

@@ -244,11 +244,11 @@ function getTeamInfoRecord(allMatches: FullMatchInfo[], seasonTable: SeasonTable
   for (const teamName of teamNames) {
     const past5Matches = getPastFiveMatches(teamPastMatches, teamName)
     const nextOpponentPast5Matches: FullMatchInfo[] = []
+    const nextMatch = teamNextMatch[teamName]
     let nextOpponentLeaguePosition = 0
 
-    if (teamNextMatch[teamName]) {
-      const nextOpponentTeamName =
-        teamNextMatch[teamName].homeTeam.name === teamName ? teamNextMatch[teamName].awayTeam.name : teamNextMatch[teamName].homeTeam.name
+    if (nextMatch) {
+      const nextOpponentTeamName = nextMatch.homeTeam.name === teamName ? nextMatch.awayTeam.name : nextMatch.homeTeam.name
 
       nextOpponentPast5Matches.push(...getPastFiveMatches(teamPastMatches, nextOpponentTeamName))
       nextOpponentLeaguePosition = teamPositions[nextOpponentTeamName]
