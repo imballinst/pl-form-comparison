@@ -160,6 +160,11 @@ def main():
             print(f"  Skipping match {i + 1}/{len(matches)} (no URL): {match['home']} vs {match['away']}")
             continue
 
+        match_key = f"{match['datetime'][:10]}_{match['home']}_{match['away']}"
+        if match_key in details:
+            print(f"  Match {i + 1}/{len(matches)}: {match['home']} vs {match['away']} — already exists, skipping")
+            continue
+
         print(f"  Match {i + 1}/{len(matches)}: {match['home']} vs {match['away']}")
         try:
             page = fbref.get(match_url).read().decode("utf-8")
@@ -168,11 +173,6 @@ def main():
             officials = parse_officials(soup)
             home_yellow, home_red, away_yellow, away_red = parse_cards(soup)
             home_extra, away_extra = parse_extra_stats(soup)
-
-            match_key = f"{match['datetime'][:10]}_{match['home']}_{match['away']}"
-            if match_key in details:
-                print(f"    Already exists, skipping")
-                continue
 
             details[match_key] = {
                 "officials": officials,
