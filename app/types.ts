@@ -76,13 +76,11 @@ export interface MatchOfficialTeamAssignmentData {
     Referee: number[]
     'Assistant Referee': number[]
     'Video Assistant Referee': number[]
-    'Assistant VAR Official': number[]
   }
   Away: {
     Referee: number[]
     'Assistant Referee': number[]
     'Video Assistant Referee': number[]
-    'Assistant VAR Official': number[]
   }
 }
 

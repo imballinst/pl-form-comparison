@@ -3,7 +3,7 @@ import re
 from datetime import datetime, timedelta, timezone
 
 
-YEAR = 2023
+YEAR = 2024
 
 
 def resolve_datetime(date_str: str, time_str: str) -> str:

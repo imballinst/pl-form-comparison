@@ -30,13 +30,11 @@ interface OfficialAssignment {
     Referee: string[]
     'Assistant Referee': string[]
     'Video Assistant Referee': string[]
-    'Assistant VAR Official': string[]
   }
   Away: {
     Referee: string[]
     'Assistant Referee': string[]
     'Video Assistant Referee': string[]
-    'Assistant VAR Official': string[]
   }
 }
 
@@ -54,8 +52,8 @@ function getMatchDateKey(datetime: string): string {
 
 function createEmptyOfficialAssignment(): OfficialAssignment {
   return {
-    Home: { Referee: [], 'Assistant Referee': [], 'Video Assistant Referee': [], 'Assistant VAR Official': [] },
-    Away: { Referee: [], 'Assistant Referee': [], 'Video Assistant Referee': [], 'Assistant VAR Official': [] },
+    Home: { Referee: [], 'Assistant Referee': [], 'Video Assistant Referee': [] },
+    Away: { Referee: [], 'Assistant Referee': [], 'Video Assistant Referee': [] },
   }
 }
 
@@ -64,7 +62,6 @@ const OFFICIAL_ROLE_MAP: Record<string, keyof OfficialAssignment['Home']> = {
   AR1: 'Assistant Referee',
   AR2: 'Assistant Referee',
   VAR: 'Video Assistant Referee',
-  'Assistant VAR': 'Assistant VAR Official',
 }
 
 function findTeamHistory(

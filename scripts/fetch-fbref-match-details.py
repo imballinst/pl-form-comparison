@@ -137,8 +137,10 @@ def main():
         leagues="ENG-Premier League",
         seasons=YEAR,
         path_to_browser=chrome_path,
-        headless=True,
+        headless=False,
+        no_cache=True,
     )
+    fbref.rate_limit = 15
 
     print(f"Reading schedule from {SCHEDULE_PATH}...")
     with open(SCHEDULE_PATH) as f:
@@ -187,10 +189,11 @@ def main():
                     **away_extra,
                 },
             }
+
+            with open(OUTPUT_PATH, "w") as f:
+                json.dump(details, f, indent=2, ensure_ascii=False)
         except Exception as err:
             print(f"  Error fetching match details: {err}")
-
-        break
 
     with open(OUTPUT_PATH, "w") as f:
         json.dump(details, f, indent=2, ensure_ascii=False)

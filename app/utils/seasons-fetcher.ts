@@ -15,7 +15,7 @@ import type {
 import axios from 'axios'
 import { getScoreResult } from './match'
 
-export const OFFICIAL_ROLES = ['Referee', 'Video Assistant Referee', 'Assistant VAR Official'] as const
+export const OFFICIAL_ROLES = ['Referee', 'Video Assistant Referee'] as const
 export const AVAILABLE_SEASONS = ['2023', '2024', '2025']
 
 interface MatchOfficiatingSeasonInfo {

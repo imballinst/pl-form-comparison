@@ -72,10 +72,6 @@ const ROLES_LABEL_RECORD: Record<(typeof OFFICIAL_ROLES)[number], { short: strin
     short: 'Ref',
     long: 'Referee',
   },
-  'Assistant VAR Official': {
-    short: 'AVAR',
-    long: 'Assistant VAR',
-  },
   'Video Assistant Referee': {
     short: 'VAR',
     long: 'VAR',
