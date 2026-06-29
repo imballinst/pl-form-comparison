@@ -1,13 +1,12 @@
 import { readFile, writeFile } from 'fs/promises'
 import type { SeasonFile, SeasonTableData } from '../app/types'
+import { YEAR } from './utils'
 
-const YEARS = [2023, 2024, 2025]
+const INPUT_PATH = `public/pl-form-comparison/${YEAR}.json`
+const OUTPUT_PATH = `public/pl-form-comparison/${YEAR}-table.json`
 
-async function deriveTable(year: number): Promise<void> {
-  const inputPath = `public/pl-form-comparison/${year}.json`
-  const outputPath = `public/pl-form-comparison/${year}-table.json`
-
-  const inputJSON: SeasonFile = JSON.parse(await readFile(inputPath, 'utf-8'))
+async function main() {
+  const inputJSON: SeasonFile = JSON.parse(await readFile(INPUT_PATH, 'utf-8'))
   const rawMatches = Object.values(inputJSON.matches).flat()
   const finishedMatches = rawMatches.filter((match) => match.period === 'FullTime')
 
@@ -98,14 +97,8 @@ async function deriveTable(year: number): Promise<void> {
     return 0
   })
 
-  await writeFile(outputPath, JSON.stringify(table, null, 2))
-  console.log(`Table data saved to ${outputPath}`)
-}
-
-async function main() {
-  for (const year of YEARS) {
-    await deriveTable(year)
-  }
+  await writeFile(OUTPUT_PATH, JSON.stringify(table, null, 2))
+  console.log(`Table data saved to ${OUTPUT_PATH}`)
 }
 
 main().catch((error: unknown) => {

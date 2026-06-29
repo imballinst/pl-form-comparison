@@ -1,7 +1,6 @@
 export interface FbrefScheduleEntry {
   matchweek: number
-  date: string
-  time?: string
+  datetime: string
   home: string
   away: string
   score: { home: number; away: number } | null
