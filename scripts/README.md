@@ -2,6 +2,25 @@
 
 Pipeline for fetching, merging, and deriving Premier League form comparison data.
 
+## Prerequisites
+
+### TypeScript scripts (1, 4, 5)
+
+```bash
+yarn install
+```
+
+### Python scripts (2, 3)
+
+Requires Python 3.10+ (uses `str | None` etc.).
+
+```bash
+pip install soccerdata beautifulsoup4 playwright
+playwright install chromium
+```
+
+The Python scripts auto-detect the Playwright-bundled Chromium via `maybe_get_chrome_path()` in `utils.py`. You can also set `SOCCERDATA_BROWSER` to an explicit browser path.
+
 ## Execution Order
 
 | Step | Script                         | Command                                        |

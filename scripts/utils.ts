@@ -1,6 +1,6 @@
 import fs from 'fs/promises'
 
-export const YEAR = 2023
+export const YEAR = 2025
 
 export async function readFileAsJSON<T>(filePath: string, defaultValue?: T): Promise<T> {
   try {
