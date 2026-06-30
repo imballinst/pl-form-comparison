@@ -469,19 +469,16 @@ function TableBodyRow({ columnVirtualizer, row, rowVirtualizer, virtualPaddingLe
 
       {(() => {
         const cell = visibleCells[0]
-        const refereeKey = cell.column.columnDef.header?.toString() ?? ''
-        const isRefereeColumn = cell.column.columnDef.meta?.type === 'referee'
-
         return (
-          <TableCell
+          <TableHead
             key={cell.id}
-            className="flex items-center whitespace-normal sticky left-0 bg-white"
+            className="flex items-center whitespace-normal sticky left-0 bg-white! h-[unset]"
             style={{
               width: cell.column.getSize(),
             }}
           >
             {flexRender(cell.column.columnDef.cell, cell.getContext())}
-          </TableCell>
+          </TableHead>
         )
       })()}
 
