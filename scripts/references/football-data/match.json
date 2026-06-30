@@ -1,0 +1,36 @@
+{
+  "area": { "id": 2072, "name": "England", "code": "ENG", "flag": "https://crests.football-data.org/770.svg" },
+  "competition": {
+    "id": 2021,
+    "name": "Premier League",
+    "code": "PL",
+    "type": "LEAGUE",
+    "emblem": "https://crests.football-data.org/PL.png"
+  },
+  "season": { "id": 2403, "startDate": "2025-08-15", "endDate": "2026-05-24", "currentMatchday": 38, "winner": null },
+  "id": 537786,
+  "utcDate": "2025-08-16T11:30:00Z",
+  "status": "FINISHED",
+  "venue": null,
+  "matchday": 1,
+  "stage": "REGULAR_SEASON",
+  "group": null,
+  "lastUpdated": "2026-06-07T20:20:25Z",
+  "homeTeam": {
+    "id": 58,
+    "name": "Aston Villa FC",
+    "shortName": "Aston Villa",
+    "tla": "AVL",
+    "crest": "https://crests.football-data.org/58.png"
+  },
+  "awayTeam": {
+    "id": 67,
+    "name": "Newcastle United FC",
+    "shortName": "Newcastle",
+    "tla": "NEW",
+    "crest": "https://crests.football-data.org/67.png"
+  },
+  "score": { "winner": "DRAW", "duration": "REGULAR", "fullTime": { "home": 0, "away": 0 }, "halfTime": { "home": 0, "away": 0 } },
+  "odds": { "msg": "Activate Odds-Package in User-Panel to retrieve odds." },
+  "referees": [{ "id": 11585, "name": "Craig Pawson", "type": "REFEREE", "nationality": "England" }]
+}
