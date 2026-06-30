@@ -44,7 +44,7 @@ def main():
         leagues="ENG-Premier League",
         seasons=YEAR,
         path_to_browser=chrome_path,
-        headless=True,
+        headless=False,
     )
 
     print(f"Fetching FBref schedule for {YEAR}...")
