@@ -1,1224 +1,6 @@
 {
   "season": 2023,
   "matches": {
-    "0": [
-      {
-        "matchId": "22278",
-        "matchweek": 0,
-        "kickoff": "2023-08-12 14:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 4,
-          "name": "Brighton and Hove Albion",
-          "id": "220",
-          "shortName": "Brighton and Hove Albion",
-          "abbr": "BRI",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 4.36748,
-            "awayXg": 1.88594
-          }
-        }
-      },
-      {
-        "matchId": "22295",
-        "matchweek": 0,
-        "kickoff": "2023-08-25 19:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 3,
-          "name": "Chelsea",
-          "id": "80",
-          "shortName": "Chelsea",
-          "abbr": "CHE",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 0,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 3.41419,
-            "awayXg": 0.465741
-          }
-        }
-      },
-      {
-        "matchId": "21925",
-        "matchweek": 0,
-        "kickoff": "2023-09-01 19:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 2,
-          "name": "West Ham United",
-          "id": "81",
-          "shortName": "West Ham United",
-          "abbr": "WHU",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 2.02244,
-            "awayXg": 1.22528
-          }
-        }
-      },
-      {
-        "matchId": "21939",
-        "matchweek": 0,
-        "kickoff": "2023-09-16 14:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Fulham",
-          "id": "228",
-          "shortName": "Fulham",
-          "abbr": "FLH",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 0,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 1.75704,
-            "awayXg": 1.45705
-          }
-        }
-      },
-      {
-        "matchId": "21945",
-        "matchweek": 0,
-        "kickoff": "2023-09-23 14:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Wolverhampton Wanderers",
-          "id": "229",
-          "shortName": "Wolverhampton Wanderers",
-          "abbr": "WOL",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 2.24101,
-            "awayXg": 0.762984
-          }
-        }
-      },
-      {
-        "matchId": "21956",
-        "matchweek": 0,
-        "kickoff": "2023-09-30 14:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Everton",
-          "id": "72",
-          "shortName": "Everton",
-          "abbr": "EVE",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 2,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 3.65377,
-            "awayXg": 1.5102
-          }
-        }
-      },
-      {
-        "matchId": "22289",
-        "matchweek": 0,
-        "kickoff": "2023-10-03 18:30:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 2,
-          "name": "Burnley",
-          "id": "92",
-          "shortName": "Burnley",
-          "abbr": "BUR",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 1.53058,
-            "awayXg": 0.920206
-          }
-        }
-      },
-      {
-        "matchId": "21971",
-        "matchweek": 0,
-        "kickoff": "2023-10-07 11:30:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 0,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Tottenham Hotspur",
-          "id": "82",
-          "shortName": "Tottenham Hotspur",
-          "abbr": "TOT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 0.848118,
-            "awayXg": 2.37947
-          }
-        }
-      },
-      {
-        "matchId": "21982",
-        "matchweek": 0,
-        "kickoff": "2023-10-21 14:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 2,
-          "name": "Nottingham Forest",
-          "id": "249",
-          "shortName": "Nottingham Forest",
-          "abbr": "NOT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 2,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 3.27549,
-            "awayXg": 1.49555
-          }
-        }
-      },
-      {
-        "matchId": "21987",
-        "matchweek": 0,
-        "kickoff": "2023-10-29 14:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 3,
-          "name": "Aston Villa",
-          "id": "71",
-          "shortName": "Aston Villa",
-          "abbr": "AVL",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 3.07654,
-            "awayXg": 0.453117
-          }
-        }
-      },
-      {
-        "matchId": "21999",
-        "matchweek": 0,
-        "kickoff": "2023-11-05 16:30:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Liverpool",
-          "id": "87",
-          "shortName": "Liverpool",
-          "abbr": "LIV",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 1.3411,
-            "awayXg": 3.03925
-          }
-        }
-      },
-      {
-        "matchId": "22012",
-        "matchweek": 0,
-        "kickoff": "2023-11-11 15:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Manchester United",
-          "id": "89",
-          "shortName": "Manchester United",
-          "abbr": "MUN",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 0,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 2.74105,
-            "awayXg": 0.408265
-          }
-        }
-      },
-      {
-        "matchId": "22019",
-        "matchweek": 0,
-        "kickoff": "2023-11-25 15:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 2,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Crystal Palace",
-          "id": "78",
-          "shortName": "Crystal Palace",
-          "abbr": "CRY",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 0.996153,
-            "awayXg": 1.83546
-          }
-        }
-      },
-      {
-        "matchId": "22027",
-        "matchweek": 0,
-        "kickoff": "2023-12-02 15:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 3,
-          "name": "Brentford",
-          "id": "244",
-          "shortName": "Brentford",
-          "abbr": "BRE",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 3.25952,
-            "awayXg": 0.227176
-          }
-        }
-      },
-      {
-        "matchId": "22039",
-        "matchweek": 0,
-        "kickoff": "2023-12-05 20:15:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 3,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 4,
-          "name": "Arsenal",
-          "id": "83",
-          "shortName": "Arsenal",
-          "abbr": "ARS",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 0.526254,
-            "awayXg": 2.58815
-          }
-        }
-      },
-      {
-        "matchId": "22050",
-        "matchweek": 0,
-        "kickoff": "2023-12-10 14:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 2,
-          "name": "Manchester City",
-          "id": "88",
-          "shortName": "Manchester City",
-          "abbr": "MCI",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 0.689037,
-            "awayXg": 2.23353
-          }
-        }
-      },
-      {
-        "matchId": "22069",
-        "matchweek": 0,
-        "kickoff": "2023-12-23 15:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 0,
-          "name": "Newcastle United",
-          "id": "86",
-          "shortName": "Newcastle United",
-          "abbr": "NEW",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 1.81844,
-            "awayXg": 1.41488
-          }
-        }
-      },
-      {
-        "matchId": "22084",
-        "matchweek": 0,
-        "kickoff": "2023-12-26 15:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 2,
-          "name": "Sheffield United",
-          "id": "238",
-          "shortName": "Sheffield United",
-          "abbr": "SHE",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 3,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 3.61788,
-            "awayXg": 0.715575
-          }
-        }
-      },
-      {
-        "matchId": "22089",
-        "matchweek": 0,
-        "kickoff": "2023-12-30 12:30:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 2,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 3,
-          "name": "Chelsea",
-          "id": "80",
-          "shortName": "Chelsea",
-          "abbr": "CHE",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 2.64093,
-            "awayXg": 1.57463
-          }
-        }
-      },
-      {
-        "matchId": "22096",
-        "matchweek": 0,
-        "kickoff": "2024-01-12 19:45:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Burnley",
-          "id": "92",
-          "shortName": "Burnley",
-          "abbr": "BUR",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 1.52023,
-            "awayXg": 0.965167
-          }
-        }
-      },
-      {
-        "matchId": "22107",
-        "matchweek": 0,
-        "kickoff": "2024-01-30 19:45:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 4,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 0,
-          "name": "Brighton and Hove Albion",
-          "id": "220",
-          "shortName": "Brighton and Hove Albion",
-          "abbr": "BRI",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 3.63312,
-            "awayXg": 1.01366
-          }
-        }
-      },
-      {
-        "matchId": "22123",
-        "matchweek": 0,
-        "kickoff": "2024-02-03 15:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 4,
-          "name": "Newcastle United",
-          "id": "86",
-          "shortName": "Newcastle United",
-          "abbr": "NEW",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 4,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 2.37353,
-            "awayXg": 2.67463
-          }
-        }
-      },
-      {
-        "matchId": "22129",
-        "matchweek": 0,
-        "kickoff": "2024-02-10 15:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 3,
-          "name": "Sheffield United",
-          "id": "238",
-          "shortName": "Sheffield United",
-          "abbr": "SHE",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 1.76215,
-            "awayXg": 1.98283
-          }
-        }
-      },
-      {
-        "matchId": "22139",
-        "matchweek": 0,
-        "kickoff": "2024-02-18 16:30:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 2,
-          "name": "Manchester United",
-          "id": "89",
-          "shortName": "Manchester United",
-          "abbr": "MUN",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 1.57234,
-            "awayXg": 3.58973
-          }
-        }
-      },
-      {
-        "matchId": "22151",
-        "matchweek": 0,
-        "kickoff": "2024-02-21 15:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 4,
-          "name": "Liverpool",
-          "id": "87",
-          "shortName": "Liverpool",
-          "abbr": "LIV",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 3.70302,
-            "awayXg": 0.956512
-          }
-        }
-      },
-      {
-        "matchId": "22159",
-        "matchweek": 0,
-        "kickoff": "2024-03-02 17:30:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 2,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 3,
-          "name": "Aston Villa",
-          "id": "71",
-          "shortName": "Aston Villa",
-          "abbr": "AVL",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 2.43312,
-            "awayXg": 2.08586
-          }
-        }
-      },
-      {
-        "matchId": "22170",
-        "matchweek": 0,
-        "kickoff": "2024-03-09 15:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Crystal Palace",
-          "id": "78",
-          "shortName": "Crystal Palace",
-          "abbr": "CRY",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 3.25103,
-            "awayXg": 1.08531
-          }
-        }
-      },
-      {
-        "matchId": "25861",
-        "matchweek": 0,
-        "kickoff": "2024-03-13 19:30:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 4,
-          "name": "Bournemouth",
-          "id": "73",
-          "shortName": "Bournemouth",
-          "abbr": "BOU",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 3,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 2.84403,
-            "awayXg": 2.79419
-          }
-        }
-      },
-      {
-        "matchId": "22181",
-        "matchweek": 0,
-        "kickoff": "2024-03-16 15:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Nottingham Forest",
-          "id": "249",
-          "shortName": "Nottingham Forest",
-          "abbr": "NOT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 0.853782,
-            "awayXg": 1.95268
-          }
-        }
-      },
-      {
-        "matchId": "22194",
-        "matchweek": 0,
-        "kickoff": "2024-03-30 15:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 2,
-          "name": "Tottenham Hotspur",
-          "id": "82",
-          "shortName": "Tottenham Hotspur",
-          "abbr": "TOT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 2.46523,
-            "awayXg": 0.402402
-          }
-        }
-      },
-      {
-        "matchId": "22196",
-        "matchweek": 0,
-        "kickoff": "2024-04-03 18:30:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 2,
-          "name": "Arsenal",
-          "id": "83",
-          "shortName": "Arsenal",
-          "abbr": "ARS",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 0,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 1.14384,
-            "awayXg": 0.292082
-          }
-        }
-      },
-      {
-        "matchId": "22210",
-        "matchweek": 0,
-        "kickoff": "2024-04-06 14:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 2,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Bournemouth",
-          "id": "73",
-          "shortName": "Bournemouth",
-          "abbr": "BOU",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 1.30478,
-            "awayXg": 0.616108
-          }
-        }
-      },
-      {
-        "matchId": "22221",
-        "matchweek": 0,
-        "kickoff": "2024-04-13 14:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 5,
-          "name": "Manchester City",
-          "id": "88",
-          "shortName": "Manchester City",
-          "abbr": "MCI",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 4.64245,
-            "awayXg": 0.809775
-          }
-        }
-      },
-      {
-        "matchId": "22230",
-        "matchweek": 0,
-        "kickoff": "2024-04-20 14:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 5,
-          "name": "Brentford",
-          "id": "244",
-          "shortName": "Brentford",
-          "abbr": "BRE",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 0.497799,
-            "awayXg": 3.7809
-          }
-        }
-      },
-      {
-        "matchId": "22244",
-        "matchweek": 0,
-        "kickoff": "2024-04-27 14:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 2,
-          "name": "Wolverhampton Wanderers",
-          "id": "229",
-          "shortName": "Wolverhampton Wanderers",
-          "abbr": "WOL",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 1.49011,
-            "awayXg": 0.90435
-          }
-        }
-      },
-      {
-        "matchId": "22252",
-        "matchweek": 0,
-        "kickoff": "2024-05-03 19:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Everton",
-          "id": "72",
-          "shortName": "Everton",
-          "abbr": "EVE",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 0.950391,
-            "awayXg": 1.22959
-          }
-        }
-      },
-      {
-        "matchId": "22263",
-        "matchweek": 0,
-        "kickoff": "2024-05-11 14:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 3,
-          "name": "West Ham United",
-          "id": "81",
-          "shortName": "West Ham United",
-          "abbr": "WHU",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 1,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 3.71009,
-            "awayXg": 0.640456
-          }
-        }
-      },
-      {
-        "matchId": "22272",
-        "matchweek": 0,
-        "kickoff": "2024-05-19 15:00:00",
-        "period": "FullTime",
-        "homeTeam": {
-          "score": 2,
-          "name": "Luton",
-          "id": "256",
-          "shortName": "Luton",
-          "abbr": "LUT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": 4,
-          "name": "Fulham",
-          "id": "228",
-          "shortName": "Fulham",
-          "abbr": "FLH",
-          "redCards": 0
-        },
-        "ground": null,
-        "attendance": null,
-        "stats": {
-          "referee": null,
-          "fbref": null,
-          "understat": {
-            "homeXg": 2.06743,
-            "awayXg": 1.11598
-          }
-        }
-      }
-    ],
     "1": [
       {
         "matchId": "22275",
@@ -1231,7 +13,7 @@
           "id": "92",
           "shortName": "Burnley",
           "abbr": "BUR",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 3,
@@ -1245,7 +27,22 @@
         "attendance": 21572,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 1,
+              "fouls": 11,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.311032,
             "awayXg": 2.40074
@@ -1317,6 +114,38 @@
         }
       },
       {
+        "matchId": "22278",
+        "matchweek": 1,
+        "kickoff": "2023-08-12 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 4,
+          "name": "Brighton and Hove Albion",
+          "id": "220",
+          "shortName": "Brighton and Hove Albion",
+          "abbr": "BRI",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "The American Express Community Stadium",
+        "attendance": 31872,
+        "stats": {
+          "referee": "David Coote",
+          "fbref": null,
+          "understat": {
+            "homeXg": 4.36748,
+            "awayXg": 1.88594
+          }
+        }
+      },
+      {
         "matchId": "22279",
         "matchweek": 1,
         "kickoff": "2023-08-12 14:00:00",
@@ -1341,7 +170,22 @@
         "attendance": 39940,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 10,
+              "offsides": 6
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 4,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 2.59001,
             "awayXg": 1.58144
@@ -1373,7 +217,22 @@
         "attendance": 31194,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 5,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.422704,
             "awayXg": 2.27616
@@ -1469,7 +328,22 @@
         "attendance": 40096,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 4,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 5
+            }
+          },
           "understat": {
             "homeXg": 1.93258,
             "awayXg": 1.29994
@@ -1585,7 +459,7 @@
           "id": "228",
           "shortName": "Fulham",
           "abbr": "FLH",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 3,
@@ -1599,7 +473,22 @@
         "attendance": 24236,
         "stats": {
           "referee": "Darren Bond",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 1,
+              "fouls": 13,
+              "corners": 5,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 5,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 0.399899,
             "awayXg": 3.46888
@@ -1617,7 +506,7 @@
           "id": "87",
           "shortName": "Liverpool",
           "abbr": "LIV",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 1,
@@ -1631,7 +520,22 @@
         "attendance": 53145,
         "stats": {
           "referee": "Thomas Bramall",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 1,
+              "fouls": 11,
+              "corners": 10,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 2,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 3.25448,
             "awayXg": 1.3867
@@ -1727,7 +631,22 @@
         "attendance": 41694,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 7,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 6,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 3.24336,
             "awayXg": 0.721465
@@ -1785,21 +704,130 @@
           "id": "83",
           "shortName": "Arsenal",
           "abbr": "ARS",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Selhurst Park",
         "attendance": 24189,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 1,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 10,
+              "corners": 8,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.06916,
             "awayXg": 2.20593
           }
         }
+      },
+      {
+        "matchId": "22289",
+        "matchweek": 2,
+        "kickoff": "2023-10-03 18:30:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 2,
+          "name": "Burnley",
+          "id": "92",
+          "shortName": "Burnley",
+          "abbr": "BUR",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 10918,
+        "stats": {
+          "referee": "Peter Bankes",
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 7,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 6,
+              "offsides": 3
+            }
+          },
+          "understat": {
+            "homeXg": 1.53058,
+            "awayXg": 0.920206
+          }
+        }
       }
     ],
     "3": [
+      {
+        "matchId": "22295",
+        "matchweek": 3,
+        "kickoff": "2023-08-25 19:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 3,
+          "name": "Chelsea",
+          "id": "80",
+          "shortName": "Chelsea",
+          "abbr": "CHE",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 0,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Stamford Bridge",
+        "attendance": 39893,
+        "stats": {
+          "referee": "Robert Jones",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
+          "understat": {
+            "homeXg": 3.41419,
+            "awayXg": 0.465741
+          }
+        }
+      },
       {
         "matchId": "22296",
         "matchweek": 3,
@@ -1851,13 +879,28 @@
           "id": "228",
           "shortName": "Fulham",
           "abbr": "FLH",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Emirates Stadium",
         "attendance": 59961,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 8,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 6,
+              "redCards": 1,
+              "fouls": 5,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 3.23088,
             "awayXg": 0.849817
@@ -1889,7 +932,22 @@
         "attendance": 16997,
         "stats": {
           "referee": "Peter Bankes",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 8,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 6,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.948011,
             "awayXg": 1.06061
@@ -2017,7 +1075,22 @@
         "attendance": 21591,
         "stats": {
           "referee": "Michael Salisbury",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 6,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.630605,
             "awayXg": 2.83691
@@ -2049,7 +1122,22 @@
         "attendance": 31336,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 1,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 2,
+              "corners": 12,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.762232,
             "awayXg": 3.84804
@@ -2091,6 +1179,38 @@
     ],
     "4": [
       {
+        "matchId": "21925",
+        "matchweek": 4,
+        "kickoff": "2023-09-01 19:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 2,
+          "name": "West Ham United",
+          "id": "81",
+          "shortName": "West Ham United",
+          "abbr": "WHU",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 10802,
+        "stats": {
+          "referee": "Paul Tierney",
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.02244,
+            "awayXg": 1.22528
+          }
+        }
+      },
+      {
         "matchId": "21926",
         "matchweek": 4,
         "kickoff": "2023-09-02 11:30:00",
@@ -2115,7 +1235,22 @@
         "attendance": 31124,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 6,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.575,
             "awayXg": 2.73871
@@ -2147,7 +1282,22 @@
         "attendance": 52899,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.00152,
             "awayXg": 1.46427
@@ -2179,7 +1329,22 @@
         "attendance": 16973,
         "stats": {
           "referee": "Robert Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 5,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 3.07185,
             "awayXg": 2.11013
@@ -2339,7 +1504,22 @@
         "attendance": 50109,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 7,
+              "offsides": 6
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.73138,
             "awayXg": 0.615503
@@ -2501,10 +1681,72 @@
         "attendance": 40809,
         "stats": {
           "referee": "Darren England",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 2,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 2.31518,
             "awayXg": 1.11696
+          }
+        }
+      },
+      {
+        "matchId": "21939",
+        "matchweek": 5,
+        "kickoff": "2023-09-16 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Fulham",
+          "id": "228",
+          "shortName": "Fulham",
+          "abbr": "FLH",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 0,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Craven Cottage",
+        "attendance": 24467,
+        "stats": {
+          "referee": "Michael Salisbury",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 1.75704,
+            "awayXg": 1.45705
           }
         }
       },
@@ -2597,7 +1839,22 @@
         "attendance": 10421,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 1,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 20,
+              "corners": 7,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.32515,
             "awayXg": 1.39677
@@ -2629,7 +1886,22 @@
         "attendance": 39217,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 1,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 11,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 0.28317,
             "awayXg": 0.802605
@@ -2670,6 +1942,38 @@
       }
     ],
     "6": [
+      {
+        "matchId": "21945",
+        "matchweek": 6,
+        "kickoff": "2023-09-23 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Wolverhampton Wanderers",
+          "id": "229",
+          "shortName": "Wolverhampton Wanderers",
+          "abbr": "WOL",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 10893,
+        "stats": {
+          "referee": "Joshua Smith",
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.24101,
+            "awayXg": 0.762984
+          }
+        }
+      },
       {
         "matchId": "21946",
         "matchweek": 6,
@@ -2727,7 +2031,22 @@
         "attendance": 25072,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 3,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.37236,
             "awayXg": 0.542678
@@ -2759,7 +2078,22 @@
         "attendance": 16981,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 1,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.57402,
             "awayXg": 2.51497
@@ -2809,7 +2143,7 @@
           "id": "80",
           "shortName": "Chelsea",
           "abbr": "CHE",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 1,
@@ -2823,7 +2157,22 @@
         "attendance": 39700,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 1,
+              "fouls": 9,
+              "corners": 5,
+              "offsides": 10
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 11,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.19716,
             "awayXg": 1.13479
@@ -2993,6 +2342,53 @@
         }
       },
       {
+        "matchId": "21956",
+        "matchweek": 7,
+        "kickoff": "2023-09-30 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Everton",
+          "id": "72",
+          "shortName": "Everton",
+          "abbr": "EVE",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 2,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Goodison Park",
+        "attendance": 39289,
+        "stats": {
+          "referee": "Anthony Taylor",
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 3,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 3
+            }
+          },
+          "understat": {
+            "homeXg": 3.65377,
+            "awayXg": 1.5102
+          }
+        }
+      },
+      {
         "matchId": "21957",
         "matchweek": 7,
         "kickoff": "2023-09-30 14:00:00",
@@ -3081,7 +2477,22 @@
         "attendance": 11193,
         "stats": {
           "referee": "Michael Salisbury",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 6,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.644443,
             "awayXg": 4.0742
@@ -3241,7 +2652,22 @@
         "attendance": 24445,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 8,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 1,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 0.889383,
             "awayXg": 1.98461
@@ -3250,6 +2676,38 @@
       }
     ],
     "8": [
+      {
+        "matchId": "21971",
+        "matchweek": 8,
+        "kickoff": "2023-10-07 11:30:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 0,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Tottenham Hotspur",
+          "id": "82",
+          "shortName": "Tottenham Hotspur",
+          "abbr": "TOT",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 10290,
+        "stats": {
+          "referee": "John Brooks",
+          "fbref": null,
+          "understat": {
+            "homeXg": 0.848118,
+            "awayXg": 2.37947
+          }
+        }
+      },
       {
         "matchId": "21967",
         "matchweek": 8,
@@ -3275,7 +2733,22 @@
         "attendance": 21654,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 7,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 3,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.956642,
             "awayXg": 1.97566
@@ -3307,7 +2780,22 @@
         "attendance": 38815,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 8,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 7,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 3.16482,
             "awayXg": 0.981732
@@ -3339,7 +2827,22 @@
         "attendance": 24361,
         "stats": {
           "referee": "Samuel Barrott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 9,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.26612,
             "awayXg": 0.251809
@@ -3531,7 +3034,22 @@
         "attendance": 60233,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.386558,
             "awayXg": 0.858071
@@ -3559,13 +3077,28 @@
           "id": "72",
           "shortName": "Everton",
           "abbr": "EVE",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Anfield",
         "attendance": 50201,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 12,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.28568,
             "awayXg": 0.0937725
@@ -3623,13 +3156,28 @@
           "id": "92",
           "shortName": "Burnley",
           "abbr": "BUR",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Gtech Community Stadium",
         "attendance": 17029,
         "stats": {
           "referee": "Joshua Smith",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 1,
+              "fouls": 12,
+              "corners": 5,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 3.15685,
             "awayXg": 0.693129
@@ -3701,6 +3249,38 @@
         }
       },
       {
+        "matchId": "21982",
+        "matchweek": 9,
+        "kickoff": "2023-10-21 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 2,
+          "name": "Nottingham Forest",
+          "id": "249",
+          "shortName": "Nottingham Forest",
+          "abbr": "NOT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 2,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "The City Ground",
+        "attendance": 29361,
+        "stats": {
+          "referee": "Samuel Barrott",
+          "fbref": null,
+          "understat": {
+            "homeXg": 3.27549,
+            "awayXg": 1.49555
+          }
+        }
+      },
+      {
         "matchId": "21978",
         "matchweek": 9,
         "kickoff": "2023-10-21 16:30:00",
@@ -3725,7 +3305,22 @@
         "attendance": 39723,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 2,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 7,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.71838,
             "awayXg": 1.05791
@@ -3887,7 +3482,22 @@
         "attendance": 39575,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 10,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 1,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.71801,
             "awayXg": 2.48137
@@ -3919,7 +3529,22 @@
         "attendance": 11152,
         "stats": {
           "referee": "Samuel Barrott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 10,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.10052,
             "awayXg": 0.90255
@@ -3951,7 +3576,22 @@
         "attendance": 60153,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 6,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 1,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 3.03496,
             "awayXg": 0.0281554
@@ -4019,6 +3659,53 @@
           "understat": {
             "homeXg": 0.618578,
             "awayXg": 0.733813
+          }
+        }
+      },
+      {
+        "matchId": "21987",
+        "matchweek": 10,
+        "kickoff": "2023-10-29 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 3,
+          "name": "Aston Villa",
+          "id": "71",
+          "shortName": "Aston Villa",
+          "abbr": "AVL",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Villa Park",
+        "attendance": 41785,
+        "stats": {
+          "referee": "John Brooks",
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 6
+            }
+          },
+          "understat": {
+            "homeXg": 3.07654,
+            "awayXg": 0.453117
           }
         }
       },
@@ -4209,7 +3896,22 @@
         "attendance": 21578,
         "stats": {
           "referee": "Peter Bankes",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 12,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 1,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.4998,
             "awayXg": 1.43653
@@ -4273,7 +3975,22 @@
         "attendance": 53358,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 12,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 1,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.39949,
             "awayXg": 0.643127
@@ -4377,6 +4094,53 @@
         }
       },
       {
+        "matchId": "21999",
+        "matchweek": 11,
+        "kickoff": "2023-11-05 16:30:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Liverpool",
+          "id": "87",
+          "shortName": "Liverpool",
+          "abbr": "LIV",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 11049,
+        "stats": {
+          "referee": "Andy Madley",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 7,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 1.3411,
+            "awayXg": 3.03925
+          }
+        }
+      },
+      {
         "matchId": "22004",
         "matchweek": 11,
         "kickoff": "2023-11-06 20:00:00",
@@ -4453,7 +4217,7 @@
           "id": "83",
           "shortName": "Arsenal",
           "abbr": "ARS",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 1,
@@ -4467,7 +4231,22 @@
         "attendance": 60232,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 1,
+              "fouls": 8,
+              "corners": 13,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 3,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.63194,
             "awayXg": 0.327706
@@ -4499,10 +4278,57 @@
         "attendance": 25103,
         "stats": {
           "referee": "Samuel Barrott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 9,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 2,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.89194,
             "awayXg": 1.7904
+          }
+        }
+      },
+      {
+        "matchId": "22012",
+        "matchweek": 12,
+        "kickoff": "2023-11-11 15:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Manchester United",
+          "id": "89",
+          "shortName": "Manchester United",
+          "abbr": "MUN",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 0,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Old Trafford",
+        "attendance": 73599,
+        "stats": {
+          "referee": "Graham Scott",
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.74105,
+            "awayXg": 0.408265
           }
         }
       },
@@ -4563,7 +4389,22 @@
         "attendance": 41608,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 4,
+              "corners": 2,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 2,
+              "offsides": 7
+            }
+          },
           "understat": {
             "homeXg": 2.86039,
             "awayXg": 0.648745
@@ -4627,7 +4468,22 @@
         "attendance": 50151,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 6,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 8,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.56004,
             "awayXg": 1.44954
@@ -4691,7 +4547,22 @@
         "attendance": 39532,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 3,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 3,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 3.47238,
             "awayXg": 3.19324
@@ -4725,7 +4596,22 @@
         "attendance": 53289,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 9,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 6,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 1.79622,
             "awayXg": 0.766278
@@ -4761,6 +4647,53 @@
           "understat": {
             "homeXg": 1.44228,
             "awayXg": 1.36963
+          }
+        }
+      },
+      {
+        "matchId": "22019",
+        "matchweek": 13,
+        "kickoff": "2023-11-25 15:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 2,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Crystal Palace",
+          "id": "78",
+          "shortName": "Crystal Palace",
+          "abbr": "CRY",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 11029,
+        "stats": {
+          "referee": "Jarred Gillett",
+          "fbref": {
+            "home": {
+              "yellowCards": 6,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 0.996153,
+            "awayXg": 1.83546
           }
         }
       },
@@ -4853,7 +4786,22 @@
         "attendance": 30208,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 4,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 7,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.816227,
             "awayXg": 3.13975
@@ -4885,7 +4833,22 @@
         "attendance": 17201,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 1,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 8,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 1.66315,
             "awayXg": 1.82699
@@ -5023,6 +4986,53 @@
         }
       },
       {
+        "matchId": "22027",
+        "matchweek": 14,
+        "kickoff": "2023-12-02 15:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 3,
+          "name": "Brentford",
+          "id": "244",
+          "shortName": "Brentford",
+          "abbr": "BRE",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Gtech Community Stadium",
+        "attendance": 17075,
+        "stats": {
+          "referee": "Anthony Taylor",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 7,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 5,
+              "offsides": 2
+            }
+          },
+          "understat": {
+            "homeXg": 3.25952,
+            "awayXg": 0.227176
+          }
+        }
+      },
+      {
         "matchId": "22028",
         "matchweek": 14,
         "kickoff": "2023-12-02 15:00:00",
@@ -5041,13 +5051,28 @@
           "id": "238",
           "shortName": "Sheffield United",
           "abbr": "SHE",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Turf Moor",
         "attendance": 21478,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 6,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 7,
+              "redCards": 1,
+              "fouls": 12,
+              "corners": 1,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.60469,
             "awayXg": 0.618131
@@ -5143,7 +5168,22 @@
         "attendance": 11191,
         "stats": {
           "referee": "Thomas Bramall",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 7,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 7,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.54937,
             "awayXg": 0.89511
@@ -5207,7 +5247,22 @@
         "attendance": 50124,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 3,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.72831,
             "awayXg": 1.51005
@@ -5313,6 +5368,53 @@
         }
       },
       {
+        "matchId": "22039",
+        "matchweek": 15,
+        "kickoff": "2023-12-05 20:15:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 3,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 4,
+          "name": "Arsenal",
+          "id": "83",
+          "shortName": "Arsenal",
+          "abbr": "ARS",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 11031,
+        "stats": {
+          "referee": "Samuel Barrott",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 3,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 8,
+              "offsides": 4
+            }
+          },
+          "understat": {
+            "homeXg": 0.526254,
+            "awayXg": 2.58815
+          }
+        }
+      },
+      {
         "matchId": "22036",
         "matchweek": 15,
         "kickoff": "2023-12-06 19:30:00",
@@ -5401,7 +5503,22 @@
         "attendance": 31406,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 2,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 12,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 0.834172,
             "awayXg": 1.80116
@@ -5433,7 +5550,22 @@
         "attendance": 25078,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 3,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 9,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.26441,
             "awayXg": 1.79997
@@ -5465,7 +5597,22 @@
         "attendance": 41421,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 0,
+              "offsides": 5
+            }
+          },
           "understat": {
             "homeXg": 2.1922,
             "awayXg": 1.00198
@@ -5581,7 +5728,7 @@
           "id": "78",
           "shortName": "Crystal Palace",
           "abbr": "CRY",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 2,
@@ -5595,7 +5742,22 @@
         "attendance": 25103,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 7,
+              "redCards": 1,
+              "fouls": 17,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 5,
+              "offsides": 6
+            }
+          },
           "understat": {
             "homeXg": 1.79152,
             "awayXg": 1.3708
@@ -5691,7 +5853,22 @@
         "attendance": 28509,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 3,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.841976,
             "awayXg": 0.644638
@@ -5755,7 +5932,22 @@
         "attendance": 42000,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 3,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 3,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 0.628499,
             "awayXg": 1.71667
@@ -5787,7 +5979,22 @@
         "attendance": 39280,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 8,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.11437,
             "awayXg": 0.885512
@@ -5823,6 +6030,53 @@
           "understat": {
             "homeXg": 2.1884,
             "awayXg": 0.983
+          }
+        }
+      },
+      {
+        "matchId": "22050",
+        "matchweek": 16,
+        "kickoff": "2023-12-10 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 2,
+          "name": "Manchester City",
+          "id": "88",
+          "shortName": "Manchester City",
+          "abbr": "MCI",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 11047,
+        "stats": {
+          "referee": "Tim Robinson",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 6,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 0.689037,
+            "awayXg": 2.23353
           }
         }
       },
@@ -5917,7 +6171,22 @@
         "attendance": 39599,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 7,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 3.27322,
             "awayXg": 0.44014
@@ -5949,7 +6218,22 @@
         "attendance": 53248,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 6,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 1,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.41646,
             "awayXg": 1.64977
@@ -6013,7 +6297,22 @@
         "attendance": 21413,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 8,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 6,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 0.811435,
             "awayXg": 2.22305
@@ -6063,7 +6362,7 @@
           "id": "244",
           "shortName": "Brentford",
           "abbr": "BRE",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 2,
@@ -6071,13 +6370,28 @@
           "id": "71",
           "shortName": "Aston Villa",
           "abbr": "AVL",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Gtech Community Stadium",
         "attendance": 17034,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 6,
+              "redCards": 1,
+              "fouls": 19,
+              "corners": 7,
+              "offsides": 7
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 1,
+              "fouls": 6,
+              "corners": 11,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.796812,
             "awayXg": 1.4664
@@ -6147,6 +6461,53 @@
             "awayXg": 0.632715
           }
         }
+      },
+      {
+        "matchId": "25861",
+        "matchweek": 17,
+        "kickoff": "2024-03-13 19:30:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 4,
+          "name": "Bournemouth",
+          "id": "73",
+          "shortName": "Bournemouth",
+          "abbr": "BOU",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 3,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Vitality Stadium",
+        "attendance": 11198,
+        "stats": {
+          "referee": "Samuel Allison",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 11,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 2.84403,
+            "awayXg": 2.79419
+          }
+        }
       }
     ],
     "18": [
@@ -6207,7 +6568,22 @@
         "attendance": 41651,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 9,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 1,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 1.21861,
             "awayXg": 0.646159
@@ -6271,10 +6647,57 @@
         "attendance": 23598,
         "stats": {
           "referee": "Rebecca Welch",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 8,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 6,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 1.38096,
             "awayXg": 0.41714
+          }
+        }
+      },
+      {
+        "matchId": "22069",
+        "matchweek": 18,
+        "kickoff": "2023-12-23 15:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 0,
+          "name": "Newcastle United",
+          "id": "86",
+          "shortName": "Newcastle United",
+          "abbr": "NEW",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 11042,
+        "stats": {
+          "referee": "Darren England",
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.81844,
+            "awayXg": 1.41488
           }
         }
       },
@@ -6367,7 +6790,22 @@
         "attendance": 57548,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.982901,
             "awayXg": 0.851681
@@ -6431,7 +6869,22 @@
         "attendance": 52247,
         "stats": {
           "referee": "Darren England",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 10,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 1,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 2.53766,
             "awayXg": 0.503799
@@ -6497,10 +6950,57 @@
         "attendance": 11099,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 5,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 2.07911,
             "awayXg": 0.324365
+          }
+        }
+      },
+      {
+        "matchId": "22084",
+        "matchweek": 19,
+        "kickoff": "2023-12-26 15:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 2,
+          "name": "Sheffield United",
+          "id": "238",
+          "shortName": "Sheffield United",
+          "abbr": "SHE",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 3,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Bramall Lane",
+        "attendance": 31041,
+        "stats": {
+          "referee": "Samuel Allison",
+          "fbref": null,
+          "understat": {
+            "homeXg": 3.61788,
+            "awayXg": 0.715575
           }
         }
       },
@@ -6529,7 +7029,22 @@
         "attendance": 21624,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 0.972389,
             "awayXg": 1.68451
@@ -6625,7 +7140,22 @@
         "attendance": 39618,
         "stats": {
           "referee": "Michael Salisbury",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 3,
+              "offsides": 6
+            }
+          },
           "understat": {
             "homeXg": 2.73005,
             "awayXg": 0.958077
@@ -6657,7 +7187,22 @@
         "attendance": 39327,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 8,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.23529,
             "awayXg": 2.28321
@@ -6731,6 +7276,53 @@
     ],
     "20": [
       {
+        "matchId": "22089",
+        "matchweek": 20,
+        "kickoff": "2023-12-30 12:30:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 2,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 3,
+          "name": "Chelsea",
+          "id": "80",
+          "shortName": "Chelsea",
+          "abbr": "CHE",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 11041,
+        "stats": {
+          "referee": "Paul Tierney",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 7,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 21,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 2.64093,
+            "awayXg": 1.57463
+          }
+        }
+      },
+      {
         "matchId": "22085",
         "matchweek": 20,
         "kickoff": "2023-12-30 15:00:00",
@@ -6749,13 +7341,28 @@
           "id": "92",
           "shortName": "Burnley",
           "abbr": "BUR",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Villa Park",
         "attendance": 41613,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 6,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 14,
+              "corners": 2,
+              "offsides": 6
+            }
+          },
           "understat": {
             "homeXg": 2.92587,
             "awayXg": 1.11923
@@ -6787,7 +7394,22 @@
         "attendance": 25472,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 7,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.61057,
             "awayXg": 1.28731
@@ -6819,7 +7441,22 @@
         "attendance": 53108,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 12,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 2,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.24229,
             "awayXg": 0.263211
@@ -6915,7 +7552,22 @@
         "attendance": 24444,
         "stats": {
           "referee": "Joshua Smith",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 5,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.52829,
             "awayXg": 1.6591
@@ -7021,6 +7673,53 @@
     ],
     "21": [
       {
+        "matchId": "22096",
+        "matchweek": 21,
+        "kickoff": "2024-01-12 19:45:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Burnley",
+          "id": "92",
+          "shortName": "Burnley",
+          "abbr": "BUR",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Turf Moor",
+        "attendance": 20155,
+        "stats": {
+          "referee": "Tony Harrington",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 2,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 8,
+              "offsides": 4
+            }
+          },
+          "understat": {
+            "homeXg": 1.52023,
+            "awayXg": 0.965167
+          }
+        }
+      },
+      {
         "matchId": "22097",
         "matchweek": 21,
         "kickoff": "2024-01-13 12:30:00",
@@ -7045,7 +7744,22 @@
         "attendance": 39643,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 6,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 2.0456,
             "awayXg": 0.697847
@@ -7109,7 +7823,22 @@
         "attendance": 39284,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.03664,
             "awayXg": 1.3435
@@ -7173,7 +7902,22 @@
         "attendance": 60284,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 6,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 7,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 3.52167,
             "awayXg": 0.288083
@@ -7269,7 +8013,22 @@
         "attendance": 11228,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 8,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 5,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.834585,
             "awayXg": 1.53344
@@ -7367,10 +8126,57 @@
         "attendance": 24376,
         "stats": {
           "referee": "Thomas Bramall",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 15,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 6,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.37499,
             "awayXg": 2.83317
+          }
+        }
+      },
+      {
+        "matchId": "22107",
+        "matchweek": 22,
+        "kickoff": "2024-01-30 19:45:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 4,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 0,
+          "name": "Brighton and Hove Albion",
+          "id": "220",
+          "shortName": "Brighton and Hove Albion",
+          "abbr": "BRI",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 10994,
+        "stats": {
+          "referee": "Robert Jones",
+          "fbref": null,
+          "understat": {
+            "homeXg": 3.63312,
+            "awayXg": 1.01366
           }
         }
       },
@@ -7399,7 +8205,22 @@
         "attendance": 24781,
         "stats": {
           "referee": "Tony Harrington",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 11,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 1,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.1601,
             "awayXg": 0.768467
@@ -7495,7 +8316,22 @@
         "attendance": 52143,
         "stats": {
           "referee": "Samuel Barrott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 3,
+              "corners": 7,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 3,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 1.84756,
             "awayXg": 1.49114
@@ -7527,7 +8363,22 @@
         "attendance": 57524,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 8,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 1,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 3.6627,
             "awayXg": 0.477972
@@ -7689,10 +8540,57 @@
         "attendance": 20203,
         "stats": {
           "referee": "Darren Bond",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 2,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 13,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.00428,
             "awayXg": 1.28806
+          }
+        }
+      },
+      {
+        "matchId": "22123",
+        "matchweek": 23,
+        "kickoff": "2024-02-03 15:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 4,
+          "name": "Newcastle United",
+          "id": "86",
+          "shortName": "Newcastle United",
+          "abbr": "NEW",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 4,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "St James' Park",
+        "attendance": 52211,
+        "stats": {
+          "referee": "Thomas Bramall",
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.37353,
+            "awayXg": 2.67463
           }
         }
       },
@@ -7721,7 +8619,22 @@
         "attendance": 30187,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 3,
+              "offsides": 6
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.52784,
             "awayXg": 2.99015
@@ -7843,13 +8756,28 @@
           "id": "87",
           "shortName": "Liverpool",
           "abbr": "LIV",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Emirates Stadium",
         "attendance": 60374,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 6,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 2,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 1,
+              "fouls": 11,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.8526,
             "awayXg": 0.542052
@@ -7881,7 +8809,22 @@
         "attendance": 17096,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 2,
+              "corners": 8,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 4,
+              "corners": 13,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.865741,
             "awayXg": 2.10785
@@ -7915,7 +8858,22 @@
         "attendance": 52187,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 9,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 0,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.58971,
             "awayXg": 0.192072
@@ -7947,7 +8905,22 @@
         "attendance": 24271,
         "stats": {
           "referee": "Darren England",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 1,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 13,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 1.7456,
             "awayXg": 2.60612
@@ -7979,10 +8952,72 @@
         "attendance": 59896,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 9,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 3,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 3.14734,
             "awayXg": 1.11123
+          }
+        }
+      },
+      {
+        "matchId": "22129",
+        "matchweek": 24,
+        "kickoff": "2024-02-10 15:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 3,
+          "name": "Sheffield United",
+          "id": "238",
+          "shortName": "Sheffield United",
+          "abbr": "SHE",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 11138,
+        "stats": {
+          "referee": "Chris Kavanagh",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 13,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 1,
+              "offsides": 0
+            }
+          },
+          "understat": {
+            "homeXg": 1.76215,
+            "awayXg": 1.98283
           }
         }
       },
@@ -8171,7 +9206,22 @@
         "attendance": 25110,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 1,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 7,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 0.719516,
             "awayXg": 1.26948
@@ -8205,7 +9255,22 @@
         "attendance": 17193,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 4,
+              "corners": 1,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 6,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.69518,
             "awayXg": 3.08952
@@ -8237,7 +9302,22 @@
         "attendance": 21311,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 4,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 6,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.335143,
             "awayXg": 2.20575
@@ -8269,7 +9349,22 @@
         "attendance": 24401,
         "stats": {
           "referee": "Lewis Smith",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 4,
+              "offsides": 6
+            }
+          },
           "understat": {
             "homeXg": 1.41796,
             "awayXg": 1.57297
@@ -8397,7 +9492,22 @@
         "attendance": 52178,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 12,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 1,
+              "offsides": 5
+            }
+          },
           "understat": {
             "homeXg": 2.77713,
             "awayXg": 1.82903
@@ -8437,6 +9547,38 @@
         }
       },
       {
+        "matchId": "22139",
+        "matchweek": 25,
+        "kickoff": "2024-02-18 16:30:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 2,
+          "name": "Manchester United",
+          "id": "89",
+          "shortName": "Manchester United",
+          "abbr": "MUN",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 11483,
+        "stats": {
+          "referee": "David Coote",
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.57234,
+            "awayXg": 3.58973
+          }
+        }
+      },
+      {
         "matchId": "22137",
         "matchweek": 25,
         "kickoff": "2024-02-19 20:00:00",
@@ -8461,7 +9603,22 @@
         "attendance": 38164,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 3,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 6,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.44588,
             "awayXg": 0.734685
@@ -8470,6 +9627,53 @@
       }
     ],
     "26": [
+      {
+        "matchId": "22151",
+        "matchweek": 26,
+        "kickoff": "2024-02-21 15:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 4,
+          "name": "Liverpool",
+          "id": "87",
+          "shortName": "Liverpool",
+          "abbr": "LIV",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Anfield",
+        "attendance": 59713,
+        "stats": {
+          "referee": "Andy Madley",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 13,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 4,
+              "offsides": 3
+            }
+          },
+          "understat": {
+            "homeXg": 3.70302,
+            "awayXg": 0.956512
+          }
+        }
+      },
       {
         "matchId": "22147",
         "matchweek": 26,
@@ -8553,13 +9757,28 @@
           "id": "92",
           "shortName": "Burnley",
           "abbr": "BUR",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Selhurst Park",
         "attendance": 24042,
         "stats": {
           "referee": "Lewis Smith",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 12,
+              "offsides": 6
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 1,
+              "fouls": 13,
+              "corners": 3,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 2.41612,
             "awayXg": 0.0760216
@@ -8623,7 +9842,22 @@
         "attendance": 11184,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 3,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 8,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.925889,
             "awayXg": 1.79636
@@ -8785,7 +10019,22 @@
         "attendance": 17140,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 0,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 6,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 2.4732,
             "awayXg": 2.1523
@@ -8953,6 +10202,53 @@
         }
       },
       {
+        "matchId": "22159",
+        "matchweek": 27,
+        "kickoff": "2024-03-02 17:30:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 2,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 3,
+          "name": "Aston Villa",
+          "id": "71",
+          "shortName": "Aston Villa",
+          "abbr": "AVL",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 11594,
+        "stats": {
+          "referee": "Michael Oliver",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 8,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 19,
+              "corners": 6,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 2.43312,
+            "awayXg": 2.08586
+          }
+        }
+      },
+      {
         "matchId": "22156",
         "matchweek": 27,
         "kickoff": "2024-03-03 13:00:00",
@@ -8977,7 +10273,22 @@
         "attendance": 19713,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 7,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 2,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 1.60461,
             "awayXg": 1.43616
@@ -9041,7 +10352,22 @@
         "attendance": 29157,
         "stats": {
           "referee": "Samuel Barrott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 0,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 4,
+              "corners": 7,
+              "offsides": 5
+            }
+          },
           "understat": {
             "homeXg": 0.201374,
             "awayXg": 2.47294
@@ -9107,10 +10433,72 @@
         "attendance": 11074,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 10,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 3.92657,
             "awayXg": 1.91752
+          }
+        }
+      },
+      {
+        "matchId": "22170",
+        "matchweek": 28,
+        "kickoff": "2024-03-09 15:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Crystal Palace",
+          "id": "78",
+          "shortName": "Crystal Palace",
+          "abbr": "CRY",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Selhurst Park",
+        "attendance": 25103,
+        "stats": {
+          "referee": "Sunny Singh",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 20,
+              "corners": 8,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 6,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 3.25103,
+            "awayXg": 1.08531
           }
         }
       },
@@ -9171,7 +10559,22 @@
         "attendance": 60331,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 10,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.59369,
             "awayXg": 0.733239
@@ -9299,7 +10702,22 @@
         "attendance": 59947,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 7,
+              "offsides": 6
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.25492,
             "awayXg": 1.37289
@@ -9359,16 +10777,63 @@
           "id": "244",
           "shortName": "Brentford",
           "abbr": "BRE",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Turf Moor",
         "attendance": 20431,
         "stats": {
           "referee": "Darren Bond",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 5,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 1,
+              "fouls": 17,
+              "corners": 4,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 2.69776,
             "awayXg": 1.25123
+          }
+        }
+      },
+      {
+        "matchId": "22181",
+        "matchweek": 29,
+        "kickoff": "2024-03-16 15:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Nottingham Forest",
+          "id": "249",
+          "shortName": "Nottingham Forest",
+          "abbr": "NOT",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 11630,
+        "stats": {
+          "referee": "Darren England",
+          "fbref": null,
+          "understat": {
+            "homeXg": 0.853782,
+            "awayXg": 1.95268
           }
         }
       },
@@ -9461,7 +10926,22 @@
         "attendance": 60238,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 2,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 3.45858,
             "awayXg": 1.60343
@@ -9557,7 +11037,22 @@
         "attendance": 38222,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 4,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 13,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.89111,
             "awayXg": 1.87155
@@ -9687,7 +11182,22 @@
         "attendance": 11207,
         "stats": {
           "referee": "Samuel Barrott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 9,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 8,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 1.39268,
             "awayXg": 0.93378
@@ -9713,13 +11223,28 @@
           "id": "92",
           "shortName": "Burnley",
           "abbr": "BUR",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Stamford Bridge",
         "attendance": 39535,
         "stats": {
           "referee": "Darren England",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 12,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 1,
+              "fouls": 7,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 4.46643,
             "awayXg": 2.10422
@@ -9783,10 +11308,57 @@
         "attendance": 30010,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 2,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 15,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.78824,
             "awayXg": 1.10254
+          }
+        }
+      },
+      {
+        "matchId": "22194",
+        "matchweek": 30,
+        "kickoff": "2024-03-30 15:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 2,
+          "name": "Tottenham Hotspur",
+          "id": "82",
+          "shortName": "Tottenham Hotspur",
+          "abbr": "TOT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Tottenham Hotspur Stadium",
+        "attendance": 61534,
+        "stats": {
+          "referee": "Jarred Gillett",
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.46523,
+            "awayXg": 0.402402
           }
         }
       },
@@ -9911,7 +11483,22 @@
         "attendance": 52178,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 7,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 20,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.22009,
             "awayXg": 0.511402
@@ -10009,7 +11596,22 @@
         "attendance": 11058,
         "stats": {
           "referee": "Graham Scott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 9,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 2,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 1.30969,
             "awayXg": 0.174389
@@ -10081,6 +11683,53 @@
         }
       },
       {
+        "matchId": "22196",
+        "matchweek": 31,
+        "kickoff": "2024-04-03 18:30:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 2,
+          "name": "Arsenal",
+          "id": "83",
+          "shortName": "Arsenal",
+          "abbr": "ARS",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 0,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Emirates Stadium",
+        "attendance": 60262,
+        "stats": {
+          "referee": "Craig Pawson",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 3,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 1,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 1.14384,
+            "awayXg": 0.292082
+          }
+        }
+      },
+      {
         "matchId": "22200",
         "matchweek": 31,
         "kickoff": "2024-04-03 18:30:00",
@@ -10137,7 +11786,22 @@
         "attendance": 53422,
         "stats": {
           "referee": "Darren England",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 2,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 3.87704,
             "awayXg": 1.18643
@@ -10169,7 +11833,22 @@
         "attendance": 60055,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 13,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 1,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.51772,
             "awayXg": 0.720948
@@ -10235,7 +11914,22 @@
         "attendance": 25132,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 2,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 3,
+              "corners": 9,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.49472,
             "awayXg": 2.26381
@@ -10267,7 +11961,22 @@
         "attendance": 42118,
         "stats": {
           "referee": "Michael Salisbury",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 11,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 3,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 1.16333,
             "awayXg": 1.42064
@@ -10293,13 +12002,28 @@
           "id": "92",
           "shortName": "Burnley",
           "abbr": "BUR",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Goodison Park",
         "attendance": 39125,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 3,
+              "offsides": 10
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 1,
+              "fouls": 13,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.659844,
             "awayXg": 0.34699
@@ -10335,6 +12059,53 @@
           "understat": {
             "homeXg": 0.834564,
             "awayXg": 1.18012
+          }
+        }
+      },
+      {
+        "matchId": "22210",
+        "matchweek": 32,
+        "kickoff": "2024-04-06 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 2,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Bournemouth",
+          "id": "73",
+          "shortName": "Bournemouth",
+          "abbr": "BOU",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 11797,
+        "stats": {
+          "referee": "Andy Madley",
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 7,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 2,
+              "offsides": 0
+            }
+          },
+          "understat": {
+            "homeXg": 1.30478,
+            "awayXg": 0.616108
           }
         }
       },
@@ -10459,7 +12230,22 @@
         "attendance": 28638,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 7,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.74265,
             "awayXg": 0.521789
@@ -10557,7 +12343,22 @@
         "attendance": 17115,
         "stats": {
           "referee": "Samuel Barrott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 3,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 6,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.09071,
             "awayXg": 0.834498
@@ -10593,6 +12394,53 @@
           "understat": {
             "homeXg": 1.8522,
             "awayXg": 0.889445
+          }
+        }
+      },
+      {
+        "matchId": "22221",
+        "matchweek": 33,
+        "kickoff": "2024-04-13 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 5,
+          "name": "Manchester City",
+          "id": "88",
+          "shortName": "Manchester City",
+          "abbr": "MCI",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Etihad Stadium",
+        "attendance": 52149,
+        "stats": {
+          "referee": "John Brooks",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 12,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 1,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 4.64245,
+            "awayXg": 0.809775
           }
         }
       },
@@ -10685,7 +12533,22 @@
         "attendance": 60090,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 11,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 1,
+              "offsides": 5
+            }
+          },
           "understat": {
             "homeXg": 3.04497,
             "awayXg": 2.12879
@@ -10749,7 +12612,22 @@
         "attendance": 60350,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 6,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.89003,
             "awayXg": 0.929049
@@ -10781,7 +12659,22 @@
         "attendance": 39392,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 4,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 21,
+              "corners": 8,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 3.37093,
             "awayXg": 1.21791
@@ -10790,6 +12683,53 @@
       }
     ],
     "34": [
+      {
+        "matchId": "22230",
+        "matchweek": 34,
+        "kickoff": "2024-04-20 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 5,
+          "name": "Brentford",
+          "id": "244",
+          "shortName": "Brentford",
+          "abbr": "BRE",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 11877,
+        "stats": {
+          "referee": "Jarred Gillett",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 9,
+              "offsides": 0
+            }
+          },
+          "understat": {
+            "homeXg": 0.497799,
+            "awayXg": 3.7809
+          }
+        }
+      },
       {
         "matchId": "22232",
         "matchweek": 34,
@@ -10815,7 +12755,22 @@
         "attendance": 28964,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 11,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.97816,
             "awayXg": 2.42338
@@ -10911,7 +12866,22 @@
         "attendance": 42189,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 8,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 4,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 2.62687,
             "awayXg": 2.05211
@@ -10975,7 +12945,22 @@
         "attendance": 24414,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 1,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 4,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 0.83885,
             "awayXg": 1.02445
@@ -11137,7 +13122,22 @@
         "attendance": 24142,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 5,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 9,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.39418,
             "awayXg": 1.05387
@@ -11209,6 +13209,38 @@
         }
       },
       {
+        "matchId": "22244",
+        "matchweek": 35,
+        "kickoff": "2024-04-27 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 2,
+          "name": "Wolverhampton Wanderers",
+          "id": "229",
+          "shortName": "Wolverhampton Wanderers",
+          "abbr": "WOL",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "Molineux Stadium",
+        "attendance": 31531,
+        "stats": {
+          "referee": "David Coote",
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.49011,
+            "awayXg": 0.90435
+          }
+        }
+      },
+      {
         "matchId": "22237",
         "matchweek": 35,
         "kickoff": "2024-04-27 16:30:00",
@@ -11233,7 +13265,22 @@
         "attendance": 39098,
         "stats": {
           "referee": "Darren England",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 6,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.21399,
             "awayXg": 0.956356
@@ -11265,7 +13312,22 @@
         "attendance": 42354,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 2,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 4,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 0.612257,
             "awayXg": 1.56401
@@ -11371,6 +13433,53 @@
     ],
     "36": [
       {
+        "matchId": "22252",
+        "matchweek": 36,
+        "kickoff": "2024-05-03 19:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Everton",
+          "id": "72",
+          "shortName": "Everton",
+          "abbr": "EVE",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 11873,
+        "stats": {
+          "referee": "Tim Robinson",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 7,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 7,
+              "offsides": 0
+            }
+          },
+          "understat": {
+            "homeXg": 0.950391,
+            "awayXg": 1.22959
+          }
+        }
+      },
+      {
         "matchId": "22245",
         "matchweek": 36,
         "kickoff": "2024-05-04 11:30:00",
@@ -11395,7 +13504,22 @@
         "attendance": 60348,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 6,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 1,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 3.91372,
             "awayXg": 0.4687
@@ -11427,7 +13551,22 @@
         "attendance": 17090,
         "stats": {
           "referee": "Graham Scott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 3,
+              "corners": 7,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.809379,
             "awayXg": 1.45579
@@ -11671,7 +13810,7 @@
           "id": "228",
           "shortName": "Fulham",
           "abbr": "FLH",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 4,
@@ -11685,7 +13824,22 @@
         "attendance": 24418,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 9,
+              "corners": 1,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 7,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.0886245,
             "awayXg": 3.15218
@@ -11717,7 +13871,22 @@
         "attendance": 11154,
         "stats": {
           "referee": "Matt Donohue",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 3,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 8,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.07237,
             "awayXg": 1.92722
@@ -11749,7 +13918,22 @@
         "attendance": 39221,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 3,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.82411,
             "awayXg": 0.465523
@@ -11817,6 +14001,38 @@
           "understat": {
             "homeXg": 3.00238,
             "awayXg": 0.950331
+          }
+        }
+      },
+      {
+        "matchId": "22263",
+        "matchweek": 37,
+        "kickoff": "2024-05-11 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 3,
+          "name": "West Ham United",
+          "id": "81",
+          "shortName": "West Ham United",
+          "abbr": "WHU",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "ground": "London Stadium",
+        "attendance": 62475,
+        "stats": {
+          "referee": "Michael Oliver",
+          "fbref": null,
+          "understat": {
+            "homeXg": 3.71009,
+            "awayXg": 0.640456
           }
         }
       },
@@ -11941,7 +14157,22 @@
         "attendance": 42241,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 4,
+              "offsides": 6
+            }
+          },
           "understat": {
             "homeXg": 2.71655,
             "awayXg": 1.89968
@@ -11975,7 +14206,22 @@
         "attendance": 60312,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 8,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 1,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 3.2117,
             "awayXg": 0.664904
@@ -12103,7 +14349,22 @@
         "attendance": 39724,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.59771,
             "awayXg": 2.002
@@ -12135,7 +14396,22 @@
         "attendance": 25191,
         "stats": {
           "referee": "Darren Bond",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 2,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.23189,
             "awayXg": 0.598846
@@ -12171,6 +14447,53 @@
           "understat": {
             "homeXg": 5.65937,
             "awayXg": 0.731254
+          }
+        }
+      },
+      {
+        "matchId": "22272",
+        "matchweek": 38,
+        "kickoff": "2024-05-19 15:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 2,
+          "name": "Luton Town",
+          "id": "256",
+          "shortName": "Luton Town",
+          "abbr": "LUT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 4,
+          "name": "Fulham",
+          "id": "228",
+          "shortName": "Fulham",
+          "abbr": "FLH",
+          "redCards": 0
+        },
+        "ground": "Kenilworth Road Stadium",
+        "attendance": 12027,
+        "stats": {
+          "referee": "Matt Donohue",
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 4,
+              "offsides": 8
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 20,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 2.06743,
+            "awayXg": 1.11598
           }
         }
       },

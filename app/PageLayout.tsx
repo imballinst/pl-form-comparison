@@ -29,8 +29,10 @@ export function PageLayout({ children }: { children?: React.ReactNode }) {
       <footer className="border-t border-gray-200 px-4 py-2 text-xs text-center w-full">
         <div>
           GitHub repository: <a href="https://github.com/imballinst/pl-form-comparison">imballinst/pl-form-comparison</a>. Original idea by{' '}
-          <a href="https://x.com/DrRitzyy">DrRitzyy on Twitter</a>. Last updated at {getLastUpdatedTime()}.
+          <a href="https://x.com/DrRitzyy">DrRitzyy on Twitter</a>. Data sources are <a href="https://fbref.com">FBref</a> and{' '}
+          <a href="https://understat.com">Understat</a>.
         </div>
+        <div className="italic">Last updated at {getLastUpdatedTime()}.</div>
       </footer>
     </div>
   )

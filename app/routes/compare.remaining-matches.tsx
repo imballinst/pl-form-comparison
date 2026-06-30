@@ -8,7 +8,7 @@ import { CURRENT_SEASON, TEAMS_PER_SEASON } from '@/constants'
 import { useIsMobile } from '@/hooks/use-mobile'
 import type { FullMatchInfo, MatchInfo, SeasonTableData, Team } from '@/types'
 import { formatFdr, getDifficultyRating, getFdrColorClass, getTeamPoints } from '@/utils/difficulty-rating'
-import { getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, isMatchFinished } from '@/utils/match'
+import { formatSeason, getAnchorKeyFromMatch, getAnchorKeyFromString, getEssentialMatchInfo, isMatchFinished } from '@/utils/match'
 import { fetchSeasonTable, fetchSeasons } from '@/utils/seasons-fetcher'
 import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
@@ -115,6 +115,10 @@ export default function RemainingMatches() {
         <div>
           {teams.length === 0 ? (
             <div className="italic text-center">Select 1 or more teams to compare the remaining fixtures.</div>
+          ) : Object.keys(matchesAcrossSeasons.matchesByGameweekByTeamRecord).length === 0 ? (
+            <div className="italic text-center">
+              There are no remaining fixtures in Premier League season {formatSeason(CURRENT_SEASON, 'long')}.
+            </div>
           ) : (
             <RemainingMatchesTable teams={teams} matchesAcrossSeasons={matchesAcrossSeasons} />
           )}
@@ -417,7 +421,6 @@ function getMatchesAcrossSeasons(
 ): MatchesAcrossSeasons {
   const matchesByGameweekByTeamRecord: MatchesAcrossSeasons['matchesByGameweekByTeamRecord'] = {}
   const comparison: MatchAnchorRecord = {}
-  let previousMatchweek = -1
 
   for (const match of matchesResponses[CURRENT_SEASON]) {
     const { homeTeam, awayTeam, matchWeek } = match
@@ -446,14 +449,12 @@ function getMatchesAcrossSeasons(
       }
     }
 
-    if (previousMatchweek !== -1 && previousMatchweek !== matchWeek) {
-      const isAllNull = Object.values(matchesByGameweekByTeamRecord[previousMatchweek]).every((match) => match === null)
+    if (matchesByGameweekByTeamRecord[matchWeek]) {
+      const isAllNull = Object.values(matchesByGameweekByTeamRecord[matchWeek]).every((match) => match === null)
       if (isAllNull) {
-        delete matchesByGameweekByTeamRecord[previousMatchweek]
+        delete matchesByGameweekByTeamRecord[matchWeek]
       }
     }
-
-    previousMatchweek = matchWeek
   }
 
   for (const team of teams) {

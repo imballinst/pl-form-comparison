@@ -9,6 +9,9 @@ const UNDERSTAT_TO_APP: Record<string, string> = {
   'West Ham': 'West Ham United',
   Brighton: 'Brighton and Hove Albion',
   Leeds: 'Leeds United',
+  Luton: 'Luton Town',
+  Ipswich: 'Ipswich Town',
+  Leicester: 'Leicester City',
 }
 
 const FBREF_TO_APP: Record<string, string> = {
@@ -59,8 +62,6 @@ function createEmptyOfficialAssignment(): OfficialAssignment {
 
 const OFFICIAL_ROLE_MAP: Record<string, keyof OfficialAssignment['Home']> = {
   Referee: 'Referee',
-  AR1: 'Assistant Referee',
-  AR2: 'Assistant Referee',
   VAR: 'Video Assistant Referee',
 }
 
@@ -115,8 +116,9 @@ async function main() {
     if (!teamOfficialsRecord[teamName][officialName]) {
       teamOfficialsRecord[teamName][officialName] = createEmptyOfficialAssignment()
     }
-    const mappedRole = OFFICIAL_ROLE_MAP[role] || (role as keyof OfficialAssignment['Home'])
-    if (!teamOfficialsRecord[teamName][officialName][side][mappedRole].includes(matchId)) {
+
+    const mappedRole = OFFICIAL_ROLE_MAP[role]
+    if (mappedRole && !teamOfficialsRecord[teamName][officialName][side][mappedRole].includes(matchId)) {
       teamOfficialsRecord[teamName][officialName][side][mappedRole].push(matchId)
     }
   }
@@ -271,7 +273,9 @@ async function main() {
       stats,
     }
 
-    const mwKey = String(matchweek !== null && matchweek !== undefined ? matchweek : 0)
+    const mwKey = matchweek
+    if (!mwKey) throw new Error(`invalid matchweek: ${mwKey} for home team ${homeTeam.name} and away team ${awayTeam.name}`)
+
     if (!matchesByMatchweek[mwKey]) {
       matchesByMatchweek[mwKey] = []
     }
