@@ -42,10 +42,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
       </head>
       <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-
         <noscript
           dangerouslySetInnerHTML={{
             __html: `
@@ -58,6 +54,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 >`,
           }}
         />
+        
+        {children}
+        <ScrollRestoration />
+        <Scripts />
       </body>
     </html>
   )
