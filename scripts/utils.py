@@ -5,7 +5,7 @@ import shutil
 from datetime import datetime, timedelta, timezone
 
 
-YEAR = 2025
+YEAR = 2026
 
 
 def resolve_datetime(date_str: str, time_str: str) -> str:
