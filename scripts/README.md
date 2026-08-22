@@ -16,7 +16,7 @@ Requires Python 3.10+ (uses `str | None` etc.).
 
 ```bash
 pip install soccerdata beautifulsoup4 playwright
-playwright install chromium
+playwright install chromium --with-deps
 ```
 
 The Python scripts auto-detect the Playwright-bundled Chromium via `maybe_get_chrome_path()` in `utils.py`. You can also set `SOCCERDATA_BROWSER` to an explicit browser path.
