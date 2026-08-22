@@ -10,6 +10,7 @@ from os.path import dirname, join
 from sys import exit as sysexit
 
 from utils import YEAR, resolve_datetime, maybe_get_chrome_path
+import pandas as pd
 
 SCORE_DELIMITER = "\u2013"
 OUTPUT_PATH = join(dirname(__file__), "references", f"{YEAR}-fbref-schedule.json")
@@ -26,6 +27,9 @@ def parse_score(score_str: str):
     except ValueError:
         return None
 
+def clean(val):
+    """Normalize pandas missing values (NA/NaN) to None."""
+    return None if pd.isna(val) else val
 
 def main():
     from soccerdata import FBref
@@ -52,19 +56,16 @@ def main():
 
     matches = []
     for _, row in df.iterrows():
-        score_raw = row.get("score") or ""
-        score = parse_score(score_raw)
+        score = clean(row.get("score")) or ""
 
-        attendance = row.get("attendance")
-        if attendance is not None and attendance != attendance:
-            attendance = None
+        attendance = clean(row.get("attendance"))
         if attendance is not None:
             try:
                 attendance = int(attendance)
             except (TypeError, ValueError):
                 attendance = None
 
-        match_report_url = row.get("match_report")
+        match_report_url = clean(row.get("match_report"))
         if match_report_url and not match_report_url.startswith("http"):
             match_report_url = "https://fbref.com" + match_report_url
 
@@ -72,7 +73,7 @@ def main():
         if hasattr(date_val, "strftime"):
             date_val = date_val.strftime("%Y-%m-%d")
 
-        time_str = row.get("time") or ""
+        time_str = clean(row.get("time")) or ""
         matches.append({
             "matchweek": int(row["week"]),
             "datetime": resolve_datetime(date_val, time_str),
@@ -80,8 +81,8 @@ def main():
             "away": row["away_team"],
             "score": score,
             "attendance": attendance,
-            "venue": row.get("venue") or "",
-            "referee": row.get("referee") or None,
+            "venue": clean(row.get("venue")) or "",
+            "referee": clean(row.get("referee")),
             "matchReportUrl": match_report_url,
         })
 
@@ -97,5 +98,7 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as error:
-        print("Fatal error:", error)
+        import traceback
+        traceback.print_exc()
+
         sysexit(1)

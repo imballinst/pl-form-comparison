@@ -10,6 +10,7 @@
     "stat:all": "tsx scripts/fetch-understat.ts && python3 scripts/fetch-fbref-schedule.py && python3 scripts/fetch-fbref-match-details.py && tsx scripts/merge-migration.ts && tsx scripts/derive-table.ts",
     "stat:update:match:all": "tsx scripts/fetch-understat.ts && python3 scripts/fetch-fbref-match-details.py && tsx scripts/merge-migration.ts && tsx scripts/derive-table.ts",
     "stat:update:match:understat": "tsx scripts/fetch-understat.ts && tsx scripts/merge-migration.ts && tsx scripts/derive-table.ts",
+    "stat:postprocess": "tsx scripts/merge-migration.ts && tsx scripts/derive-table.ts",
     "typecheck": "react-router typegen && tsc",
     "test": "vitest"
   },

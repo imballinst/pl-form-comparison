@@ -1,0 +1,40 @@
+{
+  "2026-08-21_Arsenal_Coventry City": {
+    "officials": [
+      {
+        "name": "Thomas Bramall",
+        "role": "Referee"
+      },
+      {
+        "name": "Gary Beswick",
+        "role": "AR1"
+      },
+      {
+        "name": "Matthew Wilkes",
+        "role": "AR2"
+      },
+      {
+        "name": "Adam Herczeg",
+        "role": "4th"
+      },
+      {
+        "name": "Jarred Gillett",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 10,
+      "corners": 8,
+      "offsides": 5
+    },
+    "away": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 13,
+      "corners": 2,
+      "offsides": 0
+    }
+  }
+}

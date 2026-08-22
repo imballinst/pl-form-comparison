@@ -5,6 +5,8 @@ import type { FbrefScheduleEntry, MatchDetail, UnderstatRawData, UnderstatTeamHi
 import { YEAR } from './utils'
 
 const UNDERSTAT_TO_APP: Record<string, string> = {
+  Coventry: 'Coventry City',
+  Hull: 'Hull City',
   Tottenham: 'Tottenham Hotspur',
   'West Ham': 'West Ham United',
   Brighton: 'Brighton and Hove Albion',

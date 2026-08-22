@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Arsenal",
+    "abbr": "ARS",
+    "shortName": "Arsenal",
+    "played": 1,
+    "wins": 1,
+    "draws": 0,
+    "losses": 0,
+    "points": 3,
+    "gf": 3,
+    "ga": 0,
+    "gd": 3
+  },
+  {
+    "name": "Coventry City",
+    "abbr": "COV",
+    "shortName": "Coventry City",
+    "played": 1,
+    "wins": 0,
+    "draws": 0,
+    "losses": 1,
+    "points": 0,
+    "gf": 0,
+    "ga": 3,
+    "gd": -3
+  }
+]

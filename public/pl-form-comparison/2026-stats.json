@@ -1,0 +1,166 @@
+{
+  "teams": {
+    "Arsenal": {
+      "Thomas Bramall": {
+        "Home": {
+          "Referee": [
+            "31180"
+          ],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Gary Beswick": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Matthew Wilkes": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Adam Herczeg": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Jarred Gillett": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": [
+            "31180"
+          ]
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      }
+    },
+    "Coventry City": {
+      "Thomas Bramall": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [
+            "31180"
+          ],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Gary Beswick": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Matthew Wilkes": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Adam Herczeg": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Jarred Gillett": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": [
+            "31180"
+          ]
+        }
+      }
+    }
+  },
+  "matchStatRecord": {
+    "31180": {
+      "Arsenal": {
+        "goals": 3,
+        "goalsConceded": 0,
+        "expectedGoals": 1.85424,
+        "wonCorners": 8,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 10,
+        "totalOffside": 5,
+        "penaltyConceded": 0,
+        "totalYelCard": 1,
+        "totalRedCard": 0
+      },
+      "Coventry City": {
+        "goals": 0,
+        "goalsConceded": 3,
+        "expectedGoals": 0.558336,
+        "wonCorners": 2,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 13,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 1,
+        "totalRedCard": 0
+      }
+    }
+  }
+}
