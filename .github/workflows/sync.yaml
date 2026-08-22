@@ -28,7 +28,7 @@ jobs:
         run: |
           yarn
           pip install soccerdata beautifulsoup4 playwright
-          playwright install chromium
+          playwright install chromium --with-deps
 
       - name: Sync data
         run: yarn stats:update
