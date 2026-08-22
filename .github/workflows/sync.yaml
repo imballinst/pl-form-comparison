@@ -20,8 +20,20 @@ jobs:
         with:
           node-version: '24'
 
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: Install deps
+        run: |
+          yarn
+          pip install soccerdata beautifulsoup4 playwright
+          playwright install chromium
+
       - name: Sync data
-        run: yarn && yarn stats:update
+        run: yarn stats:update
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ~/.cache/ms-playwright
 
       # Commit only if there are changes
       - name: Check for changes

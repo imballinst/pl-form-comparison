@@ -13,6 +13,7 @@
     "stat:merge": "tsx scripts/merge-migration.ts",
     "stat:derive-table": "tsx scripts/derive-table.ts",
     "stat:all": "tsx scripts/fetch-understat.ts && python3 scripts/fetch-fbref-schedule.py && python3 scripts/fetch-fbref-match-details.py && tsx scripts/merge-migration.ts && tsx scripts/derive-table.ts",
+    "stat:update": "tsx scripts/fetch-understat.ts && python3 scripts/fetch-fbref-match-details.py && tsx scripts/merge-migration.ts && tsx scripts/derive-table.ts",
     "typecheck": "react-router typegen && tsc",
     "test": "vitest"
   },
