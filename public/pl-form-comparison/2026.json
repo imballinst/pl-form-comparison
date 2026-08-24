@@ -263,7 +263,7 @@
         "ground": "The American Express Stadium",
         "attendance": null,
         "stats": {
-          "referee": null,
+          "referee": "Peter Bankes",
           "fbref": null,
           "understat": {
             "homeXg": 4.00327,
@@ -293,10 +293,25 @@
           "redCards": 0
         },
         "ground": "Etihad Stadium",
-        "attendance": null,
+        "attendance": 60645,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Jarred Gillett",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 8,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.47444,
             "awayXg": 0.707541
@@ -325,9 +340,9 @@
           "redCards": 0
         },
         "ground": "St James' Park",
-        "attendance": null,
+        "attendance": 52630,
         "stats": {
-          "referee": null,
+          "referee": "Stuart Attwell",
           "fbref": null,
           "understat": {
             "homeXg": 1.59465,

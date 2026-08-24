@@ -70,33 +70,33 @@
     "datetime": "2026-08-23T13:00:00Z",
     "home": "Brighton",
     "away": "Aston Villa",
-    "score": "",
+    "score": "4–0",
     "attendance": null,
     "venue": "The American Express Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Peter Bankes",
+    "matchReportUrl": "https://fbref.com/en/matches/cc39f2ef/Brighton-and-Hove-Albion-Aston-Villa-August-23-2026-Premier-League"
   },
   {
     "matchweek": 1,
     "datetime": "2026-08-23T13:00:00Z",
     "home": "Manchester City",
     "away": "Bournemouth",
-    "score": "",
-    "attendance": null,
+    "score": "2–1",
+    "attendance": 60645,
     "venue": "Etihad Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Jarred Gillett",
+    "matchReportUrl": "https://fbref.com/en/matches/029e3234/Manchester-City-Bournemouth-August-23-2026-Premier-League"
   },
   {
     "matchweek": 1,
     "datetime": "2026-08-23T15:30:00Z",
     "home": "Newcastle",
     "away": "Liverpool",
-    "score": "",
-    "attendance": null,
+    "score": "2–2",
+    "attendance": 52630,
     "venue": "St James' Park",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Stuart Attwell",
+    "matchReportUrl": "https://fbref.com/en/matches/a02c581c/Newcastle-United-Liverpool-August-23-2026-Premier-League"
   },
   {
     "matchweek": 1,

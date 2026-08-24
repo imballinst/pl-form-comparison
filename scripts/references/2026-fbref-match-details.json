@@ -226,5 +226,119 @@
       "corners": 2,
       "offsides": 3
     }
+  },
+  "2026-08-23_Brighton_Aston Villa": {
+    "officials": [
+      {
+        "name": "Peter Bankes",
+        "role": "Referee"
+      },
+      {
+        "name": "Ian Hussin",
+        "role": "AR1"
+      },
+      {
+        "name": "Wade Smith",
+        "role": "AR2"
+      },
+      {
+        "name": "Michael Salisbury",
+        "role": "4th"
+      },
+      {
+        "name": "Matt Donohue",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 12,
+      "corners": 5,
+      "offsides": 6
+    },
+    "away": {
+      "yellowCards": 3,
+      "redCards": 1,
+      "fouls": 9,
+      "corners": 2,
+      "offsides": 2
+    }
+  },
+  "2026-08-23_Manchester City_Bournemouth": {
+    "officials": [
+      {
+        "name": "Jarred Gillett",
+        "role": "Referee"
+      },
+      {
+        "name": "Neil Davies",
+        "role": "AR1"
+      },
+      {
+        "name": "Steve Meredith",
+        "role": "AR2"
+      },
+      {
+        "name": "Robert Jones",
+        "role": "4th"
+      },
+      {
+        "name": "Paul Howard",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 11,
+      "corners": 8,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 11,
+      "corners": 3,
+      "offsides": 1
+    }
+  },
+  "2026-08-23_Newcastle_Liverpool": {
+    "officials": [
+      {
+        "name": "Stuart Attwell",
+        "role": "Referee"
+      },
+      {
+        "name": "Constantine Hatzidakis",
+        "role": "AR1"
+      },
+      {
+        "name": "Lee Betts",
+        "role": "AR2"
+      },
+      {
+        "name": "Tony Harrington",
+        "role": "4th"
+      },
+      {
+        "name": "James Bell",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 5,
+      "redCards": 0,
+      "fouls": 16,
+      "corners": 2,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 3,
+      "redCards": 0,
+      "fouls": 15,
+      "corners": 6,
+      "offsides": 1
+    }
   }
 }
