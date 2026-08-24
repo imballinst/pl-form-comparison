@@ -217,6 +217,53 @@ test('a promoted team shows "-" score tags for the seasons before it joined the 
   }
 })
 
+test('a team present in all seasons shows real score tags for prior seasons', async () => {
+  scenario.active = true
+  scenario.CURRENT_SEASON = '2099'
+  scenario.TEAMS_PER_SEASON = {
+    '2099': ['Stable Team', 'Opponent'],
+    '2098': ['Stable Team', 'Opponent'],
+    '2097': ['Stable Team', 'Opponent'],
+  }
+  scenario.fixtures = {
+    '2099': [makeMatch('Stable Team', 'Opponent', '20', 'PreMatch')],
+    '2098': [makeMatch('Stable Team', 'Opponent', '20', 'FullTime', 2, 1)],
+    '2097': [makeMatch('Stable Team', 'Opponent', '20', 'FullTime', 1, 1)],
+  }
+  scenario.table = { '2099': [] }
+
+  const Stub = createRoutesStub([
+    {
+      path: '/',
+      Component: CompareRemainingMatches,
+      loader: ({ request }) =>
+        clientLoader({
+          request,
+          context: new RouterContextProvider(),
+          unstable_pattern: '',
+          async serverLoader() {},
+          params: {},
+        }),
+      HydrateFallback: () => null,
+      children: [],
+    },
+  ])
+
+  renderTest(<Stub initialEntries={[{ pathname: '/', search: '?teams=Stable Team' }]} />)
+
+  await screen.findByRole('heading', { name: 'Remaining Matches' })
+
+  const previousSeason = String(Number(scenario.CURRENT_SEASON) - 1)
+  const twoSeasonsAgo = String(Number(scenario.CURRENT_SEASON) - 2)
+
+  for (const season of [previousSeason, twoSeasonsAgo]) {
+    const result = countTags(season)
+    expect(result.total).toBeGreaterThan(0)
+    expect(result.dash).toBe(0)
+    expect(result.real).toBe(result.total)
+  }
+})
+
 function seasonTags(season: string): HTMLElement[] {
   return Array.from(document.querySelectorAll<HTMLElement>(`[data-season="${season}"]`))
 }
@@ -231,4 +278,15 @@ function countTags(season: string) {
     else if (/\d+-\d+/.test(tag.textContent ?? '')) real++
   }
   return { real, dash, total: tags.length }
+}
+
+function makeMatch(home: string, away: string, matchWeek: string, period: string, homeScore = 0, awayScore = 0) {
+  return {
+    homeTeam: { name: home, score: homeScore, id: 1, shortName: home.slice(0, 3), abbr: home.slice(0, 3), redCards: 0 },
+    awayTeam: { name: away, score: awayScore, id: 2, shortName: away.slice(0, 3), abbr: away.slice(0, 3), redCards: 0 },
+    period,
+    matchWeek,
+    kickoff: '2099-01-01 15:00:00',
+    season: '2099',
+  } as any
 }
