@@ -286,9 +286,6 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
                 }
 
                 const [lastSeasonMatch, twoSeasonsAgoMatch] = teamMatchInfo.pastTwoSeasonsMatchInfo
-                if (!lastSeasonMatch || !twoSeasonsAgoMatch) {
-                  console.info(team, teamMatchInfo, lastSeasonMatch, twoSeasonsAgoMatch)
-                }
 
                 return (
                   <TableCell key={idx} className="text-center">
@@ -360,10 +357,18 @@ function ScoreTag({
   currentSeasonOpponent,
   currentColumnTeam,
 }: {
-  match: FullMatchInfo
+  match?: FullMatchInfo
   currentSeasonOpponent: string
   currentColumnTeam: string
 }) {
+  if (!match) {
+    return (
+      <div className="p-1 py-0.5 rounded text-sm flex items-center justify-center gap-x-1 font-mono text-gray-400">
+        –
+      </div>
+    )
+  }
+
   return (
     <div className={clsx(match.color, 'p-1 py-0.5 rounded text-sm flex items-center justify-center gap-x-1 font-mono')}>
       <div>

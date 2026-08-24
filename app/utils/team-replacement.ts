@@ -1,5 +1,9 @@
 import { TEAMS_PER_SEASON } from '@/constants'
 
+// Keyed by season: "2022" -> 2022-23, "2023" -> 2023-24, "2024" -> 2024-25, "2025" -> 2025-26.
+// The club gets promoted/relegated in that season. Both maps share the same keys (2022-2025);
+// the live 2026-27 season is omitted because its relegation result isn't known yet.
+// PROMOTED lists the teams that came up into that season; RELEGATED lists the teams that went down from it.
 export const PROMOTED_TEAMS_TO_PREMIER_LEAGUE: Record<string, string[]> = {
   '2025': ['Coventry City', 'Ipswich Town', 'Hull City'],
   '2024': ['Leeds United', 'Burnley', 'Sunderland'],
@@ -14,30 +18,46 @@ const RELEGATED_TEAMS_FROM_PREMIER_LEAGUE: Record<string, string[]> = {
 }
 
 export function getEquivalentTeamFromAnotherSeason(team: string, from: number, to: number) {
-  if (TEAMS_PER_SEASON[to]?.includes(team)) {
-    // If team exist in the said season, then return directly.
+  if (from === to) {
     return team
   }
 
-  let currentTeamPromotionIndex = -1
-  for (const seasonKey in PROMOTED_TEAMS_TO_PREMIER_LEAGUE) {
-    currentTeamPromotionIndex = PROMOTED_TEAMS_TO_PREMIER_LEAGUE[seasonKey].indexOf(team)
-    if (currentTeamPromotionIndex > -1) {
-      break
-    }
+  if (TEAMS_PER_SEASON[to]?.includes(team)) {
+    // Team already plays in the target season; no cross-season substitution needed.
+    return team
   }
 
-  // The team isn't in Premier League that season, so we find the equivalent index.
-  const relegatedTeamsTargetYear = RELEGATED_TEAMS_FROM_PREMIER_LEAGUE[to.toString()]
-  if (!relegatedTeamsTargetYear) {
-    throw new Error(`Missing relegated teams to target year ${from}`)
+  // `from`/`to` are TEAMS indices (the season's end year, e.g. 2026 = 2025-26).
+  // RELEGATED is keyed by that same end year, but PROMOTED is keyed by the season's start year
+  // (promotees of season N+1 live under key N), so PROMOTED keys shift by -1.
+  const promotedFromKey = (from - 1).toString()
+  const promotedToKey = (to - 1).toString()
+
+  // Forward (current -> past): a team promoted into "from" replaced the team relegated from "to".
+  // Reverse (past -> current): a team relegated from "from" is replaced by the team promoted into "to".
+  // Slot index is kept aligned in both directions.
+  let anchorList = RELEGATED_TEAMS_FROM_PREMIER_LEAGUE[from.toString()]
+  let targetList = PROMOTED_TEAMS_TO_PREMIER_LEAGUE[promotedToKey]
+  if (from > to) {
+    anchorList = PROMOTED_TEAMS_TO_PREMIER_LEAGUE[promotedFromKey]
+    targetList = RELEGATED_TEAMS_FROM_PREMIER_LEAGUE[to.toString()]
   }
 
-  const equivalentTeam = relegatedTeamsTargetYear[currentTeamPromotionIndex]
+  if (!anchorList || !targetList) {
+    // No mapping data for this season pair (e.g. the live season whose result isn't known yet).
+    // Fall back to the team itself rather than crashing the caller.
+    return team
+  }
+
+  const slotIdx = anchorList.indexOf(team)
+  if (slotIdx === -1) {
+    // Team isn't a promoted/relegated mover in the "from" season, so there's no equivalent to resolve.
+    return team
+  }
+
+  const equivalentTeam = targetList[slotIdx]
   if (!equivalentTeam) {
-    throw new Error(
-      `No promoted team found from ${relegatedTeamsTargetYear.join(', ')}, want team ${team}, index ${currentTeamPromotionIndex}`,
-    )
+    throw new Error(`No equivalent team found for ${team} (index ${slotIdx}) in season ${to}`)
   }
 
   return equivalentTeam
