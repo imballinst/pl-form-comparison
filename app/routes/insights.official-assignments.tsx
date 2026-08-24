@@ -482,8 +482,8 @@ function TableBodyRow({ columnVirtualizer, row, rowVirtualizer, virtualPaddingLe
         )
       })()}
 
-      {virtualColumns.map((vc) => {
-        const cell = visibleCells[vc.index + 1]
+      {virtualColumns.slice(1).map((vc) => {
+        const cell = visibleCells[vc.index]
         const refereeKey = cell.column.columnDef.header?.toString() ?? ''
         const isRefereeColumn = cell.column.columnDef.meta?.type === 'referee'
 
@@ -777,8 +777,8 @@ function TableHeadComponentRow({ columnVirtualizer, headerGroup, virtualPaddingL
         const header = headerGroup.headers[0]
         return <TableHeadComponentCell key={header.id} header={header} className="sticky left-0" />
       })()}
-      {virtualColumns.map((virtualColumn) => {
-        const header = headerGroup.headers[virtualColumn.index + 1]
+      {virtualColumns.slice(1).map((virtualColumn) => {
+        const header = headerGroup.headers[virtualColumn.index]
         return <TableHeadComponentCell key={header.id} header={header} />
       })}
 

@@ -60,7 +60,7 @@ export function TeamWidget({ teamName, onRemove, onTeamSelect, widgetId, isDragg
         </Button>
       </div>
 
-      {teamInfo ? (
+      {teamInfo && teamName ? (
         <>
           <div className="flex gap-x-2 text-sm items-center justify-center">
             <LeaguePosition leaguePosition={teamInfo.leaguePosition} />
@@ -107,12 +107,12 @@ export function TeamWidget({ teamName, onRemove, onTeamSelect, widgetId, isDragg
               </div>
             </div>
           ) : (
-            <div className="text-sm text-gray-500 border-t pt-3 mt-auto">No upcoming matches</div>
+            <div className="text-sm text-gray-500 border-t pt-3 mt-auto">No upcoming matches.</div>
           )}
         </>
       ) : (
         <div className="flex items-center justify-center text-center flex-col flex-1">
-          <p className="text-sm text-gray-500 italic">No team selected yet</p>
+          <p className="text-sm text-gray-500 italic">{teamName && !teamInfo ? 'No matches data yet.' : 'No team selected yet.'}</p>
         </div>
       )}
     </div>

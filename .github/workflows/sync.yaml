@@ -24,18 +24,11 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Install deps
-        run: |
-          yarn
-          pip install soccerdata beautifulsoup4 playwright
-          playwright install chromium --with-deps
-
+      # Only sync score here because
       - name: Sync data
-        run: yarn stats:update
-        env:
-          PLAYWRIGHT_BROWSERS_PATH: ~/.cache/ms-playwright
+        run: stat:update:understat
 
-      # Commit only if there are changes
+      # Commit only if there are changes on the scores. For referees, we have to do it locally.
       - name: Check for changes
         id: gitcheck
         run: echo "changed=$(git status --porcelain | wc -l)" >> "$GITHUB_OUTPUT"

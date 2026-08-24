@@ -1,3 +1,26 @@
+const TEAMS_2026 = [
+  'Arsenal',
+  'Aston Villa',
+  'Bournemouth',
+  'Brentford',
+  'Brighton and Hove Albion',
+  'Chelsea',
+  'Coventry City',
+  'Crystal Palace',
+  'Everton',
+  'Fulham',
+  'Hull City',
+  'Ipswich Town',
+  'Leeds United',
+  'Liverpool',
+  'Manchester City',
+  'Manchester United',
+  'Newcastle United',
+  'Nottingham Forest',
+  'Sunderland',
+  'Tottenham Hotspur',
+]
+
 const TEAMS_2025 = [
   'Arsenal',
   'Aston Villa',
@@ -67,6 +90,7 @@ const TEAMS_2023 = [
 ]
 
 export const TEAMS_PER_SEASON: Record<string, string[]> = {
+  '2026': TEAMS_2026,
   '2025': TEAMS_2025,
   '2024': TEAMS_2024,
   '2023': TEAMS_2023,

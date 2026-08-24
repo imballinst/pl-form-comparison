@@ -46,7 +46,7 @@ def main():
 
     fbref = FBref(
         leagues="ENG-Premier League",
-        seasons=YEAR,
+        seasons=f"{YEAR}-{YEAR%100+1:02d}",
         path_to_browser=chrome_path,
         headless=False,
     )

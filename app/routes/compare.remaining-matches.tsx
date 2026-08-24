@@ -133,7 +133,7 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
   const isMobile = useIsMobile()
   // Each array element represents a gameweek, in each item is a record for each team's match.
   const data: Record<string, TableData> = {}
-  const gameWeeks = Object.keys(matchesAcrossSeasons.matchesByGameweekByTeamRecord).sort()
+  const gameWeeks = Object.keys(matchesAcrossSeasons.matchesByGameweekByTeamRecord).sort((a, b) => Number(a) - Number(b))
 
   // Track FDR values for averaging (home and away separately)
   const fdrTracker: Record<string, { home: number[]; away: number[] }> = {}
@@ -286,6 +286,9 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
                 }
 
                 const [lastSeasonMatch, twoSeasonsAgoMatch] = teamMatchInfo.pastTwoSeasonsMatchInfo
+                if (!lastSeasonMatch || !twoSeasonsAgoMatch) {
+                  console.info(team, teamMatchInfo, lastSeasonMatch, twoSeasonsAgoMatch)
+                }
 
                 return (
                   <TableCell key={idx} className="text-center">
@@ -433,13 +436,13 @@ function getMatchesAcrossSeasons(
     const iteratedTeams = [homeTeam.name, awayTeam.name].filter((team) => teams.includes(team))
     for (const team of iteratedTeams) {
       if (isMatchFinished(match)) {
-        matchesByGameweekByTeamRecord[match.matchWeek][team] = null
+        matchesByGameweekByTeamRecord[matchWeek][team] = null
         continue
       }
 
-      let key: string = `${match.matchWeek}`
-      if (matchesByGameweekByTeamRecord[match.matchWeek][team]) {
-        key = `${match.matchWeek}-rescheduled`
+      let key: string = `${matchWeek}`
+      if (matchesByGameweekByTeamRecord[matchWeek][team]) {
+        key = `${matchWeek}-rescheduled`
         matchesByGameweekByTeamRecord[key] = matchesByGameweekByTeamRecord[key] ?? {}
       }
 

@@ -15,55 +15,55 @@
     "datetime": "2026-08-22T16:30:00Z",
     "home": "Brentford",
     "away": "Tottenham",
-    "score": "",
-    "attendance": null,
+    "score": "3–0",
+    "attendance": 17180,
     "venue": "Gtech Community Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Michael Oliver",
+    "matchReportUrl": "https://fbref.com/en/matches/01f07042/Brentford-Tottenham-Hotspur-August-22-2026-Premier-League"
   },
   {
     "matchweek": 1,
     "datetime": "2026-08-22T14:00:00Z",
     "home": "Everton",
     "away": "Crystal Palace",
-    "score": "",
-    "attendance": null,
+    "score": "2–0",
+    "attendance": 51820,
     "venue": "Hill Dickinson Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Paul Tierney",
+    "matchReportUrl": "https://fbref.com/en/matches/cbc27eaf/Everton-Crystal-Palace-August-22-2026-Premier-League"
   },
   {
     "matchweek": 1,
     "datetime": "2026-08-22T11:30:00Z",
     "home": "Hull City",
     "away": "Manchester Utd",
-    "score": "",
-    "attendance": null,
+    "score": "2–0",
+    "attendance": 24470,
     "venue": "MKM Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Darren England",
+    "matchReportUrl": "https://fbref.com/en/matches/69e3855f/Hull-City-Manchester-United-August-22-2026-Premier-League"
   },
   {
     "matchweek": 1,
     "datetime": "2026-08-22T14:00:00Z",
     "home": "Ipswich Town",
     "away": "Sunderland",
-    "score": "",
-    "attendance": null,
+    "score": "2–1",
+    "attendance": 29669,
     "venue": "Portman Road Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Farai Hallam",
+    "matchReportUrl": "https://fbref.com/en/matches/2d0f0fb4/Ipswich-Town-Sunderland-August-22-2026-Premier-League"
   },
   {
     "matchweek": 1,
     "datetime": "2026-08-22T14:00:00Z",
     "home": "Nottingham",
     "away": "Leeds United",
-    "score": "",
-    "attendance": null,
+    "score": "0–1",
+    "attendance": 30739,
     "venue": "The City Ground",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Robert Jones",
+    "matchReportUrl": "https://fbref.com/en/matches/b6600c62/Nottingham-Forest-Leeds-United-August-22-2026-Premier-League"
   },
   {
     "matchweek": 1,

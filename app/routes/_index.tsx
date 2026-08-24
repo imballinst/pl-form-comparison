@@ -278,6 +278,6 @@ function getFullMatchInfoFromMatchInfo(match: MatchInfo, teamName: string): Full
 }
 
 function getPastFiveMatches(teamPastMatches: Record<string, FullMatchInfo[]>, teamName: string): FullMatchInfo[] {
-  const pastMatches = teamPastMatches[teamName].sort((a, b) => new Date(b.kickoff).getTime() - new Date(a.kickoff).getTime())
+  const pastMatches = (teamPastMatches[teamName] ?? []).sort((a, b) => new Date(b.kickoff).getTime() - new Date(a.kickoff).getTime())
   return pastMatches.slice(0, 5).reverse()
 }

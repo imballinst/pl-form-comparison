@@ -1,6 +1,5 @@
-import { BASE_PATH } from '@/constants'
+import { BASE_PATH, TEAMS_PER_SEASON } from '@/constants'
 import { truncateDecimals } from '@/lib/format'
-import dayjs from 'dayjs'
 import type {
   AllSeasonMatchOfficialAssignmentTableData,
   MatchInfo,
@@ -13,10 +12,11 @@ import type {
   SeasonTableData,
 } from '@/types'
 import axios from 'axios'
+import dayjs from 'dayjs'
 import { getScoreResult } from './match'
 
 export const OFFICIAL_ROLES = ['Referee', 'Video Assistant Referee'] as const
-export const AVAILABLE_SEASONS = ['2023', '2024', '2025']
+export const AVAILABLE_SEASONS = Object.keys(TEAMS_PER_SEASON)
 
 interface MatchOfficiatingSeasonInfo {
   teamsRecord: Record<string, MatchOfficialAssignmentPerTeamData>

@@ -42,7 +42,7 @@ const components: { title: string; href: string; description: string; lastUpdate
 export function Navbar({ className }: { className?: string }) {
   const isMobile = useIsMobile()
   const componentWithNewUpdates = components
-    .filter((c) => c.lastUpdatedAt && dayjs(c.lastUpdatedAt).diff(dayjs(), 'month', true) < 1)
+    .filter((c) => c.lastUpdatedAt && dayjs().diff(dayjs(c.lastUpdatedAt), 'month', true) < 1)
     .map((c) => c.title)
 
   return (
