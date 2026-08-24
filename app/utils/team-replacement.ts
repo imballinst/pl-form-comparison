@@ -18,7 +18,7 @@ const RELEGATED_TEAMS_FROM_PREMIER_LEAGUE: Record<string, string[]> = {
 }
 
 export function getEquivalentTeamFromAnotherSeason(team: string, from: number, to: number) {
-  if (from === to) {
+  if (from <= to) {
     return team
   }
 
@@ -51,8 +51,20 @@ export function getEquivalentTeamFromAnotherSeason(team: string, from: number, t
 
   const slotIdx = anchorList.indexOf(team)
   if (slotIdx === -1) {
-    // Team isn't a promoted/relegated mover in the "from" season, so there's no equivalent to resolve.
-    return team
+    // Going toward the past: the team may have been promoted in an earlier season K (K+1 < from).
+    // Its slot in the older target season was held by the team relegated from K+1 (the team it replaced).
+    // Look up from the biggest K down to the smallest so the season closest to `from` is tried first.
+    const promoKeys = Object.keys(PROMOTED_TEAMS_TO_PREMIER_LEAGUE)
+      .map(Number)
+      .filter((k) => k < from - 1)
+      .sort((a, b) => b - a)
+    for (const key of promoKeys) {
+      const keyStr = key.toString()
+      const promotedList = PROMOTED_TEAMS_TO_PREMIER_LEAGUE[keyStr]
+      const idx = promotedList.indexOf(team)
+
+      return RELEGATED_TEAMS_FROM_PREMIER_LEAGUE[keyStr][idx]
+    }
   }
 
   const equivalentTeam = targetList[slotIdx]

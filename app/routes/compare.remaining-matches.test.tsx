@@ -82,3 +82,53 @@ test('successfully renders', async () => {
   // 20 rows of the remaining matches, +3 the default rows.
   expect(shownRows.length).toBe(23)
 })
+
+test('promoted team (Sunderland) shows real scores for both the season it was in (2025) and the one it replaced (2024)', async () => {
+  const Stub = createRoutesStub([
+    {
+      path: '/',
+      Component: CompareRemainingMatches,
+      loader: ({ request }) =>
+        clientLoader({
+          request,
+          context: new RouterContextProvider(),
+          unstable_pattern: '',
+          async serverLoader() {},
+          params: {},
+        }),
+      HydrateFallback: () => null,
+      children: [],
+    },
+  ])
+
+  renderTest(<Stub initialEntries={[{ pathname: '/', search: '?teams=Sunderland' }]} />)
+
+  await screen.findByRole('heading', { name: 'Remaining Matches' })
+
+  const result2025 = countTags('2025')
+  const result2024 = countTags('2024')
+  // Sunderland was in the 2025 Premier League, so every 2025 cell is a real score (the actual encounter).
+  expect(result2025.total).toBeGreaterThan(0)
+  expect(result2025.dash).toBe(0)
+  expect(result2025.real).toBe(result2025.total)
+  // Sunderland was not in the 2024 Premier League, but its slot was held by the relegated team it replaced,
+  // so every 2024 cell still resolves to a real score (the "relegation index" equivalent).
+  expect(result2024.total).toBeGreaterThan(0)
+  expect(result2024.dash).toBe(0)
+  expect(result2024.real).toBe(result2024.total)
+})
+
+function seasonTags(season: string): HTMLElement[] {
+  return Array.from(document.querySelectorAll<HTMLElement>(`[data-season="${season}"]`))
+}
+
+function countTags(season: string) {
+  const tags = seasonTags(season)
+  let real = 0
+  let dash = 0
+  for (const tag of tags) {
+    if (tag.textContent?.includes('–')) dash++
+    else if (/\d+-\d+/.test(tag.textContent ?? '')) real++
+  }
+  return { real, dash, total: tags.length }
+}

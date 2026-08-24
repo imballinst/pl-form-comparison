@@ -36,7 +36,7 @@ interface TableData {
     {
       opponent: Team
       venue: string
-      pastTwoSeasonsMatchInfo: [FullMatchInfo, FullMatchInfo]
+      pastTwoSeasonsMatchInfo: [FullMatchInfo | undefined, FullMatchInfo | undefined]
       difficultyRating: number
     } | null
   >
@@ -301,14 +301,14 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
                       </div>
                       <div className="flex justify-center items-center">
                         <ul className="flex gap-x-2">
-                          <li>
+                          <li data-season={Number(CURRENT_SEASON) - 1}>
                             <ScoreTag
                               match={lastSeasonMatch}
                               currentSeasonOpponent={teamMatchInfo.opponent.name}
                               currentColumnTeam={team}
                             />
                           </li>
-                          <li>
+                          <li data-season={Number(CURRENT_SEASON) - 2}>
                             <ScoreTag
                               match={twoSeasonsAgoMatch}
                               currentSeasonOpponent={teamMatchInfo.opponent.name}
@@ -362,11 +362,7 @@ function ScoreTag({
   currentColumnTeam: string
 }) {
   if (!match) {
-    return (
-      <div className="p-1 py-0.5 rounded text-sm flex items-center justify-center gap-x-1 font-mono text-gray-400">
-        –
-      </div>
-    )
+    return <div className="p-1 py-0.5 rounded text-sm flex items-center justify-center gap-x-1 font-mono text-gray-400">–</div>
   }
 
   return (
@@ -410,16 +406,27 @@ function getMatchFromOtherSeason(
   team: string,
   venue: string,
 ) {
-  const teamFromOtherSeason = getEquivalentTeamFromAnotherSeason(opponent, year, targetYear)
-  let anchorKey: string
-
-  if (venue === 'home') {
-    anchorKey = getAnchorKeyFromString(team, teamFromOtherSeason, team)
-  } else {
-    anchorKey = getAnchorKeyFromString(teamFromOtherSeason, team, team)
+  let teamInTarget: string
+  let opponentInTarget: string
+  try {
+    // Map both the column team and the opponent into the target season (a promoted team resolves to the
+    // relegated team that occupied its slot).
+    teamInTarget = getEquivalentTeamFromAnotherSeason(team, year, targetYear)
+    opponentInTarget = getEquivalentTeamFromAnotherSeason(opponent, year, targetYear)
+  } catch {
+    // No equivalent team in the target season (e.g. a relegated opponent with no promotion slot).
+    // Treat as "no comparable past fixture" rather than crashing the whole table.
+    return undefined
   }
 
-  return record[anchorKey]
+  // The reverse fixture may have the opposite home/away orientation in the past season,
+  // so look up both orderings and use whichever exists.
+  const anchorKeys = [
+    getAnchorKeyFromString(teamInTarget, opponentInTarget, team),
+    getAnchorKeyFromString(opponentInTarget, teamInTarget, team),
+  ]
+
+  return anchorKeys.map((key) => record[key]).find((match) => match !== undefined)
 }
 
 function getMatchesAcrossSeasons(
@@ -468,12 +475,13 @@ function getMatchesAcrossSeasons(
   for (const team of teams) {
     const previousYears = Object.keys(matchesResponses).filter((year) => year !== CURRENT_SEASON)
     for (const previousYear of previousYears) {
-      fillRemainingMatchAnchorRecord(
-        comparison,
-        matchesResponses[previousYear].filter((match) => match.homeTeam.name === team || match.awayTeam.name === team),
-        team,
-        previousYear,
+      // A team promoted after `previousYear` wasn't in that season; key its comparison record under the
+      // team itself, but populate it from the relegated team that occupied its slot (its "relegation index").
+      const equivalentTeam = getEquivalentTeamFromAnotherSeason(team, Number(CURRENT_SEASON), Number(previousYear))
+      const seasonMatches = matchesResponses[previousYear].filter(
+        (match) => match.homeTeam.name === equivalentTeam || match.awayTeam.name === equivalentTeam,
       )
+      fillRemainingMatchAnchorRecord(comparison, seasonMatches, team, previousYear)
     }
   }
 

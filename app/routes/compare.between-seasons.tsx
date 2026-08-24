@@ -12,7 +12,7 @@ import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
 import { Info } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { useLoaderData, useSearchParams } from 'react-router'
+import { useLoaderData, useSearchParams, redirect } from 'react-router'
 import type { Route } from './+types/compare.between-seasons'
 
 // { "Arsenal vs Tottenham": FullMatchInfo }.
@@ -49,8 +49,15 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   }
 
   let comparedYear = params.get('comparedYear') ?? undefined
-  if (comparedYear && !TEAMS_PER_SEASON[comparedYear]) {
-    comparedYear = undefined
+  // Ditch the bidirectional case: we only compare a newer "anchor" season against an older
+  // "compared" season (never the reverse), so `comparedYear` must be strictly older.
+  if (comparedYear && (!TEAMS_PER_SEASON[comparedYear] || Number(comparedYear) >= Number(anchorYear))) {
+    // Normalize the URL instead of silently ignoring it: redirect to the same location without the
+    // invalid `comparedYear` (router-aware, so React Router's location stays in sync — unlike raw
+    // `window.pushState`, which would desync the router state).
+    const url = new URL(request.url)
+    url.searchParams.delete('comparedYear')
+    throw redirect(`${url.pathname}${url.search}`)
   }
 
   const matchesResponses = await fetchSeasons()
@@ -63,6 +70,8 @@ export default function ResultComparisonBySeason() {
   const { team, anchorMatches, anchorYear, comparedYear } = useLoaderData<typeof clientLoader>()
   const yearOptions = getTeamYearComparisonOptions(team)
   const [, setSearchParams] = useSearchParams()
+
+  const comparedYearOptions = yearOptions.filter((year) => Number(year) < Number(anchorYear))
 
   return (
     <>
@@ -98,14 +107,16 @@ export default function ResultComparisonBySeason() {
             </SelectContent>
           </Select>
 
-          {yearOptions.length > 2 && (
+          {yearOptions.length >= 2 && (
             <div className="flex gap-x-2 w-full md:w-[50%]">
               <Select
-                defaultValue={anchorYear}
+                value={anchorYear}
                 onValueChange={(value) => {
                   setSearchParams((prev) => {
                     const newSearchParams = new URLSearchParams(prev)
                     newSearchParams.set('anchorYear', value)
+                    // `comparedYear` must be strictly older than `anchorYear`; reset it on change.
+                    newSearchParams.delete('comparedYear')
                     return newSearchParams
                   })
                 }}
@@ -123,7 +134,7 @@ export default function ResultComparisonBySeason() {
               </Select>
 
               <Select
-                defaultValue={comparedYear}
+                value={comparedYear ?? ''}
                 onValueChange={(value) => {
                   setSearchParams((prev) => {
                     const newSearchParams = new URLSearchParams(prev)
@@ -136,7 +147,7 @@ export default function ResultComparisonBySeason() {
                   <SelectValue placeholder="Compared year" />
                 </SelectTrigger>
                 <SelectContent>
-                  {yearOptions.map((item) => (
+                  {comparedYearOptions.map((item) => (
                     <SelectItem key={item} value={item}>
                       {item}
                     </SelectItem>
@@ -344,21 +355,23 @@ function getMatchFromOtherSeason(
   team: string,
   venue: string,
 ) {
-  const teamFromOtherSeason = getEquivalentTeamFromAnotherSeason(opponent, year, targetYear)
-  let anchorKey: string
-
-  if (venue === 'home') {
-    anchorKey = getAnchorKeyFromString(team, teamFromOtherSeason, team)
-  } else {
-    anchorKey = getAnchorKeyFromString(teamFromOtherSeason, team, team)
-  }
-
-  if (!record[anchorKey]) {
-    // This is an edge case.
+  let teamFromOtherSeason: string
+  try {
+    teamFromOtherSeason = getEquivalentTeamFromAnotherSeason(opponent, year, targetYear)
+  } catch {
+    // No equivalent team in the target season (e.g. a relegated opponent with no promotion slot).
+    // Treat as "no comparable fixture" rather than crashing the whole table.
     return undefined
   }
 
-  return record[anchorKey]
+  // The reverse fixture may have the opposite home/away orientation in the compared season,
+  // so look up both orderings and use whichever exists.
+  const anchorKeys = [
+    getAnchorKeyFromString(team, teamFromOtherSeason, team),
+    getAnchorKeyFromString(teamFromOtherSeason, team, team),
+  ]
+
+  return anchorKeys.map((key) => record[key]).find((match) => match !== undefined)
 }
 
 function getTeamYearComparisonOptions(team: string) {
