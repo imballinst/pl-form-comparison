@@ -141,6 +141,19 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
     fdrTracker[team] = { home: [], away: [] }
   })
 
+  const previousSeason = String(Number(CURRENT_SEASON) - 1)
+  const twoSeasonsAgo = String(Number(CURRENT_SEASON) - 2)
+
+  // Gate once per team: a team that didn't play in a past season has no comparable
+  // fixture there, so its score tag for that season renders as "-".
+  const teamPlayedInSeason: Record<string, { last: boolean; twoAgo: boolean }> = {}
+  for (const team of teams) {
+    teamPlayedInSeason[team] = {
+      last: TEAMS_PER_SEASON[previousSeason]?.includes(team) ?? false,
+      twoAgo: TEAMS_PER_SEASON[twoSeasonsAgo]?.includes(team) ?? false,
+    }
+  }
+
   for (const gameweek of gameWeeks) {
     const matchesByTeamRecord = matchesAcrossSeasons.matchesByGameweekByTeamRecord[gameweek]
     const teams = Object.keys(matchesByTeamRecord)
@@ -192,26 +205,32 @@ function RemainingMatchesTable({ teams, matchesAcrossSeasons }: { matchesAcrossS
         fdrTracker[team].away.push(difficultyRating)
       }
 
+      const { last: showLast, twoAgo: showTwoAgo } = teamPlayedInSeason[team]
+
       existingData.teamMatchRecord[team] = {
         opponent: teamMatch.opponent,
         venue: teamMatch.venue,
         pastTwoSeasonsMatchInfo: [
-          getMatchFromOtherSeason(
-            matchesAcrossSeasons.comparison[Number(CURRENT_SEASON) - 1],
-            Number(CURRENT_SEASON),
-            Number(CURRENT_SEASON) - 1,
-            teamInPreviousSeason,
-            team,
-            teamMatch.venue,
-          ),
-          getMatchFromOtherSeason(
-            matchesAcrossSeasons.comparison[Number(CURRENT_SEASON) - 2],
-            Number(CURRENT_SEASON),
-            Number(CURRENT_SEASON) - 2,
-            teamInTwoSeasonsAgo,
-            team,
-            teamMatch.venue,
-          ),
+          showLast
+            ? getMatchFromOtherSeason(
+                matchesAcrossSeasons.comparison[previousSeason],
+                Number(CURRENT_SEASON),
+                Number(CURRENT_SEASON) - 1,
+                teamInPreviousSeason,
+                team,
+                teamMatch.venue,
+              )
+            : undefined,
+          showTwoAgo
+            ? getMatchFromOtherSeason(
+                matchesAcrossSeasons.comparison[twoSeasonsAgo],
+                Number(CURRENT_SEASON),
+                Number(CURRENT_SEASON) - 2,
+                teamInTwoSeasonsAgo,
+                team,
+                teamMatch.venue,
+              )
+            : undefined,
         ],
         difficultyRating,
       }

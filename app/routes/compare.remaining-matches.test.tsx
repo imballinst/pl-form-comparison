@@ -5,8 +5,8 @@ import '@testing-library/jest-dom'
 import { screen } from '@testing-library/react'
 import { readFile } from 'fs/promises'
 import path from 'path'
-import { createRoutesStub, RouterContextProvider } from 'react-router'
-import { expect, test, vi } from 'vitest'
+import { RouterContextProvider, createRoutesStub } from 'react-router'
+import { afterEach, expect, test, vi } from 'vitest'
 import CompareRemainingMatches, { clientLoader } from './compare.remaining-matches'
 
 // Override the "global" axios mock since we want a "customized" thing on this.
@@ -47,9 +47,52 @@ vi.mock('axios', async (importOriginal) => {
         }
       }
 
-      return { data: parsed }
+  return { data: parsed }
     },
   }
+})
+
+// Frozen, time-independent world. Tests populate this and flip `active` on so the
+// suite never depends on the real CURRENT_SEASON or the public/*.json fixtures.
+const scenario = vi.hoisted(() => ({
+  active: false,
+  CURRENT_SEASON: '2099',
+  TEAMS_PER_SEASON: {} as Record<string, string[]>,
+  fixtures: {} as Record<string, any[]>,
+  table: {} as Record<string, any[]>,
+}))
+
+vi.mock('@/constants', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@/constants')>()
+  return {
+    ...actual,
+    get CURRENT_SEASON() {
+      return scenario.active ? scenario.CURRENT_SEASON : actual.CURRENT_SEASON
+    },
+    get TEAMS_PER_SEASON() {
+      return scenario.active ? scenario.TEAMS_PER_SEASON : actual.TEAMS_PER_SEASON
+    },
+  } as any
+})
+
+vi.mock('@/utils/seasons-fetcher', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@/utils/seasons-fetcher')>()
+  return {
+    ...actual,
+    fetchSeasons: (seasonsParam?: string[]) => {
+      if (!scenario.active) return actual.fetchSeasons(seasonsParam)
+      const keys = seasonsParam ?? Object.keys(scenario.fixtures)
+      return Promise.resolve(Object.fromEntries(keys.map((k) => [k, scenario.fixtures[k] ?? []]))) as any
+    },
+    fetchSeasonTable: (season: string) => {
+      if (!scenario.active) return actual.fetchSeasonTable(season)
+      return Promise.resolve(scenario.table[season] ?? []) as any
+    },
+  } as any
+})
+
+afterEach(() => {
+  scenario.active = false
 })
 
 test('successfully renders', async () => {
@@ -83,7 +126,7 @@ test('successfully renders', async () => {
   expect(shownRows.length).toBe(23)
 })
 
-test('promoted team (Sunderland) shows real scores for both the season it was in (2025) and the one it replaced (2024)', async () => {
+test('a team shows real score tags against promoted team the season it was in (2025) and the one before it got promoted (2024)', async () => {
   const Stub = createRoutesStub([
     {
       path: '/',
@@ -101,21 +144,77 @@ test('promoted team (Sunderland) shows real scores for both the season it was in
     },
   ])
 
-  renderTest(<Stub initialEntries={[{ pathname: '/', search: '?teams=Sunderland' }]} />)
+  renderTest(<Stub initialEntries={[{ pathname: '/', search: '?teams=Arsenal' }]} />)
 
   await screen.findByRole('heading', { name: 'Remaining Matches' })
 
-  const result2025 = countTags('2025')
-  const result2024 = countTags('2024')
-  // Sunderland was in the 2025 Premier League, so every 2025 cell is a real score (the actual encounter).
-  expect(result2025.total).toBeGreaterThan(0)
-  expect(result2025.dash).toBe(0)
-  expect(result2025.real).toBe(result2025.total)
-  // Sunderland was not in the 2024 Premier League, but its slot was held by the relegated team it replaced,
-  // so every 2024 cell still resolves to a real score (the "relegation index" equivalent).
-  expect(result2024.total).toBeGreaterThan(0)
-  expect(result2024.dash).toBe(0)
-  expect(result2024.real).toBe(result2024.total)
+  const resultOneYearBefore = countTags(`${Number(CURRENT_SEASON) - 1}`)
+  const resultTwoYearsBefore = countTags(`${Number(CURRENT_SEASON) - 2}`)
+
+  expect(resultOneYearBefore.total).toBeGreaterThan(0)
+  expect(resultOneYearBefore.dash).toBe(0)
+  expect(resultOneYearBefore.real).toBe(resultOneYearBefore.total)
+
+  expect(resultTwoYearsBefore.total).toBeGreaterThan(0)
+  expect(resultTwoYearsBefore.dash).toBe(0)
+  expect(resultTwoYearsBefore.real).toBe(resultTwoYearsBefore.total)
+})
+
+test('a promoted team shows "-" score tags for the seasons before it joined the league', async () => {
+  // Freeze the world so the assertion never depends on the real current season or fixtures.
+  scenario.active = true
+  scenario.CURRENT_SEASON = '2099'
+  scenario.TEAMS_PER_SEASON = {
+    '2099': ['Newly Promoted', 'Opponent'],
+    '2098': ['Opponent'],
+    '2097': ['Opponent'],
+  }
+  scenario.fixtures = {
+    '2099': [
+      {
+        homeTeam: { name: 'Newly Promoted', score: 0, id: 1, shortName: 'NP', abbr: 'NP', redCards: 0 },
+        awayTeam: { name: 'Opponent', score: 0, id: 2, shortName: 'OP', abbr: 'OP', redCards: 0 },
+        period: 'PreMatch',
+        matchWeek: '20',
+        kickoff: '2099-01-01 15:00:00',
+        season: '2099',
+      } as any,
+    ],
+    '2098': [],
+    '2097': [],
+  }
+  scenario.table = { '2099': [] }
+
+  const Stub = createRoutesStub([
+    {
+      path: '/',
+      Component: CompareRemainingMatches,
+      loader: ({ request }) =>
+        clientLoader({
+          request,
+          context: new RouterContextProvider(),
+          unstable_pattern: '',
+          async serverLoader() {},
+          params: {},
+        }),
+      HydrateFallback: () => null,
+      children: [],
+    },
+  ])
+
+  renderTest(<Stub initialEntries={[{ pathname: '/', search: '?teams=Newly Promoted' }]} />)
+
+  await screen.findByRole('heading', { name: 'Remaining Matches' })
+
+  const previousSeason = String(Number(scenario.CURRENT_SEASON) - 1)
+  const twoSeasonsAgo = String(Number(scenario.CURRENT_SEASON) - 2)
+
+  for (const season of [previousSeason, twoSeasonsAgo]) {
+    const result = countTags(season)
+    expect(result.total).toBeGreaterThan(0)
+    expect(result.real).toBe(0)
+    expect(result.dash).toBe(result.total)
+  }
 })
 
 function seasonTags(season: string): HTMLElement[] {
@@ -127,6 +226,7 @@ function countTags(season: string) {
   let real = 0
   let dash = 0
   for (const tag of tags) {
+    console.info(season, tag.textContent)
     if (tag.textContent?.includes('–')) dash++
     else if (/\d+-\d+/.test(tag.textContent ?? '')) real++
   }
