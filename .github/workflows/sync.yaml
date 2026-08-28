@@ -26,7 +26,7 @@ jobs:
 
       # Only sync score here because
       - name: Sync data
-        run: stat:update:understat
+        run: yarn stat:update:understat
 
       # Commit only if there are changes on the scores. For referees, we have to do it locally.
       - name: Check for changes
