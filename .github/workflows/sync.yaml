@@ -20,13 +20,9 @@ jobs:
         with:
           node-version: '24'
 
-      - uses: actions/setup-python@v7
-        with:
-          python-version: '3.13'
-
       # Only sync score here because
       - name: Sync data
-        run: yarn stat:update:understat
+        run: yarn && yarn stat:update:understat
 
       # Commit only if there are changes on the scores. For referees, we have to do it locally.
       - name: Check for changes
