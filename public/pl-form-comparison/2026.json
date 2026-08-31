@@ -354,9 +354,9 @@
         "matchId": "31189",
         "matchweek": 1,
         "kickoff": "2026-08-24 19:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 2,
           "name": "Fulham",
           "id": "228",
           "shortName": "Fulham",
@@ -364,7 +364,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 3,
           "name": "Chelsea",
           "id": "80",
           "shortName": "Chelsea",
@@ -373,7 +373,14 @@
         },
         "ground": "Craven Cottage",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.41707,
+            "awayXg": 2.58384
+          }
+        }
       }
     ],
     "2": [
@@ -381,9 +388,9 @@
         "matchId": "31190",
         "matchweek": 2,
         "kickoff": "2026-08-28 19:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Crystal Palace",
           "id": "78",
           "shortName": "Crystal Palace",
@@ -391,7 +398,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 4,
           "name": "Manchester City",
           "id": "88",
           "shortName": "Manchester City",
@@ -400,15 +407,22 @@
         },
         "ground": "Selhurst Park",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 0.926624,
+            "awayXg": 2.56662
+          }
+        }
       },
       {
         "matchId": "31191",
         "matchweek": 2,
         "kickoff": "2026-08-29 11:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 2,
           "name": "Liverpool",
           "id": "87",
           "shortName": "Liverpool",
@@ -416,7 +430,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 2,
           "name": "Nottingham Forest",
           "id": "249",
           "shortName": "Nottingham Forest",
@@ -425,15 +439,22 @@
         },
         "ground": "Anfield",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.27921,
+            "awayXg": 2.87937
+          }
+        }
       },
       {
         "matchId": "31192",
         "matchweek": 2,
         "kickoff": "2026-08-29 14:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Coventry City",
           "id": "294",
           "shortName": "Coventry City",
@@ -441,7 +462,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Hull City",
           "id": "91",
           "shortName": "Hull City",
@@ -450,15 +471,22 @@
         },
         "ground": "Coventry Building Society Arena",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.18233,
+            "awayXg": 0.459726
+          }
+        }
       },
       {
         "matchId": "31193",
         "matchweek": 2,
         "kickoff": "2026-08-29 14:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Bournemouth",
           "id": "73",
           "shortName": "Bournemouth",
@@ -466,7 +494,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Everton",
           "id": "72",
           "shortName": "Everton",
@@ -475,15 +503,22 @@
         },
         "ground": "Vitality Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.25803,
+            "awayXg": 1.66352
+          }
+        }
       },
       {
         "matchId": "31194",
         "matchweek": 2,
         "kickoff": "2026-08-29 16:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Tottenham Hotspur",
           "id": "82",
           "shortName": "Tottenham Hotspur",
@@ -491,7 +526,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 2,
           "name": "Newcastle United",
           "id": "86",
           "shortName": "Newcastle United",
@@ -500,15 +535,22 @@
         },
         "ground": "Tottenham Hotspur Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.12037,
+            "awayXg": 1.00952
+          }
+        }
       },
       {
         "matchId": "31195",
         "matchweek": 2,
         "kickoff": "2026-08-30 13:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Sunderland",
           "id": "77",
           "shortName": "Sunderland",
@@ -516,7 +558,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 0,
           "name": "Fulham",
           "id": "228",
           "shortName": "Fulham",
@@ -525,15 +567,22 @@
         },
         "ground": "Stadium of Light",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.56229,
+            "awayXg": 1.02405
+          }
+        }
       },
       {
         "matchId": "31196",
         "matchweek": 2,
         "kickoff": "2026-08-30 13:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 4,
           "name": "Chelsea",
           "id": "80",
           "shortName": "Chelsea",
@@ -541,7 +590,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 3,
           "name": "Brighton and Hove Albion",
           "id": "220",
           "shortName": "Brighton and Hove Albion",
@@ -550,15 +599,22 @@
         },
         "ground": "Stamford Bridge",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.29007,
+            "awayXg": 0.0438426
+          }
+        }
       },
       {
         "matchId": "31197",
         "matchweek": 2,
         "kickoff": "2026-08-30 13:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Leeds United",
           "id": "245",
           "shortName": "Leeds United",
@@ -566,7 +622,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Brentford",
           "id": "244",
           "shortName": "Brentford",
@@ -575,15 +631,22 @@
         },
         "ground": "Elland Road",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.14993,
+            "awayXg": 1.61344
+          }
+        }
       },
       {
         "matchId": "31198",
         "matchweek": 2,
         "kickoff": "2026-08-30 15:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 5,
           "name": "Manchester United",
           "id": "89",
           "shortName": "Manchester United",
@@ -591,7 +654,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 2,
           "name": "Ipswich Town",
           "id": "285",
           "shortName": "Ipswich Town",
@@ -600,7 +663,14 @@
         },
         "ground": "Old Trafford",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 4.86612,
+            "awayXg": 1.80548
+          }
+        }
       },
       {
         "matchId": "31199",
