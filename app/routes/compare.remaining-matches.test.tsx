@@ -47,7 +47,7 @@ vi.mock('axios', async (importOriginal) => {
         }
       }
 
-  return { data: parsed }
+      return { data: parsed }
     },
   }
 })
@@ -273,7 +273,6 @@ function countTags(season: string) {
   let real = 0
   let dash = 0
   for (const tag of tags) {
-    console.info(season, tag.textContent)
     if (tag.textContent?.includes('–')) dash++
     else if (/\d+-\d+/.test(tag.textContent ?? '')) real++
   }

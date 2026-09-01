@@ -12,7 +12,7 @@ import { getEquivalentTeamFromAnotherSeason } from '@/utils/team-replacement'
 import clsx from 'clsx'
 import { Info } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { useLoaderData, useSearchParams, redirect } from 'react-router'
+import { redirect, useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/compare.between-seasons'
 
 // { "Arsenal vs Tottenham": FullMatchInfo }.
@@ -366,12 +366,9 @@ function getMatchFromOtherSeason(
 
   // The reverse fixture may have the opposite home/away orientation in the compared season,
   // so look up both orderings and use whichever exists.
-  const anchorKeys = [
-    getAnchorKeyFromString(team, teamFromOtherSeason, team),
-    getAnchorKeyFromString(teamFromOtherSeason, team, team),
-  ]
-
-  return anchorKeys.map((key) => record[key]).find((match) => match !== undefined)
+  const key =
+    venue === 'home' ? getAnchorKeyFromString(team, teamFromOtherSeason, team) : getAnchorKeyFromString(teamFromOtherSeason, team, team)
+  return record[key]
 }
 
 function getTeamYearComparisonOptions(team: string) {
