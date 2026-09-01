@@ -264,6 +264,70 @@ test('a team present in all seasons shows real score tags for prior seasons', as
   }
 })
 
+test('past season match respects venue orientation when two legs exist between same teams', async () => {
+  scenario.active = true
+  scenario.CURRENT_SEASON = '2099'
+  scenario.TEAMS_PER_SEASON = {
+    '2099': ['Team', 'Opponent'],
+    '2098': ['Team', 'Opponent'],
+    '2097': ['Team', 'Opponent'],
+  }
+  scenario.fixtures = {
+    '2099': [
+      // Team plays Opponent away (GW 20)
+      {
+        homeTeam: { name: 'Opponent', score: 0, id: 2, shortName: 'OP', abbr: 'OP', redCards: 0 },
+        awayTeam: { name: 'Team', score: 0, id: 1, shortName: 'Tea', abbr: 'Tea', redCards: 0 },
+        period: 'PreMatch',
+        matchWeek: '20',
+        kickoff: '2099-01-01 15:00:00',
+        season: '2099',
+      } as any,
+    ],
+    '2098': [
+      // Team home vs Opponent (GW 20): Team wins 3-1
+      makeMatch('Team', 'Opponent', '20', 'FullTime', 3, 1),
+      // Team away vs Opponent (GW 30): Team loses 0-2
+      makeMatch('Opponent', 'Team', '30', 'FullTime', 0, 2),
+    ],
+    '2097': [],
+  }
+  scenario.table = { '2099': [] }
+
+  const Stub = createRoutesStub([
+    {
+      path: '/',
+      Component: CompareRemainingMatches,
+      loader: ({ request }) =>
+        clientLoader({
+          request,
+          context: new RouterContextProvider(),
+          unstable_pattern: '',
+          async serverLoader() {},
+          params: {},
+        }),
+      HydrateFallback: () => null,
+      children: [],
+    },
+  ])
+
+  renderTest(<Stub initialEntries={[{ pathname: '/', search: '?teams=Team' }]} />)
+
+  await screen.findByRole('heading', { name: 'Remaining Matches' })
+
+  const previousSeason = String(Number(scenario.CURRENT_SEASON) - 1)
+  const tags = seasonTags(previousSeason)
+  expect(tags.length).toBeGreaterThan(0)
+
+  // The only remaining fixture is Team away vs Opponent (GW 20).
+  // The past season has Team home 3-1 and Team away 0-2.
+  // It should show the away-leg result (0-2), not the home-leg result (3-1).
+  for (const tag of tags) {
+    expect(tag.textContent).toContain('0-2')
+    expect(tag.textContent).not.toContain('3-1')
+  }
+})
+
 function seasonTags(season: string): HTMLElement[] {
   return Array.from(document.querySelectorAll<HTMLElement>(`[data-season="${season}"]`))
 }

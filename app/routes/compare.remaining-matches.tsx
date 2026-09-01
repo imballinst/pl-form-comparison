@@ -439,13 +439,18 @@ function getMatchFromOtherSeason(
   }
 
   // The reverse fixture may have the opposite home/away orientation in the past season,
-  // so look up both orderings and use whichever exists.
+  // so look up both orderings and use whichever exists. The two legs between the same
+  // teams can appear, so prefer the leg matching the current season's venue instead of
+  // just returning whichever comes first.
   const anchorKeys = [
     getAnchorKeyFromString(teamInTarget, opponentInTarget, team),
     getAnchorKeyFromString(opponentInTarget, teamInTarget, team),
   ]
 
-  return anchorKeys.map((key) => record[key]).find((match) => match !== undefined)
+  return anchorKeys
+    .map((key) => record[key])
+    .find((match) => match !== undefined && match.venue === venue)
+    ?? anchorKeys.map((key) => record[key]).find((match) => match !== undefined)
 }
 
 function getMatchesAcrossSeasons(
