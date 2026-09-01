@@ -13,6 +13,19 @@
     "gd": 4
   },
   {
+    "name": "Arsenal",
+    "abbr": "ARS",
+    "shortName": "Arsenal",
+    "played": 2,
+    "wins": 2,
+    "draws": 0,
+    "losses": 0,
+    "points": 6,
+    "gf": 4,
+    "ga": 0,
+    "gd": 4
+  },
+  {
     "name": "Hull City",
     "abbr": "HUL",
     "shortName": "Hull City",
@@ -101,19 +114,6 @@
     "points": 3,
     "gf": 7,
     "ga": 4,
-    "gd": 3
-  },
-  {
-    "name": "Arsenal",
-    "abbr": "ARS",
-    "shortName": "Arsenal",
-    "played": 1,
-    "wins": 1,
-    "draws": 0,
-    "losses": 0,
-    "points": 3,
-    "gf": 3,
-    "ga": 0,
     "gd": 3
   },
   {
@@ -221,19 +221,6 @@
     "gd": -4
   },
   {
-    "name": "Aston Villa",
-    "abbr": "AVL",
-    "shortName": "Aston Villa",
-    "played": 1,
-    "wins": 0,
-    "draws": 0,
-    "losses": 1,
-    "points": 0,
-    "gf": 0,
-    "ga": 4,
-    "gd": -4
-  },
-  {
     "name": "Crystal Palace",
     "abbr": "CRY",
     "shortName": "Crystal Palace",
@@ -250,6 +237,19 @@
     "name": "Tottenham Hotspur",
     "abbr": "TOT",
     "shortName": "Tottenham Hotspur",
+    "played": 2,
+    "wins": 0,
+    "draws": 0,
+    "losses": 2,
+    "points": 0,
+    "gf": 0,
+    "ga": 5,
+    "gd": -5
+  },
+  {
+    "name": "Aston Villa",
+    "abbr": "AVL",
+    "shortName": "Aston Villa",
     "played": 2,
     "wins": 0,
     "draws": 0,

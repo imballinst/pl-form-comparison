@@ -603,8 +603,8 @@
           "referee": null,
           "fbref": null,
           "understat": {
-            "homeXg": 1.29007,
-            "awayXg": 0.0438426
+            "homeXg": 3.8289,
+            "awayXg": 1.79173
           }
         }
       },
@@ -676,9 +676,9 @@
         "matchId": "31199",
         "matchweek": 2,
         "kickoff": "2026-08-31 19:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Aston Villa",
           "id": "71",
           "shortName": "Aston Villa",
@@ -686,7 +686,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Arsenal",
           "id": "83",
           "shortName": "Arsenal",
@@ -695,7 +695,14 @@
         },
         "ground": "Villa Park",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 0.281925,
+            "awayXg": 1.52441
+          }
+        }
       }
     ],
     "3": [

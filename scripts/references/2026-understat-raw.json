@@ -30,6 +30,33 @@
           "loses": 1,
           "pts": 0,
           "npxGD": -3.7280209999999996
+        },
+        {
+          "h_a": "h",
+          "xG": 0.281925,
+          "xGA": 1.52441,
+          "npxG": 0.281925,
+          "npxGA": 1.52441,
+          "ppda": {
+            "att": 300,
+            "def": 16
+          },
+          "ppda_allowed": {
+            "att": 169,
+            "def": 17
+          },
+          "deep": 5,
+          "deep_allowed": 8,
+          "scored": 0,
+          "missed": 1,
+          "xpts": 0.207,
+          "result": "l",
+          "date": "2026-08-31 19:00:00",
+          "wins": 0,
+          "draws": 0,
+          "loses": 1,
+          "pts": 0,
+          "npxGD": -1.242485
         }
       ]
     },
@@ -306,30 +333,30 @@
         },
         {
           "h_a": "h",
-          "xG": 1.29007,
-          "xGA": 0.0438426,
-          "npxG": 1.29007,
-          "npxGA": 0.0438426,
+          "xG": 3.8289,
+          "xGA": 1.79173,
+          "npxG": 3.8289,
+          "npxGA": 1.79173,
           "ppda": {
-            "att": 392,
-            "def": 14
+            "att": 410,
+            "def": 15
           },
           "ppda_allowed": {
-            "att": 83,
-            "def": 20
+            "att": 91,
+            "def": 21
           },
           "deep": 13,
-          "deep_allowed": 7,
+          "deep_allowed": 5,
           "scored": 4,
           "missed": 3,
-          "xpts": 2.7027,
+          "xpts": 2.5465,
           "result": "w",
           "date": "2026-08-30 13:00:00",
           "wins": 1,
           "draws": 0,
           "loses": 0,
           "pts": 3,
-          "npxGD": 1.2462274
+          "npxGD": 2.0371699999999997
         }
       ]
     },
@@ -423,6 +450,33 @@
           "loses": 0,
           "pts": 3,
           "npxGD": 1.2959040000000002
+        },
+        {
+          "h_a": "a",
+          "xG": 1.52441,
+          "xGA": 0.281925,
+          "npxG": 1.52441,
+          "npxGA": 0.281925,
+          "ppda": {
+            "att": 169,
+            "def": 17
+          },
+          "ppda_allowed": {
+            "att": 300,
+            "def": 16
+          },
+          "deep": 8,
+          "deep_allowed": 5,
+          "scored": 1,
+          "missed": 0,
+          "xpts": 2.6457,
+          "result": "w",
+          "date": "2026-08-31 19:00:00",
+          "wins": 1,
+          "draws": 0,
+          "loses": 0,
+          "pts": 3,
+          "npxGD": 1.242485
         }
       ]
     },
@@ -759,30 +813,30 @@
         },
         {
           "h_a": "a",
-          "xG": 0.0438426,
-          "xGA": 1.29007,
-          "npxG": 0.0438426,
-          "npxGA": 1.29007,
+          "xG": 1.79173,
+          "xGA": 3.8289,
+          "npxG": 1.79173,
+          "npxGA": 3.8289,
           "ppda": {
-            "att": 83,
-            "def": 20
+            "att": 91,
+            "def": 21
           },
           "ppda_allowed": {
-            "att": 392,
-            "def": 14
+            "att": 410,
+            "def": 15
           },
-          "deep": 7,
+          "deep": 5,
           "deep_allowed": 13,
           "scored": 3,
           "missed": 4,
-          "xpts": 0.1581,
+          "xpts": 0.3367,
           "result": "l",
           "date": "2026-08-30 13:00:00",
           "wins": 0,
           "draws": 0,
           "loses": 1,
           "pts": 0,
-          "npxGD": -1.2462274
+          "npxGD": -2.0371699999999997
         }
       ]
     },
@@ -1169,6 +1223,26 @@
       "xGBuildup": "1.6610369086265564"
     },
     {
+      "id": "7322",
+      "player_name": "Bukayo Saka",
+      "games": "2",
+      "time": "160",
+      "goals": "2",
+      "xG": "1.7515416741371155",
+      "assists": "0",
+      "xA": "0.04698394611477852",
+      "shots": "5",
+      "key_passes": "2",
+      "yellow_cards": "0",
+      "red_cards": "0",
+      "position": "M",
+      "team_title": "Arsenal",
+      "npg": "2",
+      "npxG": "1.7515416741371155",
+      "xGChain": "2.1560839414596558",
+      "xGBuildup": "0.49380916357040405"
+    },
+    {
       "id": "8094",
       "player_name": "Mathis Cherki",
       "games": "2",
@@ -1214,9 +1288,9 @@
       "games": "2",
       "time": "180",
       "goals": "2",
-      "xG": "0.8067376166582108",
+      "xG": "2.055896580219269",
       "assists": "2",
-      "xA": "0.3549449145793915",
+      "xA": "0.48180003464221954",
       "shots": "9",
       "key_passes": "4",
       "yellow_cards": "0",
@@ -1224,9 +1298,9 @@
       "position": "F",
       "team_title": "Chelsea",
       "npg": "2",
-      "npxG": "0.8067376166582108",
-      "xGChain": "1.7506215572357178",
-      "xGBuildup": "0.7210122421383858"
+      "npxG": "2.055896580219269",
+      "xGChain": "3.2166614532470703",
+      "xGBuildup": "0.8110381439328194"
     },
     {
       "id": "8497",
@@ -1234,9 +1308,9 @@
       "games": "2",
       "time": "175",
       "goals": "2",
-      "xG": "0.5731326341629028",
+      "xG": "1.4829024076461792",
       "assists": "1",
-      "xA": "0.5674879550933838",
+      "xA": "0.6803523451089859",
       "shots": "9",
       "key_passes": "5",
       "yellow_cards": "0",
@@ -1244,9 +1318,9 @@
       "position": "M",
       "team_title": "Chelsea",
       "npg": "2",
-      "npxG": "0.5731326341629028",
-      "xGChain": "1.8044863939285278",
-      "xGBuildup": "0.6638658046722412"
+      "npxG": "1.4829024076461792",
+      "xGChain": "3.4261893033981323",
+      "xGBuildup": "1.3654860854148865"
     },
     {
       "id": "9524",
@@ -1294,9 +1368,9 @@
       "games": "2",
       "time": "180",
       "goals": "1",
-      "xG": "0",
+      "xG": "0.045336391776800156",
       "assists": "0",
-      "xA": "0.4772014319896698",
+      "xA": "0.9721265435218811",
       "shots": "1",
       "key_passes": "6",
       "yellow_cards": "1",
@@ -1304,9 +1378,9 @@
       "position": "M",
       "team_title": "Brighton",
       "npg": "1",
-      "npxG": "0",
-      "xGChain": "0.6453563198447227",
-      "xGBuildup": "0.4520701393485069"
+      "npxG": "0.045336391776800156",
+      "xGChain": "1.4978562593460083",
+      "xGBuildup": "0.7643085420131683"
     },
     {
       "id": "1665",
@@ -1351,22 +1425,22 @@
     {
       "id": "2517",
       "player_name": "Martin Odegaard",
-      "games": "1",
-      "time": "78",
+      "games": "2",
+      "time": "150",
       "goals": "1",
-      "xG": "0.23099374771118164",
+      "xG": "0.32187843322753906",
       "assists": "0",
       "xA": "0.2855894863605499",
-      "shots": "3",
+      "shots": "4",
       "key_passes": "3",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "M",
       "team_title": "Arsenal",
       "npg": "1",
-      "npxG": "0.23099374771118164",
-      "xGChain": "0.6407711505889893",
-      "xGBuildup": "0.42756739258766174"
+      "npxG": "0.32187843322753906",
+      "xGChain": "0.6782539114356041",
+      "xGBuildup": "0.4650501534342766"
     },
     {
       "id": "4490",
@@ -1391,22 +1465,22 @@
     {
       "id": "5220",
       "player_name": "Kai Havertz",
-      "games": "1",
-      "time": "90",
+      "games": "2",
+      "time": "180",
       "goals": "1",
-      "xG": "0.09835345298051834",
+      "xG": "0.13343288004398346",
       "assists": "0",
       "xA": "0.047731224447488785",
-      "shots": "1",
+      "shots": "2",
       "key_passes": "1",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "F",
       "team_title": "Arsenal",
       "npg": "1",
-      "npxG": "0.09835345298051834",
-      "xGChain": "0.5077558755874634",
-      "xGBuildup": "0.36167120933532715"
+      "npxG": "0.13343288004398346",
+      "xGChain": "1.4806339740753174",
+      "xGBuildup": "1.2994698882102966"
     },
     {
       "id": "5232",
@@ -1474,9 +1548,9 @@
       "games": "2",
       "time": "82",
       "goals": "1",
-      "xG": "0.653598740696907",
+      "xG": "0.7697672992944717",
       "assists": "0",
-      "xA": "0.13207317888736725",
+      "xA": "0.6694995760917664",
       "shots": "3",
       "key_passes": "2",
       "yellow_cards": "0",
@@ -1484,9 +1558,9 @@
       "position": "D S",
       "team_title": "Chelsea",
       "npg": "1",
-      "npxG": "0.653598740696907",
-      "xGChain": "0.653598740696907",
-      "xGBuildup": "0"
+      "npxG": "0.7697672992944717",
+      "xGChain": "1.307193711400032",
+      "xGBuildup": "0.5374264121055603"
     },
     {
       "id": "6552",
@@ -1567,26 +1641,6 @@
       "npxG": "1.0178608894348145",
       "xGChain": "0.9897117018699646",
       "xGBuildup": "0"
-    },
-    {
-      "id": "7322",
-      "player_name": "Bukayo Saka",
-      "games": "1",
-      "time": "70",
-      "goals": "1",
-      "xG": "0.776260256767273",
-      "assists": "0",
-      "xA": "0.04698394611477852",
-      "shots": "3",
-      "key_passes": "2",
-      "yellow_cards": "0",
-      "red_cards": "0",
-      "position": "M",
-      "team_title": "Arsenal",
-      "npg": "1",
-      "npxG": "0.776260256767273",
-      "xGChain": "1.1457231044769287",
-      "xGBuildup": "0.4212469756603241"
     },
     {
       "id": "7603",
@@ -1785,8 +1839,8 @@
       "team_title": "Chelsea",
       "npg": "1",
       "npxG": "1.2299621105194092",
-      "xGChain": "0.6171408891677856",
-      "xGBuildup": "0.5465651154518127"
+      "xGChain": "1.2411909103393555",
+      "xGBuildup": "1.1706151366233826"
     },
     {
       "id": "10741",
@@ -1954,9 +2008,9 @@
       "games": "2",
       "time": "174",
       "goals": "1",
-      "xG": "0.5566893219947815",
+      "xG": "0.7358025312423706",
       "assists": "1",
-      "xA": "0.8752160966396332",
+      "xA": "1.732881873846054",
       "shots": "6",
       "key_passes": "9",
       "yellow_cards": "0",
@@ -1964,9 +2018,9 @@
       "position": "M",
       "team_title": "Chelsea",
       "npg": "1",
-      "npxG": "0.5566893219947815",
-      "xGChain": "1.591468632221222",
-      "xGBuildup": "0.17657209932804108"
+      "npxG": "0.7358025312423706",
+      "xGChain": "3.290607988834381",
+      "xGBuildup": "0.9286668449640274"
     },
     {
       "id": "12916",
@@ -2036,7 +2090,7 @@
       "goals": "1",
       "xG": "1.4233697280287743",
       "assists": "0",
-      "xA": "0.14107026159763336",
+      "xA": "0.1561144795268774",
       "shots": "5",
       "key_passes": "4",
       "yellow_cards": "0",
@@ -2045,8 +2099,8 @@
       "team_title": "Brighton",
       "npg": "1",
       "npxG": "1.4233697280287743",
-      "xGChain": "2.3816421031951904",
-      "xGBuildup": "0.9207599759101868"
+      "xGChain": "3.0109938979148865",
+      "xGBuildup": "1.506269097328186"
     },
     {
       "id": "14082",
@@ -2114,9 +2168,9 @@
       "games": "2",
       "time": "77",
       "goals": "1",
-      "xG": "0",
+      "xG": "0.6473640203475952",
       "assists": "0",
-      "xA": "0",
+      "xA": "0.2635147273540497",
       "shots": "2",
       "key_passes": "1",
       "yellow_cards": "0",
@@ -2124,9 +2178,9 @@
       "position": "M S",
       "team_title": "Brighton",
       "npg": "1",
-      "npxG": "0",
-      "xGChain": "0.3119710683822632",
-      "xGBuildup": "0.3119710683822632"
+      "npxG": "0.6473640203475952",
+      "xGChain": "1.6974838972091675",
+      "xGBuildup": "0.7866051197052002"
     },
     {
       "id": "76",
@@ -2291,22 +2345,22 @@
     {
       "id": "592",
       "player_name": "Ross Barkley",
-      "games": "1",
-      "time": "79",
+      "games": "2",
+      "time": "158",
       "goals": "0",
-      "xG": "0.0976761132478714",
+      "xG": "0.13373659923672676",
       "assists": "0",
-      "xA": "0.0973828136920929",
-      "shots": "1",
-      "key_passes": "2",
+      "xA": "0.1797064170241356",
+      "shots": "2",
+      "key_passes": "4",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "M",
       "team_title": "Aston Villa",
       "npg": "0",
-      "npxG": "0.0976761132478714",
-      "xGChain": "0.0973828136920929",
-      "xGBuildup": "0.051970478147268295"
+      "npxG": "0.13373659923672676",
+      "xGChain": "0.24313974380493164",
+      "xGBuildup": "0.11962239816784859"
     },
     {
       "id": "675",
@@ -2327,6 +2381,26 @@
       "npxG": "0",
       "xGChain": "0.40884682536125183",
       "xGBuildup": "0.40884682536125183"
+    },
+    {
+      "id": "702",
+      "player_name": "Tammy Abraham",
+      "games": "1",
+      "time": "18",
+      "goals": "0",
+      "xG": "0",
+      "assists": "0",
+      "xA": "0",
+      "shots": "0",
+      "key_passes": "0",
+      "yellow_cards": "0",
+      "red_cards": "0",
+      "position": "S",
+      "team_title": "Aston Villa",
+      "npg": "0",
+      "npxG": "0",
+      "xGChain": "0",
+      "xGBuildup": "0"
     },
     {
       "id": "725",
@@ -2651,22 +2725,22 @@
     {
       "id": "2203",
       "player_name": "Emiliano Buendía",
-      "games": "1",
-      "time": "90",
+      "games": "2",
+      "time": "180",
       "goals": "0",
-      "xG": "0.11751145124435425",
+      "xG": "0.14488429203629494",
       "assists": "0",
-      "xA": "0.0976761132478714",
-      "shots": "3",
-      "key_passes": "1",
+      "xA": "0.11842040717601776",
+      "shots": "4",
+      "key_passes": "2",
       "yellow_cards": "0",
       "red_cards": "0",
-      "position": "F",
+      "position": "F M",
       "team_title": "Aston Villa",
       "npg": "0",
-      "npxG": "0.11751145124435425",
-      "xGChain": "0.0973828136920929",
-      "xGBuildup": "0"
+      "npxG": "0.14488429203629494",
+      "xGChain": "0.22782355546951294",
+      "xGBuildup": "0.0823236033320427"
     },
     {
       "id": "2254",
@@ -2714,9 +2788,9 @@
       "games": "2",
       "time": "180",
       "goals": "0",
-      "xG": "0",
+      "xG": "0.043031834065914154",
       "assists": "0",
-      "xA": "0",
+      "xA": "0.16983604431152344",
       "shots": "1",
       "key_passes": "1",
       "yellow_cards": "1",
@@ -2724,9 +2798,9 @@
       "position": "D M",
       "team_title": "Brighton",
       "npg": "0",
-      "npxG": "0",
-      "xGChain": "1.2970409020781517",
-      "xGBuildup": "1.2970409020781517"
+      "npxG": "0.043031834065914154",
+      "xGChain": "1.6726022064685822",
+      "xGBuildup": "1.6295703649520874"
     },
     {
       "id": "4391",
@@ -2756,7 +2830,7 @@
       "goals": "0",
       "xG": "0",
       "assists": "0",
-      "xA": "0",
+      "xA": "0.23970872163772583",
       "shots": "0",
       "key_passes": "2",
       "yellow_cards": "0",
@@ -2765,8 +2839,8 @@
       "team_title": "Chelsea",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0",
-      "xGBuildup": "0"
+      "xGChain": "0.40390264987945557",
+      "xGBuildup": "0.16419391334056854"
     },
     {
       "id": "4456",
@@ -2791,8 +2865,8 @@
     {
       "id": "5304",
       "player_name": "Mikel Merino",
-      "games": "1",
-      "time": "12",
+      "games": "2",
+      "time": "30",
       "goals": "0",
       "xG": "0.1443382352590561",
       "assists": "0",
@@ -2805,28 +2879,48 @@
       "team_title": "Arsenal",
       "npg": "0",
       "npxG": "0.1443382352590561",
-      "xGChain": "0.17305128276348114",
-      "xGBuildup": "0.07096805423498154"
+      "xGChain": "0.20813070982694626",
+      "xGBuildup": "0.10604748129844666"
     },
     {
       "id": "5553",
       "player_name": "Declan Rice",
-      "games": "1",
-      "time": "70",
+      "games": "2",
+      "time": "156",
       "goals": "0",
       "xG": "0.039941348135471344",
       "assists": "0",
-      "xA": "0",
+      "xA": "0.0861850380897522",
       "shots": "2",
-      "key_passes": "0",
+      "key_passes": "2",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "M",
       "team_title": "Arsenal",
       "npg": "0",
       "npxG": "0.039941348135471344",
-      "xGChain": "0.5355080962181091",
-      "xGBuildup": "0.5232064723968506"
+      "xGChain": "1.5107895135879517",
+      "xGBuildup": "1.46100515127182"
+    },
+    {
+      "id": "5584",
+      "player_name": "Aaron Wan-Bissaka",
+      "games": "1",
+      "time": "11",
+      "goals": "0",
+      "xG": "0",
+      "assists": "0",
+      "xA": "0",
+      "shots": "0",
+      "key_passes": "0",
+      "yellow_cards": "0",
+      "red_cards": "0",
+      "position": "S",
+      "team_title": "Aston Villa",
+      "npg": "0",
+      "npxG": "0",
+      "xGChain": "0",
+      "xGBuildup": "0"
     },
     {
       "id": "5595",
@@ -2871,22 +2965,22 @@
     {
       "id": "5613",
       "player_name": "Gabriel",
-      "games": "1",
-      "time": "90",
+      "games": "2",
+      "time": "180",
       "goals": "0",
-      "xG": "0.028713038191199303",
+      "xG": "0.3559714760631323",
       "assists": "0",
       "xA": "0",
-      "shots": "1",
+      "shots": "2",
       "key_passes": "0",
       "yellow_cards": "1",
       "red_cards": "0",
       "position": "D",
       "team_title": "Arsenal",
       "npg": "0",
-      "npxG": "0.028713038191199303",
-      "xGChain": "0.4085491895675659",
-      "xGBuildup": "0.37983617186546326"
+      "npxG": "0.3559714760631323",
+      "xGChain": "1.3838306069374084",
+      "xGBuildup": "1.3551175892353058"
     },
     {
       "id": "5659",
@@ -2971,22 +3065,22 @@
     {
       "id": "5789",
       "player_name": "Boubacar Kamara",
-      "games": "1",
-      "time": "90",
+      "games": "2",
+      "time": "180",
       "goals": "0",
       "xG": "0",
       "assists": "0",
-      "xA": "0",
+      "xA": "0.02737284079194069",
       "shots": "0",
-      "key_passes": "0",
+      "key_passes": "1",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "M",
       "team_title": "Aston Villa",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0.051970478147268295",
-      "xGBuildup": "0.051970478147268295"
+      "xGChain": "0.16166692599654198",
+      "xGBuildup": "0.16166692599654198"
     },
     {
       "id": "5956",
@@ -3045,8 +3139,8 @@
       "team_title": "Brighton",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "2.184144578874111",
-      "xGBuildup": "2.184144578874111"
+      "xGChain": "2.5061390101909637",
+      "xGBuildup": "2.5061390101909637"
     },
     {
       "id": "6055",
@@ -3091,8 +3185,8 @@
     {
       "id": "6080",
       "player_name": "Victor Lindelöf",
-      "games": "1",
-      "time": "90",
+      "games": "2",
+      "time": "180",
       "goals": "0",
       "xG": "0",
       "assists": "0",
@@ -3105,8 +3199,8 @@
       "team_title": "Aston Villa",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0.051970478147268295",
-      "xGBuildup": "0.051970478147268295"
+      "xGChain": "0.0922495573759079",
+      "xGBuildup": "0.0922495573759079"
     },
     {
       "id": "6108",
@@ -3191,8 +3285,8 @@
     {
       "id": "6221",
       "player_name": "Pau Torres",
-      "games": "1",
-      "time": "79",
+      "games": "2",
+      "time": "169",
       "goals": "0",
       "xG": "0",
       "assists": "0",
@@ -3205,8 +3299,8 @@
       "team_title": "Aston Villa",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0",
-      "xGBuildup": "0"
+      "xGChain": "0.0402790792286396",
+      "xGBuildup": "0.0402790792286396"
     },
     {
       "id": "6314",
@@ -3671,22 +3765,22 @@
     {
       "id": "7298",
       "player_name": "Ben White",
-      "games": "1",
-      "time": "90",
+      "games": "2",
+      "time": "180",
       "goals": "0",
       "xG": "0.12903930246829987",
       "assists": "1",
-      "xA": "0.18717971444129944",
+      "xA": "0.22225914150476456",
       "shots": "1",
-      "key_passes": "2",
+      "key_passes": "3",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "D",
       "team_title": "Arsenal",
       "npg": "0",
       "npxG": "0.12903930246829987",
-      "xGChain": "0.6175768971443176",
-      "xGBuildup": "0.48191940784454346"
+      "xGChain": "1.5904549956321716",
+      "xGBuildup": "1.419718086719513"
     },
     {
       "id": "7352",
@@ -3751,8 +3845,8 @@
     {
       "id": "7526",
       "player_name": "Martín Zubimendi",
-      "games": "1",
-      "time": "20",
+      "games": "2",
+      "time": "24",
       "goals": "0",
       "xG": "0",
       "assists": "0",
@@ -3785,8 +3879,8 @@
       "team_title": "Chelsea",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0",
-      "xGBuildup": "0"
+      "xGChain": "0.6240500211715698",
+      "xGBuildup": "0.6240500211715698"
     },
     {
       "id": "7702",
@@ -3831,22 +3925,42 @@
     {
       "id": "7723",
       "player_name": "John McGinn",
-      "games": "1",
-      "time": "87",
+      "games": "2",
+      "time": "177",
       "goals": "0",
-      "xG": "0.03462063521146774",
+      "xG": "0.09235811233520508",
       "assists": "0",
-      "xA": "0",
-      "shots": "1",
-      "key_passes": "0",
-      "yellow_cards": "1",
+      "xA": "0.07843043655157089",
+      "shots": "3",
+      "key_passes": "1",
+      "yellow_cards": "2",
       "red_cards": "0",
       "position": "M",
       "team_title": "Aston Villa",
       "npg": "0",
-      "npxG": "0.03462063521146774",
-      "xGChain": "0.08659110963344574",
-      "xGBuildup": "0.051970478147268295"
+      "npxG": "0.09235811233520508",
+      "xGChain": "0.26480354368686676",
+      "xGBuildup": "0.09401500597596169"
+    },
+    {
+      "id": "7726",
+      "player_name": "Ezri Konsa Ngoyo",
+      "games": "1",
+      "time": "10",
+      "goals": "0",
+      "xG": "0",
+      "assists": "0",
+      "xA": "0",
+      "shots": "0",
+      "key_passes": "0",
+      "yellow_cards": "0",
+      "red_cards": "0",
+      "position": "S",
+      "team_title": "Arsenal",
+      "npg": "0",
+      "npxG": "0",
+      "xGChain": "0",
+      "xGBuildup": "0"
     },
     {
       "id": "7753",
@@ -4071,21 +4185,21 @@
     {
       "id": "8129",
       "player_name": "Riccardo Calafiori",
-      "games": "1",
-      "time": "83",
+      "games": "2",
+      "time": "173",
       "goals": "0",
-      "xG": "0.08370493352413177",
-      "assists": "1",
-      "xA": "0.09835345298051834",
-      "shots": "1",
-      "key_passes": "1",
+      "xG": "0.13240721076726913",
+      "assists": "2",
+      "xA": "1.0361521318554878",
+      "shots": "2",
+      "key_passes": "2",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "D",
       "team_title": "Arsenal",
       "npg": "0",
-      "npxG": "0.08370493352413177",
-      "xGChain": "0.7098535895347595",
+      "npxG": "0.13240721076726913",
+      "xGChain": "1.647652268409729",
       "xGBuildup": "0.5277951955795288"
     },
     {
@@ -4187,6 +4301,26 @@
       "npxG": "0",
       "xGChain": "0.01357230730354786",
       "xGBuildup": "0.01357230730354786"
+    },
+    {
+      "id": "8327",
+      "player_name": "Bruno Guimarães",
+      "games": "1",
+      "time": "18",
+      "goals": "0",
+      "xG": "0",
+      "assists": "0",
+      "xA": "0",
+      "shots": "0",
+      "key_passes": "0",
+      "yellow_cards": "0",
+      "red_cards": "0",
+      "position": "S",
+      "team_title": "Arsenal",
+      "npg": "0",
+      "npxG": "0",
+      "xGChain": "0.03507942706346512",
+      "xGBuildup": "0.03507942706346512"
     },
     {
       "id": "8372",
@@ -4491,8 +4625,8 @@
     {
       "id": "8706",
       "player_name": "Eberechi Eze",
-      "games": "1",
-      "time": "12",
+      "games": "2",
+      "time": "55",
       "goals": "0",
       "xG": "0.03748644143342972",
       "assists": "0",
@@ -4505,8 +4639,8 @@
       "team_title": "Arsenal",
       "npg": "0",
       "npxG": "0.03748644143342972",
-      "xGChain": "0",
-      "xGBuildup": "0"
+      "xGChain": "0.9377986788749695",
+      "xGBuildup": "0.9377986788749695"
     },
     {
       "id": "8756",
@@ -4574,7 +4708,7 @@
       "games": "2",
       "time": "180",
       "goals": "0",
-      "xG": "0",
+      "xG": "0.012817279435694218",
       "assists": "1",
       "xA": "0.4455546438694",
       "shots": "1",
@@ -4584,9 +4718,9 @@
       "position": "D",
       "team_title": "Chelsea",
       "npg": "0",
-      "npxG": "0",
-      "xGChain": "1.0175578594207764",
-      "xGBuildup": "1.0175578594207764"
+      "npxG": "0.012817279435694218",
+      "xGChain": "1.6416078805923462",
+      "xGBuildup": "1.6416078805923462"
     },
     {
       "id": "8859",
@@ -4611,22 +4745,22 @@
     {
       "id": "8864",
       "player_name": "Matthew Cash",
-      "games": "1",
-      "time": "90",
+      "games": "2",
+      "time": "169",
       "goals": "0",
-      "xG": "0",
+      "xG": "0.07843043655157089",
       "assists": "0",
       "xA": "0",
-      "shots": "0",
+      "shots": "1",
       "key_passes": "0",
       "yellow_cards": "1",
       "red_cards": "0",
       "position": "D",
       "team_title": "Aston Villa",
       "npg": "0",
-      "npxG": "0",
-      "xGChain": "0.07741081714630127",
-      "xGBuildup": "0.07741081714630127"
+      "npxG": "0.07843043655157089",
+      "xGChain": "0.19788578152656555",
+      "xGBuildup": "0.11945534497499466"
     },
     {
       "id": "8868",
@@ -4805,8 +4939,8 @@
       "team_title": "Chelsea",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0.726472795009613",
-      "xGBuildup": "0.726472795009613"
+      "xGChain": "1.3162947297096252",
+      "xGBuildup": "1.3162947297096252"
     },
     {
       "id": "9024",
@@ -5111,8 +5245,8 @@
     {
       "id": "9676",
       "player_name": "David Raya",
-      "games": "1",
-      "time": "90",
+      "games": "2",
+      "time": "180",
       "goals": "0",
       "xG": "0",
       "assists": "0",
@@ -5125,8 +5259,8 @@
       "team_title": "Arsenal",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0.2116495817899704",
-      "xGBuildup": "0.2116495817899704"
+      "xGChain": "0.24913234263658524",
+      "xGBuildup": "0.24913234263658524"
     },
     {
       "id": "9677",
@@ -5231,21 +5365,21 @@
     {
       "id": "9746",
       "player_name": "Christos Tzolis",
-      "games": "1",
-      "time": "78",
+      "games": "2",
+      "time": "125",
       "goals": "0",
       "xG": "0.23767352104187012",
       "assists": "0",
-      "xA": "0.1918073445558548",
+      "xA": "0.23900854587554932",
       "shots": "4",
-      "key_passes": "3",
-      "yellow_cards": "0",
+      "key_passes": "4",
+      "yellow_cards": "1",
       "red_cards": "0",
       "position": "M",
       "team_title": "Arsenal",
       "npg": "0",
       "npxG": "0.23767352104187012",
-      "xGChain": "0.7873998880386353",
+      "xGChain": "0.8346010893583298",
       "xGBuildup": "0.4513438940048218"
     },
     {
@@ -5411,8 +5545,8 @@
     {
       "id": "10024",
       "player_name": "Cristhian Mosquera",
-      "games": "1",
-      "time": "90",
+      "games": "2",
+      "time": "170",
       "goals": "0",
       "xG": "0",
       "assists": "0",
@@ -5425,8 +5559,8 @@
       "team_title": "Arsenal",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0.37983617186546326",
-      "xGBuildup": "0.37983617186546326"
+      "xGChain": "1.3176348507404327",
+      "xGBuildup": "1.3176348507404327"
     },
     {
       "id": "10025",
@@ -5447,6 +5581,26 @@
       "npxG": "0",
       "xGChain": "0",
       "xGBuildup": "0"
+    },
+    {
+      "id": "10048",
+      "player_name": "Nicolas Jackson",
+      "games": "1",
+      "time": "72",
+      "goals": "0",
+      "xG": "0",
+      "assists": "0",
+      "xA": "0",
+      "shots": "0",
+      "key_passes": "0",
+      "yellow_cards": "0",
+      "red_cards": "0",
+      "position": "F",
+      "team_title": "Aston Villa",
+      "npg": "0",
+      "npxG": "0",
+      "xGChain": "0.10580327361822128",
+      "xGBuildup": "0.10580327361822128"
     },
     {
       "id": "10050",
@@ -5591,8 +5745,8 @@
     {
       "id": "10552",
       "player_name": "Alejandro Garnacho",
-      "games": "1",
-      "time": "1",
+      "games": "2",
+      "time": "12",
       "goals": "0",
       "xG": "0",
       "assists": "0",
@@ -5825,8 +5979,8 @@
       "team_title": "Chelsea",
       "npg": "0",
       "npxG": "0.046287089586257935",
-      "xGChain": "0.1522834151983261",
-      "xGBuildup": "0.10599633306264877"
+      "xGChain": "0.7763334363698959",
+      "xGBuildup": "0.7300463542342186"
     },
     {
       "id": "10807",
@@ -5965,8 +6119,8 @@
       "team_title": "Chelsea",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0",
-      "xGBuildup": "0"
+      "xGChain": "0.10004710406064987",
+      "xGBuildup": "0.10004710406064987"
     },
     {
       "id": "11167",
@@ -6325,8 +6479,8 @@
       "team_title": "Brighton",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "1.1914862394332886",
-      "xGBuildup": "1.1914862394332886"
+      "xGChain": "1.5037246644496918",
+      "xGBuildup": "1.5037246644496918"
     },
     {
       "id": "11728",
@@ -6391,22 +6545,22 @@
     {
       "id": "11807",
       "player_name": "Ian Maatsen",
-      "games": "1",
-      "time": "87",
+      "games": "2",
+      "time": "177",
       "goals": "0",
-      "xG": "0.025440337136387825",
+      "xG": "0.10776394046843052",
       "assists": "0",
       "xA": "0",
-      "shots": "1",
+      "shots": "3",
       "key_passes": "0",
-      "yellow_cards": "0",
+      "yellow_cards": "1",
       "red_cards": "0",
       "position": "D",
       "team_title": "Aston Villa",
       "npg": "0",
-      "npxG": "0.025440337136387825",
-      "xGChain": "0.025440337136387825",
-      "xGBuildup": "0"
+      "npxG": "0.10776394046843052",
+      "xGChain": "0.1351367849856615",
+      "xGBuildup": "0.06765192002058029"
     },
     {
       "id": "11808",
@@ -6631,22 +6785,22 @@
     {
       "id": "12272",
       "player_name": "Myles Lewis-Skelly",
-      "games": "1",
-      "time": "90",
+      "games": "2",
+      "time": "162",
       "goals": "0",
-      "xG": "0.047731224447488785",
+      "xG": "0.0949324257671833",
       "assists": "0",
       "xA": "0.051784105598926544",
-      "shots": "1",
+      "shots": "2",
       "key_passes": "1",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "M",
       "team_title": "Arsenal",
       "npg": "0",
-      "npxG": "0.047731224447488785",
-      "xGChain": "0.6042394638061523",
-      "xGBuildup": "0.5565082430839539"
+      "npxG": "0.0949324257671833",
+      "xGChain": "1.6267220973968506",
+      "xGBuildup": "1.5317896604537964"
     },
     {
       "id": "12408",
@@ -6714,7 +6868,7 @@
       "games": "1",
       "time": "6",
       "goals": "0",
-      "xG": "0",
+      "xG": "0.07445957511663437",
       "assists": "0",
       "xA": "0",
       "shots": "1",
@@ -6724,8 +6878,8 @@
       "position": "S",
       "team_title": "Chelsea",
       "npg": "0",
-      "npxG": "0",
-      "xGChain": "0",
+      "npxG": "0.07445957511663437",
+      "xGChain": "0.07445957511663437",
       "xGBuildup": "0"
     },
     {
@@ -6834,7 +6988,7 @@
       "games": "2",
       "time": "165",
       "goals": "0",
-      "xG": "0.08135496079921722",
+      "xG": "0.11586891487240791",
       "assists": "0",
       "xA": "0.0733533576130867",
       "shots": "2",
@@ -6844,9 +6998,9 @@
       "position": "D",
       "team_title": "Brighton",
       "npg": "0",
-      "npxG": "0.08135496079921722",
-      "xGChain": "1.0664246901869774",
-      "xGBuildup": "0.9646026119589806"
+      "npxG": "0.11586891487240791",
+      "xGChain": "1.4131770431995392",
+      "xGBuildup": "1.276841014623642"
     },
     {
       "id": "12760",
@@ -6867,6 +7021,26 @@
       "npxG": "0",
       "xGChain": "0.12479092553257942",
       "xGBuildup": "0.12479092553257942"
+    },
+    {
+      "id": "12781",
+      "player_name": "Zion Suzuki",
+      "games": "1",
+      "time": "90",
+      "goals": "0",
+      "xG": "0",
+      "assists": "0",
+      "xA": "0",
+      "shots": "0",
+      "key_passes": "0",
+      "yellow_cards": "0",
+      "red_cards": "0",
+      "position": "GK",
+      "team_title": "Aston Villa",
+      "npg": "0",
+      "npxG": "0",
+      "xGChain": "0.0823236033320427",
+      "xGBuildup": "0.0823236033320427"
     },
     {
       "id": "12911",
@@ -6974,9 +7148,9 @@
       "games": "1",
       "time": "90",
       "goals": "0",
-      "xG": "0",
+      "xG": "0.02121088095009327",
       "assists": "0",
-      "xA": "0",
+      "xA": "0.009756007231771946",
       "shots": "1",
       "key_passes": "1",
       "yellow_cards": "0",
@@ -6984,9 +7158,9 @@
       "position": "D",
       "team_title": "Brighton",
       "npg": "0",
-      "npxG": "0",
-      "xGChain": "0.04384263604879379",
-      "xGBuildup": "0.04384263604879379"
+      "npxG": "0.02121088095009327",
+      "xGChain": "0.36583706736564636",
+      "xGBuildup": "0.36583706736564636"
     },
     {
       "id": "13080",
@@ -7094,9 +7268,9 @@
       "games": "2",
       "time": "180",
       "goals": "0",
-      "xG": "0.23166729509830475",
+      "xG": "0.9880931526422501",
       "assists": "1",
-      "xA": "0.8130156993865967",
+      "xA": "1.1252541244029999",
       "shots": "8",
       "key_passes": "3",
       "yellow_cards": "0",
@@ -7104,9 +7278,9 @@
       "position": "M",
       "team_title": "Brighton",
       "npg": "0",
-      "npxG": "0.23166729509830475",
-      "xGChain": "1.2578847035765648",
-      "xGBuildup": "0.21320172399282455"
+      "npxG": "0.9880931526422501",
+      "xGChain": "2.1567129492759705",
+      "xGBuildup": "0.525440126657486"
     },
     {
       "id": "13380",
@@ -7314,7 +7488,7 @@
       "games": "2",
       "time": "180",
       "goals": "0",
-      "xG": "0.3671553432941437",
+      "xG": "0.39195556938648224",
       "assists": "0",
       "xA": "0",
       "shots": "4",
@@ -7324,9 +7498,9 @@
       "position": "D",
       "team_title": "Brighton",
       "npg": "0",
-      "npxG": "0.3671553432941437",
-      "xGChain": "1.3521298989653587",
-      "xGBuildup": "1.3521298989653587"
+      "npxG": "0.39195556938648224",
+      "xGChain": "1.6741243302822113",
+      "xGBuildup": "1.6643683016300201"
     },
     {
       "id": "13775",
@@ -7356,7 +7530,7 @@
       "goals": "0",
       "xG": "0.034903109073638916",
       "assists": "1",
-      "xA": "0.5850690603256226",
+      "xA": "1.1729698777198792",
       "shots": "1",
       "key_passes": "3",
       "yellow_cards": "0",
@@ -7365,8 +7539,8 @@
       "team_title": "Chelsea",
       "npg": "0",
       "npxG": "0.034903109073638916",
-      "xGChain": "0.7042767629027367",
-      "xGBuildup": "0.7042767629027367"
+      "xGChain": "1.8298955783247948",
+      "xGBuildup": "1.7432719096541405"
     },
     {
       "id": "13778",
@@ -7574,7 +7748,7 @@
       "games": "2",
       "time": "103",
       "goals": "0",
-      "xG": "0.3382267653942108",
+      "xG": "0.6017414927482605",
       "assists": "0",
       "xA": "0.04384263604879379",
       "shots": "3",
@@ -7584,15 +7758,15 @@
       "position": "F S",
       "team_title": "Brighton",
       "npg": "0",
-      "npxG": "0.3382267653942108",
-      "xGChain": "0.3820694014430046",
-      "xGBuildup": "0.04384263604879379"
+      "npxG": "0.6017414927482605",
+      "xGChain": "1.120218187570572",
+      "xGBuildup": "0.5184767246246338"
     },
     {
       "id": "14193",
       "player_name": "George Hemmings",
-      "games": "1",
-      "time": "90",
+      "games": "2",
+      "time": "162",
       "goals": "0",
       "xG": "0",
       "assists": "0",
@@ -7605,8 +7779,8 @@
       "team_title": "Aston Villa",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0.025440337136387825",
-      "xGBuildup": "0"
+      "xGChain": "0.08646371029317379",
+      "xGBuildup": "0.061023373156785965"
     },
     {
       "id": "14198",
@@ -7691,15 +7865,15 @@
     {
       "id": "14446",
       "player_name": "Alysson Edward",
-      "games": "1",
-      "time": "3",
+      "games": "2",
+      "time": "21",
       "goals": "0",
       "xG": "0",
       "assists": "0",
       "xA": "0",
       "shots": "0",
       "key_passes": "0",
-      "yellow_cards": "0",
+      "yellow_cards": "1",
       "red_cards": "0",
       "position": "S",
       "team_title": "Aston Villa",
@@ -8776,14 +8950,14 @@
         "a": "3"
       },
       "xG": {
-        "h": "1.29007",
-        "a": "0.0438426"
+        "h": "3.8289",
+        "a": "1.79173"
       },
       "datetime": "2026-08-30 13:00:00",
       "forecast": {
-        "w": "0.8545",
-        "d": "0.1392",
-        "l": "0.0063"
+        "w": "0.8099",
+        "d": "0.1168",
+        "l": "0.0733"
       }
     },
     {
@@ -8844,7 +9018,7 @@
     },
     {
       "id": "31199",
-      "isResult": false,
+      "isResult": true,
       "h": {
         "id": "71",
         "title": "Aston Villa",
@@ -8856,14 +9030,19 @@
         "short_title": "ARS"
       },
       "goals": {
-        "h": null,
-        "a": null
+        "h": "0",
+        "a": "1"
       },
       "xG": {
-        "h": null,
-        "a": null
+        "h": "0.281925",
+        "a": "1.52441"
       },
-      "datetime": "2026-08-31 19:00:00"
+      "datetime": "2026-08-31 19:00:00",
+      "forecast": {
+        "w": "0.0199",
+        "d": "0.1473",
+        "l": "0.8328"
+      }
     },
     {
       "id": "31200",

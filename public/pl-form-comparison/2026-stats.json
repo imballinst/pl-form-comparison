@@ -1142,7 +1142,7 @@
       "Chelsea": {
         "goals": 4,
         "goalsConceded": 3,
-        "expectedGoals": 1.29007,
+        "expectedGoals": 3.8289,
         "wonCorners": 0,
         "duelWon": 0,
         "totalDistance": 0,
@@ -1155,7 +1155,7 @@
       "Brighton and Hove Albion": {
         "goals": 3,
         "goalsConceded": 4,
-        "expectedGoals": 0.0438426,
+        "expectedGoals": 1.79173,
         "wonCorners": 0,
         "duelWon": 0,
         "totalDistance": 0,
@@ -1212,6 +1212,34 @@
         "goals": 2,
         "goalsConceded": 5,
         "expectedGoals": 1.80548,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31199": {
+      "Aston Villa": {
+        "goals": 0,
+        "goalsConceded": 1,
+        "expectedGoals": 0.281925,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Arsenal": {
+        "goals": 1,
+        "goalsConceded": 0,
+        "expectedGoals": 1.52441,
         "wonCorners": 0,
         "duelWon": 0,
         "totalDistance": 0,
