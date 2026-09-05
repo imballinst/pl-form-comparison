@@ -1249,6 +1249,34 @@
         "totalYelCard": 0,
         "totalRedCard": 0
       }
+    },
+    "31200": {
+      "Ipswich Town": {
+        "goals": 0,
+        "goalsConceded": 2,
+        "expectedGoals": 0.597972,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Liverpool": {
+        "goals": 2,
+        "goalsConceded": 0,
+        "expectedGoals": 0.744139,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
     }
   }
 }

@@ -52,6 +52,19 @@
     "gd": 2
   },
   {
+    "name": "Liverpool",
+    "abbr": "LIV",
+    "shortName": "Liverpool",
+    "played": 3,
+    "wins": 1,
+    "draws": 2,
+    "losses": 0,
+    "points": 5,
+    "gf": 6,
+    "ga": 4,
+    "gd": 2
+  },
+  {
     "name": "Brentford",
     "abbr": "BRE",
     "shortName": "Brentford",
@@ -146,27 +159,14 @@
     "name": "Ipswich Town",
     "abbr": "IPS",
     "shortName": "Ipswich Town",
-    "played": 2,
+    "played": 3,
     "wins": 1,
     "draws": 0,
-    "losses": 1,
+    "losses": 2,
     "points": 3,
     "gf": 4,
-    "ga": 6,
-    "gd": -2
-  },
-  {
-    "name": "Liverpool",
-    "abbr": "LIV",
-    "shortName": "Liverpool",
-    "played": 2,
-    "wins": 0,
-    "draws": 2,
-    "losses": 0,
-    "points": 2,
-    "gf": 4,
-    "ga": 4,
-    "gd": 0
+    "ga": 8,
+    "gd": -4
   },
   {
     "name": "Nottingham Forest",

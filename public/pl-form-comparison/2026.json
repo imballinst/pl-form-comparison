@@ -710,9 +710,9 @@
         "matchId": "31200",
         "matchweek": 3,
         "kickoff": "2026-09-04 19:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Ipswich Town",
           "id": "285",
           "shortName": "Ipswich Town",
@@ -720,7 +720,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 2,
           "name": "Liverpool",
           "id": "87",
           "shortName": "Liverpool",
@@ -729,7 +729,14 @@
         },
         "ground": "Portman Road Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 0.597972,
+            "awayXg": 0.744139
+          }
+        }
       },
       {
         "matchId": "31201",
