@@ -966,9 +966,9 @@
         "matchId": "31208",
         "matchweek": 3,
         "kickoff": "2026-09-06 13:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 2,
           "name": "Everton",
           "id": "72",
           "shortName": "Everton",
@@ -976,7 +976,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 2,
           "name": "Manchester United",
           "id": "89",
           "shortName": "Manchester United",
@@ -985,15 +985,22 @@
         },
         "ground": "Hill Dickinson Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.05629,
+            "awayXg": 0.872225
+          }
+        }
       },
       {
         "matchId": "31209",
         "matchweek": 3,
         "kickoff": "2026-09-06 15:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 2,
           "name": "Arsenal",
           "id": "83",
           "shortName": "Arsenal",
@@ -1001,7 +1008,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Chelsea",
           "id": "80",
           "shortName": "Chelsea",
@@ -1010,7 +1017,14 @@
         },
         "ground": "Emirates Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.80555,
+            "awayXg": 0.430508
+          }
+        }
       }
     ],
     "4": [

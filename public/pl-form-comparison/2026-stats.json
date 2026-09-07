@@ -1473,6 +1473,62 @@
         "totalYelCard": 0,
         "totalRedCard": 0
       }
+    },
+    "31208": {
+      "Everton": {
+        "goals": 2,
+        "goalsConceded": 2,
+        "expectedGoals": 1.05629,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Manchester United": {
+        "goals": 2,
+        "goalsConceded": 2,
+        "expectedGoals": 0.872225,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31209": {
+      "Arsenal": {
+        "goals": 2,
+        "goalsConceded": 1,
+        "expectedGoals": 2.80555,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Chelsea": {
+        "goals": 1,
+        "goalsConceded": 2,
+        "expectedGoals": 0.430508,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
     }
   }
 }

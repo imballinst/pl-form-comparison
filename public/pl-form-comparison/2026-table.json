@@ -13,6 +13,19 @@
     "gd": 5
   },
   {
+    "name": "Arsenal",
+    "abbr": "ARS",
+    "shortName": "Arsenal",
+    "played": 3,
+    "wins": 3,
+    "draws": 0,
+    "losses": 0,
+    "points": 9,
+    "gf": 6,
+    "ga": 1,
+    "gd": 5
+  },
+  {
     "name": "Hull City",
     "abbr": "HUL",
     "shortName": "Hull City",
@@ -26,30 +39,17 @@
     "gd": 3
   },
   {
-    "name": "Arsenal",
-    "abbr": "ARS",
-    "shortName": "Arsenal",
-    "played": 2,
-    "wins": 2,
-    "draws": 0,
-    "losses": 0,
-    "points": 6,
-    "gf": 4,
-    "ga": 0,
-    "gd": 4
-  },
-  {
     "name": "Chelsea",
     "abbr": "CHE",
     "shortName": "Chelsea",
-    "played": 2,
+    "played": 3,
     "wins": 2,
     "draws": 0,
-    "losses": 0,
+    "losses": 1,
     "points": 6,
-    "gf": 7,
-    "ga": 5,
-    "gd": 2
+    "gf": 8,
+    "ga": 7,
+    "gd": 1
   },
   {
     "name": "Brentford",
@@ -91,6 +91,19 @@
     "gd": 2
   },
   {
+    "name": "Everton",
+    "abbr": "EVE",
+    "shortName": "Everton",
+    "played": 3,
+    "wins": 1,
+    "draws": 2,
+    "losses": 0,
+    "points": 5,
+    "gf": 5,
+    "ga": 3,
+    "gd": 2
+  },
+  {
     "name": "Leeds United",
     "abbr": "LED",
     "shortName": "Leeds United",
@@ -117,17 +130,17 @@
     "gd": 3
   },
   {
-    "name": "Everton",
-    "abbr": "EVE",
-    "shortName": "Everton",
-    "played": 2,
+    "name": "Manchester United",
+    "abbr": "MUN",
+    "shortName": "Manchester United",
+    "played": 3,
     "wins": 1,
     "draws": 1,
-    "losses": 0,
+    "losses": 1,
     "points": 4,
-    "gf": 3,
-    "ga": 1,
-    "gd": 2
+    "gf": 7,
+    "ga": 6,
+    "gd": 1
   },
   {
     "name": "Sunderland",
@@ -141,19 +154,6 @@
     "gf": 3,
     "ga": 3,
     "gd": 0
-  },
-  {
-    "name": "Manchester United",
-    "abbr": "MUN",
-    "shortName": "Manchester United",
-    "played": 2,
-    "wins": 1,
-    "draws": 0,
-    "losses": 1,
-    "points": 3,
-    "gf": 5,
-    "ga": 4,
-    "gd": 1
   },
   {
     "name": "Crystal Palace",
