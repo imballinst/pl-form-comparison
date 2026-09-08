@@ -330,7 +330,7 @@ async function populateAllSeasonsRecord(seasonsParam: string[], rolesParam: stri
               wdl: [0, 0, 0],
               foulsPerRedCard: -1,
               foulsPerYellowCard: -1,
-              score: -1,
+              score: 0,
             }
           }
 
