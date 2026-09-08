@@ -2,33 +2,7 @@ import fs from 'fs/promises'
 import path from 'path'
 import type { MatchFullStatData, SeasonFile, SeasonMatch, SeasonMatchStats } from '../app/types'
 import type { FbrefScheduleEntry, MatchDetail, UnderstatRawData, UnderstatTeamHistory } from './types'
-import { YEAR } from './utils'
-
-const UNDERSTAT_TO_APP: Record<string, string> = {
-  Coventry: 'Coventry City',
-  Hull: 'Hull City',
-  Tottenham: 'Tottenham Hotspur',
-  'West Ham': 'West Ham United',
-  Brighton: 'Brighton and Hove Albion',
-  Leeds: 'Leeds United',
-  Luton: 'Luton Town',
-  Ipswich: 'Ipswich Town',
-  Leicester: 'Leicester City',
-}
-
-const FBREF_TO_APP: Record<string, string> = {
-  'Manchester Utd': 'Manchester United',
-  Newcastle: 'Newcastle United',
-  Nottingham: 'Nottingham Forest',
-  "Nott'ham Forest": 'Nottingham Forest',
-  Wolves: 'Wolverhampton Wanderers',
-  Tottenham: 'Tottenham Hotspur',
-  'West Ham': 'West Ham United',
-  Brighton: 'Brighton and Hove Albion',
-  Leeds: 'Leeds United',
-  'Sheffield Utd': 'Sheffield United',
-  'Brighton & Hove Albion': 'Brighton and Hove Albion',
-}
+import { FBREF_TO_APP, UNDERSTAT_TO_APP, YEAR } from './utils'
 
 interface OfficialAssignment {
   Home: {
@@ -276,7 +250,16 @@ async function main() {
     }
 
     const mwKey = matchweek
-    if (!mwKey) throw new Error(`invalid matchweek: ${mwKey} for home team ${homeTeam.name} and away team ${awayTeam.name}`)
+    if (!mwKey) {
+      const msg = `invalid matchweek: ${mwKey} for home team ${homeTeam.name} and away team ${awayTeam.name}`
+
+      if (process.env.DEBUG) {
+        console.error(msg)
+        continue
+      } else {
+        throw new Error(msg)
+      }
+    }
 
     if (!matchesByMatchweek[mwKey]) {
       matchesByMatchweek[mwKey] = []

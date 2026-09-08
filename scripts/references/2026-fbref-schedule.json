@@ -71,7 +71,7 @@
     "home": "Brighton",
     "away": "Aston Villa",
     "score": "4–0",
-    "attendance": null,
+    "attendance": 31746,
     "venue": "The American Express Stadium",
     "referee": "Peter Bankes",
     "matchReportUrl": "https://fbref.com/en/matches/cc39f2ef/Brighton-and-Hove-Albion-Aston-Villa-August-23-2026-Premier-League"
@@ -103,231 +103,231 @@
     "datetime": "2026-08-24T19:00:00Z",
     "home": "Fulham",
     "away": "Chelsea",
-    "score": "",
-    "attendance": null,
+    "score": "2–3",
+    "attendance": 27461,
     "venue": "Craven Cottage",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "John Brooks",
+    "matchReportUrl": "https://fbref.com/en/matches/98138a1e/Fulham-Chelsea-August-24-2026-Premier-League"
   },
   {
     "matchweek": 2,
     "datetime": "2026-08-28T19:00:00Z",
     "home": "Crystal Palace",
     "away": "Manchester City",
-    "score": "",
-    "attendance": null,
+    "score": "1–4",
+    "attendance": 24874,
     "venue": "Selhurst Park",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Andy Madley",
+    "matchReportUrl": "https://fbref.com/en/matches/5b62d64d/Crystal-Palace-Manchester-City-August-28-2026-Premier-League"
   },
   {
     "matchweek": 2,
     "datetime": "2026-08-29T14:00:00Z",
     "home": "Bournemouth",
     "away": "Everton",
-    "score": "",
-    "attendance": null,
+    "score": "1–1",
+    "attendance": 11135,
     "venue": "Vitality Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Chris Kavanagh",
+    "matchReportUrl": "https://fbref.com/en/matches/aa96770b/Bournemouth-Everton-August-29-2026-Premier-League"
   },
   {
     "matchweek": 2,
     "datetime": "2026-08-29T14:00:00Z",
     "home": "Coventry City",
     "away": "Hull City",
-    "score": "",
-    "attendance": null,
+    "score": "0–1",
+    "attendance": 31239,
     "venue": "Coventry Building Society Arena",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Joshua Smith",
+    "matchReportUrl": "https://fbref.com/en/matches/2efaf8c6/Coventry-City-Hull-City-August-29-2026-Premier-League"
   },
   {
     "matchweek": 2,
     "datetime": "2026-08-29T11:30:00Z",
     "home": "Liverpool",
     "away": "Nottingham",
-    "score": "",
-    "attendance": null,
+    "score": "2–2",
+    "attendance": 60415,
     "venue": "Anfield",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Samuel Barrott",
+    "matchReportUrl": "https://fbref.com/en/matches/d4340a69/Liverpool-Nottingham-Forest-August-29-2026-Premier-League"
   },
   {
     "matchweek": 2,
     "datetime": "2026-08-29T16:30:00Z",
     "home": "Tottenham",
     "away": "Newcastle",
-    "score": "",
-    "attendance": null,
+    "score": "0–2",
+    "attendance": 61025,
     "venue": "Tottenham Hotspur Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Peter Bankes",
+    "matchReportUrl": "https://fbref.com/en/matches/10027be4/Tottenham-Hotspur-Newcastle-United-August-29-2026-Premier-League"
   },
   {
     "matchweek": 2,
     "datetime": "2026-08-30T13:00:00Z",
     "home": "Chelsea",
     "away": "Brighton",
-    "score": "",
-    "attendance": null,
+    "score": "4–3",
+    "attendance": 39497,
     "venue": "Stamford Bridge",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Michael Oliver",
+    "matchReportUrl": "https://fbref.com/en/matches/a50cd1e7/Chelsea-Brighton-and-Hove-Albion-August-30-2026-Premier-League"
   },
   {
     "matchweek": 2,
     "datetime": "2026-08-30T13:00:00Z",
     "home": "Leeds United",
     "away": "Brentford",
-    "score": "",
-    "attendance": null,
+    "score": "1–1",
+    "attendance": 35974,
     "venue": "Elland Road",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Tony Harrington",
+    "matchReportUrl": "https://fbref.com/en/matches/b6f0dcde/Leeds-United-Brentford-August-30-2026-Premier-League"
   },
   {
     "matchweek": 2,
     "datetime": "2026-08-30T15:30:00Z",
     "home": "Manchester Utd",
     "away": "Ipswich Town",
-    "score": "",
-    "attendance": null,
+    "score": "5–2",
+    "attendance": 74148,
     "venue": "Old Trafford",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Craig Pawson",
+    "matchReportUrl": "https://fbref.com/en/matches/fb31b175/Manchester-United-Ipswich-Town-August-30-2026-Premier-League"
   },
   {
     "matchweek": 2,
     "datetime": "2026-08-30T13:00:00Z",
     "home": "Sunderland",
     "away": "Fulham",
-    "score": "",
-    "attendance": null,
+    "score": "1–0",
+    "attendance": 46781,
     "venue": "Stadium of Light",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Michael Salisbury",
+    "matchReportUrl": "https://fbref.com/en/matches/a90f3aae/Sunderland-Fulham-August-30-2026-Premier-League"
   },
   {
     "matchweek": 2,
     "datetime": "2026-08-31T19:00:00Z",
     "home": "Aston Villa",
     "away": "Arsenal",
-    "score": "",
-    "attendance": null,
+    "score": "0–1",
+    "attendance": 36804,
     "venue": "Villa Park",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Jarred Gillett",
+    "matchReportUrl": "https://fbref.com/en/matches/e95b1641/Aston-Villa-Arsenal-August-31-2026-Premier-League"
   },
   {
     "matchweek": 3,
     "datetime": "2026-09-04T19:00:00Z",
     "home": "Ipswich Town",
     "away": "Liverpool",
-    "score": "",
-    "attendance": null,
+    "score": "0–2",
+    "attendance": 30019,
     "venue": "Portman Road Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Darren England",
+    "matchReportUrl": "https://fbref.com/en/matches/368c66a8/Ipswich-Town-Liverpool-September-4-2026-Premier-League"
   },
   {
     "matchweek": 3,
     "datetime": "2026-09-05T14:00:00Z",
     "home": "Brentford",
     "away": "Sunderland",
-    "score": "",
-    "attendance": null,
+    "score": "1–1",
+    "attendance": 17131,
     "venue": "Gtech Community Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Thomas Bramall",
+    "matchReportUrl": "https://fbref.com/en/matches/c201fd2f/Brentford-Sunderland-September-5-2026-Premier-League"
   },
   {
     "matchweek": 3,
     "datetime": "2026-09-05T14:00:00Z",
     "home": "Brighton",
     "away": "Leeds United",
-    "score": "",
-    "attendance": null,
+    "score": "1–1",
+    "attendance": 31661,
     "venue": "The American Express Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Stuart Attwell",
+    "matchReportUrl": "https://fbref.com/en/matches/f2afd8c7/Brighton-and-Hove-Albion-Leeds-United-September-5-2026-Premier-League"
   },
   {
     "matchweek": 3,
     "datetime": "2026-09-05T14:00:00Z",
     "home": "Fulham",
     "away": "Crystal Palace",
-    "score": "",
+    "score": "2–3",
     "attendance": null,
     "venue": "Craven Cottage",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Samuel Barrott",
+    "matchReportUrl": "https://fbref.com/en/matches/3809f875/Fulham-Crystal-Palace-September-5-2026-Premier-League"
   },
   {
     "matchweek": 3,
     "datetime": "2026-09-05T16:30:00Z",
     "home": "Hull City",
     "away": "Aston Villa",
-    "score": "",
-    "attendance": null,
+    "score": "0–0",
+    "attendance": 24425,
     "venue": "MKM Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Michael Oliver",
+    "matchReportUrl": "https://fbref.com/en/matches/6816748a/Hull-City-Aston-Villa-September-5-2026-Premier-League"
   },
   {
     "matchweek": 3,
     "datetime": "2026-09-05T14:00:00Z",
     "home": "Manchester City",
     "away": "Coventry City",
-    "score": "",
-    "attendance": null,
+    "score": "1–0",
+    "attendance": 60765,
     "venue": "Etihad Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Paul Tierney",
+    "matchReportUrl": "https://fbref.com/en/matches/e49890d8/Manchester-City-Coventry-City-September-5-2026-Premier-League"
   },
   {
     "matchweek": 3,
     "datetime": "2026-09-05T11:30:00Z",
     "home": "Newcastle",
     "away": "Bournemouth",
-    "score": "",
-    "attendance": null,
+    "score": "2–2",
+    "attendance": 52643,
     "venue": "St James' Park",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Robert Jones",
+    "matchReportUrl": "https://fbref.com/en/matches/198be7a7/Newcastle-United-Bournemouth-September-5-2026-Premier-League"
   },
   {
     "matchweek": 3,
     "datetime": "2026-09-05T14:00:00Z",
     "home": "Nottingham",
     "away": "Tottenham",
-    "score": "",
-    "attendance": null,
+    "score": "0–0",
+    "attendance": 30686,
     "venue": "The City Ground",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Craig Pawson",
+    "matchReportUrl": "https://fbref.com/en/matches/184a826e/Nottingham-Forest-Tottenham-Hotspur-September-5-2026-Premier-League"
   },
   {
     "matchweek": 3,
     "datetime": "2026-09-06T15:30:00Z",
     "home": "Arsenal",
     "away": "Chelsea",
-    "score": "",
-    "attendance": null,
+    "score": "2–1",
+    "attendance": 60240,
     "venue": "Emirates Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Chris Kavanagh",
+    "matchReportUrl": "https://fbref.com/en/matches/a99c87a3/North-West-London-Derby-Arsenal-Chelsea-September-6-2026-Premier-League"
   },
   {
     "matchweek": 3,
     "datetime": "2026-09-06T13:00:00Z",
     "home": "Everton",
     "away": "Manchester Utd",
-    "score": "",
-    "attendance": null,
+    "score": "2–2",
+    "attendance": 52302,
     "venue": "Hill Dickinson Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "John Brooks",
+    "matchReportUrl": "https://fbref.com/en/matches/b07da8ea/Everton-Manchester-United-September-6-2026-Premier-League"
   },
   {
     "matchweek": 4,
@@ -475,28 +475,6 @@
   {
     "matchweek": 5,
     "datetime": "2026-09-19T14:00:00Z",
-    "home": "Leeds United",
-    "away": "Crystal Palace",
-    "score": "",
-    "attendance": null,
-    "venue": "Elland Road",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 5,
-    "datetime": "2026-09-19T14:00:00Z",
-    "home": "Manchester City",
-    "away": "Sunderland",
-    "score": "",
-    "attendance": null,
-    "venue": "Etihad Stadium",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 5,
-    "datetime": "2026-09-19T14:00:00Z",
     "home": "Newcastle",
     "away": "Hull City",
     "score": "",
@@ -546,6 +524,28 @@
     "score": "",
     "attendance": null,
     "venue": "Craven Cottage",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 5,
+    "datetime": "2026-09-20T13:00:00Z",
+    "home": "Leeds United",
+    "away": "Crystal Palace",
+    "score": "",
+    "attendance": null,
+    "venue": "Elland Road",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 5,
+    "datetime": "2026-09-20T13:00:00Z",
+    "home": "Manchester City",
+    "away": "Sunderland",
+    "score": "",
+    "attendance": null,
+    "venue": "Etihad Stadium",
     "referee": null,
     "matchReportUrl": null
   },
@@ -826,17 +826,6 @@
   },
   {
     "matchweek": 8,
-    "datetime": "2026-10-24T14:00:00Z",
-    "home": "Liverpool",
-    "away": "Brighton",
-    "score": "",
-    "attendance": null,
-    "venue": "Anfield",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 8,
     "datetime": "2026-10-25T14:00:00Z",
     "home": "Crystal Palace",
     "away": "Newcastle",
@@ -860,6 +849,17 @@
   {
     "matchweek": 8,
     "datetime": "2026-10-25T14:00:00Z",
+    "home": "Liverpool",
+    "away": "Brighton",
+    "score": "",
+    "attendance": null,
+    "venue": "Anfield",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 8,
+    "datetime": "2026-10-25T14:00:00Z",
     "home": "Manchester Utd",
     "away": "Bournemouth",
     "score": "",
@@ -876,6 +876,17 @@
     "score": "",
     "attendance": null,
     "venue": "Stadium of Light",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 9,
+    "datetime": "2026-10-31T20:00:00Z",
+    "home": "Aston Villa",
+    "away": "Fulham",
+    "score": "",
+    "attendance": null,
+    "venue": "Villa Park",
     "referee": null,
     "matchReportUrl": null
   },
@@ -953,17 +964,6 @@
     "score": "",
     "attendance": null,
     "venue": "Tottenham Hotspur Stadium",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 9,
-    "datetime": "2026-11-01T14:00:00Z",
-    "home": "Aston Villa",
-    "away": "Fulham",
-    "score": "",
-    "attendance": null,
-    "venue": "Villa Park",
     "referee": null,
     "matchReportUrl": null
   },
