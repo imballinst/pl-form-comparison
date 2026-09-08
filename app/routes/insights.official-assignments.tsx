@@ -262,14 +262,18 @@ export default function MatchOfficialAssignments() {
             const [row, name] = selectedCell
             const totalNumberOfGamesAcrossSeasons = 38 * seasons.length
 
-            const roles: Record<string, number> = {}
+            const rolesCount: Record<string, number> = {}
             const assignmentCountPerSeason: Record<string, number> = {}
             const totalStatsPerSeason: Record<string, Record<string, number>> = {}
 
             for (const season of seasons) {
               const refereeEntry = perSeasonRecord[season].teamsRecord[row.name]?.referees ?? {}
               const officiatingAssignments = (
-                refereeEntry[name] ? Object.entries(refereeEntry[name].Home).concat(Object.entries(refereeEntry[name].Away)) : []
+                refereeEntry[name]
+                  ? Object.entries(refereeEntry[name].Home)
+                      .concat(Object.entries(refereeEntry[name].Away))
+                      .filter(([role]) => roles.includes(role))
+                  : []
               ) as Array<[string, number[]]>
 
               let totalStats = totalStatsPerSeason[season]
@@ -297,14 +301,14 @@ export default function MatchOfficialAssignments() {
                   }
                 }
 
-                if (roles[role] === undefined) {
-                  roles[role] = 0
+                if (rolesCount[role] === undefined) {
+                  rolesCount[role] = 0
                 }
                 if (assignmentCountPerSeason[season] === undefined) {
                   assignmentCountPerSeason[season] = 0
                 }
 
-                roles[role] += matchIds.length
+                rolesCount[role] += matchIds.length
                 assignmentCountPerSeason[season] += matchIds.length
               }
             }
@@ -322,7 +326,7 @@ export default function MatchOfficialAssignments() {
                     {name} is assigned to {row.name}'s matches in {row.referees[name].totalScore} out of {totalNumberOfGamesAcrossSeasons}{' '}
                     matches (<strong>{toPercentage(row.referees[name].totalScore / totalNumberOfGamesAcrossSeasons)}</strong>
                     ):{' '}
-                    {Object.entries(roles)
+                    {Object.entries(rolesCount)
                       .filter(([_, count]) => count > 0)
                       .map(([role, count]) => `${count}x ${role}`)
                       .join(', ')}
