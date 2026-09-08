@@ -74,7 +74,22 @@
         "attendance": 59984,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 8,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.84262,
             "awayXg": 0.966305
@@ -106,7 +121,22 @@
         "attendance": 11245,
         "stats": {
           "referee": "Peter Bankes",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 10,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.51025,
             "awayXg": 1.4834
@@ -138,7 +168,22 @@
         "attendance": 31872,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 6,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 7,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 4.36748,
             "awayXg": 1.88594
@@ -264,7 +309,22 @@
         "attendance": 52207,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 6,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 5,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 4.32208,
             "awayXg": 1.486
@@ -296,7 +356,22 @@
         "attendance": 17066,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 3,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.90756,
             "awayXg": 1.45316
@@ -375,7 +450,22 @@
         "attendance": 73358,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 8,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 7,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 1.97087,
             "awayXg": 1.72228
@@ -409,7 +499,22 @@
         "attendance": 29432,
         "stats": {
           "referee": "Peter Bankes",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 6,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 7,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.37181,
             "awayXg": 0.551038
@@ -427,7 +532,7 @@
           "id": "229",
           "shortName": "Wolverhampton Wanderers",
           "abbr": "WOL",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 4,
@@ -441,7 +546,22 @@
         "attendance": 31317,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 1,
+              "fouls": 13,
+              "corners": 5,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 6,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 3,
+              "offsides": 7
+            }
+          },
           "understat": {
             "homeXg": 2.68821,
             "awayXg": 3.15562
@@ -567,7 +687,22 @@
         "attendance": 61910,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 5,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 6,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 2.53904,
             "awayXg": 2.44604
@@ -599,7 +734,22 @@
         "attendance": 53419,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 3,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 0,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 1.22528,
             "awayXg": 0.257154
@@ -664,7 +814,7 @@
           "id": "81",
           "shortName": "West Ham United",
           "abbr": "WHU",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 1,
@@ -678,7 +828,22 @@
         "attendance": 62451,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 1,
+              "fouls": 12,
+              "corners": 3,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 9,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.71234,
             "awayXg": 1.60916
@@ -853,7 +1018,22 @@
         "attendance": 10567,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 6,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 2,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.483582,
             "awayXg": 2.26115
@@ -979,7 +1159,22 @@
         "attendance": 38851,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 7,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 0,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.89792,
             "awayXg": 1.40228
@@ -1005,13 +1200,28 @@
           "id": "249",
           "shortName": "Nottingham Forest",
           "abbr": "NOT",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Old Trafford",
         "attendance": 73595,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 11,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 1,
+              "fouls": 11,
+              "corners": 3,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 3.02803,
             "awayXg": 0.960354
@@ -1043,7 +1253,22 @@
         "attendance": 31508,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 17,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.3743,
             "awayXg": 2.9527
@@ -1163,13 +1388,28 @@
           "id": "87",
           "shortName": "Liverpool",
           "abbr": "LIV",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "St James' Park",
         "attendance": 52214,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 5,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 1,
+              "fouls": 10,
+              "corners": 9,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.62037,
             "awayXg": 0.856121
@@ -1203,7 +1443,22 @@
         "attendance": 10802,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 9,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 6,
+              "offsides": 6
+            }
+          },
           "understat": {
             "homeXg": 2.02244,
             "awayXg": 1.22528
@@ -1376,7 +1631,22 @@
         "attendance": 21750,
         "stats": {
           "referee": "Darren England",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 7,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.66604,
             "awayXg": 2.39785
@@ -1408,7 +1678,22 @@
         "attendance": 39820,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 7,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 0,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 2.28442,
             "awayXg": 1.1505
@@ -1440,7 +1725,22 @@
         "attendance": 31620,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 5,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 3,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.32258,
             "awayXg": 0.90476
@@ -1472,7 +1772,22 @@
         "attendance": 24741,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 2,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.32935,
             "awayXg": 1.13911
@@ -1551,7 +1866,22 @@
         "attendance": 60192,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 12,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.90973,
             "awayXg": 0.966109
@@ -1585,7 +1915,22 @@
         "attendance": 31257,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 4,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.538833,
             "awayXg": 2.82701
@@ -1611,13 +1956,28 @@
           "id": "238",
           "shortName": "Sheffield United",
           "abbr": "SHE",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Tottenham Hotspur Stadium",
         "attendance": 61706,
         "stats": {
           "referee": "Peter Bankes",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 6,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 15,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 7,
+              "redCards": 1,
+              "fouls": 14,
+              "corners": 2,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 2.15909,
             "awayXg": 0.790655
@@ -1649,7 +2009,22 @@
         "attendance": 62475,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 11,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.895632,
             "awayXg": 4.15046
@@ -1775,7 +2150,22 @@
         "attendance": 73592,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 8,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 1,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.719951,
             "awayXg": 1.93908
@@ -1807,7 +2197,22 @@
         "attendance": 51670,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 8,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.50126,
             "awayXg": 0.633678
@@ -1927,13 +2332,28 @@
           "id": "92",
           "shortName": "Burnley",
           "abbr": "BUR",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "The City Ground",
         "attendance": 28958,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.705795,
             "awayXg": 0.807651
@@ -1961,13 +2381,28 @@
           "id": "229",
           "shortName": "Wolverhampton Wanderers",
           "abbr": "WOL",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Kenilworth Road Stadium",
         "attendance": 10893,
         "stats": {
           "referee": "Joshua Smith",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 10,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 1,
+              "fouls": 17,
+              "corners": 1,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.24101,
             "awayXg": 0.762984
@@ -1985,7 +2420,7 @@
           "id": "88",
           "shortName": "Manchester City",
           "abbr": "MCI",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 0,
@@ -1999,7 +2434,22 @@
         "attendance": 53413,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 5,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 7,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 6,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 1.33984,
             "awayXg": 0.729109
@@ -2125,7 +2575,22 @@
         "attendance": 21593,
         "stats": {
           "referee": "Tony Harrington",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 9,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 5,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 0.935444,
             "awayXg": 0.840273
@@ -2204,7 +2669,22 @@
         "attendance": 31617,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.14533,
             "awayXg": 1.58984
@@ -2236,7 +2716,22 @@
         "attendance": 60156,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 11,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 19,
+              "corners": 4,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 2.3429,
             "awayXg": 2.21166
@@ -2268,7 +2763,22 @@
         "attendance": 50136,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 7,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 4.14262,
             "awayXg": 1.53878
@@ -2300,7 +2810,22 @@
         "attendance": 31127,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 2,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.579392,
             "awayXg": 5.1082
@@ -2334,7 +2859,22 @@
         "attendance": 40636,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 19,
+              "corners": 1,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 20,
+              "corners": 3,
+              "offsides": 7
+            }
+          },
           "understat": {
             "homeXg": 1.90746,
             "awayXg": 1.72819
@@ -2413,7 +2953,22 @@
         "attendance": 73428,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 10,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.55408,
             "awayXg": 1.19015
@@ -2445,7 +3000,22 @@
         "attendance": 51687,
         "stats": {
           "referee": "Thomas Bramall",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 5,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 3,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 3.08516,
             "awayXg": 0.801849
@@ -2524,7 +3094,22 @@
         "attendance": 62459,
         "stats": {
           "referee": "Graham Scott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 7,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 3.19753,
             "awayXg": 0.911997
@@ -2556,7 +3141,22 @@
         "attendance": 31415,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 0,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.673985,
             "awayXg": 0.98075
@@ -2582,13 +3182,28 @@
           "id": "87",
           "shortName": "Liverpool",
           "abbr": "LIV",
-          "redCards": 0
+          "redCards": 2
         },
         "ground": "Tottenham Hotspur Stadium",
         "attendance": 62001,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 11,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 6,
+              "redCards": 2,
+              "fouls": 17,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.18823,
             "awayXg": 1.12299
@@ -2606,7 +3221,7 @@
           "id": "249",
           "shortName": "Nottingham Forest",
           "abbr": "NOT",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 1,
@@ -2620,7 +3235,22 @@
         "attendance": 29004,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 6,
+              "corners": 1,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 11,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.800317,
             "awayXg": 1.75862
@@ -2695,13 +3325,28 @@
           "id": "82",
           "shortName": "Tottenham Hotspur",
           "abbr": "TOT",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Kenilworth Road Stadium",
         "attendance": 10290,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 5,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 7,
+              "corners": 6,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 0.848118,
             "awayXg": 2.37947
@@ -2874,7 +3519,22 @@
         "attendance": 73453,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 7,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 5,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.29356,
             "awayXg": 1.02509
@@ -2906,7 +3566,22 @@
         "attendance": 25017,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 3,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 7,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.982452,
             "awayXg": 1.22105
@@ -2938,7 +3613,22 @@
         "attendance": 31752,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 8,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 20,
+              "corners": 1,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 2.23187,
             "awayXg": 2.51029
@@ -2970,7 +3660,22 @@
         "attendance": 62473,
         "stats": {
           "referee": "Peter Bankes",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.931345,
             "awayXg": 1.97865
@@ -2988,7 +3693,7 @@
           "id": "229",
           "shortName": "Wolverhampton Wanderers",
           "abbr": "WOL",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 1,
@@ -3002,7 +3707,22 @@
         "attendance": 31425,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 1,
+              "fouls": 19,
+              "corners": 2,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 10,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.76232,
             "awayXg": 1.81618
@@ -3116,7 +3836,7 @@
           "id": "73",
           "shortName": "Bournemouth",
           "abbr": "BOU",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 2,
@@ -3130,7 +3850,22 @@
         "attendance": 11175,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 1,
+              "fouls": 15,
+              "corners": 3,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 6,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 12,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.01839,
             "awayXg": 2.30454
@@ -3195,7 +3930,7 @@
           "id": "88",
           "shortName": "Manchester City",
           "abbr": "MCI",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 1,
@@ -3209,7 +3944,22 @@
         "attendance": 53466,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 1,
+              "fouls": 9,
+              "corners": 2,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.962509,
             "awayXg": 0.963733
@@ -3241,7 +3991,22 @@
         "attendance": 52189,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 8,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 3.73336,
             "awayXg": 1.08795
@@ -3273,7 +4038,22 @@
         "attendance": 29361,
         "stats": {
           "referee": "Samuel Barrott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 2,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 3.27549,
             "awayXg": 1.49555
@@ -3352,7 +4132,22 @@
         "attendance": 31543,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 5,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 1.41074,
             "awayXg": 1.46187
@@ -3384,7 +4179,22 @@
         "attendance": 41734,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 8,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 7,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 2.34143,
             "awayXg": 0.659622
@@ -3416,7 +4226,22 @@
         "attendance": 61286,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 3,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 5,
+              "offsides": 6
+            }
+          },
           "understat": {
             "homeXg": 1.63523,
             "awayXg": 0.745838
@@ -3450,7 +4275,22 @@
         "attendance": 25074,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 19,
+              "corners": 11,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 2,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 0.561834,
             "awayXg": 0.989103
@@ -3623,7 +4463,22 @@
         "attendance": 31584,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 8,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 7,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.863393,
             "awayXg": 2.31987
@@ -3655,7 +4510,22 @@
         "attendance": 62469,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 3,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 0.618578,
             "awayXg": 0.733813
@@ -3734,7 +4604,22 @@
         "attendance": 31550,
         "stats": {
           "referee": "Michael Salisbury",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 7,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.31996,
             "awayXg": 0.552523
@@ -3766,7 +4651,22 @@
         "attendance": 50143,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 8,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 3,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 2.70428,
             "awayXg": 0.642014
@@ -3798,7 +4698,22 @@
         "attendance": 73502,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 7,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 4,
+              "corners": 12,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.714628,
             "awayXg": 4.54595
@@ -3832,7 +4747,22 @@
         "attendance": 24415,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 9,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.18241,
             "awayXg": 0.697095
@@ -3864,7 +4794,22 @@
         "attendance": 17103,
         "stats": {
           "referee": "Thomas Bramall",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 3,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.82944,
             "awayXg": 1.75505
@@ -3943,7 +4888,22 @@
         "attendance": 38683,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 3,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 3,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 0.617607,
             "awayXg": 0.442489
@@ -4022,7 +4982,22 @@
         "attendance": 29454,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 1.10165,
             "awayXg": 1.14803
@@ -4054,7 +5029,22 @@
         "attendance": 52194,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 0,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 11,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.12355,
             "awayXg": 0.535473
@@ -4086,7 +5076,22 @@
         "attendance": 29313,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 0,
+              "offsides": 9
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 10,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.592447,
             "awayXg": 1.33116
@@ -4151,7 +5156,7 @@
           "id": "82",
           "shortName": "Tottenham Hotspur",
           "abbr": "TOT",
-          "redCards": 0
+          "redCards": 2
         },
         "awayTeam": {
           "score": 4,
@@ -4165,7 +5170,22 @@
         "attendance": 61726,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 2,
+              "fouls": 12,
+              "corners": 1,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 21,
+              "corners": 6,
+              "offsides": 7
+            }
+          },
           "understat": {
             "homeXg": 0.959108,
             "awayXg": 4.05865
@@ -4199,7 +5219,22 @@
         "attendance": 31642,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 19,
+              "corners": 11,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.90884,
             "awayXg": 0.432315
@@ -4325,7 +5360,22 @@
         "attendance": 73599,
         "stats": {
           "referee": "Graham Scott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 11,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.74105,
             "awayXg": 0.408265
@@ -4357,7 +5407,22 @@
         "attendance": 11201,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 4,
+              "corners": 5,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.78424,
             "awayXg": 0.306141
@@ -4422,7 +5487,7 @@
           "id": "220",
           "shortName": "Brighton and Hove Albion",
           "abbr": "BRI",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 1,
@@ -4436,7 +5501,22 @@
         "attendance": 31367,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 13,
+              "corners": 6,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.08601,
             "awayXg": 0.84434
@@ -4515,7 +5595,22 @@
         "attendance": 62470,
         "stats": {
           "referee": "Michael Salisbury",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 9,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 2.06402,
             "awayXg": 1.42128
@@ -4643,7 +5738,22 @@
         "attendance": 21319,
         "stats": {
           "referee": "Samuel Barrott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.44228,
             "awayXg": 1.36963
@@ -4716,13 +5826,28 @@
           "id": "80",
           "shortName": "Chelsea",
           "abbr": "CHE",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "St James' Park",
         "attendance": 52227,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 6,
+              "redCards": 1,
+              "fouls": 19,
+              "corners": 2,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 2.15227,
             "awayXg": 0.968061
@@ -4748,13 +5873,28 @@
           "id": "220",
           "shortName": "Brighton and Hove Albion",
           "abbr": "BRI",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "The City Ground",
         "attendance": 29404,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 1,
+              "fouls": 7,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 2.22655,
             "awayXg": 1.21792
@@ -4880,7 +6020,22 @@
         "attendance": 61679,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 9,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 3,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.22542,
             "awayXg": 2.39755
@@ -4912,7 +6067,22 @@
         "attendance": 39257,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 5,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.49764,
             "awayXg": 2.07334
@@ -4944,7 +6114,22 @@
         "attendance": 24366,
         "stats": {
           "referee": "Michael Salisbury",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 6,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.49057,
             "awayXg": 1.57875
@@ -4978,7 +6163,22 @@
         "attendance": 60262,
         "stats": {
           "referee": "Peter Bankes",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 0,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 3.30368,
             "awayXg": 1.07886
@@ -5104,7 +6304,22 @@
         "attendance": 29404,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 3,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.673085,
             "awayXg": 0.623789
@@ -5136,7 +6351,22 @@
         "attendance": 52214,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 7,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.90191,
             "awayXg": 0.422674
@@ -5201,7 +6431,7 @@
           "id": "80",
           "shortName": "Chelsea",
           "abbr": "CHE",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 2,
@@ -5215,7 +6445,22 @@
         "attendance": 39647,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 1,
+              "fouls": 16,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 8,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 1.66304,
             "awayXg": 0.855058
@@ -5294,7 +6539,22 @@
         "attendance": 62414,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 2,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 3,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.1466,
             "awayXg": 0.987682
@@ -5326,7 +6586,22 @@
         "attendance": 53473,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 10,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 8,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.90729,
             "awayXg": 0.433077
@@ -5360,7 +6635,22 @@
         "attendance": 30439,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 8,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.11886,
             "awayXg": 0.781542
@@ -5439,7 +6729,22 @@
         "attendance": 31571,
         "stats": {
           "referee": "Peter Bankes",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 7,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 3,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.54099,
             "awayXg": 1.22007
@@ -5471,7 +6776,22 @@
         "attendance": 24105,
         "stats": {
           "referee": "Joshua Smith",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 6,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 1,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 3.09427,
             "awayXg": 0.218659
@@ -5644,7 +6964,22 @@
         "attendance": 73607,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 12,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 4.03949,
             "awayXg": 2.3512
@@ -5676,7 +7011,22 @@
         "attendance": 38198,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 5,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 2,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.95393,
             "awayXg": 1.29564
@@ -5708,7 +7058,22 @@
         "attendance": 61171,
         "stats": {
           "referee": "Michael Salisbury",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 8,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 6
+            }
+          },
           "understat": {
             "homeXg": 1.61268,
             "awayXg": 1.7409
@@ -5789,7 +7154,22 @@
         "attendance": 31511,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 9,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 1,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.96247,
             "awayXg": 1.05162
@@ -5821,7 +7201,22 @@
         "attendance": 73427,
         "stats": {
           "referee": "Peter Bankes",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 10,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.11296,
             "awayXg": 1.9742
@@ -5900,7 +7295,22 @@
         "attendance": 31543,
         "stats": {
           "referee": "Samuel Barrott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.02199,
             "awayXg": 1.21801
@@ -6026,7 +7436,22 @@
         "attendance": 23988,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 3,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 2.1884,
             "awayXg": 0.983
@@ -6105,7 +7530,22 @@
         "attendance": 61171,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 3,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 6,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 4.40118,
             "awayXg": 1.61368
@@ -6133,13 +7573,28 @@
           "id": "82",
           "shortName": "Tottenham Hotspur",
           "abbr": "TOT",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "The City Ground",
         "attendance": 29296,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 6,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 1,
+              "fouls": 11,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.70569,
             "awayXg": 1.60738
@@ -6259,13 +7714,28 @@
           "id": "228",
           "shortName": "Fulham",
           "abbr": "FLH",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "St James' Park",
         "attendance": 52055,
         "stats": {
           "referee": "Samuel Barrott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 1,
+              "fouls": 12,
+              "corners": 1,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 4.27933,
             "awayXg": 0.471042
@@ -6344,7 +7814,22 @@
         "attendance": 60257,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 10,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 1,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.76976,
             "awayXg": 0.663054
@@ -6423,7 +7908,22 @@
         "attendance": 62455,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 6,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 5,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.03828,
             "awayXg": 0.556206
@@ -6449,13 +7949,28 @@
           "id": "89",
           "shortName": "Manchester United",
           "abbr": "MUN",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Anfield",
         "attendance": 57158,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 12,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 6,
+              "redCards": 1,
+              "fouls": 8,
+              "corners": 0,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.97111,
             "awayXg": 0.632715
@@ -6536,7 +8051,22 @@
         "attendance": 24171,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 3,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 1,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.65409,
             "awayXg": 1.33653
@@ -6615,7 +8145,22 @@
         "attendance": 64472,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.51468,
             "awayXg": 0.730496
@@ -6694,7 +8239,22 @@
         "attendance": 11042,
         "stats": {
           "referee": "Darren England",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 5,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 7,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 1.81844,
             "awayXg": 1.41488
@@ -6712,7 +8272,7 @@
           "id": "249",
           "shortName": "Nottingham Forest",
           "abbr": "NOT",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 3,
@@ -6726,7 +8286,22 @@
         "attendance": 29188,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 1,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.791806,
             "awayXg": 1.89067
@@ -6758,7 +8333,22 @@
         "attendance": 61808,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 3,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 8,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 1.57527,
             "awayXg": 1.98385
@@ -6837,7 +8427,22 @@
         "attendance": 31641,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 10,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 6,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.74626,
             "awayXg": 1.75447
@@ -6918,7 +8523,22 @@
         "attendance": 52207,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 10,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.79106,
             "awayXg": 3.1074
@@ -6997,7 +8617,22 @@
         "attendance": 31041,
         "stats": {
           "referee": "Samuel Allison",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 9,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 3.61788,
             "awayXg": 0.715575
@@ -7076,7 +8711,22 @@
         "attendance": 73574,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 3,
+              "offsides": 9
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.20104,
             "awayXg": 1.83637
@@ -7108,7 +8758,22 @@
         "attendance": 17109,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 8,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 2,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 2.59347,
             "awayXg": 1.89483
@@ -7234,7 +8899,22 @@
         "attendance": 31675,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 7,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 6,
+              "offsides": 5
+            }
+          },
           "understat": {
             "homeXg": 3.84702,
             "awayXg": 2.06955
@@ -7266,7 +8946,22 @@
         "attendance": 60261,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 10,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.7884,
             "awayXg": 1.59711
@@ -7488,7 +9183,22 @@
         "attendance": 31639,
         "stats": {
           "referee": "Thomas Bramall",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 5,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.64477,
             "awayXg": 0.519641
@@ -7520,7 +9230,22 @@
         "attendance": 29529,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 5,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.744348,
             "awayXg": 0.651905
@@ -7599,7 +9324,22 @@
         "attendance": 61780,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 13,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 2.15027,
             "awayXg": 1.58229
@@ -7631,7 +9371,22 @@
         "attendance": 57471,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 7,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 3,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 6.67151,
             "awayXg": 0.910974
@@ -7663,7 +9418,22 @@
         "attendance": 62462,
         "stats": {
           "referee": "Samuel Barrott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 4,
+              "corners": 2,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 0,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.9831,
             "awayXg": 2.1552
@@ -7791,7 +9561,22 @@
         "attendance": 52190,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 3,
+              "offsides": 8
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 13,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.23638,
             "awayXg": 2.55452
@@ -7870,7 +9655,22 @@
         "attendance": 73489,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 8,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 13,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 0.923233,
             "awayXg": 1.31224
@@ -7949,7 +9749,22 @@
         "attendance": 17077,
         "stats": {
           "referee": "Darren England",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.94219,
             "awayXg": 1.22251
@@ -7967,7 +9782,7 @@
           "id": "238",
           "shortName": "Sheffield United",
           "abbr": "SHE",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 2,
@@ -7975,13 +9790,28 @@
           "id": "81",
           "shortName": "West Ham United",
           "abbr": "WHU",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Bramall Lane",
         "attendance": 29164,
         "stats": {
           "referee": "Michael Salisbury",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 11,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 10,
+              "corners": 1,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.61362,
             "awayXg": 2.4241
@@ -8060,7 +9890,22 @@
         "attendance": 41505,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 8,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.3701,
             "awayXg": 1.14116
@@ -8094,7 +9939,22 @@
         "attendance": 29387,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 2,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 10,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 0.631618,
             "awayXg": 1.39143
@@ -8173,7 +10033,22 @@
         "attendance": 10994,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 7,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 3.63312,
             "awayXg": 1.01366
@@ -8252,7 +10127,22 @@
         "attendance": 42191,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 8,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 7,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 1.44485,
             "awayXg": 3.3224
@@ -8284,7 +10174,22 @@
         "attendance": 61210,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 3,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 3.36194,
             "awayXg": 1.59637
@@ -8410,7 +10315,22 @@
         "attendance": 62478,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 1,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 5,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 1.3128,
             "awayXg": 1.13487
@@ -8442,7 +10362,22 @@
         "attendance": 31641,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 5,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.27609,
             "awayXg": 3.22698
@@ -8476,7 +10411,22 @@
         "attendance": 39321,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 9,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 3.25881,
             "awayXg": 0.922371
@@ -8508,7 +10458,22 @@
         "attendance": 31345,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 3,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 2,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.92591,
             "awayXg": 0.241137
@@ -8587,7 +10552,22 @@
         "attendance": 52211,
         "stats": {
           "referee": "Thomas Bramall",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 8,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 2,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 2.37353,
             "awayXg": 2.67463
@@ -8652,7 +10632,7 @@
           "id": "73",
           "shortName": "Bournemouth",
           "abbr": "BOU",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 1,
@@ -8666,7 +10646,22 @@
         "attendance": 11200,
         "stats": {
           "referee": "Rebecca Welch",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 19,
+              "corners": 11,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 6,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.1895,
             "awayXg": 0.456548
@@ -8698,7 +10693,22 @@
         "attendance": 39628,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 10,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 1,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 2.35967,
             "awayXg": 2.48996
@@ -8730,7 +10740,22 @@
         "attendance": 73612,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 5,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 8,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.96721,
             "awayXg": 1.1807
@@ -9046,7 +11071,22 @@
         "attendance": 61445,
         "stats": {
           "referee": "Samuel Barrott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 9,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 6,
+              "offsides": 6
+            }
+          },
           "understat": {
             "homeXg": 2.10928,
             "awayXg": 1.49285
@@ -9078,7 +11118,22 @@
         "attendance": 30731,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 7,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.05781,
             "awayXg": 1.84908
@@ -9110,7 +11165,22 @@
         "attendance": 29451,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.968075,
             "awayXg": 0.511375
@@ -9142,7 +11212,22 @@
         "attendance": 62475,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 2,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 6,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.191065,
             "awayXg": 3.99893
@@ -9174,7 +11259,22 @@
         "attendance": 42185,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 10,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 8,
+              "offsides": 6
+            }
+          },
           "understat": {
             "homeXg": 2.64675,
             "awayXg": 2.44591
@@ -9396,7 +11496,22 @@
         "attendance": 52224,
         "stats": {
           "referee": "Michael Salisbury",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 22,
+              "corners": 2,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 2.38425,
             "awayXg": 2.08098
@@ -9422,13 +11537,28 @@
           "id": "81",
           "shortName": "West Ham United",
           "abbr": "WHU",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "The City Ground",
         "attendance": 29490,
         "stats": {
           "referee": "Thomas Bramall",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 5,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 6,
+              "redCards": 1,
+              "fouls": 15,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.66942,
             "awayXg": 0.520016
@@ -9460,7 +11590,22 @@
         "attendance": 61532,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 10,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.59768,
             "awayXg": 1.77591
@@ -9525,7 +11670,7 @@
           "id": "238",
           "shortName": "Sheffield United",
           "abbr": "SHE",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 5,
@@ -9539,7 +11684,22 @@
         "attendance": 29522,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 1,
+              "fouls": 3,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 10,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.586214,
             "awayXg": 3.35549
@@ -9571,7 +11731,22 @@
         "attendance": 11483,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 8,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 21,
+              "corners": 6,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.57234,
             "awayXg": 3.58973
@@ -9699,7 +11874,22 @@
         "attendance": 42131,
         "stats": {
           "referee": "Samuel Barrott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 7,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 2,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 3.48861,
             "awayXg": 2.25569
@@ -9717,7 +11907,7 @@
           "id": "220",
           "shortName": "Brighton and Hove Albion",
           "abbr": "BRI",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 1,
@@ -9731,7 +11921,22 @@
         "attendance": 41646,
         "stats": {
           "referee": "Tony Harrington",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 1,
+              "fouls": 9,
+              "corners": 11,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 3,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 1.6538,
             "awayXg": 0.286655
@@ -9810,7 +12015,22 @@
         "attendance": 73487,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 10,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 9,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.96036,
             "awayXg": 1.1385
@@ -9889,7 +12109,22 @@
         "attendance": 60298,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 9,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 0,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.59336,
             "awayXg": 0.217373
@@ -9921,7 +12156,22 @@
         "attendance": 30789,
         "stats": {
           "referee": "Darren Bond",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 5,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 4,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.21618,
             "awayXg": 0.654342
@@ -9953,7 +12203,22 @@
         "attendance": 62450,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 1,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 7,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 2.06873,
             "awayXg": 1.33683
@@ -9985,7 +12250,22 @@
         "attendance": 39086,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 9,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.22432,
             "awayXg": 1.27064
@@ -10066,7 +12346,22 @@
         "attendance": 39262,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 3.12075,
             "awayXg": 2.17948
@@ -10098,7 +12393,22 @@
         "attendance": 24460,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 2,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 1.37604,
             "awayXg": 1.15198
@@ -10130,7 +12440,22 @@
         "attendance": 52206,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 3,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 5,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 3.33495,
             "awayXg": 0.507769
@@ -10162,7 +12487,22 @@
         "attendance": 29603,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 3,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 12,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.971466,
             "awayXg": 1.32259
@@ -10194,7 +12534,22 @@
         "attendance": 61339,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 11,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 1,
+              "offsides": 5
+            }
+          },
           "understat": {
             "homeXg": 2.6625,
             "awayXg": 0.277887
@@ -10320,7 +12675,22 @@
         "attendance": 53514,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 15,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.64173,
             "awayXg": 0.153764
@@ -10401,7 +12771,22 @@
         "attendance": 73601,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 5,
+              "offsides": 6
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 8,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.9016,
             "awayXg": 1.8214
@@ -10527,7 +12912,22 @@
         "attendance": 30860,
         "stats": {
           "referee": "Tony Harrington",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 3,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.29589,
             "awayXg": 2.94155
@@ -10592,7 +12992,7 @@
           "id": "71",
           "shortName": "Aston Villa",
           "abbr": "AVL",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 4,
@@ -10606,7 +13006,22 @@
         "attendance": 42310,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 1,
+              "fouls": 11,
+              "corners": 6,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.23267,
             "awayXg": 2.25381
@@ -10638,7 +13053,22 @@
         "attendance": 31505,
         "stats": {
           "referee": "Michael Salisbury",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 6,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.534518,
             "awayXg": 0.687034
@@ -10670,7 +13100,22 @@
         "attendance": 62441,
         "stats": {
           "referee": "Darren England",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 4,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 3,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.87414,
             "awayXg": 0.88131
@@ -10749,7 +13194,22 @@
         "attendance": 37753,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 0,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.78315,
             "awayXg": 0.568435
@@ -10830,7 +13290,22 @@
         "attendance": 11630,
         "stats": {
           "referee": "Darren England",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 7,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.853782,
             "awayXg": 1.95268
@@ -10862,7 +13337,22 @@
         "attendance": 24410,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 5,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 2.47234,
             "awayXg": 2.14564
@@ -10894,7 +13384,22 @@
         "attendance": 62461,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 7,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 10,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.32829,
             "awayXg": 0.911274
@@ -10967,13 +13472,28 @@
           "id": "73",
           "shortName": "Bournemouth",
           "abbr": "BOU",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Molineux Stadium",
         "attendance": 25541,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 8,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 1,
+              "fouls": 17,
+              "corners": 12,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.484454,
             "awayXg": 2.40311
@@ -11005,7 +13525,22 @@
         "attendance": 25002,
         "stats": {
           "referee": "Thomas Bramall",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 7,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 2,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.43661,
             "awayXg": 0.55129
@@ -11084,7 +13619,22 @@
         "attendance": 73549,
         "stats": {
           "referee": "Michael Salisbury",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 8,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 3.51311,
             "awayXg": 1.20517
@@ -11116,7 +13666,22 @@
         "attendance": 31596,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 3,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.572021,
             "awayXg": 1.90507
@@ -11136,7 +13701,7 @@
           "id": "86",
           "shortName": "Newcastle United",
           "abbr": "NEW",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 3,
@@ -11150,7 +13715,22 @@
         "attendance": 52199,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 9,
+              "corners": 3,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 3.80922,
             "awayXg": 0.994584
@@ -11276,7 +13856,22 @@
         "attendance": 29520,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 4,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.784652,
             "awayXg": 0.900972
@@ -11355,7 +13950,22 @@
         "attendance": 61534,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 3,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 6,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.46523,
             "awayXg": 0.402402
@@ -11387,7 +13997,22 @@
         "attendance": 42640,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 5,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 19,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.28271,
             "awayXg": 1.66232
@@ -11419,7 +14044,22 @@
         "attendance": 17138,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 14,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 3.16487,
             "awayXg": 0.989565
@@ -11451,7 +14091,22 @@
         "attendance": 60061,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 20,
+              "corners": 8,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 4,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 3.21149,
             "awayXg": 0.43922
@@ -11532,7 +14187,22 @@
         "attendance": 28997,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 3,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 8,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.94619,
             "awayXg": 1.04304
@@ -11564,7 +14234,22 @@
         "attendance": 52135,
         "stats": {
           "referee": "Tony Harrington",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 7,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 3,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 2.65009,
             "awayXg": 1.69834
@@ -11643,7 +14328,22 @@
         "attendance": 21528,
         "stats": {
           "referee": "Thomas Bramall",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 7,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 5
+            }
+          },
           "understat": {
             "homeXg": 1.12581,
             "awayXg": 1.01021
@@ -11675,7 +14375,22 @@
         "attendance": 62469,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 9,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.47017,
             "awayXg": 1.39423
@@ -11754,7 +14469,22 @@
         "attendance": 17024,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 1,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 5,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.423299,
             "awayXg": 1.22404
@@ -11880,7 +14610,22 @@
         "attendance": 39694,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 12,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 3,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 3.48048,
             "awayXg": 1.56686
@@ -12055,7 +14800,22 @@
         "attendance": 24418,
         "stats": {
           "referee": "Samuel Allison",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 14,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 3,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.834564,
             "awayXg": 1.18012
@@ -12134,7 +14894,22 @@
         "attendance": 31504,
         "stats": {
           "referee": "Tony Harrington",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 4,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.78341,
             "awayXg": 1.14133
@@ -12166,7 +14941,22 @@
         "attendance": 31677,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 8,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 7,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.428514,
             "awayXg": 4.16518
@@ -12198,7 +14988,22 @@
         "attendance": 73501,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 6,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 11,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.814509,
             "awayXg": 4.43457
@@ -12277,7 +15082,22 @@
         "attendance": 61098,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 12,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 2,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.61978,
             "awayXg": 2.00122
@@ -12311,7 +15131,22 @@
         "attendance": 52147,
         "stats": {
           "referee": "Tim Robinson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 16,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 3,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 3.1483,
             "awayXg": 0.737596
@@ -12390,7 +15225,22 @@
         "attendance": 20687,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 5,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 1.8522,
             "awayXg": 0.889445
@@ -12469,7 +15319,22 @@
         "attendance": 29604,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 10,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 1,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.76244,
             "awayXg": 1.45688
@@ -12501,7 +15366,22 @@
         "attendance": 11229,
         "stats": {
           "referee": "Tony Harrington",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 7,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 2,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.38519,
             "awayXg": 1.52274
@@ -12580,7 +15460,22 @@
         "attendance": 62459,
         "stats": {
           "referee": "Stuart Attwell",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 8,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 3,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.45307,
             "awayXg": 3.61413
@@ -12802,7 +15697,22 @@
         "attendance": 31621,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 1,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 2,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.164516,
             "awayXg": 1.66179
@@ -12834,7 +15744,22 @@
         "attendance": 39239,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.473233,
             "awayXg": 1.18916
@@ -12913,7 +15838,22 @@
         "attendance": 25145,
         "stats": {
           "referee": "Graham Scott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 0,
+              "offsides": 5
+            }
+          },
           "understat": {
             "homeXg": 3.7185,
             "awayXg": 1.34536
@@ -12992,7 +15932,22 @@
         "attendance": 61065,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 7,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.84285,
             "awayXg": 2.70331
@@ -13018,13 +15973,28 @@
           "id": "80",
           "shortName": "Chelsea",
           "abbr": "CHE",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "The American Express Community Stadium",
         "attendance": 31555,
         "stats": {
           "referee": "Michael Salisbury",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 1,
+              "fouls": 14,
+              "corners": 6,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.32423,
             "awayXg": 1.544
@@ -13056,7 +16026,22 @@
         "attendance": 73582,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 9,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 9,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.49706,
             "awayXg": 2.27657
@@ -13090,7 +16075,22 @@
         "attendance": 62474,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 8,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 0.794025,
             "awayXg": 2.29298
@@ -13169,7 +16169,22 @@
         "attendance": 73571,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 5,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 3.06197,
             "awayXg": 1.89591
@@ -13201,7 +16216,22 @@
         "attendance": 52196,
         "stats": {
           "referee": "Tony Harrington",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 4,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 5,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 2.93477,
             "awayXg": 1.82408
@@ -13233,7 +16263,22 @@
         "attendance": 31531,
         "stats": {
           "referee": "David Coote",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.49011,
             "awayXg": 0.90435
@@ -13359,7 +16404,22 @@
         "attendance": 11188,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 8,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.48132,
             "awayXg": 1.35682
@@ -13391,7 +16451,22 @@
         "attendance": 61554,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 8,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 6,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 2.60458,
             "awayXg": 1.51469
@@ -13423,7 +16498,22 @@
         "attendance": 29677,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.17312,
             "awayXg": 0.932063
@@ -13598,7 +16688,22 @@
         "attendance": 21781,
         "stats": {
           "referee": "Anthony Taylor",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 4,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 11,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.28632,
             "awayXg": 4.25643
@@ -13616,7 +16721,7 @@
           "id": "238",
           "shortName": "Sheffield United",
           "abbr": "SHE",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 3,
@@ -13630,7 +16735,22 @@
         "attendance": 28516,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 1,
+              "fouls": 9,
+              "corners": 5,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.48986,
             "awayXg": 1.93818
@@ -13662,7 +16782,22 @@
         "attendance": 52439,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 4,
+              "corners": 6,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 0,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 4.52542,
             "awayXg": 0.396887
@@ -13694,7 +16829,22 @@
         "attendance": 31596,
         "stats": {
           "referee": "Robert Jones",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 7,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.63566,
             "awayXg": 0.0644055
@@ -13726,7 +16876,22 @@
         "attendance": 39295,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 8,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 4.21838,
             "awayXg": 0.893899
@@ -13758,7 +16923,22 @@
         "attendance": 60075,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 8,
+              "offsides": 7
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 3,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 3.26222,
             "awayXg": 1.17205
@@ -13790,7 +16970,22 @@
         "attendance": 25190,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 6,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.0656,
             "awayXg": 0.341417
@@ -13965,7 +17160,22 @@
         "attendance": 51997,
         "stats": {
           "referee": "Darren England",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 8,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.45163,
             "awayXg": 1.91556
@@ -13997,7 +17207,22 @@
         "attendance": 61148,
         "stats": {
           "referee": "Jarred Gillett",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 9,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 3,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 3.00238,
             "awayXg": 0.950331
@@ -14029,7 +17254,22 @@
         "attendance": 62475,
         "stats": {
           "referee": "Michael Oliver",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 7,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 3.71009,
             "awayXg": 0.640456
@@ -14055,13 +17295,28 @@
           "id": "78",
           "shortName": "Crystal Palace",
           "abbr": "CRY",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Molineux Stadium",
         "attendance": 31424,
         "stats": {
           "referee": "Thomas Bramall",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 8,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 1,
+              "fouls": 12,
+              "corners": 3,
+              "offsides": 5
+            }
+          },
           "understat": {
             "homeXg": 1.1561,
             "awayXg": 2.51452
@@ -14093,7 +17348,22 @@
         "attendance": 29708,
         "stats": {
           "referee": "Tony Harrington",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 5,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 6,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.44569,
             "awayXg": 2.41068
@@ -14125,7 +17395,22 @@
         "attendance": 73600,
         "stats": {
           "referee": "Paul Tierney",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 7,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.551669,
             "awayXg": 1.73104
@@ -14253,7 +17538,22 @@
         "attendance": 17124,
         "stats": {
           "referee": "Simon Hooper",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 3,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 0,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.70157,
             "awayXg": 3.65044
@@ -14285,7 +17585,22 @@
         "attendance": 31662,
         "stats": {
           "referee": "Craig Pawson",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 7,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.9717,
             "awayXg": 1.00404
@@ -14317,7 +17632,22 @@
         "attendance": 21109,
         "stats": {
           "referee": "Graham Scott",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 4,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 5,
+              "corners": 3,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.08222,
             "awayXg": 1.57962
@@ -14437,13 +17767,28 @@
           "id": "229",
           "shortName": "Wolverhampton Wanderers",
           "abbr": "WOL",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Anfield",
         "attendance": 60059,
         "stats": {
           "referee": "Chris Kavanagh",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 10,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 1,
+              "fouls": 10,
+              "corners": 2,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 5.65937,
             "awayXg": 0.731254
@@ -14522,7 +17867,22 @@
         "attendance": 55097,
         "stats": {
           "referee": "John Brooks",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 3,
+              "corners": 11,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 2,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 2.31504,
             "awayXg": 0.240159
@@ -14554,7 +17914,22 @@
         "attendance": 29116,
         "stats": {
           "referee": "Andy Madley",
-          "fbref": null,
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 2,
+              "offsides": 6
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 6,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.697312,
             "awayXg": 3.19675

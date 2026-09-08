@@ -6,7 +6,7 @@ from sys import exit as sysexit
 
 from bs4 import BeautifulSoup
 
-from utils import YEAR, maybe_get_chrome_path
+from utils import YEAR, maybe_get_chrome_path, normalize_fbref_name
 
 SCHEDULE_PATH = join(dirname(__file__), "references", f"{YEAR}-fbref-schedule.json")
 OUTPUT_PATH = join(dirname(__file__), "references", f"{YEAR}-fbref-match-details.json")
@@ -162,7 +162,7 @@ def main():
             print(f"  Skipping match {i + 1}/{len(matches)} (no URL): {match['home']} vs {match['away']}")
             continue
 
-        match_key = f"{match['datetime'][:10]}_{match['home']}_{match['away']}"
+        match_key = f"{match['datetime'][:10]}_{normalize_fbref_name(match['home'])}_{normalize_fbref_name(match['away'])}"
         if match_key in details:
             print(f"  Match {i + 1}/{len(matches)}: {match['home']} vs {match['away']} — already exists, skipping")
             continue

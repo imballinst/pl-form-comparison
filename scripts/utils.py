@@ -8,6 +8,25 @@ from datetime import datetime, timedelta, timezone
 YEAR = 2026
 
 
+FBREF_TO_APP: dict[str, str] = {
+    "Manchester Utd": "Manchester United",
+    "Newcastle": "Newcastle United",
+    "Nottingham": "Nottingham Forest",
+    "Nott'ham Forest": "Nottingham Forest",
+    "Wolves": "Wolverhampton Wanderers",
+    "Tottenham": "Tottenham Hotspur",
+    "West Ham": "West Ham United",
+    "Brighton": "Brighton and Hove Albion",
+    "Leeds": "Leeds United",
+    "Sheffield Utd": "Sheffield United",
+    "Brighton & Hove Albion": "Brighton and Hove Albion",
+}
+
+
+def normalize_fbref_name(name: str) -> str:
+    return FBREF_TO_APP.get(name, name)
+
+
 def resolve_datetime(date_str: str, time_str: str) -> str:
     m = re.match(r"(\d{2}:\d{2})\s*\((\d{2}:\d{2})\)", time_str)
     if m:
