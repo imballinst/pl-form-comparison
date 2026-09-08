@@ -325,17 +325,17 @@ async function populateAllSeasonsRecord(seasonsParam: string[], rolesParam: stri
             }
           }
 
-          const current = matchOfficialAssignmentPerSeason[rolesKey][season].teamsRecord[v.name]?.referees[officialName]
-          if (!current) continue
-
           if (!effectiveOfficialAssignments[officialName].perSeasonRecord[season]) {
             effectiveOfficialAssignments[officialName].perSeasonRecord[season] = {
               wdl: [0, 0, 0],
-              foulsPerRedCard: 0,
-              foulsPerYellowCard: 0,
-              score: 0,
+              foulsPerRedCard: -1,
+              foulsPerYellowCard: -1,
+              score: -1,
             }
           }
+
+          const current = matchOfficialAssignmentPerSeason[rolesKey][season].teamsRecord[v.name]?.referees[officialName]
+          if (!current) continue
 
           effectiveOfficialAssignments[officialName].perSeasonRecord[season].score = current.score
           effectiveOfficialAssignments[officialName].perSeasonRecord[season].foulsPerRedCard = current.foulsPerRedCard

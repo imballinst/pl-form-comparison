@@ -494,7 +494,7 @@ function TableBodyRow({ columnVirtualizer, row, rowVirtualizer, virtualPaddingLe
         return (
           <TableCell
             key={cell.id}
-            className="flex items-center whitespace-normal"
+            className="flex items-start whitespace-normal"
             style={{
               width: cell.column.getSize(),
               background: isRefereeColumn
