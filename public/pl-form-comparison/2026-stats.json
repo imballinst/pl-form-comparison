@@ -4723,6 +4723,62 @@
         "totalYelCard": 0,
         "totalRedCard": 0
       }
+    },
+    "31217": {
+      "Coventry City": {
+        "goals": 0,
+        "goalsConceded": 5,
+        "expectedGoals": 1.04812,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Brighton and Hove Albion": {
+        "goals": 5,
+        "goalsConceded": 0,
+        "expectedGoals": 2.76518,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31218": {
+      "Manchester United": {
+        "goals": 0,
+        "goalsConceded": 1,
+        "expectedGoals": 0.943406,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Manchester City": {
+        "goals": 1,
+        "goalsConceded": 0,
+        "expectedGoals": 1.14073,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
     }
   }
 }

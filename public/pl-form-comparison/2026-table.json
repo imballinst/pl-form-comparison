@@ -16,14 +16,14 @@
     "name": "Manchester City",
     "abbr": "MCI",
     "shortName": "Manchester City",
-    "played": 3,
-    "wins": 3,
+    "played": 4,
+    "wins": 4,
     "draws": 0,
     "losses": 0,
-    "points": 9,
-    "gf": 7,
+    "points": 12,
+    "gf": 8,
     "ga": 2,
-    "gd": 5
+    "gd": 6
   },
   {
     "name": "Hull City",
@@ -37,6 +37,19 @@
     "gf": 5,
     "ga": 2,
     "gd": 3
+  },
+  {
+    "name": "Brighton and Hove Albion",
+    "abbr": "BRI",
+    "shortName": "Brighton and Hove Albion",
+    "played": 4,
+    "wins": 2,
+    "draws": 1,
+    "losses": 1,
+    "points": 7,
+    "gf": 13,
+    "ga": 5,
+    "gd": 8
   },
   {
     "name": "Chelsea",
@@ -143,30 +156,17 @@
     "gd": 0
   },
   {
-    "name": "Brighton and Hove Albion",
-    "abbr": "BRI",
-    "shortName": "Brighton and Hove Albion",
-    "played": 3,
-    "wins": 1,
-    "draws": 1,
-    "losses": 1,
-    "points": 4,
-    "gf": 8,
-    "ga": 5,
-    "gd": 3
-  },
-  {
     "name": "Manchester United",
     "abbr": "MUN",
     "shortName": "Manchester United",
-    "played": 3,
+    "played": 4,
     "wins": 1,
     "draws": 1,
-    "losses": 1,
+    "losses": 2,
     "points": 4,
     "gf": 7,
-    "ga": 6,
-    "gd": 1
+    "ga": 7,
+    "gd": 0
   },
   {
     "name": "Sunderland",
@@ -250,13 +250,13 @@
     "name": "Coventry City",
     "abbr": "COV",
     "shortName": "Coventry City",
-    "played": 3,
+    "played": 4,
     "wins": 0,
     "draws": 0,
-    "losses": 3,
+    "losses": 4,
     "points": 0,
     "gf": 0,
-    "ga": 5,
-    "gd": -5
+    "ga": 10,
+    "gd": -10
   }
 ]

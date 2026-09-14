@@ -1646,9 +1646,9 @@
         "matchId": "31217",
         "matchweek": 4,
         "kickoff": "2026-09-13 13:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Coventry City",
           "id": "294",
           "shortName": "Coventry City",
@@ -1656,7 +1656,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 5,
           "name": "Brighton and Hove Albion",
           "id": "220",
           "shortName": "Brighton and Hove Albion",
@@ -1665,15 +1665,22 @@
         },
         "ground": "Coventry Building Society Arena",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.04812,
+            "awayXg": 2.76518
+          }
+        }
       },
       {
         "matchId": "31218",
         "matchweek": 4,
         "kickoff": "2026-09-13 15:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Manchester United",
           "id": "89",
           "shortName": "Manchester United",
@@ -1681,7 +1688,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Manchester City",
           "id": "88",
           "shortName": "Manchester City",
@@ -1690,7 +1697,14 @@
         },
         "ground": "Old Trafford",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 0.943406,
+            "awayXg": 1.14073
+          }
+        }
       },
       {
         "matchId": "31219",
