@@ -77,7 +77,7 @@ async function main() {
   for (const match of fbrefSchedule) {
     const homeNorm = normalizeFbrefName(match.home)
     const awayNorm = normalizeFbrefName(match.away)
-    const key = `${match.datetime.split('T')[0]}_${homeNorm}_${awayNorm}`
+    const key = `${homeNorm}_${awayNorm}`
     scheduleByDateAndTeams[key] = match
   }
 
@@ -119,7 +119,7 @@ async function main() {
     const homeScore = homeScoreRaw !== null ? parseInt(homeScoreRaw, 10) : null
     const awayScore = awayScoreRaw !== null ? parseInt(awayScoreRaw, 10) : null
 
-    const scheduleKey = `${dateKey}_${homeName}_${awayName}`
+    const scheduleKey = `${homeName}_${awayName}`
     const scheduleMatch = scheduleByDateAndTeams[scheduleKey] || null
 
     const matchweek = scheduleMatch ? scheduleMatch.matchweek : null

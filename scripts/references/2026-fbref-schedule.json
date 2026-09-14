@@ -258,7 +258,7 @@
     "home": "Fulham",
     "away": "Crystal Palace",
     "score": "2–3",
-    "attendance": null,
+    "attendance": 27014,
     "venue": "Craven Cottage",
     "referee": "Samuel Barrott",
     "matchReportUrl": "https://fbref.com/en/matches/3809f875/Fulham-Crystal-Palace-September-5-2026-Premier-League"
@@ -334,99 +334,99 @@
     "datetime": "2026-09-12T14:00:00Z",
     "home": "Aston Villa",
     "away": "Nottingham",
-    "score": "",
-    "attendance": null,
+    "score": "1–2",
+    "attendance": 36714,
     "venue": "Villa Park",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Andy Madley",
+    "matchReportUrl": "https://fbref.com/en/matches/2044821e/Aston-Villa-Nottingham-Forest-September-12-2026-Premier-League"
   },
   {
     "matchweek": 4,
     "datetime": "2026-09-12T14:00:00Z",
     "home": "Bournemouth",
     "away": "Brentford",
-    "score": "",
+    "score": "2–2",
     "attendance": null,
     "venue": "Vitality Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Jarred Gillett",
+    "matchReportUrl": "https://fbref.com/en/matches/84407529/Bournemouth-Brentford-September-12-2026-Premier-League"
   },
   {
     "matchweek": 4,
     "datetime": "2026-09-12T14:00:00Z",
     "home": "Chelsea",
     "away": "Hull City",
-    "score": "",
-    "attendance": null,
+    "score": "2–2",
+    "attendance": 39352,
     "venue": "Stamford Bridge",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Farai Hallam",
+    "matchReportUrl": "https://fbref.com/en/matches/7cb24bd4/Chelsea-Hull-City-September-12-2026-Premier-League"
   },
   {
     "matchweek": 4,
     "datetime": "2026-09-12T14:00:00Z",
     "home": "Crystal Palace",
     "away": "Ipswich Town",
-    "score": "",
-    "attendance": null,
+    "score": "2–3",
+    "attendance": 25122,
     "venue": "Selhurst Park",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Chris Kavanagh",
+    "matchReportUrl": "https://fbref.com/en/matches/12560a85/Crystal-Palace-Ipswich-Town-September-12-2026-Premier-League"
   },
   {
     "matchweek": 4,
     "datetime": "2026-09-12T14:00:00Z",
     "home": "Liverpool",
     "away": "Fulham",
-    "score": "",
+    "score": "0–0",
     "attendance": null,
     "venue": "Anfield",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Thomas Bramall",
+    "matchReportUrl": "https://fbref.com/en/matches/6d1ef953/Liverpool-Fulham-September-12-2026-Premier-League"
   },
   {
     "matchweek": 4,
     "datetime": "2026-09-12T19:00:00Z",
     "home": "Sunderland",
     "away": "Arsenal",
-    "score": "",
+    "score": "0–2",
     "attendance": null,
     "venue": "Stadium of Light",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "John Brooks",
+    "matchReportUrl": "https://fbref.com/en/matches/6786441d/Sunderland-Arsenal-September-12-2026-Premier-League"
   },
   {
     "matchweek": 4,
     "datetime": "2026-09-12T16:30:00Z",
     "home": "Tottenham",
     "away": "Everton",
-    "score": "",
-    "attendance": null,
+    "score": "0–0",
+    "attendance": 60477,
     "venue": "Tottenham Hotspur Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Darren England",
+    "matchReportUrl": "https://fbref.com/en/matches/a22562f9/Tottenham-Hotspur-Everton-September-12-2026-Premier-League"
   },
   {
     "matchweek": 4,
     "datetime": "2026-09-13T13:00:00Z",
     "home": "Coventry City",
     "away": "Brighton",
-    "score": "",
-    "attendance": null,
+    "score": "0–5",
+    "attendance": 31492,
     "venue": "Coventry Building Society Arena",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Tony Harrington",
+    "matchReportUrl": "https://fbref.com/en/matches/ff3c3981/Coventry-City-Brighton-and-Hove-Albion-September-13-2026-Premier-League"
   },
   {
     "matchweek": 4,
     "datetime": "2026-09-13T15:30:00Z",
     "home": "Manchester Utd",
     "away": "Manchester City",
-    "score": "",
-    "attendance": null,
+    "score": "0–1",
+    "attendance": 74161,
     "venue": "Old Trafford",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Michael Oliver",
+    "matchReportUrl": "https://fbref.com/en/matches/332363c1/Manchester-Derby-Manchester-United-Manchester-City-September-13-2026-Premier-League"
   },
   {
     "matchweek": 4,
@@ -1761,34 +1761,12 @@
   },
   {
     "matchweek": 17,
-    "datetime": "2026-12-26T15:00:00Z",
+    "datetime": "2026-12-26T12:30:00Z",
     "home": "Aston Villa",
     "away": "Leeds United",
     "score": "",
     "attendance": null,
     "venue": "Villa Park",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 17,
-    "datetime": "2026-12-26T15:00:00Z",
-    "home": "Coventry City",
-    "away": "Chelsea",
-    "score": "",
-    "attendance": null,
-    "venue": "Coventry Building Society Arena",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 17,
-    "datetime": "2026-12-26T15:00:00Z",
-    "home": "Crystal Palace",
-    "away": "Arsenal",
-    "score": "",
-    "attendance": null,
-    "venue": "Selhurst Park",
     "referee": null,
     "matchReportUrl": null
   },
@@ -1816,7 +1794,7 @@
   },
   {
     "matchweek": 17,
-    "datetime": "2026-12-26T15:00:00Z",
+    "datetime": "2026-12-26T17:30:00Z",
     "home": "Hull City",
     "away": "Liverpool",
     "score": "",
@@ -1838,18 +1816,7 @@
   },
   {
     "matchweek": 17,
-    "datetime": "2026-12-26T15:00:00Z",
-    "home": "Manchester Utd",
-    "away": "Nottingham",
-    "score": "",
-    "attendance": null,
-    "venue": "Old Trafford",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 17,
-    "datetime": "2026-12-26T15:00:00Z",
+    "datetime": "2026-12-26T20:00:00Z",
     "home": "Newcastle",
     "away": "Manchester City",
     "score": "",
@@ -1870,21 +1837,10 @@
     "matchReportUrl": null
   },
   {
-    "matchweek": 18,
-    "datetime": "2026-12-30T20:00:00Z",
-    "home": "Aston Villa",
-    "away": "Liverpool",
-    "score": "",
-    "attendance": null,
-    "venue": "Villa Park",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 18,
-    "datetime": "2026-12-30T20:00:00Z",
+    "matchweek": 17,
+    "datetime": "2026-12-27T14:00:00Z",
     "home": "Coventry City",
-    "away": "Brentford",
+    "away": "Chelsea",
     "score": "",
     "attendance": null,
     "venue": "Coventry Building Society Arena",
@@ -1892,10 +1848,10 @@
     "matchReportUrl": null
   },
   {
-    "matchweek": 18,
-    "datetime": "2026-12-30T20:00:00Z",
+    "matchweek": 17,
+    "datetime": "2026-12-27T19:00:00Z",
     "home": "Crystal Palace",
-    "away": "Bournemouth",
+    "away": "Arsenal",
     "score": "",
     "attendance": null,
     "venue": "Selhurst Park",
@@ -1903,8 +1859,19 @@
     "matchReportUrl": null
   },
   {
+    "matchweek": 17,
+    "datetime": "2026-12-27T16:30:00Z",
+    "home": "Manchester Utd",
+    "away": "Nottingham",
+    "score": "",
+    "attendance": null,
+    "venue": "Old Trafford",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
     "matchweek": 18,
-    "datetime": "2026-12-30T20:00:00Z",
+    "datetime": "2026-12-29T20:15:00Z",
     "home": "Everton",
     "away": "Manchester City",
     "score": "",
@@ -1915,18 +1882,7 @@
   },
   {
     "matchweek": 18,
-    "datetime": "2026-12-30T20:00:00Z",
-    "home": "Fulham",
-    "away": "Arsenal",
-    "score": "",
-    "attendance": null,
-    "venue": "Craven Cottage",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 18,
-    "datetime": "2026-12-30T20:00:00Z",
+    "datetime": "2026-12-29T19:30:00Z",
     "home": "Hull City",
     "away": "Leeds United",
     "score": "",
@@ -1937,7 +1893,62 @@
   },
   {
     "matchweek": 18,
-    "datetime": "2026-12-30T20:00:00Z",
+    "datetime": "2026-12-29T19:30:00Z",
+    "home": "Tottenham",
+    "away": "Brighton",
+    "score": "",
+    "attendance": null,
+    "venue": "Tottenham Hotspur Stadium",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 18,
+    "datetime": "2026-12-30T20:15:00Z",
+    "home": "Aston Villa",
+    "away": "Liverpool",
+    "score": "",
+    "attendance": null,
+    "venue": "Villa Park",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 18,
+    "datetime": "2026-12-30T19:30:00Z",
+    "home": "Coventry City",
+    "away": "Brentford",
+    "score": "",
+    "attendance": null,
+    "venue": "Coventry Building Society Arena",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 18,
+    "datetime": "2026-12-30T19:30:00Z",
+    "home": "Crystal Palace",
+    "away": "Bournemouth",
+    "score": "",
+    "attendance": null,
+    "venue": "Selhurst Park",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 18,
+    "datetime": "2026-12-30T19:30:00Z",
+    "home": "Fulham",
+    "away": "Arsenal",
+    "score": "",
+    "attendance": null,
+    "venue": "Craven Cottage",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 18,
+    "datetime": "2026-12-30T20:15:00Z",
     "home": "Ipswich Town",
     "away": "Chelsea",
     "score": "",
@@ -1948,7 +1959,7 @@
   },
   {
     "matchweek": 18,
-    "datetime": "2026-12-30T20:00:00Z",
+    "datetime": "2026-12-30T19:30:00Z",
     "home": "Manchester Utd",
     "away": "Sunderland",
     "score": "",
@@ -1959,7 +1970,7 @@
   },
   {
     "matchweek": 18,
-    "datetime": "2026-12-30T20:00:00Z",
+    "datetime": "2026-12-30T19:30:00Z",
     "home": "Newcastle",
     "away": "Nottingham",
     "score": "",
@@ -1969,13 +1980,13 @@
     "matchReportUrl": null
   },
   {
-    "matchweek": 18,
-    "datetime": "2026-12-30T20:00:00Z",
-    "home": "Tottenham",
-    "away": "Brighton",
+    "matchweek": 19,
+    "datetime": "2027-01-01T20:00:00Z",
+    "home": "Leeds United",
+    "away": "Everton",
     "score": "",
     "attendance": null,
-    "venue": "Tottenham Hotspur Stadium",
+    "venue": "Elland Road",
     "referee": null,
     "matchReportUrl": null
   },
@@ -1992,7 +2003,7 @@
   },
   {
     "matchweek": 19,
-    "datetime": "2027-01-02T15:00:00Z",
+    "datetime": "2027-01-02T17:30:00Z",
     "home": "Bournemouth",
     "away": "Aston Villa",
     "score": "",
@@ -2014,7 +2025,7 @@
   },
   {
     "matchweek": 19,
-    "datetime": "2027-01-02T15:00:00Z",
+    "datetime": "2027-01-02T12:30:00Z",
     "home": "Brighton",
     "away": "Manchester Utd",
     "score": "",
@@ -2026,44 +2037,11 @@
   {
     "matchweek": 19,
     "datetime": "2027-01-02T15:00:00Z",
-    "home": "Chelsea",
-    "away": "Newcastle",
-    "score": "",
-    "attendance": null,
-    "venue": "Stamford Bridge",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 19,
-    "datetime": "2027-01-02T15:00:00Z",
-    "home": "Leeds United",
-    "away": "Everton",
-    "score": "",
-    "attendance": null,
-    "venue": "Elland Road",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 19,
-    "datetime": "2027-01-02T15:00:00Z",
     "home": "Liverpool",
     "away": "Coventry City",
     "score": "",
     "attendance": null,
     "venue": "Anfield",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 19,
-    "datetime": "2027-01-02T15:00:00Z",
-    "home": "Manchester City",
-    "away": "Tottenham",
-    "score": "",
-    "attendance": null,
-    "venue": "Etihad Stadium",
     "referee": null,
     "matchReportUrl": null
   },
@@ -2090,8 +2068,30 @@
     "matchReportUrl": null
   },
   {
+    "matchweek": 19,
+    "datetime": "2027-01-03T14:00:00Z",
+    "home": "Chelsea",
+    "away": "Newcastle",
+    "score": "",
+    "attendance": null,
+    "venue": "Stamford Bridge",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 19,
+    "datetime": "2027-01-03T16:30:00Z",
+    "home": "Manchester City",
+    "away": "Tottenham",
+    "score": "",
+    "attendance": null,
+    "venue": "Etihad Stadium",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
     "matchweek": 20,
-    "datetime": "2027-01-06T20:00:00Z",
+    "datetime": "2027-01-05T19:30:00Z",
     "home": "Arsenal",
     "away": "Brentford",
     "score": "",
@@ -2102,7 +2102,7 @@
   },
   {
     "matchweek": 20,
-    "datetime": "2027-01-06T20:00:00Z",
+    "datetime": "2027-01-05T19:30:00Z",
     "home": "Brighton",
     "away": "Bournemouth",
     "score": "",
@@ -2113,18 +2113,7 @@
   },
   {
     "matchweek": 20,
-    "datetime": "2027-01-06T20:00:00Z",
-    "home": "Crystal Palace",
-    "away": "Chelsea",
-    "score": "",
-    "attendance": null,
-    "venue": "Selhurst Park",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 20,
-    "datetime": "2027-01-06T20:00:00Z",
+    "datetime": "2027-01-05T19:30:00Z",
     "home": "Everton",
     "away": "Aston Villa",
     "score": "",
@@ -2135,51 +2124,7 @@
   },
   {
     "matchweek": 20,
-    "datetime": "2027-01-06T20:00:00Z",
-    "home": "Fulham",
-    "away": "Tottenham",
-    "score": "",
-    "attendance": null,
-    "venue": "Craven Cottage",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 20,
-    "datetime": "2027-01-06T20:00:00Z",
-    "home": "Ipswich Town",
-    "away": "Coventry City",
-    "score": "",
-    "attendance": null,
-    "venue": "Portman Road Stadium",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 20,
-    "datetime": "2027-01-06T20:00:00Z",
-    "home": "Leeds United",
-    "away": "Manchester City",
-    "score": "",
-    "attendance": null,
-    "venue": "Elland Road",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 20,
-    "datetime": "2027-01-06T20:00:00Z",
-    "home": "Manchester Utd",
-    "away": "Newcastle",
-    "score": "",
-    "attendance": null,
-    "venue": "Old Trafford",
-    "referee": null,
-    "matchReportUrl": null
-  },
-  {
-    "matchweek": 20,
-    "datetime": "2027-01-06T20:00:00Z",
+    "datetime": "2027-01-05T19:30:00Z",
     "home": "Nottingham",
     "away": "Hull City",
     "score": "",
@@ -2190,12 +2135,67 @@
   },
   {
     "matchweek": 20,
-    "datetime": "2027-01-06T20:00:00Z",
+    "datetime": "2027-01-05T20:15:00Z",
     "home": "Sunderland",
     "away": "Liverpool",
     "score": "",
     "attendance": null,
     "venue": "Stadium of Light",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 20,
+    "datetime": "2027-01-06T19:30:00Z",
+    "home": "Crystal Palace",
+    "away": "Chelsea",
+    "score": "",
+    "attendance": null,
+    "venue": "Selhurst Park",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 20,
+    "datetime": "2027-01-06T19:30:00Z",
+    "home": "Fulham",
+    "away": "Tottenham",
+    "score": "",
+    "attendance": null,
+    "venue": "Craven Cottage",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 20,
+    "datetime": "2027-01-06T19:30:00Z",
+    "home": "Ipswich Town",
+    "away": "Coventry City",
+    "score": "",
+    "attendance": null,
+    "venue": "Portman Road Stadium",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 20,
+    "datetime": "2027-01-06T20:15:00Z",
+    "home": "Leeds United",
+    "away": "Manchester City",
+    "score": "",
+    "attendance": null,
+    "venue": "Elland Road",
+    "referee": null,
+    "matchReportUrl": null
+  },
+  {
+    "matchweek": 20,
+    "datetime": "2027-01-07T20:00:00Z",
+    "home": "Manchester Utd",
+    "away": "Newcastle",
+    "score": "",
+    "attendance": null,
+    "venue": "Old Trafford",
     "referee": null,
     "matchReportUrl": null
   },

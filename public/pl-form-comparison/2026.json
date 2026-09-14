@@ -1156,7 +1156,7 @@
           "redCards": 0
         },
         "ground": "Craven Cottage",
-        "attendance": null,
+        "attendance": 27014,
         "stats": {
           "referee": "Samuel Barrott",
           "fbref": {
@@ -1442,8 +1442,23 @@
         "ground": "Vitality Stadium",
         "attendance": null,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Jarred Gillett",
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 2,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 1,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.54949,
             "awayXg": 0.794238
@@ -1472,10 +1487,25 @@
           "redCards": 0
         },
         "ground": "Villa Park",
-        "attendance": null,
+        "attendance": 36714,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Andy Madley",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 1,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 1.08786,
             "awayXg": 2.79451
@@ -1504,10 +1534,25 @@
           "redCards": 0
         },
         "ground": "Stamford Bridge",
-        "attendance": null,
+        "attendance": 39352,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Farai Hallam",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 10,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.21374,
             "awayXg": 1.80363
@@ -1525,7 +1570,7 @@
           "id": "78",
           "shortName": "Crystal Palace",
           "abbr": "CRY",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 3,
@@ -1536,10 +1581,25 @@
           "redCards": 0
         },
         "ground": "Selhurst Park",
-        "attendance": null,
+        "attendance": 25122,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Chris Kavanagh",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 1,
+              "fouls": 6,
+              "corners": 6,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.937888,
             "awayXg": 2.03423
@@ -1570,8 +1630,23 @@
         "ground": "Anfield",
         "attendance": null,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Thomas Bramall",
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 5,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 8,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.79832,
             "awayXg": 0.922453
@@ -1600,10 +1675,25 @@
           "redCards": 0
         },
         "ground": "Tottenham Hotspur Stadium",
-        "attendance": null,
+        "attendance": 60477,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Darren England",
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 6,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.736856,
             "awayXg": 1.60056
@@ -1621,7 +1711,7 @@
           "id": "77",
           "shortName": "Sunderland",
           "abbr": "SUN",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 2,
@@ -1634,8 +1724,23 @@
         "ground": "Stadium of Light",
         "attendance": null,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "John Brooks",
+          "fbref": {
+            "home": {
+              "yellowCards": 6,
+              "redCards": 1,
+              "fouls": 18,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 2,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.07033,
             "awayXg": 1.98905
@@ -1653,7 +1758,7 @@
           "id": "294",
           "shortName": "Coventry City",
           "abbr": "COV",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 5,
@@ -1664,10 +1769,25 @@
           "redCards": 0
         },
         "ground": "Coventry Building Society Arena",
-        "attendance": null,
+        "attendance": 31492,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Tony Harrington",
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 1,
+              "fouls": 9,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 3,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.04812,
             "awayXg": 2.76518
@@ -1693,13 +1813,28 @@
           "id": "88",
           "shortName": "Manchester City",
           "abbr": "MCI",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Old Trafford",
-        "attendance": null,
+        "attendance": 74161,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Michael Oliver",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 6,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 1,
+              "fouls": 10,
+              "corners": 7,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.943406,
             "awayXg": 1.14073
