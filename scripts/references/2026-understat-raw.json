@@ -996,6 +996,33 @@
           "loses": 0,
           "pts": 1,
           "npxGD": -0.8672740000000001
+        },
+        {
+          "h_a": "a",
+          "xG": 0.793165,
+          "xGA": 2.2902,
+          "npxG": 0.793165,
+          "npxGA": 2.2902,
+          "ppda": {
+            "att": 265,
+            "def": 26
+          },
+          "ppda_allowed": {
+            "att": 228,
+            "def": 25
+          },
+          "deep": 5,
+          "deep_allowed": 9,
+          "scored": 1,
+          "missed": 4,
+          "xpts": 0.3383,
+          "result": "l",
+          "date": "2026-09-14 19:00:00",
+          "wins": 0,
+          "draws": 0,
+          "loses": 1,
+          "pts": 0,
+          "npxGD": -1.497035
         }
       ]
     },
@@ -1881,6 +1908,33 @@
           "loses": 0,
           "pts": 1,
           "npxGD": 0.013809999999999878
+        },
+        {
+          "h_a": "h",
+          "xG": 2.2902,
+          "xGA": 0.793165,
+          "npxG": 2.2902,
+          "npxGA": 0.793165,
+          "ppda": {
+            "att": 228,
+            "def": 25
+          },
+          "ppda_allowed": {
+            "att": 265,
+            "def": 26
+          },
+          "deep": 9,
+          "deep_allowed": 5,
+          "scored": 4,
+          "missed": 1,
+          "xpts": 2.4935,
+          "result": "w",
+          "date": "2026-09-14 19:00:00",
+          "wins": 1,
+          "draws": 0,
+          "loses": 0,
+          "pts": 3,
+          "npxGD": 1.497035
         }
       ]
     },
@@ -2449,6 +2503,26 @@
       "xGBuildup": "2.329922743141651"
     },
     {
+      "id": "5555",
+      "player_name": "Dominic Calvert-Lewin",
+      "games": "4",
+      "time": "334",
+      "goals": "2",
+      "xG": "2.9489305168390274",
+      "assists": "1",
+      "xA": "0.16365769505500793",
+      "shots": "10",
+      "key_passes": "2",
+      "yellow_cards": "3",
+      "red_cards": "0",
+      "position": "F",
+      "team_title": "Leeds",
+      "npg": "2",
+      "npxG": "2.9489305168390274",
+      "xGChain": "2.8927406817674637",
+      "xGBuildup": "0.14566420204937458"
+    },
+    {
       "id": "6552",
       "player_name": "Bryan Mbeumo",
       "games": "4",
@@ -2547,6 +2621,26 @@
       "npxG": "1.241093173623085",
       "xGChain": "2.79131668061018",
       "xGBuildup": "1.3336217030882835"
+    },
+    {
+      "id": "9205",
+      "player_name": "Jayden Bogle",
+      "games": "4",
+      "time": "308",
+      "goals": "2",
+      "xG": "1.1973381340503693",
+      "assists": "0",
+      "xA": "0.046497007831931114",
+      "shots": "4",
+      "key_passes": "2",
+      "yellow_cards": "1",
+      "red_cards": "0",
+      "position": "D",
+      "team_title": "Leeds",
+      "npg": "2",
+      "npxG": "1.1973381340503693",
+      "xGChain": "0.8273176643997431",
+      "xGBuildup": "0.5714662373065948"
     },
     {
       "id": "9524",
@@ -2789,43 +2883,23 @@
       "xGBuildup": "0.44413502514362335"
     },
     {
-      "id": "5555",
-      "player_name": "Dominic Calvert-Lewin",
-      "games": "3",
-      "time": "254",
-      "goals": "1",
-      "xG": "1.6316977888345718",
-      "assists": "0",
-      "xA": "0.08348869532346725",
-      "shots": "6",
-      "key_passes": "1",
-      "yellow_cards": "2",
-      "red_cards": "0",
-      "position": "F",
-      "team_title": "Leeds",
-      "npg": "1",
-      "npxG": "1.6316977888345718",
-      "xGChain": "1.4646306782960892",
-      "xGBuildup": "0.11495587229728699"
-    },
-    {
       "id": "5786",
       "player_name": "Yoane Wissa",
-      "games": "3",
-      "time": "263",
+      "games": "4",
+      "time": "353",
       "goals": "1",
-      "xG": "1.592448353767395",
+      "xG": "1.645717203617096",
       "assists": "1",
-      "xA": "0.1272462084889412",
-      "shots": "6",
-      "key_passes": "2",
+      "xA": "0.7382008507847786",
+      "shots": "7",
+      "key_passes": "4",
       "yellow_cards": "2",
       "red_cards": "0",
       "position": "F M",
       "team_title": "Newcastle United",
       "npg": "1",
-      "npxG": "1.592448353767395",
-      "xGChain": "1.6839188039302826",
+      "npxG": "1.645717203617096",
+      "xGChain": "2.348142296075821",
       "xGBuildup": "0.5867712050676346"
     },
     {
@@ -2871,41 +2945,41 @@
     {
       "id": "6630",
       "player_name": "Joe Willock",
-      "games": "3",
-      "time": "171",
+      "games": "4",
+      "time": "202",
       "goals": "1",
-      "xG": "0.6182891577482224",
+      "xG": "0.7037513703107834",
       "assists": "0",
-      "xA": "0.3008303940296173",
-      "shots": "6",
-      "key_passes": "1",
+      "xA": "0.3159610256552696",
+      "shots": "8",
+      "key_passes": "2",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "M S",
       "team_title": "Newcastle United",
       "npg": "1",
-      "npxG": "0.6182891577482224",
-      "xGChain": "1.6808899343013763",
-      "xGBuildup": "0.7910274751484394"
+      "npxG": "0.7037513703107834",
+      "xGChain": "1.7814827784895897",
+      "xGBuildup": "0.8061581067740917"
     },
     {
       "id": "6681",
       "player_name": "Harvey Barnes",
-      "games": "3",
-      "time": "270",
+      "games": "4",
+      "time": "360",
       "goals": "1",
-      "xG": "0.20700719952583313",
+      "xG": "0.7669654786586761",
       "assists": "0",
-      "xA": "0.11288182437419891",
-      "shots": "4",
-      "key_passes": "2",
+      "xA": "0.16615067422389984",
+      "shots": "6",
+      "key_passes": "3",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "M",
       "team_title": "Newcastle United",
       "npg": "1",
-      "npxG": "0.20700719952583313",
-      "xGChain": "0.8827946167439222",
+      "npxG": "0.7669654786586761",
+      "xGChain": "1.4960217457264662",
       "xGBuildup": "0.6304523944854736"
     },
     {
@@ -3089,26 +3163,6 @@
       "xGBuildup": "0.6304523944854736"
     },
     {
-      "id": "9205",
-      "player_name": "Jayden Bogle",
-      "games": "3",
-      "time": "223",
-      "goals": "1",
-      "xG": "0.9668696522712708",
-      "assists": "0",
-      "xA": "0.017495492473244667",
-      "shots": "1",
-      "key_passes": "1",
-      "yellow_cards": "1",
-      "red_cards": "0",
-      "position": "D",
-      "team_title": "Leeds",
-      "npg": "1",
-      "npxG": "0.9668696522712708",
-      "xGChain": "0.03599954582750797",
-      "xGBuildup": "0.018504053354263306"
-    },
-    {
       "id": "9739",
       "player_name": "Kiernan Dewsbury-Hall",
       "games": "4",
@@ -3171,22 +3225,22 @@
     {
       "id": "9910",
       "player_name": "Anton Stach",
-      "games": "3",
-      "time": "270",
+      "games": "4",
+      "time": "360",
       "goals": "1",
-      "xG": "0.6700085662305355",
+      "xG": "1.0877146385610104",
       "assists": "0",
-      "xA": "0.044487521052360535",
-      "shots": "5",
-      "key_passes": "2",
+      "xA": "0.1777513474225998",
+      "shots": "6",
+      "key_passes": "5",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "M",
       "team_title": "Leeds",
       "npg": "1",
-      "npxG": "0.6700085662305355",
-      "xGChain": "0.7106651309877634",
-      "xGBuildup": "0.1988213900476694"
+      "npxG": "1.0877146385610104",
+      "xGChain": "1.3302476052194834",
+      "xGBuildup": "0.26743397302925587"
     },
     {
       "id": "10004",
@@ -3307,6 +3361,26 @@
       "npxG": "0.4760674983263016",
       "xGChain": "0.9769507050514221",
       "xGBuildup": "0.436286274343729"
+    },
+    {
+      "id": "11966",
+      "player_name": "Noah Okafor",
+      "games": "4",
+      "time": "231",
+      "goals": "1",
+      "xG": "0.1691906750202179",
+      "assists": "0",
+      "xA": "0.12063758447766304",
+      "shots": "4",
+      "key_passes": "2",
+      "yellow_cards": "0",
+      "red_cards": "0",
+      "position": "F M S",
+      "team_title": "Leeds",
+      "npg": "1",
+      "npxG": "0.1691906750202179",
+      "xGChain": "0.8048861771821976",
+      "xGBuildup": "0.5150579214096069"
     },
     {
       "id": "11974",
@@ -3467,6 +3541,26 @@
       "npxG": "0.4772009328007698",
       "xGChain": "0.8416631929576397",
       "xGBuildup": "0.4589026980102062"
+    },
+    {
+      "id": "13427",
+      "player_name": "Bazoumana Touré",
+      "games": "2",
+      "time": "32",
+      "goals": "1",
+      "xG": "0.08536180853843689",
+      "assists": "0",
+      "xA": "0",
+      "shots": "1",
+      "key_passes": "0",
+      "yellow_cards": "0",
+      "red_cards": "0",
+      "position": "S",
+      "team_title": "Newcastle United",
+      "npg": "1",
+      "npxG": "0.08536180853843689",
+      "xGChain": "0.13863065838813782",
+      "xGBuildup": "0.05326884984970093"
     },
     {
       "id": "13711",
@@ -3731,22 +3825,22 @@
     {
       "id": "212",
       "player_name": "Nico Elvedi",
-      "games": "2",
-      "time": "147",
+      "games": "3",
+      "time": "237",
       "goals": "0",
-      "xG": "0",
+      "xG": "0.06441646814346313",
       "assists": "0",
       "xA": "0.7818162441253662",
-      "shots": "0",
+      "shots": "1",
       "key_passes": "2",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "D S",
       "team_title": "Leeds",
       "npg": "0",
-      "npxG": "0",
-      "xGChain": "0.6443089544773102",
-      "xGBuildup": "0.1445157527923584"
+      "npxG": "0.06441646814346313",
+      "xGChain": "0.7377269342541695",
+      "xGBuildup": "0.17351726815104485"
     },
     {
       "id": "468",
@@ -4491,28 +4585,28 @@
     {
       "id": "5595",
       "player_name": "Daniel James",
-      "games": "1",
-      "time": "19",
+      "games": "2",
+      "time": "24",
       "goals": "0",
-      "xG": "0.18716515600681305",
+      "xG": "0.2652605324983597",
       "assists": "0",
       "xA": "0",
-      "shots": "4",
+      "shots": "6",
       "key_passes": "0",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "S",
       "team_title": "Leeds",
       "npg": "0",
-      "npxG": "0.18716515600681305",
-      "xGChain": "0.201490119099617",
+      "npxG": "0.2652605324983597",
+      "xGChain": "0.27958549559116364",
       "xGBuildup": "0.039398178458213806"
     },
     {
       "id": "5596",
       "player_name": "Harry Wilson",
-      "games": "3",
-      "time": "125",
+      "games": "4",
+      "time": "141",
       "goals": "0",
       "xG": "0.012687337584793568",
       "assists": "0",
@@ -4751,17 +4845,17 @@
     {
       "id": "6063",
       "player_name": "Jacob Murphy",
-      "games": "3",
-      "time": "29",
+      "games": "4",
+      "time": "88",
       "goals": "0",
       "xG": "0",
       "assists": "0",
       "xA": "0",
       "shots": "0",
       "key_passes": "0",
-      "yellow_cards": "1",
+      "yellow_cards": "2",
       "red_cards": "0",
-      "position": "S",
+      "position": "M S",
       "team_title": "Newcastle United",
       "npg": "0",
       "npxG": "0",
@@ -4931,22 +5025,22 @@
     {
       "id": "6369",
       "player_name": "Ethan Ampadu",
-      "games": "3",
-      "time": "270",
+      "games": "4",
+      "time": "360",
       "goals": "0",
-      "xG": "0.013367724604904652",
+      "xG": "0.044076054356992245",
       "assists": "0",
       "xA": "0.1191505491733551",
-      "shots": "1",
+      "shots": "2",
       "key_passes": "3",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "M",
       "team_title": "Leeds",
       "npg": "0",
-      "npxG": "0.013367724604904652",
-      "xGChain": "0.46081820130348206",
-      "xGBuildup": "0.3676981180906296"
+      "npxG": "0.044076054356992245",
+      "xGChain": "0.5520094335079193",
+      "xGBuildup": "0.4281810186803341"
     },
     {
       "id": "6377",
@@ -5011,8 +5105,8 @@
     {
       "id": "6544",
       "player_name": "Lukas Nmecha",
-      "games": "2",
-      "time": "34",
+      "games": "3",
+      "time": "44",
       "goals": "0",
       "xG": "0.20160260796546936",
       "assists": "1",
@@ -5211,8 +5305,8 @@
     {
       "id": "7078",
       "player_name": "Sean Longstaff",
-      "games": "1",
-      "time": "6",
+      "games": "2",
+      "time": "7",
       "goals": "0",
       "xG": "0",
       "assists": "0",
@@ -5551,21 +5645,21 @@
     {
       "id": "7753",
       "player_name": "James Justin",
-      "games": "3",
-      "time": "270",
+      "games": "4",
+      "time": "360",
       "goals": "0",
       "xG": "0.1203985009342432",
       "assists": "0",
-      "xA": "0.04296794906258583",
+      "xA": "0.240765992552042",
       "shots": "3",
-      "key_passes": "1",
+      "key_passes": "3",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "D",
       "team_title": "Leeds",
       "npg": "0",
       "npxG": "0.1203985009342432",
-      "xGChain": "0.20410682260990143",
+      "xGChain": "0.4019048660993576",
       "xGBuildup": "0.06015468388795853"
     },
     {
@@ -5809,6 +5903,26 @@
       "xGBuildup": "1.9205877482891083"
     },
     {
+      "id": "8190",
+      "player_name": "Melvin Bard",
+      "games": "1",
+      "time": "15",
+      "goals": "0",
+      "xG": "0",
+      "assists": "0",
+      "xA": "0.04158976674079895",
+      "shots": "0",
+      "key_passes": "1",
+      "yellow_cards": "0",
+      "red_cards": "0",
+      "position": "S",
+      "team_title": "Leeds",
+      "npg": "0",
+      "npxG": "0",
+      "xGChain": "0.04158976674079895",
+      "xGBuildup": "0"
+    },
+    {
       "id": "8204",
       "player_name": "Neco Williams",
       "games": "4",
@@ -5911,8 +6025,8 @@
     {
       "id": "8378",
       "player_name": "Malick Thiaw",
-      "games": "3",
-      "time": "270",
+      "games": "4",
+      "time": "360",
       "goals": "0",
       "xG": "0",
       "assists": "0",
@@ -5925,8 +6039,8 @@
       "team_title": "Newcastle United",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0.6747529730200768",
-      "xGBuildup": "0.6747529730200768"
+      "xGChain": "0.6873889388516545",
+      "xGBuildup": "0.6873889388516545"
     },
     {
       "id": "8379",
@@ -6111,8 +6225,8 @@
     {
       "id": "8635",
       "player_name": "Sven Botman",
-      "games": "3",
-      "time": "270",
+      "games": "4",
+      "time": "360",
       "goals": "0",
       "xG": "0.014679277315735817",
       "assists": "0",
@@ -6125,8 +6239,8 @@
       "team_title": "Newcastle United",
       "npg": "0",
       "npxG": "0.014679277315735817",
-      "xGChain": "0.3639819696545601",
-      "xGBuildup": "0.3493026867508888"
+      "xGChain": "0.3791126012802124",
+      "xGBuildup": "0.36443331837654114"
     },
     {
       "id": "8640",
@@ -6531,8 +6645,8 @@
     {
       "id": "9077",
       "player_name": "James Trafford",
-      "games": "3",
-      "time": "270",
+      "games": "4",
+      "time": "360",
       "goals": "0",
       "xG": "0",
       "assists": "0",
@@ -6711,22 +6825,22 @@
     {
       "id": "9512",
       "player_name": "Valentino Livramento",
-      "games": "1",
-      "time": "1",
+      "games": "2",
+      "time": "31",
       "goals": "0",
       "xG": "0",
       "assists": "0",
       "xA": "0",
       "shots": "0",
       "key_passes": "0",
-      "yellow_cards": "0",
+      "yellow_cards": "1",
       "red_cards": "0",
       "position": "S",
       "team_title": "Newcastle United",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0",
-      "xGBuildup": "0"
+      "xGChain": "0.05326884984970093",
+      "xGBuildup": "0.05326884984970093"
     },
     {
       "id": "9554",
@@ -7011,8 +7125,8 @@
     {
       "id": "9802",
       "player_name": "Nico González",
-      "games": "2",
-      "time": "152",
+      "games": "3",
+      "time": "170",
       "goals": "0",
       "xG": "0",
       "assists": "0",
@@ -7051,8 +7165,8 @@
     {
       "id": "9944",
       "player_name": "Gabriel Gudmundsson",
-      "games": "1",
-      "time": "90",
+      "games": "2",
+      "time": "165",
       "goals": "0",
       "xG": "0",
       "assists": "0",
@@ -7065,8 +7179,8 @@
       "team_title": "Leeds",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0",
-      "xGBuildup": "0"
+      "xGChain": "0.548766016960144",
+      "xGBuildup": "0.548766016960144"
     },
     {
       "id": "9960",
@@ -7291,22 +7405,22 @@
     {
       "id": "10216",
       "player_name": "Lewis Hall",
-      "games": "3",
-      "time": "270",
+      "games": "4",
+      "time": "360",
       "goals": "0",
-      "xG": "0.08590759709477425",
+      "xG": "0.09854356292635202",
       "assists": "1",
       "xA": "0.6735647823661566",
-      "shots": "2",
+      "shots": "3",
       "key_passes": "3",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "D",
       "team_title": "Newcastle United",
       "npg": "0",
-      "npxG": "0.08590759709477425",
-      "xGChain": "1.263237088918686",
-      "xGBuildup": "1.182639479637146"
+      "npxG": "0.09854356292635202",
+      "xGChain": "1.3484770879149437",
+      "xGBuildup": "1.2552435100078583"
     },
     {
       "id": "10291",
@@ -7511,8 +7625,8 @@
     {
       "id": "10751",
       "player_name": "Brenden Aaronson",
-      "games": "3",
-      "time": "160",
+      "games": "4",
+      "time": "176",
       "goals": "0",
       "xG": "0.018504053354263306",
       "assists": "0",
@@ -7931,8 +8045,8 @@
     {
       "id": "11386",
       "player_name": "Lewis Miley",
-      "games": "3",
-      "time": "233",
+      "games": "4",
+      "time": "315",
       "goals": "0",
       "xG": "0.049853045493364334",
       "assists": "0",
@@ -7945,8 +8059,8 @@
       "team_title": "Newcastle United",
       "npg": "0",
       "npxG": "0.049853045493364334",
-      "xGChain": "1.005045261234045",
-      "xGBuildup": "0.8905462138354778"
+      "xGChain": "1.569208052009344",
+      "xGBuildup": "1.454709004610777"
     },
     {
       "id": "11461",
@@ -8287,26 +8401,6 @@
       "npxG": "0.9095082879066467",
       "xGChain": "1.4839699119329453",
       "xGBuildup": "0.48900542221963406"
-    },
-    {
-      "id": "11966",
-      "player_name": "Noah Okafor",
-      "games": "3",
-      "time": "157",
-      "goals": "0",
-      "xG": "0.07809663563966751",
-      "assists": "0",
-      "xA": "0.06015468388795853",
-      "shots": "2",
-      "key_passes": "1",
-      "yellow_cards": "0",
-      "red_cards": "0",
-      "position": "F M S",
-      "team_title": "Leeds",
-      "npg": "0",
-      "npxG": "0.07809663563966751",
-      "xGChain": "0.13825131952762604",
-      "xGBuildup": "0"
     },
     {
       "id": "12014",
@@ -8871,22 +8965,22 @@
     {
       "id": "13051",
       "player_name": "Matias Fernandez-Pardo",
-      "games": "1",
-      "time": "24",
+      "games": "2",
+      "time": "83",
       "goals": "0",
       "xG": "0",
       "assists": "0",
-      "xA": "0",
+      "xA": "0.012635965831577778",
       "shots": "0",
-      "key_passes": "0",
+      "key_passes": "1",
       "yellow_cards": "0",
       "red_cards": "0",
-      "position": "S",
+      "position": "M S",
       "team_title": "Newcastle United",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0",
-      "xGBuildup": "0"
+      "xGChain": "0.5574635863304138",
+      "xGBuildup": "0.5448276400566101"
     },
     {
       "id": "13066",
@@ -9031,8 +9125,8 @@
     {
       "id": "13214",
       "player_name": "Aladji Bamba",
-      "games": "1",
-      "time": "13",
+      "games": "2",
+      "time": "21",
       "goals": "0",
       "xG": "0",
       "assists": "0",
@@ -9149,30 +9243,10 @@
       "xGBuildup": "0"
     },
     {
-      "id": "13427",
-      "player_name": "Bazoumana Touré",
-      "games": "1",
-      "time": "1",
-      "goals": "0",
-      "xG": "0",
-      "assists": "0",
-      "xA": "0",
-      "shots": "0",
-      "key_passes": "0",
-      "yellow_cards": "0",
-      "red_cards": "0",
-      "position": "S",
-      "team_title": "Newcastle United",
-      "npg": "0",
-      "npxG": "0",
-      "xGChain": "0",
-      "xGBuildup": "0"
-    },
-    {
       "id": "13456",
       "player_name": "Amar Dedic",
-      "games": "3",
-      "time": "270",
+      "games": "4",
+      "time": "330",
       "goals": "0",
       "xG": "0.21753118559718132",
       "assists": "1",
@@ -9185,8 +9259,8 @@
       "team_title": "Newcastle United",
       "npg": "0",
       "npxG": "0.21753118559718132",
-      "xGChain": "1.5016306340694427",
-      "xGBuildup": "1.1879746094346046"
+      "xGChain": "1.5142665999010205",
+      "xGBuildup": "1.2006105752661824"
     },
     {
       "id": "13692",
@@ -9431,22 +9505,22 @@
     {
       "id": "13834",
       "player_name": "Ao Tanaka",
-      "games": "2",
-      "time": "115",
+      "games": "3",
+      "time": "189",
       "goals": "0",
-      "xG": "0.6082804203033447",
+      "xG": "0.6687633208930492",
       "assists": "1",
       "xA": "0.9668696522712708",
-      "shots": "2",
+      "shots": "3",
       "key_passes": "1",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "M S",
       "team_title": "Leeds",
       "npg": "0",
-      "npxG": "0.6082804203033447",
-      "xGChain": "0.12288687378168106",
-      "xGBuildup": "0.12288687378168106"
+      "npxG": "0.6687633208930492",
+      "xGChain": "0.34155675023794174",
+      "xGBuildup": "0.28107384592294693"
     },
     {
       "id": "13837",
@@ -9471,22 +9545,22 @@
     {
       "id": "13879",
       "player_name": "Tarik Muharemovic",
-      "games": "3",
-      "time": "270",
+      "games": "4",
+      "time": "360",
       "goals": "0",
       "xG": "0.06015468388795853",
-      "assists": "0",
-      "xA": "0",
+      "assists": "1",
+      "xA": "0.4843495786190033",
       "shots": "1",
-      "key_passes": "0",
+      "key_passes": "1",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "D",
       "team_title": "Leeds",
       "npg": "0",
       "npxG": "0.06015468388795853",
-      "xGChain": "0.6794361639767885",
-      "xGBuildup": "0.61928148008883"
+      "xGChain": "1.2549769449979067",
+      "xGBuildup": "0.7104727122932673"
     },
     {
       "id": "13917",
@@ -10171,8 +10245,8 @@
     {
       "id": "14874",
       "player_name": "Lukás Hornícek",
-      "games": "3",
-      "time": "270",
+      "games": "4",
+      "time": "360",
       "goals": "0",
       "xG": "0",
       "assists": "0",
@@ -10191,22 +10265,22 @@
     {
       "id": "14875",
       "player_name": "Sean Steur",
-      "games": "3",
-      "time": "85",
+      "games": "4",
+      "time": "157",
       "goals": "0",
       "xG": "0",
       "assists": "0",
-      "xA": "0",
+      "xA": "0.019335178658366203",
       "shots": "0",
-      "key_passes": "0",
+      "key_passes": "1",
       "yellow_cards": "0",
       "red_cards": "0",
       "position": "M S",
       "team_title": "Newcastle United",
       "npg": "0",
       "npxG": "0",
-      "xGChain": "0.05798335000872612",
-      "xGBuildup": "0.05798335000872612"
+      "xGChain": "0.15835398063063622",
+      "xGBuildup": "0.15835398063063622"
     },
     {
       "id": "14923",
@@ -11424,7 +11498,7 @@
     },
     {
       "id": "31219",
-      "isResult": false,
+      "isResult": true,
       "h": {
         "id": "245",
         "title": "Leeds",
@@ -11436,14 +11510,19 @@
         "short_title": "NEW"
       },
       "goals": {
-        "h": null,
-        "a": null
+        "h": "4",
+        "a": "1"
       },
       "xG": {
-        "h": null,
-        "a": null
+        "h": "2.2902",
+        "a": "0.793165"
       },
-      "datetime": "2026-09-14 19:00:00"
+      "datetime": "2026-09-14 19:00:00",
+      "forecast": {
+        "w": "0.7751",
+        "d": "0.1682",
+        "l": "0.0567"
+      }
     },
     {
       "id": "31220",
@@ -11512,7 +11591,7 @@
         "h": null,
         "a": null
       },
-      "datetime": "2026-09-20 14:00:00"
+      "datetime": "2026-09-19 14:00:00"
     },
     {
       "id": "31223",
@@ -11581,7 +11660,7 @@
         "h": null,
         "a": null
       },
-      "datetime": "2026-09-20 14:00:00"
+      "datetime": "2026-09-19 14:00:00"
     },
     {
       "id": "31226",
@@ -12202,7 +12281,7 @@
         "h": null,
         "a": null
       },
-      "datetime": "2026-10-25 14:00:00"
+      "datetime": "2026-10-24 14:00:00"
     },
     {
       "id": "31253",
@@ -12547,7 +12626,7 @@
         "h": null,
         "a": null
       },
-      "datetime": "2026-10-31 20:00:00"
+      "datetime": "2026-11-01 14:00:00"
     },
     {
       "id": "31268",

@@ -1845,9 +1845,9 @@
         "matchId": "31219",
         "matchweek": 4,
         "kickoff": "2026-09-14 19:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 4,
           "name": "Leeds United",
           "id": "245",
           "shortName": "Leeds United",
@@ -1855,7 +1855,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Newcastle United",
           "id": "86",
           "shortName": "Newcastle United",
@@ -1864,7 +1864,14 @@
         },
         "ground": "Elland Road",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.2902,
+            "awayXg": 0.793165
+          }
+        }
       }
     ],
     "5": [
@@ -1919,6 +1926,31 @@
         "stats": null
       },
       {
+        "matchId": "31222",
+        "matchweek": 5,
+        "kickoff": "2026-09-19 14:00:00",
+        "period": "Scheduled",
+        "homeTeam": {
+          "score": null,
+          "name": "Manchester City",
+          "id": "88",
+          "shortName": "Manchester City",
+          "abbr": "MCI",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": null,
+          "name": "Sunderland",
+          "id": "77",
+          "shortName": "Sunderland",
+          "abbr": "SUN",
+          "redCards": 0
+        },
+        "ground": "Etihad Stadium",
+        "attendance": null,
+        "stats": null
+      },
+      {
         "matchId": "31223",
         "matchweek": 5,
         "kickoff": "2026-09-19 14:00:00",
@@ -1965,6 +1997,31 @@
           "redCards": 0
         },
         "ground": "The American Express Stadium",
+        "attendance": null,
+        "stats": null
+      },
+      {
+        "matchId": "31225",
+        "matchweek": 5,
+        "kickoff": "2026-09-19 14:00:00",
+        "period": "Scheduled",
+        "homeTeam": {
+          "score": null,
+          "name": "Leeds United",
+          "id": "245",
+          "shortName": "Leeds United",
+          "abbr": "LED",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": null,
+          "name": "Crystal Palace",
+          "id": "78",
+          "shortName": "Crystal Palace",
+          "abbr": "CRY",
+          "redCards": 0
+        },
+        "ground": "Elland Road",
         "attendance": null,
         "stats": null
       },
@@ -2040,56 +2097,6 @@
           "redCards": 0
         },
         "ground": "Vitality Stadium",
-        "attendance": null,
-        "stats": null
-      },
-      {
-        "matchId": "31222",
-        "matchweek": 5,
-        "kickoff": "2026-09-20 14:00:00",
-        "period": "Scheduled",
-        "homeTeam": {
-          "score": null,
-          "name": "Manchester City",
-          "id": "88",
-          "shortName": "Manchester City",
-          "abbr": "MCI",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": null,
-          "name": "Sunderland",
-          "id": "77",
-          "shortName": "Sunderland",
-          "abbr": "SUN",
-          "redCards": 0
-        },
-        "ground": "Etihad Stadium",
-        "attendance": null,
-        "stats": null
-      },
-      {
-        "matchId": "31225",
-        "matchweek": 5,
-        "kickoff": "2026-09-20 14:00:00",
-        "period": "Scheduled",
-        "homeTeam": {
-          "score": null,
-          "name": "Leeds United",
-          "id": "245",
-          "shortName": "Leeds United",
-          "abbr": "LED",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": null,
-          "name": "Crystal Palace",
-          "id": "78",
-          "shortName": "Crystal Palace",
-          "abbr": "CRY",
-          "redCards": 0
-        },
-        "ground": "Elland Road",
         "attendance": null,
         "stats": null
       },
@@ -2675,6 +2682,31 @@
         "stats": null
       },
       {
+        "matchId": "31252",
+        "matchweek": 8,
+        "kickoff": "2026-10-24 14:00:00",
+        "period": "Scheduled",
+        "homeTeam": {
+          "score": null,
+          "name": "Liverpool",
+          "id": "87",
+          "shortName": "Liverpool",
+          "abbr": "LIV",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": null,
+          "name": "Brighton and Hove Albion",
+          "id": "220",
+          "shortName": "Brighton and Hove Albion",
+          "abbr": "BRI",
+          "redCards": 0
+        },
+        "ground": "Anfield",
+        "attendance": null,
+        "stats": null
+      },
+      {
         "matchId": "31253",
         "matchweek": 8,
         "kickoff": "2026-10-24 14:00:00",
@@ -2746,31 +2778,6 @@
           "redCards": 0
         },
         "ground": "Stamford Bridge",
-        "attendance": null,
-        "stats": null
-      },
-      {
-        "matchId": "31252",
-        "matchweek": 8,
-        "kickoff": "2026-10-25 14:00:00",
-        "period": "Scheduled",
-        "homeTeam": {
-          "score": null,
-          "name": "Liverpool",
-          "id": "87",
-          "shortName": "Liverpool",
-          "abbr": "LIV",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": null,
-          "name": "Brighton and Hove Albion",
-          "id": "220",
-          "shortName": "Brighton and Hove Albion",
-          "abbr": "BRI",
-          "redCards": 0
-        },
-        "ground": "Anfield",
         "attendance": null,
         "stats": null
       },
@@ -3054,7 +3061,7 @@
       {
         "matchId": "31267",
         "matchweek": 9,
-        "kickoff": "2026-10-31 20:00:00",
+        "kickoff": "2026-11-01 14:00:00",
         "period": "Scheduled",
         "homeTeam": {
           "score": null,
