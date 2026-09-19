@@ -26,6 +26,19 @@
     "gd": 6
   },
   {
+    "name": "Brentford",
+    "abbr": "BRE",
+    "shortName": "Brentford",
+    "played": 5,
+    "wins": 2,
+    "draws": 3,
+    "losses": 0,
+    "points": 9,
+    "gf": 10,
+    "ga": 4,
+    "gd": 6
+  },
+  {
     "name": "Leeds United",
     "abbr": "LED",
     "shortName": "Leeds United",
@@ -68,27 +81,14 @@
     "name": "Chelsea",
     "abbr": "CHE",
     "shortName": "Chelsea",
-    "played": 4,
+    "played": 5,
     "wins": 2,
     "draws": 1,
-    "losses": 1,
+    "losses": 2,
     "points": 7,
     "gf": 10,
-    "ga": 9,
-    "gd": 1
-  },
-  {
-    "name": "Brentford",
-    "abbr": "BRE",
-    "shortName": "Brentford",
-    "played": 4,
-    "wins": 1,
-    "draws": 3,
-    "losses": 0,
-    "points": 6,
-    "gf": 7,
-    "ga": 4,
-    "gd": 3
+    "ga": 12,
+    "gd": -2
   },
   {
     "name": "Liverpool",
