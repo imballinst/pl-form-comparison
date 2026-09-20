@@ -1911,9 +1911,9 @@
         "matchId": "31221",
         "matchweek": 5,
         "kickoff": "2026-09-19 11:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 2,
           "name": "Tottenham Hotspur",
           "id": "82",
           "shortName": "Tottenham Hotspur",
@@ -1921,7 +1921,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 3,
           "name": "Aston Villa",
           "id": "71",
           "shortName": "Aston Villa",
@@ -1930,12 +1930,147 @@
         },
         "ground": "Tottenham Hotspur Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.72177,
+            "awayXg": 1.7092
+          }
+        }
+      },
+      {
+        "matchId": "31223",
+        "matchweek": 5,
+        "kickoff": "2026-09-19 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 2,
+          "name": "Newcastle United",
+          "id": "86",
+          "shortName": "Newcastle United",
+          "abbr": "NEW",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Hull City",
+          "id": "91",
+          "shortName": "Hull City",
+          "abbr": "HUL",
+          "redCards": 0
+        },
+        "ground": "St James' Park",
+        "attendance": null,
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.37521,
+            "awayXg": 1.15888
+          }
+        }
+      },
+      {
+        "matchId": "31224",
+        "matchweek": 5,
+        "kickoff": "2026-09-19 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 3,
+          "name": "Brighton and Hove Albion",
+          "id": "220",
+          "shortName": "Brighton and Hove Albion",
+          "abbr": "BRI",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 0,
+          "name": "Arsenal",
+          "id": "83",
+          "shortName": "Arsenal",
+          "abbr": "ARS",
+          "redCards": 0
+        },
+        "ground": "The American Express Stadium",
+        "attendance": null,
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.11268,
+            "awayXg": 1.23979
+          }
+        }
+      },
+      {
+        "matchId": "31226",
+        "matchweek": 5,
+        "kickoff": "2026-09-19 14:00:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 1,
+          "name": "Everton",
+          "id": "72",
+          "shortName": "Everton",
+          "abbr": "EVE",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 0,
+          "name": "Ipswich Town",
+          "id": "285",
+          "shortName": "Ipswich Town",
+          "abbr": "IPS",
+          "redCards": 0
+        },
+        "ground": "Hill Dickinson Stadium",
+        "attendance": null,
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.58285,
+            "awayXg": 1.10179
+          }
+        }
+      },
+      {
+        "matchId": "31227",
+        "matchweek": 5,
+        "kickoff": "2026-09-19 16:30:00",
+        "period": "FullTime",
+        "homeTeam": {
+          "score": 0,
+          "name": "Nottingham Forest",
+          "id": "249",
+          "shortName": "Nottingham Forest",
+          "abbr": "NOT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": 1,
+          "name": "Coventry City",
+          "id": "294",
+          "shortName": "Coventry City",
+          "abbr": "COV",
+          "redCards": 0
+        },
+        "ground": "The City Ground",
+        "attendance": null,
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.31852,
+            "awayXg": 0.69375
+          }
+        }
       },
       {
         "matchId": "31222",
         "matchweek": 5,
-        "kickoff": "2026-09-19 14:00:00",
+        "kickoff": "2026-09-20 13:00:00",
         "period": "Scheduled",
         "homeTeam": {
           "score": null,
@@ -1958,59 +2093,9 @@
         "stats": null
       },
       {
-        "matchId": "31223",
-        "matchweek": 5,
-        "kickoff": "2026-09-19 14:00:00",
-        "period": "Scheduled",
-        "homeTeam": {
-          "score": null,
-          "name": "Newcastle United",
-          "id": "86",
-          "shortName": "Newcastle United",
-          "abbr": "NEW",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": null,
-          "name": "Hull City",
-          "id": "91",
-          "shortName": "Hull City",
-          "abbr": "HUL",
-          "redCards": 0
-        },
-        "ground": "St James' Park",
-        "attendance": null,
-        "stats": null
-      },
-      {
-        "matchId": "31224",
-        "matchweek": 5,
-        "kickoff": "2026-09-19 14:00:00",
-        "period": "Scheduled",
-        "homeTeam": {
-          "score": null,
-          "name": "Brighton and Hove Albion",
-          "id": "220",
-          "shortName": "Brighton and Hove Albion",
-          "abbr": "BRI",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": null,
-          "name": "Arsenal",
-          "id": "83",
-          "shortName": "Arsenal",
-          "abbr": "ARS",
-          "redCards": 0
-        },
-        "ground": "The American Express Stadium",
-        "attendance": null,
-        "stats": null
-      },
-      {
         "matchId": "31225",
         "matchweek": 5,
-        "kickoff": "2026-09-19 14:00:00",
+        "kickoff": "2026-09-20 13:00:00",
         "period": "Scheduled",
         "homeTeam": {
           "score": null,
@@ -2029,56 +2114,6 @@
           "redCards": 0
         },
         "ground": "Elland Road",
-        "attendance": null,
-        "stats": null
-      },
-      {
-        "matchId": "31226",
-        "matchweek": 5,
-        "kickoff": "2026-09-19 14:00:00",
-        "period": "Scheduled",
-        "homeTeam": {
-          "score": null,
-          "name": "Everton",
-          "id": "72",
-          "shortName": "Everton",
-          "abbr": "EVE",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": null,
-          "name": "Ipswich Town",
-          "id": "285",
-          "shortName": "Ipswich Town",
-          "abbr": "IPS",
-          "redCards": 0
-        },
-        "ground": "Hill Dickinson Stadium",
-        "attendance": null,
-        "stats": null
-      },
-      {
-        "matchId": "31227",
-        "matchweek": 5,
-        "kickoff": "2026-09-19 16:30:00",
-        "period": "Scheduled",
-        "homeTeam": {
-          "score": null,
-          "name": "Nottingham Forest",
-          "id": "249",
-          "shortName": "Nottingham Forest",
-          "abbr": "NOT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": null,
-          "name": "Coventry City",
-          "id": "294",
-          "shortName": "Coventry City",
-          "abbr": "COV",
-          "redCards": 0
-        },
-        "ground": "The City Ground",
         "attendance": null,
         "stats": null
       },

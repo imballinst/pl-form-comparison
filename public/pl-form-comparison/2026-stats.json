@@ -5807,6 +5807,146 @@
         "totalYelCard": 0,
         "totalRedCard": 0
       }
+    },
+    "31221": {
+      "Tottenham Hotspur": {
+        "goals": 2,
+        "goalsConceded": 3,
+        "expectedGoals": 1.72177,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Aston Villa": {
+        "goals": 3,
+        "goalsConceded": 2,
+        "expectedGoals": 1.7092,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31223": {
+      "Newcastle United": {
+        "goals": 2,
+        "goalsConceded": 1,
+        "expectedGoals": 1.37521,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Hull City": {
+        "goals": 1,
+        "goalsConceded": 2,
+        "expectedGoals": 1.15888,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31224": {
+      "Brighton and Hove Albion": {
+        "goals": 3,
+        "goalsConceded": 0,
+        "expectedGoals": 2.11268,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Arsenal": {
+        "goals": 0,
+        "goalsConceded": 3,
+        "expectedGoals": 1.23979,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31226": {
+      "Everton": {
+        "goals": 1,
+        "goalsConceded": 0,
+        "expectedGoals": 2.58285,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Ipswich Town": {
+        "goals": 0,
+        "goalsConceded": 1,
+        "expectedGoals": 1.10179,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31227": {
+      "Nottingham Forest": {
+        "goals": 0,
+        "goalsConceded": 1,
+        "expectedGoals": 1.31852,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Coventry City": {
+        "goals": 1,
+        "goalsConceded": 0,
+        "expectedGoals": 0.69375,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
     }
   }
 }
