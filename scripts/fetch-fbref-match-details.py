@@ -6,7 +6,13 @@ from sys import exit as sysexit
 
 from bs4 import BeautifulSoup
 
-from utils import YEAR, maybe_get_chrome_path, normalize_fbref_name
+from utils import (
+    YEAR,
+    configure_fast_scraping,
+    enable_line_buffered_stdout,
+    maybe_get_chrome_path,
+    normalize_fbref_name,
+)
 
 SCHEDULE_PATH = join(dirname(__file__), "references", f"{YEAR}-fbref-schedule.json")
 OUTPUT_PATH = join(dirname(__file__), "references", f"{YEAR}-fbref-match-details.json")
@@ -123,6 +129,9 @@ def parse_extra_stats(soup: BeautifulSoup) -> tuple[dict, dict]:
 def main():
     from soccerdata import FBref
 
+    enable_line_buffered_stdout()
+    configure_fast_scraping()
+
     chrome_path = maybe_get_chrome_path()
     if not chrome_path:
         print(
@@ -138,7 +147,10 @@ def main():
         seasons=YEAR,
         path_to_browser=chrome_path,
         headless=False,
-        no_cache=True,
+        # Keep the cached match HTML so re-runs (and parser changes) don't
+        # re-fetch every page. Matches are only requested once they're finished,
+        # so their report pages don't change.
+        no_cache=False,
     )
     fbref.rate_limit = 15
 
@@ -167,9 +179,15 @@ def main():
             print(f"  Match {i + 1}/{len(matches)}: {match['home']} vs {match['away']} — already exists, skipping")
             continue
 
-        print(f"  Match {i + 1}/{len(matches)}: {match['home']} vs {match['away']}")
+        # Store the raw HTML under soccerdata's cache dir so a failed parse or a
+        # parser change can be retried without hitting the network again.
+        match_id = match_url.rstrip("/").split("/")[-2]
+        html_path = fbref.data_dir / f"match_{match_id}.html"
+
+        suffix = " (cached HTML)" if html_path.exists() else ""
+        print(f"  Match {i + 1}/{len(matches)}: {match['home']} vs {match['away']}{suffix}")
         try:
-            page = fbref.get(match_url).read().decode("utf-8")
+            page = fbref.get(match_url, filepath=html_path).read().decode("utf-8")
             soup = BeautifulSoup(page, "html.parser")
 
             officials = parse_officials(soup)

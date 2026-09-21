@@ -4,6 +4,12 @@ import re
 import shutil
 from datetime import datetime, timedelta, timezone
 
+# soccerdata only logs at INFO by default, which hides its per-URL
+# "Scraping ..." / "Retrieving ... from cache" lines and makes long fetches
+# look like they have stalled. Enable DEBUG unless the caller overrides it.
+# This must happen before soccerdata is imported.
+os.environ.setdefault("SOCCERDATA_LOGLEVEL", "DEBUG")
+
 
 YEAR = 2026
 
@@ -131,3 +137,25 @@ def maybe_get_chrome_path() -> str | None:
                             return full
 
     return None
+
+
+def configure_fast_scraping() -> None:
+    """Stop waiting for fbref's ad iframes before reading the page.
+
+    fbref renders its tables during DOMContentLoaded, but the browser's
+    ``load`` event only fires once every ad/tracker iframe has finished
+    loading. Selenium's default "normal" strategy makes ``driver.get()`` block
+    until then, which can take minutes even though the data is already present.
+    "eager" returns at DOMContentLoaded; soccerdata's ``_validate_page`` then
+    polls until the table appears.
+    """
+    from seleniumbase.config import settings
+
+    settings.PAGE_LOAD_STRATEGY = "eager"
+
+
+def enable_line_buffered_stdout() -> None:
+    """Flush ``print`` output per line so progress is visible when piped."""
+    import sys
+
+    sys.stdout.reconfigure(line_buffering=True)

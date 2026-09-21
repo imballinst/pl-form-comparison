@@ -64,3 +64,5 @@ fetch-fbref-match-details.py ──┤ │
 - The `YEAR` constant is set in both `utils.ts` and `utils.py` (currently `2023`).
 - Intermediate fetch outputs are stored in `references/` as JSON files.
 - Final outputs are written to `public/pl-form-comparison/`.
+- `fetch-fbref-match-details.py` caches the raw match HTML in soccerdata's data dir (`~/soccerdata/data/FBref/match_<game_id>.html`) and reuses it on later runs. Delete a file to force a re-fetch.
+- The FBref Python scripts run with `SOCCERDATA_LOGLEVEL=DEBUG` so each URL fetch/cache hit is logged. Override the env var to change this.

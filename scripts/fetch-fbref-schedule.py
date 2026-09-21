@@ -9,7 +9,13 @@ from json import dumps
 from os.path import dirname, join
 from sys import exit as sysexit
 
-from utils import YEAR, resolve_datetime, maybe_get_chrome_path
+from utils import (
+    YEAR,
+    configure_fast_scraping,
+    enable_line_buffered_stdout,
+    maybe_get_chrome_path,
+    resolve_datetime,
+)
 import pandas as pd
 
 SCORE_DELIMITER = "\u2013"
@@ -33,6 +39,9 @@ def clean(val):
 
 def main():
     from soccerdata import FBref
+
+    enable_line_buffered_stdout()
+    configure_fast_scraping()
 
     chrome_path = maybe_get_chrome_path()
     if not chrome_path:
