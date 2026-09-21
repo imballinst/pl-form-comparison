@@ -2071,9 +2071,9 @@
         "matchId": "31222",
         "matchweek": 5,
         "kickoff": "2026-09-20 13:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 5,
           "name": "Manchester City",
           "id": "88",
           "shortName": "Manchester City",
@@ -2081,7 +2081,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 3,
           "name": "Sunderland",
           "id": "77",
           "shortName": "Sunderland",
@@ -2090,15 +2090,22 @@
         },
         "ground": "Etihad Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.66856,
+            "awayXg": 3.10661
+          }
+        }
       },
       {
         "matchId": "31225",
         "matchweek": 5,
         "kickoff": "2026-09-20 13:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Leeds United",
           "id": "245",
           "shortName": "Leeds United",
@@ -2106,7 +2113,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 0,
           "name": "Crystal Palace",
           "id": "78",
           "shortName": "Crystal Palace",
@@ -2115,15 +2122,22 @@
         },
         "ground": "Elland Road",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.08552,
+            "awayXg": 1.12905
+          }
+        }
       },
       {
         "matchId": "31228",
         "matchweek": 5,
         "kickoff": "2026-09-20 13:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Bournemouth",
           "id": "73",
           "shortName": "Bournemouth",
@@ -2131,7 +2145,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Liverpool",
           "id": "87",
           "shortName": "Liverpool",
@@ -2140,15 +2154,22 @@
         },
         "ground": "Vitality Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 0.944706,
+            "awayXg": 1.29116
+          }
+        }
       },
       {
         "matchId": "31229",
         "matchweek": 5,
         "kickoff": "2026-09-20 15:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Fulham",
           "id": "228",
           "shortName": "Fulham",
@@ -2156,7 +2177,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Manchester United",
           "id": "89",
           "shortName": "Manchester United",
@@ -2165,7 +2186,14 @@
         },
         "ground": "Craven Cottage",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.71719,
+            "awayXg": 2.12453
+          }
+        }
       }
     ],
     "6": [
