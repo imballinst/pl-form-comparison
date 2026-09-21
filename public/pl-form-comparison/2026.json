@@ -1440,7 +1440,7 @@
           "redCards": 0
         },
         "ground": "Vitality Stadium",
-        "attendance": null,
+        "attendance": 11258,
         "stats": {
           "referee": "Jarred Gillett",
           "fbref": {
@@ -1628,7 +1628,7 @@
           "redCards": 0
         },
         "ground": "Anfield",
-        "attendance": null,
+        "attendance": 60127,
         "stats": {
           "referee": "Thomas Bramall",
           "fbref": {
@@ -1722,7 +1722,7 @@
           "redCards": 0
         },
         "ground": "Stadium of Light",
-        "attendance": null,
+        "attendance": 46861,
         "stats": {
           "referee": "John Brooks",
           "fbref": {
@@ -1863,10 +1863,25 @@
           "redCards": 0
         },
         "ground": "Elland Road",
-        "attendance": null,
+        "attendance": 36693,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Michael Salisbury",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 5,
+              "offsides": 3
+            }
+          },
           "understat": {
             "homeXg": 2.2902,
             "awayXg": 0.793165
@@ -1897,10 +1912,25 @@
           "redCards": 0
         },
         "ground": "Gtech Community Stadium",
-        "attendance": null,
+        "attendance": 17193,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Andy Madley",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 12,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.47935,
             "awayXg": 0.885111
@@ -1929,10 +1959,25 @@
           "redCards": 0
         },
         "ground": "Tottenham Hotspur Stadium",
-        "attendance": null,
+        "attendance": 60920,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Samuel Barrott",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 11,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 1,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.72177,
             "awayXg": 1.7092
@@ -1961,10 +2006,25 @@
           "redCards": 0
         },
         "ground": "St James' Park",
-        "attendance": null,
+        "attendance": 52647,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Tony Harrington",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 4,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 7,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.37521,
             "awayXg": 1.15888
@@ -1993,10 +2053,25 @@
           "redCards": 0
         },
         "ground": "The American Express Stadium",
-        "attendance": null,
+        "attendance": 31944,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Darren England",
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 5,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 6,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.11268,
             "awayXg": 1.23979
@@ -2022,13 +2097,28 @@
           "id": "285",
           "shortName": "Ipswich Town",
           "abbr": "IPS",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Hill Dickinson Stadium",
-        "attendance": null,
+        "attendance": 52008,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Stuart Attwell",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 4,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 12,
+              "corners": 4,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 2.58285,
             "awayXg": 1.10179
@@ -2057,10 +2147,25 @@
           "redCards": 0
         },
         "ground": "The City Ground",
-        "attendance": null,
+        "attendance": 30666,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Jarred Gillett",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 6,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 2,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 1.31852,
             "awayXg": 0.69375

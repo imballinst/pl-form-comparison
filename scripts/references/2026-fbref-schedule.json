@@ -346,7 +346,7 @@
     "home": "Bournemouth",
     "away": "Brentford",
     "score": "2–2",
-    "attendance": null,
+    "attendance": 11258,
     "venue": "Vitality Stadium",
     "referee": "Jarred Gillett",
     "matchReportUrl": "https://fbref.com/en/matches/84407529/Bournemouth-Brentford-September-12-2026-Premier-League"
@@ -379,7 +379,7 @@
     "home": "Liverpool",
     "away": "Fulham",
     "score": "0–0",
-    "attendance": null,
+    "attendance": 60127,
     "venue": "Anfield",
     "referee": "Thomas Bramall",
     "matchReportUrl": "https://fbref.com/en/matches/6d1ef953/Liverpool-Fulham-September-12-2026-Premier-League"
@@ -390,7 +390,7 @@
     "home": "Sunderland",
     "away": "Arsenal",
     "score": "0–2",
-    "attendance": null,
+    "attendance": 46861,
     "venue": "Stadium of Light",
     "referee": "John Brooks",
     "matchReportUrl": "https://fbref.com/en/matches/6786441d/Sunderland-Arsenal-September-12-2026-Premier-League"
@@ -433,77 +433,77 @@
     "datetime": "2026-09-14T19:00:00Z",
     "home": "Leeds United",
     "away": "Newcastle",
-    "score": "",
-    "attendance": null,
+    "score": "4–1",
+    "attendance": 36693,
     "venue": "Elland Road",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Michael Salisbury",
+    "matchReportUrl": "https://fbref.com/en/matches/88d2d8f5/Leeds-United-Newcastle-United-September-14-2026-Premier-League"
   },
   {
     "matchweek": 5,
     "datetime": "2026-09-18T19:00:00Z",
     "home": "Brentford",
     "away": "Chelsea",
-    "score": "",
-    "attendance": null,
+    "score": "3–0",
+    "attendance": 17193,
     "venue": "Gtech Community Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Andy Madley",
+    "matchReportUrl": "https://fbref.com/en/matches/9aac40d6/Brentford-Chelsea-September-18-2026-Premier-League"
   },
   {
     "matchweek": 5,
     "datetime": "2026-09-19T14:00:00Z",
     "home": "Brighton",
     "away": "Arsenal",
-    "score": "",
-    "attendance": null,
+    "score": "3–0",
+    "attendance": 31944,
     "venue": "The American Express Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Darren England",
+    "matchReportUrl": "https://fbref.com/en/matches/1ea173a1/Brighton-and-Hove-Albion-Arsenal-September-19-2026-Premier-League"
   },
   {
     "matchweek": 5,
     "datetime": "2026-09-19T14:00:00Z",
     "home": "Everton",
     "away": "Ipswich Town",
-    "score": "",
-    "attendance": null,
+    "score": "1–0",
+    "attendance": 52008,
     "venue": "Hill Dickinson Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Stuart Attwell",
+    "matchReportUrl": "https://fbref.com/en/matches/e7b28039/Everton-Ipswich-Town-September-19-2026-Premier-League"
   },
   {
     "matchweek": 5,
     "datetime": "2026-09-19T14:00:00Z",
     "home": "Newcastle",
     "away": "Hull City",
-    "score": "",
-    "attendance": null,
+    "score": "2–1",
+    "attendance": 52647,
     "venue": "St James' Park",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Tony Harrington",
+    "matchReportUrl": "https://fbref.com/en/matches/ba19c7c0/Newcastle-United-Hull-City-September-19-2026-Premier-League"
   },
   {
     "matchweek": 5,
     "datetime": "2026-09-19T16:30:00Z",
     "home": "Nottingham",
     "away": "Coventry City",
-    "score": "",
-    "attendance": null,
+    "score": "0–1",
+    "attendance": 30666,
     "venue": "The City Ground",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Jarred Gillett",
+    "matchReportUrl": "https://fbref.com/en/matches/28be67e1/Nottingham-Forest-Coventry-City-September-19-2026-Premier-League"
   },
   {
     "matchweek": 5,
     "datetime": "2026-09-19T11:30:00Z",
     "home": "Tottenham",
     "away": "Aston Villa",
-    "score": "",
-    "attendance": null,
+    "score": "2–3",
+    "attendance": 60920,
     "venue": "Tottenham Hotspur Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Samuel Barrott",
+    "matchReportUrl": "https://fbref.com/en/matches/d5511bbc/Tottenham-Hotspur-Aston-Villa-September-19-2026-Premier-League"
   },
   {
     "matchweek": 5,

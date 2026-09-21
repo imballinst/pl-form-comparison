@@ -1480,5 +1480,271 @@
       "corners": 7,
       "offsides": 1
     }
+  },
+  "2026-09-14_Leeds United_Newcastle United": {
+    "officials": [
+      {
+        "name": "Michael Salisbury",
+        "role": "Referee"
+      },
+      {
+        "name": "Adam Nunn",
+        "role": "AR1"
+      },
+      {
+        "name": "Nicholas Hopton",
+        "role": "AR2"
+      },
+      {
+        "name": "Tom Nield",
+        "role": "4th"
+      },
+      {
+        "name": "John Brooks",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 8,
+      "corners": 5,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 13,
+      "corners": 5,
+      "offsides": 3
+    }
+  },
+  "2026-09-18_Brentford_Chelsea": {
+    "officials": [
+      {
+        "name": "Andy Madley",
+        "role": "Referee"
+      },
+      {
+        "name": "Craig Taylor",
+        "role": "AR1"
+      },
+      {
+        "name": "Nicholas Hopton",
+        "role": "AR2"
+      },
+      {
+        "name": "Lewis Smith",
+        "role": "4th"
+      },
+      {
+        "name": "Jarred Gillett",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 10,
+      "corners": 4,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 0,
+      "redCards": 0,
+      "fouls": 7,
+      "corners": 12,
+      "offsides": 2
+    }
+  },
+  "2026-09-19_Brighton and Hove Albion_Arsenal": {
+    "officials": [
+      {
+        "name": "Darren England",
+        "role": "Referee"
+      },
+      {
+        "name": "Scott Ledger",
+        "role": "AR1"
+      },
+      {
+        "name": "Alistair Nelson",
+        "role": "AR2"
+      },
+      {
+        "name": "Michael Salisbury",
+        "role": "4th"
+      },
+      {
+        "name": "Tim Wood",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 4,
+      "redCards": 0,
+      "fouls": 13,
+      "corners": 5,
+      "offsides": 0
+    },
+    "away": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 11,
+      "corners": 6,
+      "offsides": 2
+    }
+  },
+  "2026-09-19_Everton_Ipswich Town": {
+    "officials": [
+      {
+        "name": "Stuart Attwell",
+        "role": "Referee"
+      },
+      {
+        "name": "Wade Smith",
+        "role": "AR1"
+      },
+      {
+        "name": "Steve Meredith",
+        "role": "AR2"
+      },
+      {
+        "name": "Ruebyn Ricardo",
+        "role": "4th"
+      },
+      {
+        "name": "Andrew Kitchen",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 6,
+      "corners": 4,
+      "offsides": 1
+    },
+    "away": {
+      "yellowCards": 3,
+      "redCards": 1,
+      "fouls": 12,
+      "corners": 4,
+      "offsides": 0
+    }
+  },
+  "2026-09-19_Newcastle United_Hull City": {
+    "officials": [
+      {
+        "name": "Tony Harrington",
+        "role": "Referee"
+      },
+      {
+        "name": "Adrian Holmes",
+        "role": "AR1"
+      },
+      {
+        "name": "Matthew Wilkes",
+        "role": "AR2"
+      },
+      {
+        "name": "Tom Reeves",
+        "role": "4th"
+      },
+      {
+        "name": "Peter Bankes",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 4,
+      "corners": 4,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 4,
+      "redCards": 0,
+      "fouls": 10,
+      "corners": 7,
+      "offsides": 1
+    }
+  },
+  "2026-09-19_Nottingham Forest_Coventry City": {
+    "officials": [
+      {
+        "name": "Jarred Gillett",
+        "role": "Referee"
+      },
+      {
+        "name": "Neil Davies",
+        "role": "AR1"
+      },
+      {
+        "name": "Nick Greenhalgh",
+        "role": "AR2"
+      },
+      {
+        "name": "Robert Madley",
+        "role": "4th"
+      },
+      {
+        "name": "Paul Howard",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 12,
+      "corners": 6,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 0,
+      "redCards": 0,
+      "fouls": 10,
+      "corners": 2,
+      "offsides": 2
+    }
+  },
+  "2026-09-19_Tottenham Hotspur_Aston Villa": {
+    "officials": [
+      {
+        "name": "Samuel Barrott",
+        "role": "Referee"
+      },
+      {
+        "name": "Adam Nunn",
+        "role": "AR1"
+      },
+      {
+        "name": "Lee Betts",
+        "role": "AR2"
+      },
+      {
+        "name": "Thomas Bramall",
+        "role": "4th"
+      },
+      {
+        "name": "John Brooks",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 9,
+      "corners": 11,
+      "offsides": 5
+    },
+    "away": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 13,
+      "corners": 1,
+      "offsides": 2
+    }
   }
 }
