@@ -510,44 +510,44 @@
     "datetime": "2026-09-20T13:00:00Z",
     "home": "Bournemouth",
     "away": "Liverpool",
-    "score": "",
-    "attendance": null,
+    "score": "0–1",
+    "attendance": 11316,
     "venue": "Vitality Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Michael Oliver",
+    "matchReportUrl": "https://fbref.com/en/matches/47396732/Bournemouth-Liverpool-September-20-2026-Premier-League"
   },
   {
     "matchweek": 5,
     "datetime": "2026-09-20T15:30:00Z",
     "home": "Fulham",
     "away": "Manchester Utd",
-    "score": "",
+    "score": "1–1",
     "attendance": null,
     "venue": "Craven Cottage",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Peter Bankes",
+    "matchReportUrl": "https://fbref.com/en/matches/c354315b/Fulham-Manchester-United-September-20-2026-Premier-League"
   },
   {
     "matchweek": 5,
     "datetime": "2026-09-20T13:00:00Z",
     "home": "Leeds United",
     "away": "Crystal Palace",
-    "score": "",
-    "attendance": null,
+    "score": "0–0",
+    "attendance": 36462,
     "venue": "Elland Road",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Adam Herczeg",
+    "matchReportUrl": "https://fbref.com/en/matches/5f73af8d/Leeds-United-Crystal-Palace-September-20-2026-Premier-League"
   },
   {
     "matchweek": 5,
     "datetime": "2026-09-20T13:00:00Z",
     "home": "Manchester City",
     "away": "Sunderland",
-    "score": "",
-    "attendance": null,
+    "score": "5–3",
+    "attendance": 60312,
     "venue": "Etihad Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Robert Jones",
+    "matchReportUrl": "https://fbref.com/en/matches/f6903560/Manchester-City-Sunderland-September-20-2026-Premier-League"
   },
   {
     "matchweek": 6,

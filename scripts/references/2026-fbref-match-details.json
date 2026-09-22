@@ -1746,5 +1746,157 @@
       "corners": 1,
       "offsides": 2
     }
+  },
+  "2026-09-20_Bournemouth_Liverpool": {
+    "officials": [
+      {
+        "name": "Michael Oliver",
+        "role": "Referee"
+      },
+      {
+        "name": "Stuart Burt",
+        "role": "AR1"
+      },
+      {
+        "name": "James Mainwaring",
+        "role": "AR2"
+      },
+      {
+        "name": "Simon Hooper",
+        "role": "4th"
+      },
+      {
+        "name": "Craig Pawson",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 11,
+      "corners": 3,
+      "offsides": 4
+    },
+    "away": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 13,
+      "corners": 3,
+      "offsides": 2
+    }
+  },
+  "2026-09-20_Fulham_Manchester United": {
+    "officials": [
+      {
+        "name": "Peter Bankes",
+        "role": "Referee"
+      },
+      {
+        "name": "Dan Cook",
+        "role": "AR1"
+      },
+      {
+        "name": "Alex James",
+        "role": "AR2"
+      },
+      {
+        "name": "Chris Kavanagh",
+        "role": "4th"
+      },
+      {
+        "name": "Nicholas Hopton",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 3,
+      "redCards": 0,
+      "fouls": 9,
+      "corners": 3,
+      "offsides": 1
+    },
+    "away": {
+      "yellowCards": 0,
+      "redCards": 0,
+      "fouls": 5,
+      "corners": 13,
+      "offsides": 2
+    }
+  },
+  "2026-09-20_Leeds United_Crystal Palace": {
+    "officials": [
+      {
+        "name": "Adam Herczeg",
+        "role": "Referee"
+      },
+      {
+        "name": "Tim Wood",
+        "role": "AR1"
+      },
+      {
+        "name": "Simon Long",
+        "role": "AR2"
+      },
+      {
+        "name": "Farai Hallam",
+        "role": "4th"
+      },
+      {
+        "name": "Paul Tierney",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 10,
+      "corners": 4,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 3,
+      "redCards": 0,
+      "fouls": 12,
+      "corners": 3,
+      "offsides": 2
+    }
+  },
+  "2026-09-20_Manchester City_Sunderland": {
+    "officials": [
+      {
+        "name": "Robert Jones",
+        "role": "Referee"
+      },
+      {
+        "name": "Gary Beswick",
+        "role": "AR1"
+      },
+      {
+        "name": "Constantine Hatzidakis",
+        "role": "AR2"
+      },
+      {
+        "name": "Andy Madley",
+        "role": "4th"
+      },
+      {
+        "name": "Michael Salisbury",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 0,
+      "redCards": 0,
+      "fouls": 14,
+      "corners": 6,
+      "offsides": 0
+    },
+    "away": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 14,
+      "corners": 5,
+      "offsides": 0
+    }
   }
 }
