@@ -13151,29 +13151,6 @@
       "datetime": "2026-10-24 11:30:00"
     },
     {
-      "id": "31252",
-      "isResult": false,
-      "h": {
-        "id": "87",
-        "title": "Liverpool",
-        "short_title": "LIV"
-      },
-      "a": {
-        "id": "220",
-        "title": "Brighton",
-        "short_title": "BRI"
-      },
-      "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
-      },
-      "datetime": "2026-10-24 14:00:00"
-    },
-    {
       "id": "31253",
       "isResult": false,
       "h": {
@@ -13241,6 +13218,29 @@
         "a": null
       },
       "datetime": "2026-10-24 16:30:00"
+    },
+    {
+      "id": "31252",
+      "isResult": false,
+      "h": {
+        "id": "87",
+        "title": "Liverpool",
+        "short_title": "LIV"
+      },
+      "a": {
+        "id": "220",
+        "title": "Brighton",
+        "short_title": "BRI"
+      },
+      "goals": {
+        "h": null,
+        "a": null
+      },
+      "xG": {
+        "h": null,
+        "a": null
+      },
+      "datetime": "2026-10-25 14:00:00"
     },
     {
       "id": "31256",
@@ -13516,7 +13516,7 @@
         "h": null,
         "a": null
       },
-      "datetime": "2026-11-01 14:00:00"
+      "datetime": "2026-10-31 20:00:00"
     },
     {
       "id": "31268",

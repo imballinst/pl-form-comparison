@@ -2917,31 +2917,6 @@
         "stats": null
       },
       {
-        "matchId": "31252",
-        "matchweek": 8,
-        "kickoff": "2026-10-24 14:00:00",
-        "period": "Scheduled",
-        "homeTeam": {
-          "score": null,
-          "name": "Liverpool",
-          "id": "87",
-          "shortName": "Liverpool",
-          "abbr": "LIV",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": null,
-          "name": "Brighton and Hove Albion",
-          "id": "220",
-          "shortName": "Brighton and Hove Albion",
-          "abbr": "BRI",
-          "redCards": 0
-        },
-        "ground": "Anfield",
-        "attendance": null,
-        "stats": null
-      },
-      {
         "matchId": "31253",
         "matchweek": 8,
         "kickoff": "2026-10-24 14:00:00",
@@ -3013,6 +2988,31 @@
           "redCards": 0
         },
         "ground": "Stamford Bridge",
+        "attendance": null,
+        "stats": null
+      },
+      {
+        "matchId": "31252",
+        "matchweek": 8,
+        "kickoff": "2026-10-25 14:00:00",
+        "period": "Scheduled",
+        "homeTeam": {
+          "score": null,
+          "name": "Liverpool",
+          "id": "87",
+          "shortName": "Liverpool",
+          "abbr": "LIV",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": null,
+          "name": "Brighton and Hove Albion",
+          "id": "220",
+          "shortName": "Brighton and Hove Albion",
+          "abbr": "BRI",
+          "redCards": 0
+        },
+        "ground": "Anfield",
         "attendance": null,
         "stats": null
       },
@@ -3296,7 +3296,7 @@
       {
         "matchId": "31267",
         "matchweek": 9,
-        "kickoff": "2026-11-01 14:00:00",
+        "kickoff": "2026-10-31 20:00:00",
         "period": "Scheduled",
         "homeTeam": {
           "score": null,
