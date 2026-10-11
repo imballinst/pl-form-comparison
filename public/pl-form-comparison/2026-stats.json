@@ -7071,6 +7071,174 @@
         "totalYelCard": 0,
         "totalRedCard": 0
       }
+    },
+    "31230": {
+      "Arsenal": {
+        "goals": 2,
+        "goalsConceded": 1,
+        "expectedGoals": 2.32061,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Leeds United": {
+        "goals": 1,
+        "goalsConceded": 2,
+        "expectedGoals": 1.19826,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31231": {
+      "Aston Villa": {
+        "goals": 2,
+        "goalsConceded": 2,
+        "expectedGoals": 1.83842,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Brentford": {
+        "goals": 2,
+        "goalsConceded": 2,
+        "expectedGoals": 1.28128,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31232": {
+      "Chelsea": {
+        "goals": 5,
+        "goalsConceded": 1,
+        "expectedGoals": 1.3732,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Bournemouth": {
+        "goals": 1,
+        "goalsConceded": 5,
+        "expectedGoals": 1.67505,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31233": {
+      "Ipswich Town": {
+        "goals": 2,
+        "goalsConceded": 1,
+        "expectedGoals": 1.25918,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Fulham": {
+        "goals": 1,
+        "goalsConceded": 2,
+        "expectedGoals": 1.77856,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31234": {
+      "Sunderland": {
+        "goals": 0,
+        "goalsConceded": 2,
+        "expectedGoals": 0.869773,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Brighton and Hove Albion": {
+        "goals": 2,
+        "goalsConceded": 0,
+        "expectedGoals": 1.64162,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31235": {
+      "Manchester United": {
+        "goals": 1,
+        "goalsConceded": 1,
+        "expectedGoals": 0.867817,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Tottenham Hotspur": {
+        "goals": 1,
+        "goalsConceded": 1,
+        "expectedGoals": 2.03436,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
     }
   }
 }
