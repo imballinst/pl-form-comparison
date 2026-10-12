@@ -2558,9 +2558,9 @@
         "matchId": "31236",
         "matchweek": 6,
         "kickoff": "2026-10-11 13:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 3,
           "name": "Crystal Palace",
           "id": "78",
           "shortName": "Crystal Palace",
@@ -2568,7 +2568,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Nottingham Forest",
           "id": "249",
           "shortName": "Nottingham Forest",
@@ -2577,15 +2577,22 @@
         },
         "ground": "Selhurst Park",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.24807,
+            "awayXg": 3.76379
+          }
+        }
       },
       {
         "matchId": "31237",
         "matchweek": 6,
         "kickoff": "2026-10-11 13:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 2,
           "name": "Hull City",
           "id": "91",
           "shortName": "Hull City",
@@ -2593,7 +2600,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 2,
           "name": "Everton",
           "id": "72",
           "shortName": "Everton",
@@ -2602,15 +2609,22 @@
         },
         "ground": "MKM Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.53245,
+            "awayXg": 2.79588
+          }
+        }
       },
       {
         "matchId": "31238",
         "matchweek": 6,
         "kickoff": "2026-10-11 15:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Liverpool",
           "id": "87",
           "shortName": "Liverpool",
@@ -2618,7 +2632,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 3,
           "name": "Manchester City",
           "id": "88",
           "shortName": "Manchester City",
@@ -2627,7 +2641,14 @@
         },
         "ground": "Anfield",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 0.75917,
+            "awayXg": 1.58703
+          }
+        }
       },
       {
         "matchId": "31239",
