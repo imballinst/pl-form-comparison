@@ -12,6 +12,7 @@
     "stat:update:fbref": "python3 scripts/fetch-fbref-schedule.py && python3 scripts/fetch-fbref-match-details.py && tsx scripts/merge-migration.ts",
     "stat:merge": "tsx scripts/merge-migration.ts",
     "stat:postprocess": "tsx scripts/merge-migration.ts && tsx scripts/derive-table.ts",
+    "venv": "source .venv/bin/activate",
     "typecheck": "react-router typegen && tsc",
     "test": "vitest"
   },

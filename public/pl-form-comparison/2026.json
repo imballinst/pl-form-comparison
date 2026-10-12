@@ -1914,7 +1914,7 @@
         "ground": "Gtech Community Stadium",
         "attendance": 17193,
         "stats": {
-          "referee": "Andy Madley",
+          "referee": "Andrew Madley",
           "fbref": {
             "home": {
               "yellowCards": 2,
@@ -2335,7 +2335,7 @@
           "redCards": 0
         },
         "ground": "Craven Cottage",
-        "attendance": null,
+        "attendance": 27288,
         "stats": {
           "referee": "Peter Bankes",
           "fbref": {
@@ -2384,10 +2384,25 @@
           "redCards": 0
         },
         "ground": "Emirates Stadium",
-        "attendance": null,
+        "attendance": 60315,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Paul Tierney",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 12,
+              "corners": 2,
+              "offsides": 7
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 20,
+              "corners": 4,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 2.32061,
             "awayXg": 1.19826
@@ -2416,10 +2431,25 @@
           "redCards": 0
         },
         "ground": "Villa Park",
-        "attendance": null,
+        "attendance": 36636,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Craig Pawson",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 2,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 24,
+              "corners": 2,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.83842,
             "awayXg": 1.28128
@@ -2448,10 +2478,25 @@
           "redCards": 0
         },
         "ground": "Stamford Bridge",
-        "attendance": null,
+        "attendance": 39676,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Samuel Barrott",
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 1,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 7,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 1.3732,
             "awayXg": 1.67505
@@ -2480,10 +2525,25 @@
           "redCards": 0
         },
         "ground": "Portman Road Stadium",
-        "attendance": null,
+        "attendance": 29445,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Lewis Smith",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 2,
+              "offsides": 0
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 5,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 1.25918,
             "awayXg": 1.77856
@@ -2509,13 +2569,28 @@
           "id": "220",
           "shortName": "Brighton and Hove Albion",
           "abbr": "BRI",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Stadium of Light",
-        "attendance": null,
+        "attendance": 47196,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Thomas Bramall",
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 7,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 1,
+              "fouls": 12,
+              "corners": 5,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.869773,
             "awayXg": 1.64162
@@ -2541,13 +2616,28 @@
           "id": "82",
           "shortName": "Tottenham Hotspur",
           "abbr": "TOT",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Old Trafford",
-        "attendance": null,
+        "attendance": 74129,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Stuart Attwell",
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 4,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 1,
+              "fouls": 16,
+              "corners": 4,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.867817,
             "awayXg": 2.03436
@@ -2578,8 +2668,23 @@
         "ground": "Selhurst Park",
         "attendance": null,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Peter Bankes",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 8,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 2.24807,
             "awayXg": 3.76379
@@ -2608,10 +2713,25 @@
           "redCards": 0
         },
         "ground": "MKM Stadium",
-        "attendance": null,
+        "attendance": 24458,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Michael Salisbury",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 7,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 4,
+              "corners": 6,
+              "offsides": 4
+            }
+          },
           "understat": {
             "homeXg": 1.53245,
             "awayXg": 2.79588
@@ -2629,7 +2749,7 @@
           "id": "87",
           "shortName": "Liverpool",
           "abbr": "LIV",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 3,
@@ -2642,8 +2762,23 @@
         "ground": "Anfield",
         "attendance": null,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Chris Kavanagh",
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 1,
+              "fouls": 19,
+              "corners": 5,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 6,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.75917,
             "awayXg": 1.58703
