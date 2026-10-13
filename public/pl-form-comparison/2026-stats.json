@@ -8178,6 +8178,34 @@
         "totalYelCard": 2,
         "totalRedCard": 0
       }
+    },
+    "31239": {
+      "Coventry City": {
+        "goals": 4,
+        "goalsConceded": 1,
+        "expectedGoals": 1.66422,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Newcastle United": {
+        "goals": 1,
+        "goalsConceded": 4,
+        "expectedGoals": 2.21865,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
     }
   }
 }

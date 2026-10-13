@@ -2789,9 +2789,9 @@
         "matchId": "31239",
         "matchweek": 6,
         "kickoff": "2026-10-12 19:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 4,
           "name": "Coventry City",
           "id": "294",
           "shortName": "Coventry City",
@@ -2799,7 +2799,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Newcastle United",
           "id": "86",
           "shortName": "Newcastle United",
@@ -2808,7 +2808,14 @@
         },
         "ground": "Coventry Building Society Arena",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.66422,
+            "awayXg": 2.21865
+          }
+        }
       }
     ],
     "7": [

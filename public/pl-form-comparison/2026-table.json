@@ -133,14 +133,14 @@
     "name": "Newcastle United",
     "abbr": "NEW",
     "shortName": "Newcastle United",
-    "played": 5,
+    "played": 6,
     "wins": 2,
     "draws": 2,
-    "losses": 1,
+    "losses": 2,
     "points": 8,
-    "gf": 9,
-    "ga": 9,
-    "gd": 0
+    "gf": 10,
+    "ga": 13,
+    "gd": -3
   },
   {
     "name": "Crystal Palace",
@@ -167,6 +167,19 @@
     "gf": 9,
     "ga": 9,
     "gd": 0
+  },
+  {
+    "name": "Coventry City",
+    "abbr": "COV",
+    "shortName": "Coventry City",
+    "played": 6,
+    "wins": 2,
+    "draws": 0,
+    "losses": 4,
+    "points": 6,
+    "gf": 5,
+    "ga": 11,
+    "gd": -6
   },
   {
     "name": "Nottingham Forest",
@@ -232,19 +245,6 @@
     "gf": 3,
     "ga": 9,
     "gd": -6
-  },
-  {
-    "name": "Coventry City",
-    "abbr": "COV",
-    "shortName": "Coventry City",
-    "played": 5,
-    "wins": 1,
-    "draws": 0,
-    "losses": 4,
-    "points": 3,
-    "gf": 1,
-    "ga": 10,
-    "gd": -9
   },
   {
     "name": "Fulham",
