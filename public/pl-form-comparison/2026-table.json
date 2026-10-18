@@ -3,14 +3,14 @@
     "name": "Manchester City",
     "abbr": "MCI",
     "shortName": "Manchester City",
-    "played": 6,
-    "wins": 6,
+    "played": 7,
+    "wins": 7,
     "draws": 0,
     "losses": 0,
-    "points": 18,
-    "gf": 16,
-    "ga": 5,
-    "gd": 11
+    "points": 21,
+    "gf": 19,
+    "ga": 7,
+    "gd": 12
   },
   {
     "name": "Arsenal",
@@ -39,43 +39,56 @@
     "gd": 13
   },
   {
+    "name": "Chelsea",
+    "abbr": "CHE",
+    "shortName": "Chelsea",
+    "played": 7,
+    "wins": 4,
+    "draws": 1,
+    "losses": 2,
+    "points": 13,
+    "gf": 17,
+    "ga": 13,
+    "gd": 4
+  },
+  {
+    "name": "Liverpool",
+    "abbr": "LIV",
+    "shortName": "Liverpool",
+    "played": 7,
+    "wins": 3,
+    "draws": 3,
+    "losses": 1,
+    "points": 12,
+    "gf": 9,
+    "ga": 8,
+    "gd": 1
+  },
+  {
     "name": "Brentford",
     "abbr": "BRE",
     "shortName": "Brentford",
-    "played": 6,
+    "played": 7,
     "wins": 2,
     "draws": 4,
-    "losses": 0,
+    "losses": 1,
     "points": 10,
-    "gf": 12,
-    "ga": 6,
-    "gd": 6
+    "gf": 13,
+    "ga": 8,
+    "gd": 5
   },
   {
     "name": "Everton",
     "abbr": "EVE",
     "shortName": "Everton",
-    "played": 6,
+    "played": 7,
     "wins": 2,
     "draws": 4,
-    "losses": 0,
+    "losses": 1,
     "points": 10,
     "gf": 8,
-    "ga": 5,
-    "gd": 3
-  },
-  {
-    "name": "Chelsea",
-    "abbr": "CHE",
-    "shortName": "Chelsea",
-    "played": 6,
-    "wins": 3,
-    "draws": 1,
-    "losses": 2,
-    "points": 10,
-    "gf": 15,
-    "ga": 13,
-    "gd": 2
+    "ga": 7,
+    "gd": 1
   },
   {
     "name": "Leeds United",
@@ -94,53 +107,53 @@
     "name": "Hull City",
     "abbr": "HUL",
     "shortName": "Hull City",
-    "played": 6,
+    "played": 7,
     "wins": 2,
     "draws": 3,
-    "losses": 1,
+    "losses": 2,
     "points": 9,
     "gf": 8,
-    "ga": 6,
-    "gd": 2
-  },
-  {
-    "name": "Liverpool",
-    "abbr": "LIV",
-    "shortName": "Liverpool",
-    "played": 6,
-    "wins": 2,
-    "draws": 3,
-    "losses": 1,
-    "points": 9,
-    "gf": 7,
     "ga": 7,
-    "gd": 0
+    "gd": 1
   },
   {
     "name": "Ipswich Town",
     "abbr": "IPS",
     "shortName": "Ipswich Town",
-    "played": 6,
+    "played": 7,
     "wins": 3,
     "draws": 0,
-    "losses": 3,
+    "losses": 4,
     "points": 9,
-    "gf": 9,
-    "ga": 12,
-    "gd": -3
+    "gf": 11,
+    "ga": 15,
+    "gd": -4
   },
   {
     "name": "Newcastle United",
     "abbr": "NEW",
     "shortName": "Newcastle United",
-    "played": 6,
+    "played": 7,
     "wins": 2,
     "draws": 2,
-    "losses": 2,
+    "losses": 3,
     "points": 8,
     "gf": 10,
-    "ga": 13,
-    "gd": -3
+    "ga": 14,
+    "gd": -4
+  },
+  {
+    "name": "Aston Villa",
+    "abbr": "AVL",
+    "shortName": "Aston Villa",
+    "played": 7,
+    "wins": 2,
+    "draws": 2,
+    "losses": 3,
+    "points": 8,
+    "gf": 7,
+    "ga": 11,
+    "gd": -4
   },
   {
     "name": "Crystal Palace",
@@ -182,6 +195,19 @@
     "gd": -6
   },
   {
+    "name": "Fulham",
+    "abbr": "FLH",
+    "shortName": "Fulham",
+    "played": 7,
+    "wins": 1,
+    "draws": 2,
+    "losses": 4,
+    "points": 5,
+    "gf": 7,
+    "ga": 10,
+    "gd": -3
+  },
+  {
     "name": "Nottingham Forest",
     "abbr": "NOT",
     "shortName": "Nottingham Forest",
@@ -193,19 +219,6 @@
     "gf": 5,
     "ga": 8,
     "gd": -3
-  },
-  {
-    "name": "Aston Villa",
-    "abbr": "AVL",
-    "shortName": "Aston Villa",
-    "played": 6,
-    "wins": 1,
-    "draws": 2,
-    "losses": 3,
-    "points": 5,
-    "gf": 6,
-    "ga": 11,
-    "gd": -5
   },
   {
     "name": "Sunderland",
@@ -245,18 +258,5 @@
     "gf": 3,
     "ga": 9,
     "gd": -6
-  },
-  {
-    "name": "Fulham",
-    "abbr": "FLH",
-    "shortName": "Fulham",
-    "played": 6,
-    "wins": 0,
-    "draws": 2,
-    "losses": 4,
-    "points": 2,
-    "gf": 6,
-    "ga": 10,
-    "gd": -4
   }
 ]

@@ -2823,9 +2823,9 @@
         "matchId": "31240",
         "matchweek": 7,
         "kickoff": "2026-10-17 11:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Everton",
           "id": "72",
           "shortName": "Everton",
@@ -2833,7 +2833,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 2,
           "name": "Chelsea",
           "id": "80",
           "shortName": "Chelsea",
@@ -2842,15 +2842,22 @@
         },
         "ground": "Hill Dickinson Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 0.570749,
+            "awayXg": 1.602
+          }
+        }
       },
       {
         "matchId": "31241",
         "matchweek": 7,
         "kickoff": "2026-10-17 14:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Fulham",
           "id": "228",
           "shortName": "Fulham",
@@ -2858,7 +2865,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 0,
           "name": "Hull City",
           "id": "91",
           "shortName": "Hull City",
@@ -2867,15 +2874,22 @@
         },
         "ground": "Craven Cottage",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.27426,
+            "awayXg": 0.130919
+          }
+        }
       },
       {
         "matchId": "31242",
         "matchweek": 7,
         "kickoff": "2026-10-17 14:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Brentford",
           "id": "244",
           "shortName": "Brentford",
@@ -2883,7 +2897,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 2,
           "name": "Liverpool",
           "id": "87",
           "shortName": "Liverpool",
@@ -2892,15 +2906,22 @@
         },
         "ground": "Gtech Community Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 0.858733,
+            "awayXg": 1.54933
+          }
+        }
       },
       {
         "matchId": "31243",
         "matchweek": 7,
         "kickoff": "2026-10-17 14:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 3,
           "name": "Manchester City",
           "id": "88",
           "shortName": "Manchester City",
@@ -2908,7 +2929,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 2,
           "name": "Ipswich Town",
           "id": "285",
           "shortName": "Ipswich Town",
@@ -2917,15 +2938,22 @@
         },
         "ground": "Etihad Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 4.00772,
+            "awayXg": 1.37153
+          }
+        }
       },
       {
         "matchId": "31244",
         "matchweek": 7,
         "kickoff": "2026-10-17 16:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Newcastle United",
           "id": "86",
           "shortName": "Newcastle United",
@@ -2933,7 +2961,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Aston Villa",
           "id": "71",
           "shortName": "Aston Villa",
@@ -2942,7 +2970,14 @@
         },
         "ground": "St James' Park",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 0.920183,
+            "awayXg": 2.0822
+          }
+        }
       },
       {
         "matchId": "31245",
