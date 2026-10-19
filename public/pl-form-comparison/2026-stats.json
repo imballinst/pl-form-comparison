@@ -8346,6 +8346,118 @@
         "totalYelCard": 0,
         "totalRedCard": 0
       }
+    },
+    "31245": {
+      "Brighton and Hove Albion": {
+        "goals": 5,
+        "goalsConceded": 0,
+        "expectedGoals": 2.2522,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Crystal Palace": {
+        "goals": 0,
+        "goalsConceded": 5,
+        "expectedGoals": 0.627519,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31246": {
+      "Bournemouth": {
+        "goals": 2,
+        "goalsConceded": 0,
+        "expectedGoals": 4.386,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Sunderland": {
+        "goals": 0,
+        "goalsConceded": 2,
+        "expectedGoals": 0.0943414,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31247": {
+      "Leeds United": {
+        "goals": 1,
+        "goalsConceded": 1,
+        "expectedGoals": 1.41034,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Manchester United": {
+        "goals": 1,
+        "goalsConceded": 1,
+        "expectedGoals": 1.08135,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31248": {
+      "Nottingham Forest": {
+        "goals": 0,
+        "goalsConceded": 1,
+        "expectedGoals": 0.74721,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Arsenal": {
+        "goals": 1,
+        "goalsConceded": 0,
+        "expectedGoals": 0.9151,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
     }
   }
 }
