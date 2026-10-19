@@ -2666,7 +2666,7 @@
           "redCards": 0
         },
         "ground": "Selhurst Park",
-        "attendance": null,
+        "attendance": 25120,
         "stats": {
           "referee": "Peter Bankes",
           "fbref": {
@@ -2760,7 +2760,7 @@
           "redCards": 0
         },
         "ground": "Anfield",
-        "attendance": null,
+        "attendance": 60338,
         "stats": {
           "referee": "Chris Kavanagh",
           "fbref": {
@@ -2807,10 +2807,25 @@
           "redCards": 0
         },
         "ground": "Coventry Building Society Arena",
-        "attendance": null,
+        "attendance": 30811,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "John Brooks",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 3,
+              "corners": 2,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 6,
+              "offsides": 5
+            }
+          },
           "understat": {
             "homeXg": 1.66422,
             "awayXg": 2.21865
@@ -2841,10 +2856,25 @@
           "redCards": 0
         },
         "ground": "Hill Dickinson Stadium",
-        "attendance": null,
+        "attendance": 52271,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Paul Tierney",
+          "fbref": {
+            "home": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 5,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 7,
+              "offsides": 1
+            }
+          },
           "understat": {
             "homeXg": 0.570749,
             "awayXg": 1.602
@@ -2862,7 +2892,7 @@
           "id": "228",
           "shortName": "Fulham",
           "abbr": "FLH",
-          "redCards": 0
+          "redCards": 1
         },
         "awayTeam": {
           "score": 0,
@@ -2875,8 +2905,23 @@
         "ground": "Craven Cottage",
         "attendance": null,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Chris Kavanagh",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 1,
+              "fouls": 13,
+              "corners": 10,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 2,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 2.27426,
             "awayXg": 0.130919
@@ -2894,7 +2939,7 @@
           "id": "244",
           "shortName": "Brentford",
           "abbr": "BRE",
-          "redCards": 0
+          "redCards": 2
         },
         "awayTeam": {
           "score": 2,
@@ -2907,8 +2952,23 @@
         "ground": "Gtech Community Stadium",
         "attendance": null,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "John Brooks",
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 2,
+              "fouls": 7,
+              "corners": 3,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 9,
+              "offsides": 2
+            }
+          },
           "understat": {
             "homeXg": 0.858733,
             "awayXg": 1.54933
@@ -2937,10 +2997,25 @@
           "redCards": 0
         },
         "ground": "Etihad Stadium",
-        "attendance": null,
+        "attendance": 60817,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Farai Hallam",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 2,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 16,
+              "corners": 3,
+              "offsides": 5
+            }
+          },
           "understat": {
             "homeXg": 4.00772,
             "awayXg": 1.37153
@@ -2969,10 +3044,25 @@
           "redCards": 0
         },
         "ground": "St James' Park",
-        "attendance": null,
+        "attendance": 52626,
         "stats": {
-          "referee": null,
-          "fbref": null,
+          "referee": "Jarred Gillett",
+          "fbref": {
+            "home": {
+              "yellowCards": 6,
+              "redCards": 0,
+              "fouls": 14,
+              "corners": 4,
+              "offsides": 5
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 5,
+              "offsides": 0
+            }
+          },
           "understat": {
             "homeXg": 0.920183,
             "awayXg": 2.0822

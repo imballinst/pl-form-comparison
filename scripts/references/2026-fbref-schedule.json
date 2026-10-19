@@ -621,7 +621,7 @@
     "home": "Crystal Palace",
     "away": "Nottingham",
     "score": "3–1",
-    "attendance": null,
+    "attendance": 25120,
     "venue": "Selhurst Park",
     "referee": "Peter Bankes",
     "matchReportUrl": "https://fbref.com/en/matches/05dae339/Crystal-Palace-Nottingham-Forest-October-11-2026-Premier-League"
@@ -643,7 +643,7 @@
     "home": "Liverpool",
     "away": "Manchester City",
     "score": "0–3",
-    "attendance": null,
+    "attendance": 60338,
     "venue": "Anfield",
     "referee": "Chris Kavanagh",
     "matchReportUrl": "https://fbref.com/en/matches/84eb3e34/Liverpool-Manchester-City-October-11-2026-Premier-League"
@@ -653,66 +653,66 @@
     "datetime": "2026-10-12T19:00:00Z",
     "home": "Coventry City",
     "away": "Newcastle",
-    "score": "",
-    "attendance": null,
+    "score": "4–1",
+    "attendance": 30811,
     "venue": "Coventry Building Society Arena",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "John Brooks",
+    "matchReportUrl": "https://fbref.com/en/matches/9560e92e/Coventry-City-Newcastle-United-October-12-2026-Premier-League"
   },
   {
     "matchweek": 7,
     "datetime": "2026-10-17T14:00:00Z",
     "home": "Brentford",
     "away": "Liverpool",
-    "score": "",
+    "score": "1–2",
     "attendance": null,
     "venue": "Gtech Community Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "John Brooks",
+    "matchReportUrl": "https://fbref.com/en/matches/ea53b58e/Brentford-Liverpool-October-17-2026-Premier-League"
   },
   {
     "matchweek": 7,
     "datetime": "2026-10-17T11:30:00Z",
     "home": "Everton",
     "away": "Chelsea",
-    "score": "",
-    "attendance": null,
+    "score": "0–2",
+    "attendance": 52271,
     "venue": "Hill Dickinson Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Paul Tierney",
+    "matchReportUrl": "https://fbref.com/en/matches/bedb159c/Everton-Chelsea-October-17-2026-Premier-League"
   },
   {
     "matchweek": 7,
     "datetime": "2026-10-17T14:00:00Z",
     "home": "Fulham",
     "away": "Hull City",
-    "score": "",
+    "score": "1–0",
     "attendance": null,
     "venue": "Craven Cottage",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Chris Kavanagh",
+    "matchReportUrl": "https://fbref.com/en/matches/9c5243a5/Fulham-Hull-City-October-17-2026-Premier-League"
   },
   {
     "matchweek": 7,
     "datetime": "2026-10-17T14:00:00Z",
     "home": "Manchester City",
     "away": "Ipswich Town",
-    "score": "",
-    "attendance": null,
+    "score": "3–2",
+    "attendance": 60817,
     "venue": "Etihad Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Farai Hallam",
+    "matchReportUrl": "https://fbref.com/en/matches/5b3dc381/Manchester-City-Ipswich-Town-October-17-2026-Premier-League"
   },
   {
     "matchweek": 7,
     "datetime": "2026-10-17T16:30:00Z",
     "home": "Newcastle",
     "away": "Aston Villa",
-    "score": "",
-    "attendance": null,
+    "score": "0–1",
+    "attendance": 52626,
     "venue": "St James' Park",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Jarred Gillett",
+    "matchReportUrl": "https://fbref.com/en/matches/ac15dc50/Newcastle-United-Aston-Villa-October-17-2026-Premier-League"
   },
   {
     "matchweek": 7,

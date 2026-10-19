@@ -2240,5 +2240,233 @@
       "corners": 6,
       "offsides": 2
     }
+  },
+  "2026-10-12_Coventry City_Newcastle United": {
+    "officials": [
+      {
+        "name": "John Brooks",
+        "role": "Referee"
+      },
+      {
+        "name": "Neil Davies",
+        "role": "AR1"
+      },
+      {
+        "name": "Tim Wood",
+        "role": "AR2"
+      },
+      {
+        "name": "Paul Tierney",
+        "role": "4th"
+      },
+      {
+        "name": "Constantine Hatzidakis",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 3,
+      "corners": 2,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 10,
+      "corners": 6,
+      "offsides": 5
+    }
+  },
+  "2026-10-17_Brentford_Liverpool": {
+    "officials": [
+      {
+        "name": "John Brooks",
+        "role": "Referee"
+      },
+      {
+        "name": "Neil Davies",
+        "role": "AR1"
+      },
+      {
+        "name": "Akil Howson",
+        "role": "AR2"
+      },
+      {
+        "name": "Anthony Backhouse",
+        "role": "4th"
+      },
+      {
+        "name": "Darren England",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 4,
+      "redCards": 2,
+      "fouls": 7,
+      "corners": 3,
+      "offsides": 1
+    },
+    "away": {
+      "yellowCards": 3,
+      "redCards": 0,
+      "fouls": 13,
+      "corners": 9,
+      "offsides": 2
+    }
+  },
+  "2026-10-17_Everton_Chelsea": {
+    "officials": [
+      {
+        "name": "Paul Tierney",
+        "role": "Referee"
+      },
+      {
+        "name": "Wade Smith",
+        "role": "AR1"
+      },
+      {
+        "name": "Steve Meredith",
+        "role": "AR2"
+      },
+      {
+        "name": "Michael Salisbury",
+        "role": "4th"
+      },
+      {
+        "name": "Nicholas Hopton",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 3,
+      "redCards": 0,
+      "fouls": 8,
+      "corners": 5,
+      "offsides": 4
+    },
+    "away": {
+      "yellowCards": 4,
+      "redCards": 0,
+      "fouls": 15,
+      "corners": 7,
+      "offsides": 1
+    }
+  },
+  "2026-10-17_Fulham_Hull City": {
+    "officials": [
+      {
+        "name": "Chris Kavanagh",
+        "role": "Referee"
+      },
+      {
+        "name": "Dan Cook",
+        "role": "AR1"
+      },
+      {
+        "name": "Ian Hussin",
+        "role": "AR2"
+      },
+      {
+        "name": "Samuel Barrott",
+        "role": "4th"
+      },
+      {
+        "name": "James Bell",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 2,
+      "redCards": 1,
+      "fouls": 13,
+      "corners": 10,
+      "offsides": 1
+    },
+    "away": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 11,
+      "corners": 2,
+      "offsides": 2
+    }
+  },
+  "2026-10-17_Manchester City_Ipswich Town": {
+    "officials": [
+      {
+        "name": "Farai Hallam",
+        "role": "Referee"
+      },
+      {
+        "name": "Adrian Holmes",
+        "role": "AR1"
+      },
+      {
+        "name": "Simon Long",
+        "role": "AR2"
+      },
+      {
+        "name": "Tom Reeves",
+        "role": "4th"
+      },
+      {
+        "name": "Andrew Kitchen",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 8,
+      "corners": 2,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 16,
+      "corners": 3,
+      "offsides": 5
+    }
+  },
+  "2026-10-17_Newcastle United_Aston Villa": {
+    "officials": [
+      {
+        "name": "Jarred Gillett",
+        "role": "Referee"
+      },
+      {
+        "name": "Nick Greenhalgh",
+        "role": "AR1"
+      },
+      {
+        "name": "Blake Antrobus",
+        "role": "AR2"
+      },
+      {
+        "name": "Matthew Corlett",
+        "role": "4th"
+      },
+      {
+        "name": "Stuart Attwell",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 6,
+      "redCards": 0,
+      "fouls": 14,
+      "corners": 4,
+      "offsides": 5
+    },
+    "away": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 11,
+      "corners": 5,
+      "offsides": 0
+    }
   }
 }
