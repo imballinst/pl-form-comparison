@@ -3073,9 +3073,9 @@
         "matchId": "31245",
         "matchweek": 7,
         "kickoff": "2026-10-18 13:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 5,
           "name": "Brighton and Hove Albion",
           "id": "220",
           "shortName": "Brighton and Hove Albion",
@@ -3083,7 +3083,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 0,
           "name": "Crystal Palace",
           "id": "78",
           "shortName": "Crystal Palace",
@@ -3092,15 +3092,22 @@
         },
         "ground": "The American Express Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.2522,
+            "awayXg": 0.627519
+          }
+        }
       },
       {
         "matchId": "31246",
         "matchweek": 7,
         "kickoff": "2026-10-18 13:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 2,
           "name": "Bournemouth",
           "id": "73",
           "shortName": "Bournemouth",
@@ -3108,7 +3115,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 0,
           "name": "Sunderland",
           "id": "77",
           "shortName": "Sunderland",
@@ -3117,15 +3124,22 @@
         },
         "ground": "Vitality Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 4.386,
+            "awayXg": 0.0943414
+          }
+        }
       },
       {
         "matchId": "31247",
         "matchweek": 7,
         "kickoff": "2026-10-18 13:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Leeds United",
           "id": "245",
           "shortName": "Leeds United",
@@ -3133,7 +3147,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Manchester United",
           "id": "89",
           "shortName": "Manchester United",
@@ -3142,15 +3156,22 @@
         },
         "ground": "Elland Road",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.41034,
+            "awayXg": 1.08135
+          }
+        }
       },
       {
         "matchId": "31248",
         "matchweek": 7,
         "kickoff": "2026-10-18 15:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Nottingham Forest",
           "id": "249",
           "shortName": "Nottingham Forest",
@@ -3158,7 +3179,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Arsenal",
           "id": "83",
           "shortName": "Arsenal",
@@ -3167,7 +3188,14 @@
         },
         "ground": "The City Ground",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 0.74721,
+            "awayXg": 0.9151
+          }
+        }
       },
       {
         "matchId": "31249",
