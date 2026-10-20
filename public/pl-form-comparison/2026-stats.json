@@ -8876,6 +8876,34 @@
         "totalYelCard": 0,
         "totalRedCard": 0
       }
+    },
+    "31249": {
+      "Tottenham Hotspur": {
+        "goals": 3,
+        "goalsConceded": 1,
+        "expectedGoals": 0.971825,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Coventry City": {
+        "goals": 1,
+        "goalsConceded": 3,
+        "expectedGoals": 1.1439,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
     }
   }
 }

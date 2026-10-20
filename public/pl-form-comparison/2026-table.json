@@ -195,17 +195,30 @@
     "gd": -4
   },
   {
+    "name": "Tottenham Hotspur",
+    "abbr": "TOT",
+    "shortName": "Tottenham Hotspur",
+    "played": 7,
+    "wins": 1,
+    "draws": 3,
+    "losses": 3,
+    "points": 6,
+    "gf": 6,
+    "ga": 10,
+    "gd": -4
+  },
+  {
     "name": "Coventry City",
     "abbr": "COV",
     "shortName": "Coventry City",
-    "played": 6,
+    "played": 7,
     "wins": 2,
     "draws": 0,
-    "losses": 4,
+    "losses": 5,
     "points": 6,
-    "gf": 5,
-    "ga": 11,
-    "gd": -6
+    "gf": 6,
+    "ga": 14,
+    "gd": -8
   },
   {
     "name": "Fulham",
@@ -245,18 +258,5 @@
     "gf": 6,
     "ga": 14,
     "gd": -8
-  },
-  {
-    "name": "Tottenham Hotspur",
-    "abbr": "TOT",
-    "shortName": "Tottenham Hotspur",
-    "played": 6,
-    "wins": 0,
-    "draws": 3,
-    "losses": 3,
-    "points": 3,
-    "gf": 3,
-    "ga": 9,
-    "gd": -6
   }
 ]
