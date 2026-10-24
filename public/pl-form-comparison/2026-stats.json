@@ -8904,6 +8904,34 @@
         "totalYelCard": 0,
         "totalRedCard": 0
       }
+    },
+    "31250": {
+      "Ipswich Town": {
+        "goals": 1,
+        "goalsConceded": 1,
+        "expectedGoals": 0.856862,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Nottingham Forest": {
+        "goals": 1,
+        "goalsConceded": 1,
+        "expectedGoals": 2.75509,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
     }
   }
 }

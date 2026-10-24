@@ -3235,9 +3235,9 @@
         "matchId": "31250",
         "matchweek": 8,
         "kickoff": "2026-10-23 19:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Ipswich Town",
           "id": "285",
           "shortName": "Ipswich Town",
@@ -3245,7 +3245,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Nottingham Forest",
           "id": "249",
           "shortName": "Nottingham Forest",
@@ -3254,7 +3254,14 @@
         },
         "ground": "Portman Road Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 0.856862,
+            "awayXg": 2.75509
+          }
+        }
       },
       {
         "matchId": "31251",
