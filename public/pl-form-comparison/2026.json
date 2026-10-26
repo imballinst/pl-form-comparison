@@ -3395,9 +3395,9 @@
         "matchId": "31252",
         "matchweek": 8,
         "kickoff": "2026-10-25 14:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 2,
           "name": "Liverpool",
           "id": "87",
           "shortName": "Liverpool",
@@ -3405,7 +3405,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 0,
           "name": "Brighton and Hove Albion",
           "id": "220",
           "shortName": "Brighton and Hove Albion",
@@ -3414,15 +3414,22 @@
         },
         "ground": "Anfield",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.2818,
+            "awayXg": 1.31352
+          }
+        }
       },
       {
         "matchId": "31256",
         "matchweek": 8,
         "kickoff": "2026-10-25 14:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Manchester United",
           "id": "89",
           "shortName": "Manchester United",
@@ -3430,7 +3437,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 3,
           "name": "Bournemouth",
           "id": "73",
           "shortName": "Bournemouth",
@@ -3439,15 +3446,22 @@
         },
         "ground": "Old Trafford",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 0.84372,
+            "awayXg": 2.56254
+          }
+        }
       },
       {
         "matchId": "31257",
         "matchweek": 8,
         "kickoff": "2026-10-25 14:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Crystal Palace",
           "id": "78",
           "shortName": "Crystal Palace",
@@ -3455,7 +3469,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 2,
           "name": "Newcastle United",
           "id": "86",
           "shortName": "Newcastle United",
@@ -3464,15 +3478,22 @@
         },
         "ground": "Selhurst Park",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 2.02904,
+            "awayXg": 1.29755
+          }
+        }
       },
       {
         "matchId": "31258",
         "matchweek": 8,
         "kickoff": "2026-10-25 14:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Hull City",
           "id": "91",
           "shortName": "Hull City",
@@ -3480,7 +3501,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Brentford",
           "id": "244",
           "shortName": "Brentford",
@@ -3489,15 +3510,22 @@
         },
         "ground": "MKM Stadium",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.93749,
+            "awayXg": 1.70706
+          }
+        }
       },
       {
         "matchId": "31259",
         "matchweek": 8,
         "kickoff": "2026-10-25 16:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 0,
           "name": "Sunderland",
           "id": "77",
           "shortName": "Sunderland",
@@ -3505,7 +3533,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 0,
           "name": "Leeds United",
           "id": "245",
           "shortName": "Leeds United",
@@ -3514,7 +3542,14 @@
         },
         "ground": "Stadium of Light",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": null,
+          "fbref": null,
+          "understat": {
+            "homeXg": 1.02357,
+            "awayXg": 1.06511
+          }
+        }
       }
     ],
     "9": [

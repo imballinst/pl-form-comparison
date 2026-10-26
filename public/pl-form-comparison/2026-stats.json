@@ -8961,6 +8961,34 @@
         "totalRedCard": 0
       }
     },
+    "31252": {
+      "Liverpool": {
+        "goals": 2,
+        "goalsConceded": 0,
+        "expectedGoals": 1.2818,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Brighton and Hove Albion": {
+        "goals": 0,
+        "goalsConceded": 2,
+        "expectedGoals": 1.31352,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
     "31253": {
       "Coventry City": {
         "goals": 0,
@@ -9035,6 +9063,118 @@
         "goals": 2,
         "goalsConceded": 0,
         "expectedGoals": 0.979641,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31256": {
+      "Manchester United": {
+        "goals": 0,
+        "goalsConceded": 3,
+        "expectedGoals": 0.84372,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Bournemouth": {
+        "goals": 3,
+        "goalsConceded": 0,
+        "expectedGoals": 2.56254,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31257": {
+      "Crystal Palace": {
+        "goals": 0,
+        "goalsConceded": 2,
+        "expectedGoals": 2.02904,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Newcastle United": {
+        "goals": 2,
+        "goalsConceded": 0,
+        "expectedGoals": 1.29755,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31258": {
+      "Hull City": {
+        "goals": 1,
+        "goalsConceded": 1,
+        "expectedGoals": 1.93749,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Brentford": {
+        "goals": 1,
+        "goalsConceded": 1,
+        "expectedGoals": 1.70706,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      }
+    },
+    "31259": {
+      "Sunderland": {
+        "goals": 0,
+        "goalsConceded": 0,
+        "expectedGoals": 1.02357,
+        "wonCorners": 0,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 0,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Leeds United": {
+        "goals": 0,
+        "goalsConceded": 0,
+        "expectedGoals": 1.06511,
         "wonCorners": 0,
         "duelWon": 0,
         "totalDistance": 0,
