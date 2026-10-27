@@ -2468,5 +2468,575 @@
       "corners": 5,
       "offsides": 0
     }
+  },
+  "2026-10-18_Bournemouth_Sunderland": {
+    "officials": [
+      {
+        "name": "Craig Pawson",
+        "role": "Referee"
+      },
+      {
+        "name": "Lee Betts",
+        "role": "AR1"
+      },
+      {
+        "name": "Gary Beswick",
+        "role": "AR2"
+      },
+      {
+        "name": "Sam Allison",
+        "role": "4th"
+      },
+      {
+        "name": "Tony Harrington",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 3,
+      "redCards": 0,
+      "fouls": 16,
+      "corners": 5,
+      "offsides": 1
+    },
+    "away": {
+      "yellowCards": 2,
+      "redCards": 1,
+      "fouls": 7,
+      "corners": 3,
+      "offsides": 2
+    }
+  },
+  "2026-10-18_Brighton and Hove Albion_Crystal Palace": {
+    "officials": [
+      {
+        "name": "Robert Jones",
+        "role": "Referee"
+      },
+      {
+        "name": "Tim Wood",
+        "role": "AR1"
+      },
+      {
+        "name": "Bhupinder Gill",
+        "role": "AR2"
+      },
+      {
+        "name": "Samuel Barrott",
+        "role": "4th"
+      },
+      {
+        "name": "Paul Howard",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 13,
+      "corners": 8,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 11,
+      "corners": 5,
+      "offsides": 2
+    }
+  },
+  "2026-10-18_Leeds United_Manchester United": {
+    "officials": [
+      {
+        "name": "Darren England",
+        "role": "Referee"
+      },
+      {
+        "name": "Scott Ledger",
+        "role": "AR1"
+      },
+      {
+        "name": "Matthew Wilkes",
+        "role": "AR2"
+      },
+      {
+        "name": "Andrew Kitchen",
+        "role": "4th"
+      },
+      {
+        "name": "Peter Bankes",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 16,
+      "corners": 2,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 5,
+      "corners": 3,
+      "offsides": 3
+    }
+  },
+  "2026-10-18_Nottingham Forest_Arsenal": {
+    "officials": [
+      {
+        "name": "Michael Oliver",
+        "role": "Referee"
+      },
+      {
+        "name": "Stuart Burt",
+        "role": "AR1"
+      },
+      {
+        "name": "James Mainwaring",
+        "role": "AR2"
+      },
+      {
+        "name": "Farai Hallam",
+        "role": "4th"
+      },
+      {
+        "name": "Michael Salisbury",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 14,
+      "corners": 8,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 8,
+      "corners": 6,
+      "offsides": 1
+    }
+  },
+  "2026-10-19_Tottenham Hotspur_Coventry City": {
+    "officials": [
+      {
+        "name": "Andrew Madley",
+        "role": "Referee"
+      },
+      {
+        "name": "Nicholas Hopton",
+        "role": "AR1"
+      },
+      {
+        "name": "Craig Taylor",
+        "role": "AR2"
+      },
+      {
+        "name": "Thomas Bramall",
+        "role": "4th"
+      },
+      {
+        "name": "Paul Tierney",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 15,
+      "corners": 4,
+      "offsides": 6
+    },
+    "away": {
+      "yellowCards": 3,
+      "redCards": 0,
+      "fouls": 14,
+      "corners": 4,
+      "offsides": 1
+    }
+  },
+  "2026-10-23_Ipswich Town_Nottingham Forest": {
+    "officials": [
+      {
+        "name": "Thomas Bramall",
+        "role": "Referee"
+      },
+      {
+        "name": "Tim Wood",
+        "role": "AR1"
+      },
+      {
+        "name": "Craig Taylor",
+        "role": "AR2"
+      },
+      {
+        "name": "Gavin Ward",
+        "role": "4th"
+      },
+      {
+        "name": "Constantine Hatzidakis",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 9,
+      "corners": 0,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 11,
+      "corners": 5,
+      "offsides": 1
+    }
+  },
+  "2026-10-24_Arsenal_Everton": {
+    "officials": [
+      {
+        "name": "Tony Harrington",
+        "role": "Referee"
+      },
+      {
+        "name": "Adrian Holmes",
+        "role": "AR1"
+      },
+      {
+        "name": "Lee Betts",
+        "role": "AR2"
+      },
+      {
+        "name": "Ruebyn Ricardo",
+        "role": "4th"
+      },
+      {
+        "name": "Stuart Attwell",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 11,
+      "corners": 12,
+      "offsides": 0
+    },
+    "away": {
+      "yellowCards": 3,
+      "redCards": 0,
+      "fouls": 13,
+      "corners": 3,
+      "offsides": 1
+    }
+  },
+  "2026-10-24_Aston Villa_Manchester City": {
+    "officials": [
+      {
+        "name": "Peter Bankes",
+        "role": "Referee"
+      },
+      {
+        "name": "Gary Beswick",
+        "role": "AR1"
+      },
+      {
+        "name": "Blake Antrobus",
+        "role": "AR2"
+      },
+      {
+        "name": "Thomas Kirk",
+        "role": "4th"
+      },
+      {
+        "name": "Paul Tierney",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 4,
+      "redCards": 0,
+      "fouls": 21,
+      "corners": 4,
+      "offsides": 1
+    },
+    "away": {
+      "yellowCards": 4,
+      "redCards": 0,
+      "fouls": 17,
+      "corners": 7,
+      "offsides": 2
+    }
+  },
+  "2026-10-24_Chelsea_Tottenham Hotspur": {
+    "officials": [
+      {
+        "name": "Chris Kavanagh",
+        "role": "Referee"
+      },
+      {
+        "name": "Dan Cook",
+        "role": "AR1"
+      },
+      {
+        "name": "Ian Hussin",
+        "role": "AR2"
+      },
+      {
+        "name": "Farai Hallam",
+        "role": "4th"
+      },
+      {
+        "name": "John Brooks",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 4,
+      "redCards": 1,
+      "fouls": 14,
+      "corners": 4,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 3,
+      "redCards": 0,
+      "fouls": 14,
+      "corners": 6,
+      "offsides": 1
+    }
+  },
+  "2026-10-24_Coventry City_Fulham": {
+    "officials": [
+      {
+        "name": "Adam Herczeg",
+        "role": "Referee"
+      },
+      {
+        "name": "Stuart Burt",
+        "role": "AR1"
+      },
+      {
+        "name": "James Mainwaring",
+        "role": "AR2"
+      },
+      {
+        "name": "Anthony Backhouse",
+        "role": "4th"
+      },
+      {
+        "name": "Jarred Gillett",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 0,
+      "redCards": 0,
+      "fouls": 9,
+      "corners": 4,
+      "offsides": 1
+    },
+    "away": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 11,
+      "corners": 6,
+      "offsides": 3
+    }
+  },
+  "2026-10-25_Crystal Palace_Newcastle United": {
+    "officials": [
+      {
+        "name": "Paul Tierney",
+        "role": "Referee"
+      },
+      {
+        "name": "Simon Long",
+        "role": "AR1"
+      },
+      {
+        "name": "Mark Stevens",
+        "role": "AR2"
+      },
+      {
+        "name": "Matt Donohue",
+        "role": "4th"
+      },
+      {
+        "name": "Darren England",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 3,
+      "redCards": 0,
+      "fouls": 12,
+      "corners": 7,
+      "offsides": 4
+    },
+    "away": {
+      "yellowCards": 3,
+      "redCards": 0,
+      "fouls": 10,
+      "corners": 4,
+      "offsides": 1
+    }
+  },
+  "2026-10-25_Hull City_Brentford": {
+    "officials": [
+      {
+        "name": "Robert Jones",
+        "role": "Referee"
+      },
+      {
+        "name": "Akil Howson",
+        "role": "AR1"
+      },
+      {
+        "name": "Alex James",
+        "role": "AR2"
+      },
+      {
+        "name": "Andrew Kitchen",
+        "role": "4th"
+      },
+      {
+        "name": "Tim Wood",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 0,
+      "redCards": 0,
+      "fouls": 10,
+      "corners": 5,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 9,
+      "corners": 6,
+      "offsides": 3
+    }
+  },
+  "2026-10-25_Liverpool_Brighton and Hove Albion": {
+    "officials": [
+      {
+        "name": "Samuel Barrott",
+        "role": "Referee"
+      },
+      {
+        "name": "Adam Nunn",
+        "role": "AR1"
+      },
+      {
+        "name": "Wade Smith",
+        "role": "AR2"
+      },
+      {
+        "name": "David Webb",
+        "role": "4th"
+      },
+      {
+        "name": "Michael Oliver",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 0,
+      "redCards": 0,
+      "fouls": 13,
+      "corners": 4,
+      "offsides": 3
+    },
+    "away": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 9,
+      "corners": 2,
+      "offsides": 3
+    }
+  },
+  "2026-10-25_Manchester United_Bournemouth": {
+    "officials": [
+      {
+        "name": "Jarred Gillett",
+        "role": "Referee"
+      },
+      {
+        "name": "Neil Davies",
+        "role": "AR1"
+      },
+      {
+        "name": "Nick Greenhalgh",
+        "role": "AR2"
+      },
+      {
+        "name": "Thomas Bramall",
+        "role": "4th"
+      },
+      {
+        "name": "Paul Howard",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 4,
+      "redCards": 0,
+      "fouls": 13,
+      "corners": 5,
+      "offsides": 0
+    },
+    "away": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 17,
+      "corners": 4,
+      "offsides": 1
+    }
+  },
+  "2026-10-25_Sunderland_Leeds United": {
+    "officials": [
+      {
+        "name": "Stuart Attwell",
+        "role": "Referee"
+      },
+      {
+        "name": "Constantine Hatzidakis",
+        "role": "AR1"
+      },
+      {
+        "name": "Nicholas Hopton",
+        "role": "AR2"
+      },
+      {
+        "name": "Andrew Madley",
+        "role": "4th"
+      },
+      {
+        "name": "Craig Pawson",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 10,
+      "corners": 4,
+      "offsides": 3
+    },
+    "away": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 14,
+      "corners": 5,
+      "offsides": 0
+    }
   }
 }
