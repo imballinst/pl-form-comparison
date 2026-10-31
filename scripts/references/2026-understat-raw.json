@@ -15935,75 +15935,6 @@
       "datetime": "2026-11-02 20:00:00"
     },
     {
-      "id": "31270",
-      "isResult": false,
-      "h": {
-        "id": "83",
-        "title": "Arsenal",
-        "short_title": "ARS"
-      },
-      "a": {
-        "id": "91",
-        "title": "Hull",
-        "short_title": "HUL"
-      },
-      "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
-      },
-      "datetime": "2026-11-07 15:00:00"
-    },
-    {
-      "id": "31271",
-      "isResult": false,
-      "h": {
-        "id": "220",
-        "title": "Brighton",
-        "short_title": "BRI"
-      },
-      "a": {
-        "id": "244",
-        "title": "Brentford",
-        "short_title": "BRE"
-      },
-      "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
-      },
-      "datetime": "2026-11-07 15:00:00"
-    },
-    {
-      "id": "31272",
-      "isResult": false,
-      "h": {
-        "id": "78",
-        "title": "Crystal Palace",
-        "short_title": "CRY"
-      },
-      "a": {
-        "id": "87",
-        "title": "Liverpool",
-        "short_title": "LIV"
-      },
-      "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
-      },
-      "datetime": "2026-11-07 15:00:00"
-    },
-    {
       "id": "31273",
       "isResult": false,
       "h": {
@@ -16015,6 +15946,52 @@
         "id": "294",
         "title": "Coventry",
         "short_title": "COV"
+      },
+      "goals": {
+        "h": null,
+        "a": null
+      },
+      "xG": {
+        "h": null,
+        "a": null
+      },
+      "datetime": "2026-11-06 20:00:00"
+    },
+    {
+      "id": "31276",
+      "isResult": false,
+      "h": {
+        "id": "245",
+        "title": "Leeds",
+        "short_title": "LED"
+      },
+      "a": {
+        "id": "82",
+        "title": "Tottenham",
+        "short_title": "TOT"
+      },
+      "goals": {
+        "h": null,
+        "a": null
+      },
+      "xG": {
+        "h": null,
+        "a": null
+      },
+      "datetime": "2026-11-07 12:30:00"
+    },
+    {
+      "id": "31270",
+      "isResult": false,
+      "h": {
+        "id": "83",
+        "title": "Arsenal",
+        "short_title": "ARS"
+      },
+      "a": {
+        "id": "91",
+        "title": "Hull",
+        "short_title": "HUL"
       },
       "goals": {
         "h": null,
@@ -16050,75 +16027,6 @@
       "datetime": "2026-11-07 15:00:00"
     },
     {
-      "id": "31275",
-      "isResult": false,
-      "h": {
-        "id": "285",
-        "title": "Ipswich",
-        "short_title": "IPS"
-      },
-      "a": {
-        "id": "73",
-        "title": "Bournemouth",
-        "short_title": "BOU"
-      },
-      "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
-      },
-      "datetime": "2026-11-07 15:00:00"
-    },
-    {
-      "id": "31276",
-      "isResult": false,
-      "h": {
-        "id": "245",
-        "title": "Leeds",
-        "short_title": "LED"
-      },
-      "a": {
-        "id": "82",
-        "title": "Tottenham",
-        "short_title": "TOT"
-      },
-      "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
-      },
-      "datetime": "2026-11-07 15:00:00"
-    },
-    {
-      "id": "31277",
-      "isResult": false,
-      "h": {
-        "id": "89",
-        "title": "Manchester United",
-        "short_title": "MUN"
-      },
-      "a": {
-        "id": "71",
-        "title": "Aston Villa",
-        "short_title": "AVL"
-      },
-      "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
-      },
-      "datetime": "2026-11-07 15:00:00"
-    },
-    {
       "id": "31278",
       "isResult": false,
       "h": {
@@ -16139,7 +16047,76 @@
         "h": null,
         "a": null
       },
-      "datetime": "2026-11-07 15:00:00"
+      "datetime": "2026-11-07 17:30:00"
+    },
+    {
+      "id": "31271",
+      "isResult": false,
+      "h": {
+        "id": "220",
+        "title": "Brighton",
+        "short_title": "BRI"
+      },
+      "a": {
+        "id": "244",
+        "title": "Brentford",
+        "short_title": "BRE"
+      },
+      "goals": {
+        "h": null,
+        "a": null
+      },
+      "xG": {
+        "h": null,
+        "a": null
+      },
+      "datetime": "2026-11-08 14:00:00"
+    },
+    {
+      "id": "31272",
+      "isResult": false,
+      "h": {
+        "id": "78",
+        "title": "Crystal Palace",
+        "short_title": "CRY"
+      },
+      "a": {
+        "id": "87",
+        "title": "Liverpool",
+        "short_title": "LIV"
+      },
+      "goals": {
+        "h": null,
+        "a": null
+      },
+      "xG": {
+        "h": null,
+        "a": null
+      },
+      "datetime": "2026-11-08 14:00:00"
+    },
+    {
+      "id": "31275",
+      "isResult": false,
+      "h": {
+        "id": "285",
+        "title": "Ipswich",
+        "short_title": "IPS"
+      },
+      "a": {
+        "id": "73",
+        "title": "Bournemouth",
+        "short_title": "BOU"
+      },
+      "goals": {
+        "h": null,
+        "a": null
+      },
+      "xG": {
+        "h": null,
+        "a": null
+      },
+      "datetime": "2026-11-08 14:00:00"
     },
     {
       "id": "31279",
@@ -16162,7 +16139,53 @@
         "h": null,
         "a": null
       },
-      "datetime": "2026-11-07 15:00:00"
+      "datetime": "2026-11-08 14:00:00"
+    },
+    {
+      "id": "31277",
+      "isResult": false,
+      "h": {
+        "id": "89",
+        "title": "Manchester United",
+        "short_title": "MUN"
+      },
+      "a": {
+        "id": "71",
+        "title": "Aston Villa",
+        "short_title": "AVL"
+      },
+      "goals": {
+        "h": null,
+        "a": null
+      },
+      "xG": {
+        "h": null,
+        "a": null
+      },
+      "datetime": "2026-11-08 16:30:00"
+    },
+    {
+      "id": "31287",
+      "isResult": false,
+      "h": {
+        "id": "88",
+        "title": "Manchester City",
+        "short_title": "MCI"
+      },
+      "a": {
+        "id": "228",
+        "title": "Fulham",
+        "short_title": "FLH"
+      },
+      "goals": {
+        "h": null,
+        "a": null
+      },
+      "xG": {
+        "h": null,
+        "a": null
+      },
+      "datetime": "2026-11-21 12:30:00"
     },
     {
       "id": "31280",
@@ -16199,29 +16222,6 @@
         "id": "77",
         "title": "Sunderland",
         "short_title": "SUN"
-      },
-      "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
-      },
-      "datetime": "2026-11-21 15:00:00"
-    },
-    {
-      "id": "31282",
-      "isResult": false,
-      "h": {
-        "id": "244",
-        "title": "Brentford",
-        "short_title": "BRE"
-      },
-      "a": {
-        "id": "72",
-        "title": "Everton",
-        "short_title": "EVE"
       },
       "goals": {
         "h": null,
@@ -16280,63 +16280,17 @@
       "datetime": "2026-11-21 15:00:00"
     },
     {
-      "id": "31285",
+      "id": "31289",
       "isResult": false,
       "h": {
-        "id": "91",
-        "title": "Hull",
-        "short_title": "HUL"
+        "id": "82",
+        "title": "Tottenham",
+        "short_title": "TOT"
       },
       "a": {
-        "id": "220",
-        "title": "Brighton",
-        "short_title": "BRI"
-      },
-      "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
-      },
-      "datetime": "2026-11-21 15:00:00"
-    },
-    {
-      "id": "31286",
-      "isResult": false,
-      "h": {
-        "id": "87",
-        "title": "Liverpool",
-        "short_title": "LIV"
-      },
-      "a": {
-        "id": "89",
-        "title": "Manchester United",
-        "short_title": "MUN"
-      },
-      "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
-      },
-      "datetime": "2026-11-21 15:00:00"
-    },
-    {
-      "id": "31287",
-      "isResult": false,
-      "h": {
-        "id": "88",
-        "title": "Manchester City",
-        "short_title": "MCI"
-      },
-      "a": {
-        "id": "228",
-        "title": "Fulham",
-        "short_title": "FLH"
+        "id": "285",
+        "title": "Ipswich",
+        "short_title": "IPS"
       },
       "goals": {
         "h": null,
@@ -16369,90 +16323,21 @@
         "h": null,
         "a": null
       },
-      "datetime": "2026-11-21 15:00:00"
+      "datetime": "2026-11-21 17:30:00"
     },
     {
-      "id": "31289",
+      "id": "31285",
       "isResult": false,
       "h": {
-        "id": "82",
-        "title": "Tottenham",
-        "short_title": "TOT"
-      },
-      "a": {
-        "id": "285",
-        "title": "Ipswich",
-        "short_title": "IPS"
-      },
-      "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
-      },
-      "datetime": "2026-11-21 15:00:00"
-    },
-    {
-      "id": "31290",
-      "isResult": false,
-      "h": {
-        "id": "83",
-        "title": "Arsenal",
-        "short_title": "ARS"
-      },
-      "a": {
-        "id": "88",
-        "title": "Manchester City",
-        "short_title": "MCI"
-      },
-      "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
-      },
-      "datetime": "2026-11-28 15:00:00"
-    },
-    {
-      "id": "31291",
-      "isResult": false,
-      "h": {
-        "id": "220",
-        "title": "Brighton",
-        "short_title": "BRI"
-      },
-      "a": {
-        "id": "86",
-        "title": "Newcastle United",
-        "short_title": "NEW"
-      },
-      "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
-      },
-      "datetime": "2026-11-28 15:00:00"
-    },
-    {
-      "id": "31292",
-      "isResult": false,
-      "h": {
-        "id": "78",
-        "title": "Crystal Palace",
-        "short_title": "CRY"
-      },
-      "a": {
         "id": "91",
         "title": "Hull",
         "short_title": "HUL"
       },
+      "a": {
+        "id": "220",
+        "title": "Brighton",
+        "short_title": "BRI"
+      },
       "goals": {
         "h": null,
         "a": null
@@ -16461,21 +16346,21 @@
         "h": null,
         "a": null
       },
-      "datetime": "2026-11-28 15:00:00"
+      "datetime": "2026-11-22 14:00:00"
     },
     {
-      "id": "31293",
+      "id": "31286",
       "isResult": false,
       "h": {
-        "id": "72",
-        "title": "Everton",
-        "short_title": "EVE"
-      },
-      "a": {
         "id": "87",
         "title": "Liverpool",
         "short_title": "LIV"
       },
+      "a": {
+        "id": "89",
+        "title": "Manchester United",
+        "short_title": "MUN"
+      },
       "goals": {
         "h": null,
         "a": null
@@ -16484,20 +16369,20 @@
         "h": null,
         "a": null
       },
-      "datetime": "2026-11-28 15:00:00"
+      "datetime": "2026-11-22 16:30:00"
     },
     {
-      "id": "31294",
+      "id": "31282",
       "isResult": false,
       "h": {
-        "id": "228",
-        "title": "Fulham",
-        "short_title": "FLH"
+        "id": "244",
+        "title": "Brentford",
+        "short_title": "BRE"
       },
       "a": {
-        "id": "73",
-        "title": "Bournemouth",
-        "short_title": "BOU"
+        "id": "72",
+        "title": "Everton",
+        "short_title": "EVE"
       },
       "goals": {
         "h": null,
@@ -16507,20 +16392,20 @@
         "h": null,
         "a": null
       },
-      "datetime": "2026-11-28 15:00:00"
+      "datetime": "2026-11-23 20:00:00"
     },
     {
-      "id": "31295",
+      "id": "31298",
       "isResult": false,
       "h": {
-        "id": "285",
-        "title": "Ipswich",
-        "short_title": "IPS"
+        "id": "249",
+        "title": "Nottingham Forest",
+        "short_title": "NOT"
       },
       "a": {
-        "id": "71",
-        "title": "Aston Villa",
-        "short_title": "AVL"
+        "id": "80",
+        "title": "Chelsea",
+        "short_title": "CHE"
       },
       "goals": {
         "h": null,
@@ -16530,7 +16415,7 @@
         "h": null,
         "a": null
       },
-      "datetime": "2026-11-28 15:00:00"
+      "datetime": "2026-11-27 20:00:00"
     },
     {
       "id": "31296",
@@ -16579,17 +16464,17 @@
       "datetime": "2026-11-28 15:00:00"
     },
     {
-      "id": "31298",
+      "id": "31295",
       "isResult": false,
       "h": {
-        "id": "249",
-        "title": "Nottingham Forest",
-        "short_title": "NOT"
+        "id": "285",
+        "title": "Ipswich",
+        "short_title": "IPS"
       },
       "a": {
-        "id": "80",
-        "title": "Chelsea",
-        "short_title": "CHE"
+        "id": "71",
+        "title": "Aston Villa",
+        "short_title": "AVL"
       },
       "goals": {
         "h": null,
@@ -16599,7 +16484,99 @@
         "h": null,
         "a": null
       },
-      "datetime": "2026-11-28 15:00:00"
+      "datetime": "2026-11-28 17:30:00"
+    },
+    {
+      "id": "31293",
+      "isResult": false,
+      "h": {
+        "id": "72",
+        "title": "Everton",
+        "short_title": "EVE"
+      },
+      "a": {
+        "id": "87",
+        "title": "Liverpool",
+        "short_title": "LIV"
+      },
+      "goals": {
+        "h": null,
+        "a": null
+      },
+      "xG": {
+        "h": null,
+        "a": null
+      },
+      "datetime": "2026-11-29 12:00:00"
+    },
+    {
+      "id": "31291",
+      "isResult": false,
+      "h": {
+        "id": "220",
+        "title": "Brighton",
+        "short_title": "BRI"
+      },
+      "a": {
+        "id": "86",
+        "title": "Newcastle United",
+        "short_title": "NEW"
+      },
+      "goals": {
+        "h": null,
+        "a": null
+      },
+      "xG": {
+        "h": null,
+        "a": null
+      },
+      "datetime": "2026-11-29 14:05:00"
+    },
+    {
+      "id": "31292",
+      "isResult": false,
+      "h": {
+        "id": "78",
+        "title": "Crystal Palace",
+        "short_title": "CRY"
+      },
+      "a": {
+        "id": "91",
+        "title": "Hull",
+        "short_title": "HUL"
+      },
+      "goals": {
+        "h": null,
+        "a": null
+      },
+      "xG": {
+        "h": null,
+        "a": null
+      },
+      "datetime": "2026-11-29 14:05:00"
+    },
+    {
+      "id": "31294",
+      "isResult": false,
+      "h": {
+        "id": "228",
+        "title": "Fulham",
+        "short_title": "FLH"
+      },
+      "a": {
+        "id": "73",
+        "title": "Bournemouth",
+        "short_title": "BOU"
+      },
+      "goals": {
+        "h": null,
+        "a": null
+      },
+      "xG": {
+        "h": null,
+        "a": null
+      },
+      "datetime": "2026-11-29 14:05:00"
     },
     {
       "id": "31299",
@@ -16622,7 +16599,30 @@
         "h": null,
         "a": null
       },
-      "datetime": "2026-11-28 15:00:00"
+      "datetime": "2026-11-29 14:05:00"
+    },
+    {
+      "id": "31290",
+      "isResult": false,
+      "h": {
+        "id": "83",
+        "title": "Arsenal",
+        "short_title": "ARS"
+      },
+      "a": {
+        "id": "88",
+        "title": "Manchester City",
+        "short_title": "MCI"
+      },
+      "goals": {
+        "h": null,
+        "a": null
+      },
+      "xG": {
+        "h": null,
+        "a": null
+      },
+      "datetime": "2026-11-29 16:30:00"
     },
     {
       "id": "31300",
