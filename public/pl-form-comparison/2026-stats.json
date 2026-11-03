@@ -235,7 +235,8 @@
           "Referee": [],
           "Assistant Referee": [],
           "Video Assistant Referee": [
-            "31216"
+            "31216",
+            "31268"
           ]
         }
       },
@@ -394,6 +395,32 @@
         }
       },
       "Ruebyn Ricardo": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Andrew Madley": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [
+            "31268"
+          ],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Nicholas Hopton": {
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
@@ -704,7 +731,8 @@
           "Referee": [],
           "Assistant Referee": [],
           "Video Assistant Referee": [
-            "31239"
+            "31239",
+            "31261"
           ]
         },
         "Away": {
@@ -776,6 +804,44 @@
         }
       },
       "Anthony Backhouse": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Simon Hooper": {
+        "Home": {
+          "Referee": [
+            "31261"
+          ],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Eddie Smart": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Sam Allison": {
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
@@ -1155,6 +1221,46 @@
           "Assistant Referee": [],
           "Video Assistant Referee": []
         }
+      },
+      "Thomas Kirk": {
+        "Home": {
+          "Referee": [
+            "31262"
+          ],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Andrew Dallison": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Neil Davies": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": [
+            "31262"
+          ]
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
       }
     },
     "Manchester United": {
@@ -1428,7 +1534,8 @@
         },
         "Away": {
           "Referee": [
-            "31229"
+            "31229",
+            "31260"
           ],
           "Assistant Referee": [],
           "Video Assistant Referee": [
@@ -1558,6 +1665,20 @@
           "Referee": [],
           "Assistant Referee": [],
           "Video Assistant Referee": []
+        }
+      },
+      "James Bell": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": [
+            "31260"
+          ]
         }
       }
     },
@@ -2309,6 +2430,70 @@
           "Assistant Referee": [],
           "Video Assistant Referee": []
         }
+      },
+      "Michael Oliver": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [
+            "31266"
+          ],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Stuart Burt": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "James Mainwaring": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Matthew Corlett": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Jarred Gillett": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": [
+            "31266"
+          ]
+        }
       }
     },
     "Ipswich Town": {
@@ -2713,6 +2898,58 @@
           "Assistant Referee": [],
           "Video Assistant Referee": []
         }
+      },
+      "Thomas Kirk": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [
+            "31262"
+          ],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Andrew Dallison": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Tony Harrington": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Neil Davies": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": [
+            "31262"
+          ]
+        }
       }
     },
     "Sunderland": {
@@ -3001,7 +3238,9 @@
         "Away": {
           "Referee": [],
           "Assistant Referee": [],
-          "Video Assistant Referee": []
+          "Video Assistant Referee": [
+            "31261"
+          ]
         }
       },
       "Steve Martin": {
@@ -3085,6 +3324,32 @@
         }
       },
       "Andrew Madley": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Simon Hooper": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [
+            "31261"
+          ],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Eddie Smart": {
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
@@ -3431,7 +3696,9 @@
           "Video Assistant Referee": []
         },
         "Away": {
-          "Referee": [],
+          "Referee": [
+            "31265"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": [
             "31236"
@@ -3512,6 +3779,32 @@
           "Referee": [],
           "Assistant Referee": [],
           "Video Assistant Referee": []
+        }
+      },
+      "Scott Ledger": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Andrew Kitchen": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": [
+            "31265"
+          ]
         }
       }
     },
@@ -3683,7 +3976,9 @@
         "Away": {
           "Referee": [],
           "Assistant Referee": [],
-          "Video Assistant Referee": []
+          "Video Assistant Referee": [
+            "31264"
+          ]
         }
       },
       "John Busby": {
@@ -3721,7 +4016,9 @@
           "Video Assistant Referee": []
         },
         "Away": {
-          "Referee": [],
+          "Referee": [
+            "31264"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": []
         }
@@ -3907,6 +4204,42 @@
         }
       },
       "Andrew Madley": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Adrian Holmes": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Conor Brown": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Tom Reeves": {
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
@@ -4288,7 +4621,9 @@
       },
       "Darren England": {
         "Home": {
-          "Referee": [],
+          "Referee": [
+            "31265"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": [
             "31242"
@@ -4330,7 +4665,9 @@
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
-          "Video Assistant Referee": []
+          "Video Assistant Referee": [
+            "31265"
+          ]
         },
         "Away": {
           "Referee": [],
@@ -4342,7 +4679,9 @@
     "Tottenham Hotspur": {
       "Michael Oliver": {
         "Home": {
-          "Referee": [],
+          "Referee": [
+            "31266"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": []
         },
@@ -4632,7 +4971,9 @@
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
-          "Video Assistant Referee": []
+          "Video Assistant Referee": [
+            "31266"
+          ]
         },
         "Away": {
           "Referee": [],
@@ -4707,6 +5048,30 @@
         }
       },
       "Farai Hallam": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Stuart Burt": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Matthew Corlett": {
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
@@ -5147,6 +5512,70 @@
           "Assistant Referee": [],
           "Video Assistant Referee": []
         }
+      },
+      "Craig Pawson": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [
+            "31263"
+          ],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Lee Betts": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Alex James": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Elliot Bell": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "John Brooks": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": [
+            "31263"
+          ]
+        }
       }
     },
     "Aston Villa": {
@@ -5208,7 +5637,9 @@
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
-          "Video Assistant Referee": []
+          "Video Assistant Referee": [
+            "31267"
+          ]
         },
         "Away": {
           "Referee": [],
@@ -5260,7 +5691,9 @@
       },
       "Samuel Barrott": {
         "Home": {
-          "Referee": [],
+          "Referee": [
+            "31267"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": []
         },
@@ -6007,6 +6440,58 @@
           "Assistant Referee": [],
           "Video Assistant Referee": []
         }
+      },
+      "Craig Pawson": {
+        "Home": {
+          "Referee": [
+            "31263"
+          ],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Alex James": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Elliot Bell": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "John Brooks": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": [
+            "31263"
+          ]
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
       }
     },
     "Bournemouth": {
@@ -6198,7 +6683,9 @@
       },
       "Michael Salisbury": {
         "Home": {
-          "Referee": [],
+          "Referee": [
+            "31264"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": [
             "31210"
@@ -6381,6 +6868,44 @@
           "Referee": [],
           "Assistant Referee": [],
           "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Adrian Holmes": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Conor Brown": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Nicholas Hopton": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": [
+            "31264"
+          ]
         },
         "Away": {
           "Referee": [],
@@ -6787,7 +7312,9 @@
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
-          "Video Assistant Referee": []
+          "Video Assistant Referee": [
+            "31268"
+          ]
         },
         "Away": {
           "Referee": [
@@ -7123,7 +7650,9 @@
       },
       "Andrew Madley": {
         "Home": {
-          "Referee": [],
+          "Referee": [
+            "31268"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": []
         },
@@ -7186,6 +7715,18 @@
         }
       },
       "Anthony Backhouse": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Tim Wood": {
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
@@ -7325,7 +7866,8 @@
           "Referee": [],
           "Assistant Referee": [],
           "Video Assistant Referee": [
-            "31195"
+            "31195",
+            "31267"
           ]
         }
       },
@@ -7338,7 +7880,9 @@
           "Video Assistant Referee": []
         },
         "Away": {
-          "Referee": [],
+          "Referee": [
+            "31267"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": []
         }
@@ -7966,6 +8510,58 @@
           "Referee": [],
           "Assistant Referee": [],
           "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Peter Bankes": {
+        "Home": {
+          "Referee": [
+            "31260"
+          ],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Gary Beswick": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Blake Antrobus": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "James Bell": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": [
+            "31260"
+          ]
         },
         "Away": {
           "Referee": [],
@@ -10221,27 +10817,27 @@
         "goals": 2,
         "goalsConceded": 0,
         "expectedGoals": 2.78719,
-        "wonCorners": 0,
+        "wonCorners": 8,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 8,
+        "totalOffside": 3,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
+        "totalYelCard": 1,
         "totalRedCard": 0
       },
       "Manchester United": {
         "goals": 0,
         "goalsConceded": 2,
         "expectedGoals": 1.38641,
-        "wonCorners": 0,
+        "wonCorners": 7,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 20,
+        "totalOffside": 2,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
-        "totalRedCard": 0
+        "totalYelCard": 6,
+        "totalRedCard": 1
       }
     },
     "31261": {
@@ -10249,27 +10845,27 @@
         "goals": 3,
         "goalsConceded": 1,
         "expectedGoals": 0.97327,
-        "wonCorners": 0,
+        "wonCorners": 4,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 16,
+        "totalOffside": 2,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
+        "totalYelCard": 2,
         "totalRedCard": 0
       },
       "Sunderland": {
         "goals": 1,
         "goalsConceded": 3,
         "expectedGoals": 1.59627,
-        "wonCorners": 0,
+        "wonCorners": 4,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 9,
+        "totalOffside": 1,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
-        "totalRedCard": 0
+        "totalYelCard": 2,
+        "totalRedCard": 1
       }
     },
     "31262": {
@@ -10277,26 +10873,26 @@
         "goals": 2,
         "goalsConceded": 2,
         "expectedGoals": 0.606545,
-        "wonCorners": 0,
+        "wonCorners": 6,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 13,
+        "totalOffside": 4,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
+        "totalYelCard": 3,
         "totalRedCard": 0
       },
       "Ipswich Town": {
         "goals": 2,
         "goalsConceded": 2,
         "expectedGoals": 1.65783,
-        "wonCorners": 0,
+        "wonCorners": 3,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 12,
+        "totalOffside": 3,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
+        "totalYelCard": 3,
         "totalRedCard": 0
       }
     },
@@ -10305,11 +10901,11 @@
         "goals": 0,
         "goalsConceded": 1,
         "expectedGoals": 2.65713,
-        "wonCorners": 0,
+        "wonCorners": 8,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 9,
+        "totalOffside": 2,
         "penaltyConceded": 0,
         "totalYelCard": 0,
         "totalRedCard": 0
@@ -10318,13 +10914,13 @@
         "goals": 1,
         "goalsConceded": 0,
         "expectedGoals": 1.56582,
-        "wonCorners": 0,
+        "wonCorners": 2,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 13,
+        "totalOffside": 2,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
+        "totalYelCard": 3,
         "totalRedCard": 0
       }
     },
@@ -10333,26 +10929,26 @@
         "goals": 2,
         "goalsConceded": 0,
         "expectedGoals": 1.45653,
-        "wonCorners": 0,
+        "wonCorners": 4,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
+        "fkFoulLost": 12,
         "totalOffside": 0,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
+        "totalYelCard": 2,
         "totalRedCard": 0
       },
       "Leeds United": {
         "goals": 0,
         "goalsConceded": 2,
         "expectedGoals": 0.988032,
-        "wonCorners": 0,
+        "wonCorners": 4,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 15,
+        "totalOffside": 1,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
+        "totalYelCard": 2,
         "totalRedCard": 0
       }
     },
@@ -10361,26 +10957,26 @@
         "goals": 2,
         "goalsConceded": 0,
         "expectedGoals": 0.831999,
-        "wonCorners": 0,
+        "wonCorners": 3,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 6,
+        "totalOffside": 1,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
+        "totalYelCard": 1,
         "totalRedCard": 0
       },
       "Nottingham Forest": {
         "goals": 0,
         "goalsConceded": 2,
         "expectedGoals": 0.958426,
-        "wonCorners": 0,
+        "wonCorners": 4,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 17,
+        "totalOffside": 1,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
+        "totalYelCard": 3,
         "totalRedCard": 0
       }
     },
@@ -10389,13 +10985,13 @@
         "goals": 2,
         "goalsConceded": 0,
         "expectedGoals": 3.71942,
-        "wonCorners": 0,
+        "wonCorners": 19,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 8,
+        "totalOffside": 2,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
+        "totalYelCard": 1,
         "totalRedCard": 0
       },
       "Crystal Palace": {
@@ -10405,11 +11001,11 @@
         "wonCorners": 0,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 10,
+        "totalOffside": 1,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
-        "totalRedCard": 0
+        "totalYelCard": 1,
+        "totalRedCard": 1
       }
     },
     "31267": {
@@ -10417,26 +11013,26 @@
         "goals": 1,
         "goalsConceded": 1,
         "expectedGoals": 2.24562,
-        "wonCorners": 0,
+        "wonCorners": 7,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 7,
+        "totalOffside": 2,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
+        "totalYelCard": 1,
         "totalRedCard": 0
       },
       "Fulham": {
         "goals": 1,
         "goalsConceded": 1,
         "expectedGoals": 2.76757,
-        "wonCorners": 0,
+        "wonCorners": 7,
         "duelWon": 0,
         "totalDistance": 0,
-        "fkFoulLost": 0,
-        "totalOffside": 0,
+        "fkFoulLost": 12,
+        "totalOffside": 4,
         "penaltyConceded": 0,
-        "totalYelCard": 0,
+        "totalYelCard": 3,
         "totalRedCard": 0
       }
     }

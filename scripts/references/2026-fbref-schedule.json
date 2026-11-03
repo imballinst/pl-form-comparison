@@ -808,7 +808,7 @@
     "home": "Chelsea",
     "away": "Tottenham",
     "score": "0–2",
-    "attendance": null,
+    "attendance": 39402,
     "venue": "Stamford Bridge",
     "referee": "Chris Kavanagh",
     "matchReportUrl": "https://fbref.com/en/matches/7b50a001/Chelsea-Tottenham-Hotspur-October-24-2026-Premier-League"
@@ -863,7 +863,7 @@
     "home": "Manchester Utd",
     "away": "Bournemouth",
     "score": "0–3",
-    "attendance": null,
+    "attendance": 74178,
     "venue": "Old Trafford",
     "referee": "Jarred Gillett",
     "matchReportUrl": "https://fbref.com/en/matches/c5e7913c/Manchester-United-Bournemouth-October-25-2026-Premier-League"
@@ -884,99 +884,99 @@
     "datetime": "2026-10-31T20:00:00Z",
     "home": "Aston Villa",
     "away": "Fulham",
-    "score": "",
-    "attendance": null,
+    "score": "1–1",
+    "attendance": 34649,
     "venue": "Villa Park",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Samuel Barrott",
+    "matchReportUrl": "https://fbref.com/en/matches/b42a6e10/Aston-Villa-Fulham-October-31-2026-Premier-League"
   },
   {
     "matchweek": 9,
     "datetime": "2026-10-31T15:00:00Z",
     "home": "Bournemouth",
     "away": "Leeds United",
-    "score": "",
-    "attendance": null,
+    "score": "2–0",
+    "attendance": 12041,
     "venue": "Vitality Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Michael Salisbury",
+    "matchReportUrl": "https://fbref.com/en/matches/52440342/Bournemouth-Leeds-United-October-31-2026-Premier-League"
   },
   {
     "matchweek": 9,
     "datetime": "2026-10-31T15:00:00Z",
     "home": "Brentford",
     "away": "Nottingham",
-    "score": "",
-    "attendance": null,
+    "score": "2–0",
+    "attendance": 17108,
     "venue": "Gtech Community Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Darren England",
+    "matchReportUrl": "https://fbref.com/en/matches/a84caf48/Brentford-Nottingham-Forest-October-31-2026-Premier-League"
   },
   {
     "matchweek": 9,
     "datetime": "2026-10-31T12:30:00Z",
     "home": "Chelsea",
     "away": "Manchester Utd",
-    "score": "",
+    "score": "2–0",
     "attendance": null,
     "venue": "Stamford Bridge",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Peter Bankes",
+    "matchReportUrl": "https://fbref.com/en/matches/49be7026/Chelsea-Manchester-United-October-31-2026-Premier-League"
   },
   {
     "matchweek": 9,
     "datetime": "2026-10-31T15:00:00Z",
     "home": "Coventry City",
     "away": "Sunderland",
-    "score": "",
-    "attendance": null,
+    "score": "3–1",
+    "attendance": 31455,
     "venue": "Coventry Building Society Arena",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Simon Hooper",
+    "matchReportUrl": "https://fbref.com/en/matches/4c65c81c/Coventry-City-Sunderland-October-31-2026-Premier-League"
   },
   {
     "matchweek": 9,
     "datetime": "2026-10-31T15:00:00Z",
     "home": "Hull City",
     "away": "Ipswich Town",
-    "score": "",
-    "attendance": null,
+    "score": "2–2",
+    "attendance": 24459,
     "venue": "MKM Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Thomas Kirk",
+    "matchReportUrl": "https://fbref.com/en/matches/ffb1b4ba/Hull-City-Ipswich-Town-October-31-2026-Premier-League"
   },
   {
     "matchweek": 9,
     "datetime": "2026-10-31T15:00:00Z",
     "home": "Manchester City",
     "away": "Brighton",
-    "score": "",
+    "score": "0–1",
     "attendance": null,
     "venue": "Etihad Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Craig Pawson",
+    "matchReportUrl": "https://fbref.com/en/matches/b8fd91c9/Manchester-City-Brighton-and-Hove-Albion-October-31-2026-Premier-League"
   },
   {
     "matchweek": 9,
     "datetime": "2026-10-31T17:30:00Z",
     "home": "Tottenham",
     "away": "Crystal Palace",
-    "score": "",
-    "attendance": null,
+    "score": "2–0",
+    "attendance": 60549,
     "venue": "Tottenham Hotspur Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Michael Oliver",
+    "matchReportUrl": "https://fbref.com/en/matches/61a24a9a/Tottenham-Hotspur-Crystal-Palace-October-31-2026-Premier-League"
   },
   {
     "matchweek": 9,
     "datetime": "2026-11-01T16:30:00Z",
     "home": "Liverpool",
     "away": "Arsenal",
-    "score": "",
+    "score": "0–1",
     "attendance": null,
     "venue": "Anfield",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Andrew Madley",
+    "matchReportUrl": "https://fbref.com/en/matches/aae8a9c7/Liverpool-Arsenal-November-1-2026-Premier-League"
   },
   {
     "matchweek": 9,
