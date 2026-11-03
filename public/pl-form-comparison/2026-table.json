@@ -1,5 +1,18 @@
 [
   {
+    "name": "Arsenal",
+    "abbr": "ARS",
+    "shortName": "Arsenal",
+    "played": 9,
+    "wins": 8,
+    "draws": 0,
+    "losses": 1,
+    "points": 24,
+    "gf": 14,
+    "ga": 5,
+    "gd": 9
+  },
+  {
     "name": "Manchester City",
     "abbr": "MCI",
     "shortName": "Manchester City",
@@ -11,19 +24,6 @@
     "gf": 20,
     "ga": 10,
     "gd": 10
-  },
-  {
-    "name": "Arsenal",
-    "abbr": "ARS",
-    "shortName": "Arsenal",
-    "played": 8,
-    "wins": 7,
-    "draws": 0,
-    "losses": 1,
-    "points": 21,
-    "gf": 13,
-    "ga": 5,
-    "gd": 8
   },
   {
     "name": "Brighton and Hove Albion",
@@ -55,14 +55,14 @@
     "name": "Liverpool",
     "abbr": "LIV",
     "shortName": "Liverpool",
-    "played": 8,
+    "played": 9,
     "wins": 4,
     "draws": 3,
-    "losses": 1,
+    "losses": 2,
     "points": 15,
     "gf": 11,
-    "ga": 8,
-    "gd": 3
+    "ga": 9,
+    "gd": 2
   },
   {
     "name": "Brentford",
@@ -76,6 +76,19 @@
     "gf": 16,
     "ga": 9,
     "gd": 7
+  },
+  {
+    "name": "Everton",
+    "abbr": "EVE",
+    "shortName": "Everton",
+    "played": 9,
+    "wins": 3,
+    "draws": 4,
+    "losses": 2,
+    "points": 13,
+    "gf": 9,
+    "ga": 9,
+    "gd": 0
   },
   {
     "name": "Bournemouth",
@@ -146,14 +159,14 @@
     "name": "Newcastle United",
     "abbr": "NEW",
     "shortName": "Newcastle United",
-    "played": 8,
+    "played": 9,
     "wins": 3,
     "draws": 2,
-    "losses": 3,
+    "losses": 4,
     "points": 11,
     "gf": 12,
-    "ga": 14,
-    "gd": -2
+    "ga": 15,
+    "gd": -3
   },
   {
     "name": "Ipswich Town",
@@ -167,19 +180,6 @@
     "gf": 14,
     "ga": 18,
     "gd": -4
-  },
-  {
-    "name": "Everton",
-    "abbr": "EVE",
-    "shortName": "Everton",
-    "played": 8,
-    "wins": 2,
-    "draws": 4,
-    "losses": 2,
-    "points": 10,
-    "gf": 8,
-    "ga": 9,
-    "gd": -1
   },
   {
     "name": "Fulham",

@@ -3,7 +3,8 @@ export interface FbrefScheduleEntry {
   datetime: string
   home: string
   away: string
-  score: { home: number; away: number } | null
+  /** Raw FBref score string, e.g. "2–1" (en dash), or empty/null when not played yet. */
+  score: string | null
   attendance: number | null
   venue: string
   referee: string | null
@@ -36,8 +37,9 @@ export interface UnderstatDateEntry {
   date?: string
   h: { id: string; title: string; short_title: string }
   a: { id: string; title: string; short_title: string }
-  goals: { h: string; a: string } | null
-  xG?: { h: string; a: string }
+  /** Scheduled matches keep the key with null values. */
+  goals: { h: string | null; a: string | null } | null
+  xG?: { h: string | null; a: string | null }
   forecast?: Record<string, string>
 }
 
@@ -73,6 +75,8 @@ export interface UnderstatTeamData {
 export interface UnderstatRawData {
   dates: UnderstatDateEntry[]
   teams: Record<string, UnderstatTeamData>
+  /** Player season aggregates from Understat; passed through untouched. */
+  players?: Array<Record<string, string>>
 }
 
 export interface TeamNameMap {

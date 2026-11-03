@@ -973,7 +973,7 @@
     "home": "Liverpool",
     "away": "Arsenal",
     "score": "0–1",
-    "attendance": null,
+    "attendance": 60406,
     "venue": "Anfield",
     "referee": "Andrew Madley",
     "matchReportUrl": "https://fbref.com/en/matches/aae8a9c7/Liverpool-Arsenal-November-1-2026-Premier-League"
@@ -983,11 +983,11 @@
     "datetime": "2026-11-02T20:00:00Z",
     "home": "Newcastle",
     "away": "Everton",
-    "score": "",
-    "attendance": null,
+    "score": "0–1",
+    "attendance": 52279,
     "venue": "St James' Park",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "John Brooks",
+    "matchReportUrl": "https://fbref.com/en/matches/257be233/Newcastle-United-Everton-November-2-2026-Premier-League"
   },
   {
     "matchweek": 10,

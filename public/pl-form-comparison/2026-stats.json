@@ -1811,7 +1811,9 @@
           "Video Assistant Referee": []
         },
         "Away": {
-          "Referee": [],
+          "Referee": [
+            "31269"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": [
             "31193"
@@ -1865,7 +1867,9 @@
         "Away": {
           "Referee": [],
           "Assistant Referee": [],
-          "Video Assistant Referee": []
+          "Video Assistant Referee": [
+            "31269"
+          ]
         }
       },
       "Darren England": {
@@ -2039,6 +2043,30 @@
         }
       },
       "Lee Betts": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Nick Greenhalgh": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Robert Madley": {
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
@@ -7156,7 +7184,9 @@
       },
       "John Brooks": {
         "Home": {
-          "Referee": [],
+          "Referee": [
+            "31269"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": []
         },
@@ -7299,6 +7329,44 @@
           "Referee": [],
           "Assistant Referee": [],
           "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Steve Meredith": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Robert Madley": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Paul Howard": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": [
+            "31269"
+          ]
         },
         "Away": {
           "Referee": [],
@@ -11033,6 +11101,62 @@
         "totalOffside": 4,
         "penaltyConceded": 0,
         "totalYelCard": 3,
+        "totalRedCard": 0
+      }
+    },
+    "31268": {
+      "Liverpool": {
+        "goals": 0,
+        "goalsConceded": 1,
+        "expectedGoals": 0,
+        "wonCorners": 7,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 18,
+        "totalOffside": 2,
+        "penaltyConceded": 0,
+        "totalYelCard": 4,
+        "totalRedCard": 0
+      },
+      "Arsenal": {
+        "goals": 1,
+        "goalsConceded": 0,
+        "expectedGoals": 0,
+        "wonCorners": 4,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 10,
+        "totalOffside": 3,
+        "penaltyConceded": 0,
+        "totalYelCard": 4,
+        "totalRedCard": 0
+      }
+    },
+    "31269": {
+      "Newcastle United": {
+        "goals": 0,
+        "goalsConceded": 1,
+        "expectedGoals": 0,
+        "wonCorners": 4,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 13,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 4,
+        "totalRedCard": 1
+      },
+      "Everton": {
+        "goals": 1,
+        "goalsConceded": 0,
+        "expectedGoals": 0,
+        "wonCorners": 5,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 9,
+        "totalOffside": 2,
+        "penaltyConceded": 0,
+        "totalYelCard": 2,
         "totalRedCard": 0
       }
     }

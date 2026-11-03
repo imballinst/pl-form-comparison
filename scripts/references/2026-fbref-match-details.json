@@ -3380,5 +3380,43 @@
       "corners": 4,
       "offsides": 3
     }
+  },
+  "2026-11-02_Newcastle United_Everton": {
+    "officials": [
+      {
+        "name": "John Brooks",
+        "role": "Referee"
+      },
+      {
+        "name": "Nick Greenhalgh",
+        "role": "AR1"
+      },
+      {
+        "name": "Steve Meredith",
+        "role": "AR2"
+      },
+      {
+        "name": "Robert Madley",
+        "role": "4th"
+      },
+      {
+        "name": "Paul Howard",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 4,
+      "redCards": 1,
+      "fouls": 13,
+      "corners": 4,
+      "offsides": 0
+    },
+    "away": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 9,
+      "corners": 5,
+      "offsides": 2
+    }
   }
 }
