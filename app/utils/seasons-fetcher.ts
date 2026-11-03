@@ -10,6 +10,7 @@ import type {
   SeasonFile,
   SeasonMatchesResponse,
   SeasonTableData,
+  TeamDisciplineTableData,
 } from '@/types'
 import axios from 'axios'
 import dayjs from 'dayjs'
@@ -30,6 +31,7 @@ interface AllSeasonInfo {
 
 let seasons: Record<string, MatchInfo[]> = {}
 let seasonTable: Record<string, Array<SeasonTableData>> | undefined
+let seasonDisciplineTable: Record<string, Array<TeamDisciplineTableData>> | undefined
 // First index is by roles param, second index is by seasons param.
 let matchOfficialAssignmentPerSeason: Record<string, Record<string, MatchOfficiatingSeasonInfo>> = {}
 
@@ -154,6 +156,68 @@ export async function fetchSeasonTable(season: string) {
   seasonTable[season] = seasonTableData
 
   return seasonTableData
+}
+
+// One row per team per season. "Conceded" are the stats by the team's own players, e.g. fouls
+// committed and cards received. "Given" are the stats by their opponents in the team's matches,
+// e.g. fouls committed against them and cards their opponents received.
+export async function fetchTeamDisciplineStats(seasonsParam: string[]): Promise<Array<TeamDisciplineTableData>> {
+  const missingSeasons = seasonsParam.filter((season) => seasonDisciplineTable?.[season] === undefined)
+
+  if (!seasonDisciplineTable) {
+    seasonDisciplineTable = {}
+  }
+
+  if (missingSeasons.length > 0) {
+    const responses = await Promise.all(missingSeasons.map((season) => axios(`${BASE_PATH}/${season}.json`)))
+
+    for (const [i, response] of responses.entries()) {
+      const season = missingSeasons[i]
+      const seasonFile = response.data as SeasonFile
+      const rows: Record<string, TeamDisciplineTableData> = {}
+
+      for (const matchweekKey in seasonFile.matches) {
+        for (const match of seasonFile.matches[matchweekKey]) {
+          const fbrefStats = match.stats?.fbref
+          if (match.period !== 'FullTime' || !fbrefStats) continue
+
+          const sides = [
+            { team: match.homeTeam, own: fbrefStats.home, opponent: fbrefStats.away },
+            { team: match.awayTeam, own: fbrefStats.away, opponent: fbrefStats.home },
+          ]
+
+          for (const { team, own, opponent } of sides) {
+            if (!rows[team.name]) {
+              rows[team.name] = {
+                season,
+                team: team.name,
+                abbr: team.abbr,
+                gamesPlayed: 0,
+                foulsConceded: 0,
+                foulsGiven: 0,
+                yellowCardsConceded: 0,
+                yellowCardsGiven: 0,
+                redCardsConceded: 0,
+                redCardsGiven: 0,
+              }
+            }
+            const row = rows[team.name]
+            row.gamesPlayed += 1
+            row.foulsConceded += own.fouls
+            row.foulsGiven += opponent.fouls
+            row.yellowCardsConceded += own.yellowCards
+            row.yellowCardsGiven += opponent.yellowCards
+            row.redCardsConceded += own.redCards
+            row.redCardsGiven += opponent.redCards
+          }
+        }
+      }
+
+      seasonDisciplineTable[season] = Object.values(rows).sort((a, b) => a.team.localeCompare(b.team))
+    }
+  }
+
+  return seasonsParam.flatMap((season) => seasonDisciplineTable![season] ?? [])
 }
 
 export async function fetchMatchOfficialAssignments(

@@ -1,5 +1,6 @@
 import { CheckboxWithField } from '@/components/custom/form'
 import { Header } from '@/components/custom/header'
+import { SeasonsSelector } from '@/components/custom/seasons-selector'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { FieldGroup, FieldLegend, FieldSet } from '@/components/ui/field'
@@ -11,7 +12,7 @@ import { toPercentage, truncateDecimals } from '@/lib/format'
 import { cn } from '@/lib/utils'
 import type { AllSeasonMatchOfficialAssignmentTableData, MatchFullStatData, RefereeAdditionalInformation } from '@/types'
 import { formatSeason } from '@/utils/match'
-import { AVAILABLE_SEASONS, OFFICIAL_ROLES, fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
+import { OFFICIAL_ROLES, fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
 import {
   flexRender,
   getCoreRowModel,
@@ -210,7 +211,7 @@ export default function MatchOfficialAssignments() {
 
       <div className="flex flex-col gap-y-4 flex-1 min-h-0">
         <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
-          <SeasonsSelector seasons={seasons} />
+          <SeasonsSelector seasons={seasons} gaLabelPrefix="ga-official-assignments" />
 
           <RolesSelector roles={roles} />
         </div>
@@ -514,85 +515,6 @@ function TableBodyRow({ columnVirtualizer, row, rowVirtualizer, virtualPaddingLe
   )
 }
 
-function SeasonsSelector({ seasons: seasonsArraySearchParams }: { seasons: string[] }) {
-  const [, setSearchParams] = useSearchParams()
-
-  const closeBtnRef = useRef<HTMLButtonElement>(null)
-  const { control, handleSubmit } = useForm({
-    defaultValues: {
-      seasons: seasonsArraySearchParams,
-    },
-  })
-
-  function onSubmit(data: { seasons: string[] }) {
-    setSearchParams((prev) => {
-      const newSearchParams = new URLSearchParams(prev)
-      const newSeasonsArray = data.seasons
-      newSearchParams.set(SEASONS_PARAMETER, newSeasonsArray.sort().join(','))
-
-      return newSearchParams
-    })
-
-    if (closeBtnRef.current) {
-      closeBtnRef.current.dataset.gaValue = data.seasons.join(',')
-      closeBtnRef.current.click()
-    }
-  }
-
-  return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button className="flex justify-between" variant="outline" data-ga-label="ga-official-assignments-start-update-seasons-button">
-          <div>Seasons: {seasonsArraySearchParams.join(', ')}</div>
-
-          <ChevronDown />
-        </Button>
-      </PopoverTrigger>
-
-      <PopoverContent className="flex flex-col popover-available-width">
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-          <FieldSet>
-            <FieldLegend variant="label">Select seasons:</FieldLegend>
-            <FieldGroup className="gap-3">
-              {AVAILABLE_SEASONS.map((season) => (
-                <CheckboxWithField
-                  key={season}
-                  value={season}
-                  formatValue={(v) => formatSeason(v, 'long')}
-                  name="seasons"
-                  defaultChecked={seasonsArraySearchParams.includes(season)}
-                  control={control}
-                  getNextValue={(checked, v) => {
-                    const nextValue = [...v]
-                    if (checked) {
-                      nextValue.push(season)
-                    } else {
-                      const idx = nextValue.indexOf(season)
-                      nextValue.splice(idx, 1)
-                    }
-
-                    return nextValue
-                  }}
-                />
-              ))}
-            </FieldGroup>
-          </FieldSet>
-
-          <Button type="submit" className="mt-4">
-            Update seasons
-          </Button>
-        </form>
-
-        <PopoverClose asChild>
-          <Button data-ga-label="ga-official-assignments-finish-update-seasons-button" ref={closeBtnRef} hidden>
-            Close
-          </Button>
-        </PopoverClose>
-      </PopoverContent>
-    </Popover>
-  )
-}
-
 function RolesSelector({ roles: rolesArraySearchParams }: { roles: string[] }) {
   const [, setSearchParams] = useSearchParams()
   const closeBtnRef = useRef<HTMLButtonElement>(null)
@@ -682,7 +604,7 @@ function Legend() {
       <PopoverTrigger asChild>
         <Button
           variant="link"
-          className="text-base p-0 text-[unset] underline decoration-dashed h-[unset]"
+          className="text-base p-0 text-[unset] underline decoration-dotted h-[unset]"
           data-ga-label="ga-official-assignments-show-legends-button"
         >
           Click here to display legends.

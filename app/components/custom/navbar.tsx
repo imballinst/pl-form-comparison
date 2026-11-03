@@ -37,6 +37,12 @@ const components: { title: string; href: string; description: string; lastUpdate
     description: `Compare the match official assignments between clubs.`,
     lastUpdatedAt: '2026-06-24T04:40:59.172Z',
   },
+  {
+    title: 'Team Discipline',
+    href: `/insights/discipline`,
+    description: `Compare fouls and cards conceded and given by clubs over the selected seasons.`,
+    lastUpdatedAt: '2026-11-03T00:00:00.000Z',
+  },
 ]
 
 export function Navbar({ className }: { className?: string }) {

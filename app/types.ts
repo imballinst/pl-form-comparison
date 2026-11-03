@@ -124,6 +124,33 @@ export interface AllSeasonMatchOfficialAssignmentTableData extends Omit<MatchOff
 
 // New consolidated season file types.
 
+export interface TeamDisciplineStats {
+  gamesPlayed: number
+  foulsConceded: number
+  foulsGiven: number
+  yellowCardsConceded: number
+  yellowCardsGiven: number
+  redCardsConceded: number
+  redCardsGiven: number
+  /** Derived in insights.discipline: fouls per yellow/red card. Undefined when the team received no cards. */
+  foulsPerYellowCard?: number
+  foulsPerYellowCardGiven?: number
+  foulsPerRedCard?: number
+  foulsPerRedCardGiven?: number
+}
+
+export interface TeamDisciplineTableData extends TeamDisciplineStats {
+  season: string
+  team: string
+  abbr: string
+}
+
+export interface TeamDisciplineSeasonRow {
+  team: string
+  abbr: string
+  seasonStats: Record<string, TeamDisciplineStats>
+}
+
 export interface SeasonFile {
   season: number
   matches: Record<string, SeasonMatch[]>
