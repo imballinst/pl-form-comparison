@@ -22,6 +22,8 @@ interface DisciplineChartProps {
   isFoulsShown: boolean
   isFoulsPerYellowCardShown: boolean
   isFoulsPerRedCardShown: boolean
+  /** Full team names on the x-axis; the single-column desktop layout is wide enough for them. */
+  isFullTeamName: boolean
 }
 
 // The bars are the context series, so they are neutral and nearly hollow; the two ratio series carry
@@ -104,10 +106,16 @@ export function DisciplineChart({
   foulsName,
   data,
   isMobile,
+  isFullTeamName,
   isFoulsShown,
   isFoulsPerYellowCardShown,
   isFoulsPerRedCardShown,
 }: DisciplineChartProps) {
+  // Desktop single-column charts are wide enough for full team names, angled so they do not collide;
+  // the grid view uses abbreviations, and the tooltip always shows the full team name.
+  const labelDataKey: 'abbr' | 'team' = isMobile || !isFullTeamName ? 'abbr' : 'team'
+  const labelAngle = isMobile ? -90 : isFullTeamName ? -60 : 0
+
   return (
     <div className="rounded-lg border bg-card p-3 text-card-foreground sm:p-4">
       <h3 className="text-sm font-semibold">{title}</h3>
@@ -115,13 +123,12 @@ export function DisciplineChart({
       <ResponsiveContainer width="100%" height={isMobile ? 280 : 320} className="mt-2">
         <ComposedChart data={data} margin={{ top: 8, right: 0, bottom: 0, left: 0 }}>
           <CartesianGrid vertical={false} stroke="var(--border)" strokeDasharray="4 4" />
-          {/* Abbreviations keep every label visible with 20+ teams; the tooltip shows the full team name. */}
           <XAxis
-            dataKey="abbr"
+            dataKey={labelDataKey}
             interval={0}
-            height={isMobile ? 44 : 30}
-            angle={isMobile ? -90 : 0}
-            textAnchor={isMobile ? 'end' : 'middle'}
+            height={isMobile ? 44 : isFullTeamName ? 84 : 30}
+            angle={labelAngle}
+            textAnchor={labelAngle === 0 ? 'middle' : 'end'}
             tick={AXIS_TICK}
             tickMargin={4}
             tickLine={false}

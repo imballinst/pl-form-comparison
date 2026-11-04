@@ -236,6 +236,8 @@ export default function TeamDiscipline() {
   // Metrics hidden via the display popover's Metrics section; filters the table columns and the chart
   // series. Everything is visible by default.
   const [hiddenMetrics, setHiddenMetrics] = useState<ReadonlySet<SortMetric>>(() => new Set<SortMetric>())
+  // Charts layout; with a single column desktop charts get wide enough for full team names.
+  const [chartGrid, setChartGrid] = useState<ChartGrid>('2')
   // Page-wide ordering. Each chart uses its own side's column for the metric and direction; the
   // table uses the combined conceded+given column of the metric.
   const [sortMetric, setSortMetric] = useState<SortMetric>('fouls')
@@ -376,9 +378,11 @@ export default function TeamDiscipline() {
           <DisplaySelector
             hiddenSections={hiddenSections}
             hiddenMetrics={hiddenMetrics}
-            onApply={(sections, metrics) => {
+            chartGrid={chartGrid}
+            onApply={(sections, metrics, grid) => {
               setHiddenSections(sections)
               setHiddenMetrics(metrics)
+              setChartGrid(grid)
             }}
           />
 
@@ -393,7 +397,7 @@ export default function TeamDiscipline() {
         </div>
 
         {visibleCharts.length > 0 && (
-          <div className="grid gap-4 lg:grid-cols-2">
+          <div className={chartGrid === '2' ? 'grid gap-4 lg:grid-cols-2' : 'grid gap-4'}>
             {visibleCharts.map(({ key, title, direction }) => (
               <DisciplineChart
                 key={key}
@@ -401,6 +405,7 @@ export default function TeamDiscipline() {
                 foulsName={FOULS_NAME_BY_DIRECTION[direction]}
                 data={chartData.get(key) ?? []}
                 isMobile={isMobile}
+                isFullTeamName={!isMobile && chartGrid === '1'}
                 isFoulsShown={!hiddenMetrics.has('fouls')}
                 isFoulsPerYellowCardShown={!hiddenMetrics.has('yellow')}
                 isFoulsPerRedCardShown={!hiddenMetrics.has('red')}
@@ -553,41 +558,55 @@ function SortSelector({ metric, order, onApply }: SortSelectorProps) {
   )
 }
 
+type ChartGrid = '2' | '1'
+
+const CHART_GRIDS = [
+  { value: '2', label: '2 columns' },
+  { value: '1', label: '1 column' },
+] as const satisfies ReadonlyArray<{ value: ChartGrid; label: string }>
+
 interface DisplaySelectorProps {
   hiddenSections: ReadonlySet<DisplayKey>
   hiddenMetrics: ReadonlySet<SortMetric>
-  onApply: (hiddenSections: ReadonlySet<DisplayKey>, hiddenMetrics: ReadonlySet<SortMetric>) => void
+  chartGrid: ChartGrid
+  onApply: (hiddenSections: ReadonlySet<DisplayKey>, hiddenMetrics: ReadonlySet<SortMetric>, chartGrid: ChartGrid) => void
 }
 
 /**
  * Submit-to-apply display popover, following the roles selector pattern in
  * insights.official-assignments. The checkboxes preview inside the form (they hold the *visible*
  * items); only submitting applies. Illustrations toggle whole sections; Metrics toggle the matching
- * table columns and chart series.
+ * table columns and chart series; Chart grid picks the charts' column layout (full team names on
+ * the x-axis when a single column yields wide charts).
  */
-function DisplaySelector({ hiddenSections, hiddenMetrics, onApply }: DisplaySelectorProps) {
+function DisplaySelector({ hiddenSections, hiddenMetrics, chartGrid, onApply }: DisplaySelectorProps) {
   const closeBtnRef = useRef<HTMLButtonElement>(null)
 
   const currentVisibleSections = DISPLAY_OPTIONS.map(({ key }) => key).filter((key) => !hiddenSections.has(key))
   const currentVisibleMetrics = DISPLAY_METRICS.map(({ key }) => key).filter((key) => !hiddenMetrics.has(key))
-  const { control, handleSubmit, reset } = useForm<{ illustrations: string[]; metrics: string[] }>({
-    defaultValues: { illustrations: currentVisibleSections, metrics: currentVisibleMetrics },
+  const { control, handleSubmit, reset, watch, setValue } = useForm<{
+    illustrations: string[]
+    metrics: string[]
+    chartGrid: ChartGrid
+  }>({
+    defaultValues: { illustrations: currentVisibleSections, metrics: currentVisibleMetrics, chartGrid },
   })
 
-  function onSubmit(data: { illustrations: string[]; metrics: string[] }) {
+  function onSubmit(data: { illustrations: string[]; metrics: string[]; chartGrid: ChartGrid }) {
     onApply(
       new Set(DISPLAY_OPTIONS.map(({ key }) => key).filter((key) => !data.illustrations.includes(key))),
       new Set(DISPLAY_METRICS.map(({ key }) => key).filter((key) => !data.metrics.includes(key))),
+      data.chartGrid,
     )
 
     if (closeBtnRef.current) {
-      closeBtnRef.current.dataset.gaValue = `${data.illustrations.join(',')}|${data.metrics.join(',')}`
+      closeBtnRef.current.dataset.gaValue = `${data.illustrations.join(',')}|${data.metrics.join(',')}|${data.chartGrid}`
       closeBtnRef.current.click()
     }
   }
 
   return (
-    <Popover onOpenChange={(open) => open && reset({ illustrations: currentVisibleSections, metrics: currentVisibleMetrics })}>
+    <Popover onOpenChange={(open) => open && reset({ illustrations: currentVisibleSections, metrics: currentVisibleMetrics, chartGrid })}>
       <PopoverTrigger asChild>
         <Button variant="outline" data-ga-label="ga-team-discipline-start-update-display-button">
           <SlidersHorizontal aria-hidden />
@@ -649,6 +668,24 @@ function DisplaySelector({ hiddenSections, hiddenMetrics, onApply }: DisplaySele
                 />
               ))}
             </div>
+          </section>
+
+          <section>
+            <div className="text-sm font-medium">Chart grid</div>
+            <RadioGroup
+              value={watch('chartGrid')}
+              onValueChange={(value) => setValue('chartGrid', value as ChartGrid)}
+              className="mt-2 flex-row gap-4"
+            >
+              {CHART_GRIDS.map(({ value, label }) => (
+                <div key={value} className="flex items-center gap-2">
+                  <RadioGroupItem value={value} id={`chart-grid-${value}`} data-ga-label={`ga-team-discipline-chart-grid-${value}-radio`} />
+                  <Label htmlFor={`chart-grid-${value}`} className="font-normal">
+                    {label}
+                  </Label>
+                </div>
+              ))}
+            </RadioGroup>
           </section>
 
           <Button type="submit" className="mt-2">
