@@ -1,56 +1,9 @@
-import { CURRENT_SEASON } from '@/constants'
 import { renderTest } from '@/lib/testutils'
-import type { SeasonFile, SeasonMatchesResponse } from '@/types'
 import '@testing-library/jest-dom'
 import { screen } from '@testing-library/react'
-import { readFile } from 'fs/promises'
-import path from 'path'
 import { RouterContextProvider, createRoutesStub } from 'react-router'
 import { afterEach, expect, test, vi } from 'vitest'
 import CompareRemainingMatches, { clientLoader } from './compare.remaining-matches'
-
-// Override the "global" axios mock since we want a "customized" thing on this.
-vi.mock('axios', async (importOriginal) => {
-  const imports = (await importOriginal()) as unknown as object
-
-  return {
-    ...imports,
-    default: async (...args: any[]) => {
-      const [url] = args
-      const fileContent = await readFile(path.join(process.cwd(), 'public', url), 'utf-8')
-      let parsed = JSON.parse(fileContent)
-
-      if (url.endsWith(`${CURRENT_SEASON}.json`)) {
-        // Matches. We don't really care about table data and FDR here, we just want to ensure if the table really shows the "remaining matches".
-        if ((parsed as SeasonFile).matches) {
-          const typed = parsed as SeasonFile
-          for (const matchweekKey in typed.matches) {
-            for (const match of typed.matches[matchweekKey]) {
-              if (match.matchweek <= 18) {
-                match.period = 'FullTime'
-              } else {
-                match.period = 'PreMatch'
-              }
-            }
-          }
-        } else {
-          const typed = parsed as SeasonMatchesResponse
-          for (const mw of typed.matchweeks) {
-            for (const match of mw.data.data) {
-              if (mw.matchweek <= 18) {
-                match.period = 'FullTime'
-              } else {
-                match.period = 'PreMatch'
-              }
-            }
-          }
-        }
-      }
-
-      return { data: parsed }
-    },
-  }
-})
 
 // Frozen, time-independent world. Tests populate this and flip `active` on so the
 // suite never depends on the real CURRENT_SEASON or the public/*.json fixtures.
@@ -95,7 +48,36 @@ afterEach(() => {
   scenario.active = false
 })
 
-test('successfully renders', async () => {
+test('successfully renders 20 remaining matches plus the 3 default rows', async () => {
+  scenario.active = true
+  scenario.CURRENT_SEASON = '2099'
+  scenario.TEAMS_PER_SEASON = {
+    '2099': [
+      'Arsenal',
+      'Opponent 1',
+      'Opponent 2',
+      'Opponent 3',
+      'Opponent 4',
+      'Opponent 5',
+      'Opponent 6',
+      'Opponent 7',
+      'Opponent 8',
+      'Opponent 9',
+    ],
+  }
+  scenario.fixtures = {
+    // The default "Add to table" selection is Arsenal, so 20 remaining fixtures yield 20 rows.
+    '2099': Array.from({ length: 20 }, (_, index) =>
+      makeMatch(
+        index % 2 === 0 ? 'Arsenal' : `Opponent ${index}`,
+        index % 2 === 0 ? `Opponent ${index}` : 'Arsenal',
+        String(19 + index),
+        'PreMatch',
+      ),
+    ),
+  }
+  scenario.table = { '2099': [] }
+
   const Stub = createRoutesStub([
     {
       path: '/',
@@ -126,7 +108,21 @@ test('successfully renders', async () => {
   expect(shownRows.length).toBe(23)
 })
 
-test('a team shows real score tags against promoted team the season it was in (2025) and the one before it got promoted (2024)', async () => {
+test('a team shows real score tags for the past two seasons it played against the opponent', async () => {
+  scenario.active = true
+  scenario.CURRENT_SEASON = '2099'
+  scenario.TEAMS_PER_SEASON = {
+    '2099': ['Arsenal', 'Stable Team'],
+    '2098': ['Arsenal', 'Stable Team'],
+    '2097': ['Arsenal', 'Stable Team'],
+  }
+  scenario.fixtures = {
+    '2099': [makeMatch('Stable Team', 'Arsenal', '20', 'PreMatch'), makeMatch('Arsenal', 'Stable Team', '21', 'PreMatch')],
+    '2098': [makeMatch('Arsenal', 'Stable Team', '20', 'FullTime', 2, 1)],
+    '2097': [makeMatch('Stable Team', 'Arsenal', '20', 'FullTime', 1, 3)],
+  }
+  scenario.table = { '2099': [] }
+
   const Stub = createRoutesStub([
     {
       path: '/',
@@ -148,16 +144,15 @@ test('a team shows real score tags against promoted team the season it was in (2
 
   await screen.findByRole('heading', { name: 'Remaining Matches' })
 
-  const resultOneYearBefore = countTags(`${Number(CURRENT_SEASON) - 1}`)
-  const resultTwoYearsBefore = countTags(`${Number(CURRENT_SEASON) - 2}`)
+  const previousSeason = String(Number(scenario.CURRENT_SEASON) - 1)
+  const twoSeasonsAgo = String(Number(scenario.CURRENT_SEASON) - 2)
 
-  expect(resultOneYearBefore.total).toBeGreaterThan(0)
-  expect(resultOneYearBefore.dash).toBe(0)
-  expect(resultOneYearBefore.real).toBe(resultOneYearBefore.total)
-
-  expect(resultTwoYearsBefore.total).toBeGreaterThan(0)
-  expect(resultTwoYearsBefore.dash).toBe(0)
-  expect(resultTwoYearsBefore.real).toBe(resultTwoYearsBefore.total)
+  for (const season of [previousSeason, twoSeasonsAgo]) {
+    const result = countTags(season)
+    expect(result.total).toBeGreaterThan(0)
+    expect(result.dash).toBe(0)
+    expect(result.real).toBe(result.total)
+  }
 })
 
 test('a promoted team shows "-" score tags for the seasons before it joined the league', async () => {

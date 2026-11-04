@@ -16,7 +16,15 @@ async function main() {
     timeout: 15000,
   })
 
-  await fs.writeFile(OUTPUT_PATH, JSON.stringify(response.data, null, 2))
+  // Guard against clobbering the reference data with an empty payload: Understat can return a
+  // dataset without dates/teams (e.g. a future season that has no data yet), which previously
+  // silently wiped the raw file and cascaded into an empty public/<YEAR>.json.
+  const data = (response.data ?? {}) as { dates?: unknown[]; teams?: Record<string, unknown> }
+  if (!Array.isArray(data.dates) || data.dates.length === 0 || !data.teams || Object.keys(data.teams).length === 0) {
+    throw new Error(`Understat returned an empty league dataset for EPL ${YEAR}; keeping the existing ${OUTPUT_PATH} untouched`)
+  }
+
+  await fs.writeFile(OUTPUT_PATH, JSON.stringify(data, null, 2))
   console.log(`Saved ${OUTPUT_PATH}`)
 }
 
@@ -24,5 +32,3 @@ main().catch((error: unknown) => {
   console.error('Fatal error:', error)
   process.exit(1)
 })
-
-
