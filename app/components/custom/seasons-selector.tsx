@@ -51,11 +51,7 @@ export function SeasonsSelector({ seasons: seasonsArraySearchParams, gaLabelPref
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button
-          className="flex justify-between w-full md:w-[50%]"
-          variant="outline"
-          data-ga-label={`${gaLabelPrefix}-start-update-seasons-button`}
-        >
+        <Button className="flex justify-between w-full" variant="outline" data-ga-label={`${gaLabelPrefix}-start-update-seasons-button`}>
           <div>Seasons: {seasonsArraySearchParams.map((season) => formatSeason(season, 'long')).join(', ')}</div>
 
           <ChevronDown />

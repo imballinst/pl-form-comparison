@@ -187,13 +187,26 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const seasonsArray = seasons.split(',').filter(Boolean).sort()
 
   // Non-default Display/Sort states: absent parameters mean the defaults (everything visible,
-  // 2-column grid, fouls descending).
-  const hiddenIllustrations = (searchParams.get(DISPLAY_ILLUSTRATIONS_SEARCH_PARAMETER) ?? '')
-    .split(',')
-    .filter((value): value is DisplayKey => DISPLAY_OPTIONS.some(({ key }) => key === value))
-  const hiddenMetrics = (searchParams.get(DISPLAY_METRICS_SEARCH_PARAMETER) ?? '')
-    .split(',')
-    .filter((value): value is SortMetric => SORT_METRICS.some(({ value: metric }) => metric === value))
+  // 2-column grid, fouls descending). The checkbox parameters hold the *visible* items; anything
+  // omitted from them is hidden.
+  const illustrationsParam = searchParams.get(DISPLAY_ILLUSTRATIONS_SEARCH_PARAMETER)
+  const visibleIllustrations =
+    illustrationsParam === null
+      ? DISPLAY_OPTIONS.map(({ key }) => key)
+      : (illustrationsParam.split(',').filter((value) => DISPLAY_OPTIONS.some(({ key }) => key === value)) as DisplayKey[])
+  const hiddenIllustrations = DISPLAY_OPTIONS.map(({ key }) => key).filter((key) => !visibleIllustrations.includes(key))
+
+  const metricsParam = searchParams.get(DISPLAY_METRICS_SEARCH_PARAMETER)
+  const visibleMetrics =
+    metricsParam === null
+      ? SORT_METRICS.map(({ value }) => value)
+      : (metricsParam.split(',').filter((value) => SORT_METRICS.some(({ value: metric }) => metric === value)) as SortMetric[])
+  const hiddenMetrics = DISPLAY_METRICS.map(({ key }) => key).filter((key) => !visibleMetrics.includes(key))
+
+  const chartGrid: ChartGrid = searchParams.get(CHART_GRID_SEARCH_PARAMETER) === '1' ? '1' : '2'
+  const sortByParam = searchParams.get(SORT_BY_SEARCH_PARAMETER) ?? ''
+  const sortBy: SortMetric = SORT_METRICS.some(({ value }) => value === sortByParam) ? (sortByParam as SortMetric) : 'fouls'
+  const sortOrder: SortOrder = searchParams.get(SORT_ORDER_SEARCH_PARAMETER) === 'asc' ? 'asc' : 'desc'
   const chartGrid: ChartGrid = searchParams.get(CHART_GRID_SEARCH_PARAMETER) === '1' ? '1' : '2'
   const sortByParam = searchParams.get(SORT_BY_SEARCH_PARAMETER) ?? ''
   const sortBy: SortMetric = SORT_METRICS.some(({ value }) => value === sortByParam) ? (sortByParam as SortMetric) : 'fouls'
@@ -601,8 +614,8 @@ interface DisplaySelectorProps {
 /**
  * Submit-to-apply display popover, following the roles selector pattern in
  * insights.official-assignments. The checkboxes preview inside the form (they hold the *visible*
- * items); only submitting applies the values into the URL's search parameters, which the loader
- * parses back. Illustrations toggle whole sections; Metrics toggle the matching table columns and
+ * items, persisted as such into the URL's search parameters); only submitting applies. Illustrations
+ * toggle whole sections; Metrics toggle the matching table columns and
  * chart series; Chart grid picks the charts' column layout (full team names on the x-axis when a
  * single column yields wide charts).
  */
@@ -624,17 +637,16 @@ function DisplaySelector({ hiddenSections, hiddenMetrics, chartGrid }: DisplaySe
     // Persist only the non-default states, so the parameterless URL stays the pristine view.
     setSearchParams((prev) => {
       const newSearchParams = new URLSearchParams(prev)
-      const hiddenSectionKeys = DISPLAY_OPTIONS.map(({ key }) => key).filter((key) => !data.illustrations.includes(key))
-      const hiddenMetricKeys = DISPLAY_METRICS.map(({ key }) => key).filter((key) => !data.metrics.includes(key))
-
-      if (hiddenSectionKeys.length > 0) {
-        newSearchParams.set(DISPLAY_ILLUSTRATIONS_SEARCH_PARAMETER, hiddenSectionKeys.join(','))
+      // Persist the *visible* items, so the parameter value mirrors the checkboxes; a parameterless
+      // URL stays the pristine everything-visible view.
+      if (data.illustrations.length < DISPLAY_OPTIONS.length) {
+        newSearchParams.set(DISPLAY_ILLUSTRATIONS_SEARCH_PARAMETER, data.illustrations.join(','))
       } else {
         newSearchParams.delete(DISPLAY_ILLUSTRATIONS_SEARCH_PARAMETER)
       }
 
-      if (hiddenMetricKeys.length > 0) {
-        newSearchParams.set(DISPLAY_METRICS_SEARCH_PARAMETER, hiddenMetricKeys.join(','))
+      if (data.metrics.length < DISPLAY_METRICS.length) {
+        newSearchParams.set(DISPLAY_METRICS_SEARCH_PARAMETER, data.metrics.join(','))
       } else {
         newSearchParams.delete(DISPLAY_METRICS_SEARCH_PARAMETER)
       }
