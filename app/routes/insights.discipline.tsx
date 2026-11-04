@@ -406,7 +406,7 @@ export default function TeamDiscipline() {
       />
 
       <div className="flex flex-col gap-y-4 flex-1 min-h-0">
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
           <SeasonsSelector seasons={seasons} gaLabelPrefix="ga-team-discipline" />
 
           <DisplaySelector hiddenSections={hiddenSections} hiddenMetrics={hiddenMetricsSet} chartGrid={chartGrid} />
@@ -535,7 +535,7 @@ function SortSelector({ metric, order }: SortSelectorProps) {
   return (
     <Popover onOpenChange={(open) => open && reset({ metric, order })}>
       <PopoverTrigger asChild>
-        <Button variant="outline" data-ga-label="ga-team-discipline-start-update-sort-button">
+        <Button variant="outline" data-ga-label="ga-team-discipline-start-update-sort-button" className="flex justify-start">
           <ArrowDownUp aria-hidden />
           Sort
         </Button>
@@ -665,7 +665,7 @@ function DisplaySelector({ hiddenSections, hiddenMetrics, chartGrid }: DisplaySe
   return (
     <Popover onOpenChange={(open) => open && reset({ illustrations: currentVisibleSections, metrics: currentVisibleMetrics, chartGrid })}>
       <PopoverTrigger asChild>
-        <Button variant="outline" data-ga-label="ga-team-discipline-start-update-display-button">
+        <Button variant="outline" data-ga-label="ga-team-discipline-start-update-display-button" className="flex justify-start">
           <SlidersHorizontal aria-hidden />
           Display
         </Button>
