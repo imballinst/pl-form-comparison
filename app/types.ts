@@ -145,10 +145,11 @@ export interface TeamDisciplineTableData extends TeamDisciplineStats {
   abbr: string
 }
 
-export interface TeamDisciplineSeasonRow {
+export interface TeamDisciplineAggregateRow {
   team: string
   abbr: string
-  seasonStats: Record<string, TeamDisciplineStats>
+  /** Raw stats totaled across the selected seasons; ratios are derived from the sums. */
+  stats: TeamDisciplineStats
 }
 
 export interface SeasonFile {

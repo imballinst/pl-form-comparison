@@ -30,6 +30,18 @@ if (!Element.prototype.scrollIntoView) {
   Element.prototype.scrollIntoView = () => {}
 }
 
+// Recharts' ResponsiveContainer relies on ResizeObserver, which jsdom does not implement.
+if (!globalThis.ResizeObserver) {
+  Object.defineProperty(globalThis, 'ResizeObserver', {
+    writable: true,
+    value: class ResizeObserverStub {
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    },
+  })
+}
+
 vi.mock('axios', async (importOriginal) => {
   const imports = (await importOriginal()) as unknown as object
 
