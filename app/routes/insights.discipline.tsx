@@ -207,10 +207,6 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const sortByParam = searchParams.get(SORT_BY_SEARCH_PARAMETER) ?? ''
   const sortBy: SortMetric = SORT_METRICS.some(({ value }) => value === sortByParam) ? (sortByParam as SortMetric) : 'fouls'
   const sortOrder: SortOrder = searchParams.get(SORT_ORDER_SEARCH_PARAMETER) === 'asc' ? 'asc' : 'desc'
-  const chartGrid: ChartGrid = searchParams.get(CHART_GRID_SEARCH_PARAMETER) === '1' ? '1' : '2'
-  const sortByParam = searchParams.get(SORT_BY_SEARCH_PARAMETER) ?? ''
-  const sortBy: SortMetric = SORT_METRICS.some(({ value }) => value === sortByParam) ? (sortByParam as SortMetric) : 'fouls'
-  const sortOrder: SortOrder = searchParams.get(SORT_ORDER_SEARCH_PARAMETER) === 'asc' ? 'asc' : 'desc'
 
   const rows = await fetchTeamDisciplineStats(seasonsArray)
 

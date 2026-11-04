@@ -211,13 +211,9 @@ export default function MatchOfficialAssignments() {
 
       <div className="flex flex-col gap-y-4 flex-1 min-h-0">
         <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
-          <div>
-            <SeasonsSelector seasons={seasons} gaLabelPrefix="ga-official-assignments" />
-          </div>
+          <SeasonsSelector seasons={seasons} gaLabelPrefix="ga-official-assignments" />
 
-          <div>
-            <RolesSelector roles={roles} />
-          </div>
+          <RolesSelector roles={roles} />
         </div>
 
         <div className="flex-1 flex flex-col min-h-0">
