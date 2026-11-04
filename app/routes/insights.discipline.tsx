@@ -14,9 +14,9 @@ import type { TeamDisciplineAggregateRow, TeamDisciplineStats } from '@/types'
 import { fetchTeamDisciplineStats } from '@/utils/seasons-fetcher'
 import { flexRender, getCoreRowModel, getSortedRowModel, useReactTable, type CellContext, type ColumnDef } from '@tanstack/react-table'
 import { ArrowDown, ArrowDownUp, ArrowUp, SlidersHorizontal } from 'lucide-react'
-import { useMemo, useRef, useState } from 'react'
+import { useMemo, useRef } from 'react'
 import { useForm } from 'react-hook-form'
-import { useLoaderData } from 'react-router'
+import { useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/insights.discipline'
 
 interface DisciplineStat {
@@ -109,6 +109,13 @@ const SORT_ORDERS = [
 ] as const
 
 type SortMetric = (typeof SORT_METRICS)[number]['value']
+
+// Search parameters persisting the non-default Display/Sort states; absent parameters mean defaults.
+export const DISPLAY_ILLUSTRATIONS_SEARCH_PARAMETER = 'illustrations'
+export const DISPLAY_METRICS_SEARCH_PARAMETER = 'metrics'
+export const CHART_GRID_SEARCH_PARAMETER = 'chart-grid'
+export const SORT_BY_SEARCH_PARAMETER = 'sort-by'
+export const SORT_ORDER_SEARCH_PARAMETER = 'sort-order'
 type SortOrder = (typeof SORT_ORDERS)[number]['value']
 
 // The table is ordered by the combined conceded+given totals of the chosen metric, re-derived from
@@ -175,8 +182,22 @@ function DisciplineLegend() {
 }
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
-  const { [SEASONS_SEARCH_PARAMETER]: seasons = CURRENT_SEASON } = Object.fromEntries(new URL(request.url).searchParams)
+  const searchParams = new URL(request.url).searchParams
+  const { [SEASONS_SEARCH_PARAMETER]: seasons = CURRENT_SEASON } = Object.fromEntries(searchParams)
   const seasonsArray = seasons.split(',').filter(Boolean).sort()
+
+  // Non-default Display/Sort states: absent parameters mean the defaults (everything visible,
+  // 2-column grid, fouls descending).
+  const hiddenIllustrations = (searchParams.get(DISPLAY_ILLUSTRATIONS_SEARCH_PARAMETER) ?? '')
+    .split(',')
+    .filter((value): value is DisplayKey => DISPLAY_OPTIONS.some(({ key }) => key === value))
+  const hiddenMetrics = (searchParams.get(DISPLAY_METRICS_SEARCH_PARAMETER) ?? '')
+    .split(',')
+    .filter((value): value is SortMetric => SORT_METRICS.some(({ value: metric }) => metric === value))
+  const chartGrid: ChartGrid = searchParams.get(CHART_GRID_SEARCH_PARAMETER) === '1' ? '1' : '2'
+  const sortByParam = searchParams.get(SORT_BY_SEARCH_PARAMETER) ?? ''
+  const sortBy: SortMetric = SORT_METRICS.some(({ value }) => value === sortByParam) ? (sortByParam as SortMetric) : 'fouls'
+  const sortOrder: SortOrder = searchParams.get(SORT_ORDER_SEARCH_PARAMETER) === 'asc' ? 'asc' : 'desc'
 
   const rows = await fetchTeamDisciplineStats(seasonsArray)
 
@@ -224,24 +245,28 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
     stats.foulsPerRedCardGiven = stats.redCardsGiven === 0 ? undefined : truncateDecimals(stats.foulsGiven / stats.redCardsGiven)
   }
 
-  return { seasons: seasonsArray, tableData: tableData.sort((a, b) => a.team.localeCompare(b.team)) }
+  return {
+    seasons: seasonsArray,
+    tableData: tableData.sort((a, b) => a.team.localeCompare(b.team)),
+    hiddenIllustrations,
+    hiddenMetrics,
+    chartGrid,
+    sortBy,
+    sortOrder,
+  }
 }
 
 export default function TeamDiscipline() {
-  const { seasons, tableData } = useLoaderData<typeof clientLoader>()
+  const { seasons, tableData, hiddenIllustrations, hiddenMetrics, chartGrid, sortBy, sortOrder } = useLoaderData<typeof clientLoader>()
   const isMobile = useIsMobile()
 
-  // Sections hidden via the display popover; everything is visible by default.
-  const [hiddenSections, setHiddenSections] = useState<ReadonlySet<DisplayKey>>(() => new Set<DisplayKey>())
+  const hiddenSections = useMemo(() => new Set<DisplayKey>(hiddenIllustrations), [hiddenIllustrations])
   // Metrics hidden via the display popover's Metrics section; filters the table columns and the chart
-  // series. Everything is visible by default.
-  const [hiddenMetrics, setHiddenMetrics] = useState<ReadonlySet<SortMetric>>(() => new Set<SortMetric>())
-  // Charts layout; with a single column desktop charts get wide enough for full team names.
-  const [chartGrid, setChartGrid] = useState<ChartGrid>('1')
-  // Page-wide ordering. Each chart uses its own side's column for the metric and direction; the
-  // table uses the combined conceded+given column of the metric.
-  const [sortMetric, setSortMetric] = useState<SortMetric>('fouls')
-  const [sortOrder, setSortOrder] = useState<SortOrder>('desc')
+  // series. The chart layout follows the Chart grid setting. The ordering comes from the Sort
+  // popover: each chart uses its own side's column for the metric and direction, and the table uses
+  // the combined conceded+given column.
+
+  const hiddenMetricsSet = useMemo(() => new Set<SortMetric>(hiddenMetrics), [hiddenMetrics])
 
   const columns = useMemo<ColumnDef<TeamDisciplineAggregateRow>[]>(
     () => [
@@ -249,7 +274,7 @@ export default function TeamDiscipline() {
       ...STATS.filter((stat) => {
         const metric = METRIC_BY_ACCESSOR[stat.accessor]
 
-        return metric === undefined || !hiddenMetrics.has(metric)
+        return metric === undefined || !hiddenMetricsSet.has(metric)
       }).map((stat) => ({
         id: stat.accessor,
         // undefined is rendered as "-" (e.g. no cards of that kind, so the ratio does not exist).
@@ -268,7 +293,7 @@ export default function TeamDiscipline() {
       })),
     ],
     // STATS and METRIC_BY_ACCESSOR are module-level constants.
-    [hiddenMetrics],
+    [hiddenMetricsSet],
   )
   // Internal ordering columns for the combined conceded+given metric; kept invisible so only the
   // Sort popover drives the table order.
@@ -300,7 +325,7 @@ export default function TeamDiscipline() {
 
   // Stable identity: passing a fresh sorting object every render made TanStack churn endlessly when
   // re-rendered alongside the charts (the whole tab froze).
-  const sorting = useMemo(() => [{ id: COMBINED_BY_METRIC[sortMetric], desc: sortOrder === 'desc' }], [sortMetric, sortOrder])
+  const sorting = useMemo(() => [{ id: COMBINED_BY_METRIC[sortBy], desc: sortOrder === 'desc' }], [sortBy, sortOrder])
 
   const table = useReactTable({
     data: tableData,
@@ -322,7 +347,7 @@ export default function TeamDiscipline() {
       const foulsKey = FOULS_BY_DIRECTION[direction]
       const ratioKeys = RATIO_BY_DIRECTION[direction]
       // Each chart sorts by its own side's column, so the Given chart is sorted by Given stats.
-      const chartSortColumn = sortAccessor(sortMetric, direction)
+      const chartSortColumn = sortAccessor(sortBy, direction)
 
       data.set(
         key,
@@ -353,7 +378,7 @@ export default function TeamDiscipline() {
     }
 
     return data
-  }, [tableData, sortMetric, sortOrder])
+  }, [tableData, sortBy, sortOrder])
 
   const visibleCharts = CHARTS.filter(({ key }) => !hiddenSections.has(key))
 
@@ -375,25 +400,9 @@ export default function TeamDiscipline() {
         <div className="flex flex-wrap items-center gap-2">
           <SeasonsSelector seasons={seasons} gaLabelPrefix="ga-team-discipline" />
 
-          <DisplaySelector
-            hiddenSections={hiddenSections}
-            hiddenMetrics={hiddenMetrics}
-            chartGrid={chartGrid}
-            onApply={(sections, metrics, grid) => {
-              setHiddenSections(sections)
-              setHiddenMetrics(metrics)
-              setChartGrid(grid)
-            }}
-          />
+          <DisplaySelector hiddenSections={hiddenSections} hiddenMetrics={hiddenMetricsSet} chartGrid={chartGrid} />
 
-          <SortSelector
-            metric={sortMetric}
-            order={sortOrder}
-            onApply={(metric, order) => {
-              setSortMetric(metric)
-              setSortOrder(order)
-            }}
-          />
+          <SortSelector metric={sortBy} order={sortOrder} />
         </div>
 
         {visibleCharts.length > 0 && (
@@ -406,9 +415,9 @@ export default function TeamDiscipline() {
                 data={chartData.get(key) ?? []}
                 isMobile={isMobile}
                 isFullTeamName={!isMobile && chartGrid === '1'}
-                isFoulsShown={!hiddenMetrics.has('fouls')}
-                isFoulsPerYellowCardShown={!hiddenMetrics.has('yellow')}
-                isFoulsPerRedCardShown={!hiddenMetrics.has('red')}
+                isFoulsShown={!hiddenMetricsSet.has('fouls')}
+                isFoulsPerYellowCardShown={!hiddenMetricsSet.has('yellow')}
+                isFoulsPerRedCardShown={!hiddenMetricsSet.has('red')}
               />
             ))}
           </div>
@@ -427,11 +436,11 @@ export default function TeamDiscipline() {
                   {STATS.filter((stat) => {
                     const metric = METRIC_BY_ACCESSOR[stat.accessor]
 
-                    return metric === undefined || !hiddenMetrics.has(metric)
+                    return metric === undefined || !hiddenMetricsSet.has(metric)
                   }).map((stat) => {
                     // The combined ordering column is invisible; mark every column of the sorted
                     // metric pair instead.
-                    const isSorted = METRIC_BY_ACCESSOR[stat.accessor] === sortMetric
+                    const isSorted = METRIC_BY_ACCESSOR[stat.accessor] === sortBy
 
                     return (
                       <TableHead key={stat.accessor} className="text-right whitespace-nowrap" title={stat.long}>
@@ -474,21 +483,39 @@ export default function TeamDiscipline() {
 interface SortSelectorProps {
   metric: SortMetric
   order: SortOrder
-  onApply: (metric: SortMetric, order: SortOrder) => void
 }
 
 /**
  * Submit-to-apply sort popover, following the roles selector pattern in insights.official-assignments.
- * The radios preview inside the form; only submitting applies the sort.
+ * The radios preview inside the form; only submitting persists the values into the URL's search
+ * parameters, which the loader parses back.
  */
-function SortSelector({ metric, order, onApply }: SortSelectorProps) {
+function SortSelector({ metric, order }: SortSelectorProps) {
+  const [, setSearchParams] = useSearchParams()
   const closeBtnRef = useRef<HTMLButtonElement>(null)
   const { watch, setValue, handleSubmit, reset } = useForm<{ metric: SortMetric; order: SortOrder }>({
     defaultValues: { metric, order },
   })
 
   function onSubmit(data: { metric: SortMetric; order: SortOrder }) {
-    onApply(data.metric, data.order)
+    // Persist only the non-default states, so the parameterless URL stays the pristine view.
+    setSearchParams((prev) => {
+      const newSearchParams = new URLSearchParams(prev)
+
+      if (data.metric !== 'fouls') {
+        newSearchParams.set(SORT_BY_SEARCH_PARAMETER, data.metric)
+      } else {
+        newSearchParams.delete(SORT_BY_SEARCH_PARAMETER)
+      }
+
+      if (data.order !== 'desc') {
+        newSearchParams.set(SORT_ORDER_SEARCH_PARAMETER, data.order)
+      } else {
+        newSearchParams.delete(SORT_ORDER_SEARCH_PARAMETER)
+      }
+
+      return newSearchParams
+    })
 
     if (closeBtnRef.current) {
       closeBtnRef.current.dataset.gaValue = `${data.metric}-${data.order}`
@@ -569,17 +596,18 @@ interface DisplaySelectorProps {
   hiddenSections: ReadonlySet<DisplayKey>
   hiddenMetrics: ReadonlySet<SortMetric>
   chartGrid: ChartGrid
-  onApply: (hiddenSections: ReadonlySet<DisplayKey>, hiddenMetrics: ReadonlySet<SortMetric>, chartGrid: ChartGrid) => void
 }
 
 /**
  * Submit-to-apply display popover, following the roles selector pattern in
  * insights.official-assignments. The checkboxes preview inside the form (they hold the *visible*
- * items); only submitting applies. Illustrations toggle whole sections; Metrics toggle the matching
- * table columns and chart series; Chart grid picks the charts' column layout (full team names on
- * the x-axis when a single column yields wide charts).
+ * items); only submitting applies the values into the URL's search parameters, which the loader
+ * parses back. Illustrations toggle whole sections; Metrics toggle the matching table columns and
+ * chart series; Chart grid picks the charts' column layout (full team names on the x-axis when a
+ * single column yields wide charts).
  */
-function DisplaySelector({ hiddenSections, hiddenMetrics, chartGrid, onApply }: DisplaySelectorProps) {
+function DisplaySelector({ hiddenSections, hiddenMetrics, chartGrid }: DisplaySelectorProps) {
+  const [, setSearchParams] = useSearchParams()
   const closeBtnRef = useRef<HTMLButtonElement>(null)
 
   const currentVisibleSections = DISPLAY_OPTIONS.map(({ key }) => key).filter((key) => !hiddenSections.has(key))
@@ -593,11 +621,32 @@ function DisplaySelector({ hiddenSections, hiddenMetrics, chartGrid, onApply }: 
   })
 
   function onSubmit(data: { illustrations: string[]; metrics: string[]; chartGrid: ChartGrid }) {
-    onApply(
-      new Set(DISPLAY_OPTIONS.map(({ key }) => key).filter((key) => !data.illustrations.includes(key))),
-      new Set(DISPLAY_METRICS.map(({ key }) => key).filter((key) => !data.metrics.includes(key))),
-      data.chartGrid,
-    )
+    // Persist only the non-default states, so the parameterless URL stays the pristine view.
+    setSearchParams((prev) => {
+      const newSearchParams = new URLSearchParams(prev)
+      const hiddenSectionKeys = DISPLAY_OPTIONS.map(({ key }) => key).filter((key) => !data.illustrations.includes(key))
+      const hiddenMetricKeys = DISPLAY_METRICS.map(({ key }) => key).filter((key) => !data.metrics.includes(key))
+
+      if (hiddenSectionKeys.length > 0) {
+        newSearchParams.set(DISPLAY_ILLUSTRATIONS_SEARCH_PARAMETER, hiddenSectionKeys.join(','))
+      } else {
+        newSearchParams.delete(DISPLAY_ILLUSTRATIONS_SEARCH_PARAMETER)
+      }
+
+      if (hiddenMetricKeys.length > 0) {
+        newSearchParams.set(DISPLAY_METRICS_SEARCH_PARAMETER, hiddenMetricKeys.join(','))
+      } else {
+        newSearchParams.delete(DISPLAY_METRICS_SEARCH_PARAMETER)
+      }
+
+      if (data.chartGrid === '2') {
+        newSearchParams.delete(CHART_GRID_SEARCH_PARAMETER)
+      } else {
+        newSearchParams.set(CHART_GRID_SEARCH_PARAMETER, data.chartGrid)
+      }
+
+      return newSearchParams
+    })
 
     if (closeBtnRef.current) {
       closeBtnRef.current.dataset.gaValue = `${data.illustrations.join(',')}|${data.metrics.join(',')}|${data.chartGrid}`

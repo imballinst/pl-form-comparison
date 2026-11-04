@@ -1,8 +1,11 @@
 name: Sync Premier League Data
 
 on:
-  schedule:
-    - cron: '0 23 * * *'
+  # Understat sync disabled for now: the 2026-27 season has no Understat data yet (see the
+  # empty-payload guard in scripts/fetch-understat.ts). Re-enable the schedule once the season data
+  # is available; workflow_dispatch stays for manual runs.
+  # schedule:
+  #   - cron: '0 23 * * *'
   workflow_dispatch:
 
 permissions:
