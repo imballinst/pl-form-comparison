@@ -237,7 +237,7 @@ export default function TeamDiscipline() {
   // series. Everything is visible by default.
   const [hiddenMetrics, setHiddenMetrics] = useState<ReadonlySet<SortMetric>>(() => new Set<SortMetric>())
   // Charts layout; with a single column desktop charts get wide enough for full team names.
-  const [chartGrid, setChartGrid] = useState<ChartGrid>('2')
+  const [chartGrid, setChartGrid] = useState<ChartGrid>('1')
   // Page-wide ordering. Each chart uses its own side's column for the metric and direction; the
   // table uses the combined conceded+given column of the metric.
   const [sortMetric, setSortMetric] = useState<SortMetric>('fouls')
@@ -561,8 +561,8 @@ function SortSelector({ metric, order, onApply }: SortSelectorProps) {
 type ChartGrid = '2' | '1'
 
 const CHART_GRIDS = [
-  { value: '2', label: '2 columns' },
   { value: '1', label: '1 column' },
+  { value: '2', label: '2 columns' },
 ] as const satisfies ReadonlyArray<{ value: ChartGrid; label: string }>
 
 interface DisplaySelectorProps {
