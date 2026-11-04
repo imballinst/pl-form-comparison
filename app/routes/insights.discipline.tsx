@@ -4,7 +4,7 @@ import { SEASONS_SEARCH_PARAMETER, SeasonsSelector } from '@/components/custom/s
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { CURRENT_SEASON } from '@/constants'
@@ -14,7 +14,8 @@ import type { TeamDisciplineAggregateRow, TeamDisciplineStats } from '@/types'
 import { fetchTeamDisciplineStats } from '@/utils/seasons-fetcher'
 import { flexRender, getCoreRowModel, getSortedRowModel, useReactTable, type CellContext, type ColumnDef } from '@tanstack/react-table'
 import { ArrowDown, ArrowDownUp, ArrowUp, SlidersHorizontal } from 'lucide-react'
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { useLoaderData } from 'react-router'
 import type { Route } from './+types/insights.discipline'
 
@@ -47,8 +48,8 @@ type DisciplineDirection = 'conceded' | 'given'
 // and fouls-per-red-card ratios as yellow/red lines sharing the right axis. Order matches the table:
 // conceded stats first, then the given ones.
 const CHARTS = [
-  { key: 'conceded', title: 'Conceded', direction: 'conceded' },
-  { key: 'given', title: 'Given', direction: 'given' },
+  { key: 'conceded', title: 'Conceded (bigger ratio is better)', direction: 'conceded' },
+  { key: 'given', title: 'Given (smaller ratio is better)', direction: 'given' },
 ] as const satisfies ReadonlyArray<{ key: string; title: string; direction: DisciplineDirection }>
 
 type ChartKey = (typeof CHARTS)[number]['key']
@@ -57,6 +58,15 @@ type DisplayKey = ChartKey | 'table'
 const DISPLAY_OPTIONS: Array<{ key: DisplayKey; label: string }> = [
   ...CHARTS.map(({ key, title }) => ({ key, label: title })),
   { key: 'table', label: 'Table (raw data)' },
+]
+
+// Metric checkboxes in the Display popover. Each metric toggles the corresponding series in both
+// charts and the conceded+given columns of that metric in the table; the card-count columns
+// (yellow/red cards) have no metric toggle and always appear.
+const DISPLAY_METRICS: Array<{ key: SortMetric; label: string }> = [
+  { key: 'fouls', label: 'Number of fouls' },
+  { key: 'yellow', label: 'Fouls per yellow card' },
+  { key: 'red', label: 'Fouls per red card' },
 ]
 
 const FOULS_BY_DIRECTION = {
@@ -73,6 +83,17 @@ const RATIO_BY_DIRECTION = {
   conceded: { yellow: 'foulsPerYellowCard', red: 'foulsPerRedCard' },
   given: { yellow: 'foulsPerYellowCardGiven', red: 'foulsPerRedCardGiven' },
 } as const satisfies Record<DisciplineDirection, { yellow: keyof TeamDisciplineStats; red: keyof TeamDisciplineStats }>
+
+// Which Display-metric (if any) a stat column belongs to; columns not listed, e.g. the yellow/red card
+// counts, always appear in the table.
+const METRIC_BY_ACCESSOR: Partial<Record<keyof TeamDisciplineStats, SortMetric>> = {
+  foulsConceded: 'fouls',
+  foulsGiven: 'fouls',
+  foulsPerYellowCard: 'yellow',
+  foulsPerYellowCardGiven: 'yellow',
+  foulsPerRedCard: 'red',
+  foulsPerRedCardGiven: 'red',
+}
 
 // Page-wide team ordering, driven by the Sort popover: one metric, one side, one direction, shared by
 // every chart and the table.
@@ -105,6 +126,14 @@ function sortAccessor(metric: SortMetric, side: SortSide): keyof TeamDisciplineS
 }
 
 function DisciplineLegend() {
+  const explanations = [
+    "<strong>Conceded</strong>: the stats by the team's own players; <strong>given</strong>: the ones by their opponents.",
+    'With multiple seasons selected, everything shows the totals across them, counting only the seasons that each team played in.',
+    'Ratios are marked <strong>-</strong> when a team received no cards of that kind.',
+    "The Display popover's <strong>Metrics</strong> section hides the matching columns from the table and the matching series from the charts.",
+    "Each chart is sorted by its own side's stats using the Sort popover's metric and order. The Sort popover's Side selector picks which side's column orders the table.",
+  ]
+
   const legends = [
     ['FC / FG', 'fouls conceded / given'],
     ['YC / YG', 'yellow cards conceded / given'],
@@ -121,12 +150,16 @@ function DisciplineLegend() {
           className="text-base p-0 text-[unset] underline decoration-dotted h-[unset]"
           data-ga-label="ga-team-discipline-show-legends-button"
         >
-          Click here to display legends.
+          Click here for explanations and legends.
         </Button>
       </PopoverTrigger>
 
-      <PopoverContent className="p-2 text-sm w-auto">
-        <ul className="list-disc pl-4">
+      <PopoverContent className="p-2 text-sm w-auto max-w-[420px]">
+        <ul className="list-disc pl-4 flex flex-col gap-y-1">
+          {explanations.map((explanation) => (
+            <li key={explanation} dangerouslySetInnerHTML={{ __html: explanation }} />
+          ))}
+
           {legends.map(([short, long]) => (
             <li key={short}>
               <span className="font-bold">{short}</span>: {long}
@@ -197,7 +230,11 @@ export default function TeamDiscipline() {
 
   // Sections hidden via the display popover; everything is visible by default.
   const [hiddenSections, setHiddenSections] = useState<ReadonlySet<DisplayKey>>(() => new Set<DisplayKey>())
-  // Page-wide team ordering: both charts and the table are sorted by this single column.
+  // Metrics hidden via the display popover's Metrics section; filters the table columns and the chart
+  // series. Everything is visible by default.
+  const [hiddenMetrics, setHiddenMetrics] = useState<ReadonlySet<SortMetric>>(() => new Set<SortMetric>())
+  // Page-wide team ordering. The metric and direction apply to the table; each chart uses its own
+  // side's column for the same metric and direction, so both charts look cleanly sorted.
   const [sortMetric, setSortMetric] = useState<SortMetric>('fouls')
   const [sortSide, setSortSide] = useState<SortSide>('conceded')
   const [sortOrder, setSortOrder] = useState<SortOrder>('desc')
@@ -207,7 +244,11 @@ export default function TeamDiscipline() {
   const columns = useMemo<ColumnDef<TeamDisciplineAggregateRow>[]>(
     () => [
       { accessorKey: 'team', header: 'Team name' },
-      ...STATS.map((stat) => ({
+      ...STATS.filter((stat) => {
+        const metric = METRIC_BY_ACCESSOR[stat.accessor]
+
+        return metric === undefined || !hiddenMetrics.has(metric)
+      }).map((stat) => ({
         id: stat.accessor,
         // undefined is rendered as "-" (e.g. no cards of that kind, so the ratio does not exist).
         accessorFn: (row: TeamDisciplineAggregateRow) => row.stats[stat.accessor],
@@ -224,9 +265,13 @@ export default function TeamDiscipline() {
         },
       })),
     ],
-    // STATS is a module-level constant.
-    [],
+    // STATS and METRIC_BY_ACCESSOR are module-level constants.
+    [hiddenMetrics],
   )
+  // Stable identity: passing a fresh sorting object every render made TanStack churn endlessly when
+  // re-rendered alongside the charts (the whole tab froze).
+  const sorting = useMemo(() => [{ id: sortColumn, desc: sortOrder === 'desc' }], [sortColumn, sortOrder])
+
   const table = useReactTable({
     data: tableData,
     columns,
@@ -234,7 +279,7 @@ export default function TeamDiscipline() {
     getSortedRowModel: getSortedRowModel(),
     // The page-wide Sort popover is the single source of truth for the table ordering; columns are not
     // independently sortable.
-    state: { sorting: [{ id: sortColumn, desc: sortOrder === 'desc' }] },
+    state: { sorting },
   })
 
   const chartData = useMemo(() => {
@@ -242,6 +287,8 @@ export default function TeamDiscipline() {
     for (const { key, direction } of CHARTS) {
       const foulsKey = FOULS_BY_DIRECTION[direction]
       const ratioKeys = RATIO_BY_DIRECTION[direction]
+      // Each chart sorts by its own side's column, so the Given chart is sorted by Given stats.
+      const chartSortColumn = sortAccessor(sortMetric, direction)
 
       data.set(
         key,
@@ -252,8 +299,7 @@ export default function TeamDiscipline() {
             fouls: row.stats[foulsKey],
             foulsPerYellowCard: row.stats[ratioKeys.yellow],
             foulsPerRedCard: row.stats[ratioKeys.red],
-            // The page-wide sort column; charts use it so both charts and the table share one order.
-            sortValue: row.stats[sortColumn],
+            sortValue: row.stats[chartSortColumn],
           }))
           .sort((a, b) => {
             // Undefined ratios (no cards of that kind) always sink to the bottom; ties break by name.
@@ -273,7 +319,7 @@ export default function TeamDiscipline() {
     }
 
     return data
-  }, [tableData, sortColumn, sortOrder])
+  }, [tableData, sortMetric, sortOrder])
 
   const visibleCharts = CHARTS.filter(({ key }) => !hiddenSections.has(key))
 
@@ -290,6 +336,19 @@ export default function TeamDiscipline() {
     })
   }
 
+  function toggleMetric(metric: SortMetric, visible: boolean) {
+    setHiddenMetrics((prev) => {
+      const next = new Set(prev)
+      if (visible) {
+        next.delete(metric)
+      } else {
+        next.add(metric)
+      }
+
+      return next
+    })
+  }
+
   return (
     <>
       <title>Team Discipline | Premier League Form Comparison</title>
@@ -298,11 +357,8 @@ export default function TeamDiscipline() {
         heading="Team Discipline"
         description={
           <>
-            Compare fouls, yellow cards, and red cards between clubs in the selected seasons. <strong>Conceded</strong> are the stats by the
-            team's own players; <strong>given</strong> are the ones by their opponents. With multiple seasons selected, everything shows the
-            totals across them, counting only the seasons that each team played in. Ratios are marked <strong>-</strong> when a team
-            received no cards of that kind. The charts and the table share one page-wide team order, set by the Sort popover. Choose which
-            charts and the table to display with the Display selector. <DisciplineLegend />
+            Compare fouls, yellow cards, and red cards between clubs in the selected seasons. Choose which charts and the table to display
+            with the Display selector. <DisciplineLegend />
           </>
         }
       />
@@ -320,90 +376,58 @@ export default function TeamDiscipline() {
             </PopoverTrigger>
 
             <PopoverContent align="start" className="w-auto p-3">
-              <ul className="flex flex-col gap-2.5">
-                {DISPLAY_OPTIONS.map(({ key, label }) => (
-                  <li key={key} className="flex items-center gap-2">
-                    <Checkbox
-                      id={`display-${key}`}
-                      checked={!hiddenSections.has(key)}
-                      onCheckedChange={(checked) => toggleSection(key, checked === true)}
-                      data-ga-label={`ga-team-discipline-toggle-display-${key}-checkbox`}
-                    />
-                    <Label htmlFor={`display-${key}`} className="font-normal">
-                      {label}
-                    </Label>
-                  </li>
-                ))}
-              </ul>
-            </PopoverContent>
-          </Popover>
-
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button variant="outline" data-ga-label="ga-team-discipline-show-sort-button">
-                <ArrowDownUp aria-hidden />
-                Sort
-              </Button>
-            </PopoverTrigger>
-
-            <PopoverContent align="start" className="w-auto p-3">
               <div className="flex flex-col gap-3">
                 <section>
-                  <div className="text-sm font-medium">Sort by</div>
-                  <RadioGroup value={sortMetric} onValueChange={(value) => setSortMetric(value as SortMetric)} className="mt-2 gap-2">
-                    {SORT_METRICS.map(({ value, label }) => (
-                      <div key={value} className="flex items-center gap-2">
-                        <RadioGroupItem
-                          value={value}
-                          id={`sort-metric-${value}`}
-                          data-ga-label={`ga-team-discipline-sort-metric-${value}-radio`}
+                  <div className="text-sm font-medium">Illustrations</div>
+                  <ul className="mt-2 flex flex-col gap-2.5">
+                    {DISPLAY_OPTIONS.map(({ key, label }) => (
+                      <li key={key} className="flex items-center gap-2">
+                        <Checkbox
+                          id={`display-${key}`}
+                          checked={!hiddenSections.has(key)}
+                          onCheckedChange={(checked) => toggleSection(key, checked === true)}
+                          data-ga-label={`ga-team-discipline-toggle-display-${key}-checkbox`}
                         />
-                        <Label htmlFor={`sort-metric-${value}`} className="font-normal">
+                        <Label htmlFor={`display-${key}`} className="font-normal">
                           {label}
                         </Label>
-                      </div>
+                      </li>
                     ))}
-                  </RadioGroup>
+                  </ul>
                 </section>
 
                 <section>
-                  <div className="text-sm font-medium">Side</div>
-                  <RadioGroup value={sortSide} onValueChange={(value) => setSortSide(value as SortSide)} className="mt-2 flex-row gap-4">
-                    {SORT_SIDES.map(({ value, label }) => (
-                      <div key={value} className="flex items-center gap-2">
-                        <RadioGroupItem
-                          value={value}
-                          id={`sort-side-${value}`}
-                          data-ga-label={`ga-team-discipline-sort-side-${value}-radio`}
+                  <div className="text-sm font-medium">Metrics</div>
+                  <ul className="mt-2 flex flex-col gap-2.5">
+                    {DISPLAY_METRICS.map(({ key, label }) => (
+                      <li key={key} className="flex items-center gap-2">
+                        <Checkbox
+                          id={`display-metric-${key}`}
+                          checked={!hiddenMetrics.has(key)}
+                          onCheckedChange={(checked) => toggleMetric(key, checked === true)}
+                          data-ga-label={`ga-team-discipline-toggle-metric-${key}-checkbox`}
                         />
-                        <Label htmlFor={`sort-side-${value}`} className="font-normal">
+                        <Label htmlFor={`display-metric-${key}`} className="font-normal">
                           {label}
                         </Label>
-                      </div>
+                      </li>
                     ))}
-                  </RadioGroup>
-                </section>
-
-                <section>
-                  <div className="text-sm font-medium">Order by</div>
-                  <RadioGroup value={sortOrder} onValueChange={(value) => setSortOrder(value as SortOrder)} className="mt-2 flex-row gap-4">
-                    {SORT_ORDERS.map(({ value, label }) => (
-                      <div key={value} className="flex items-center gap-2">
-                        <RadioGroupItem
-                          value={value}
-                          id={`sort-order-${value}`}
-                          data-ga-label={`ga-team-discipline-sort-order-${value}-radio`}
-                        />
-                        <Label htmlFor={`sort-order-${value}`} className="font-normal">
-                          {label}
-                        </Label>
-                      </div>
-                    ))}
-                  </RadioGroup>
+                  </ul>
                 </section>
               </div>
             </PopoverContent>
           </Popover>
+
+          <SortSelector
+            metric={sortMetric}
+            side={sortSide}
+            order={sortOrder}
+            onApply={(metric, side, order) => {
+              setSortMetric(metric)
+              setSortSide(side)
+              setSortOrder(order)
+            }}
+          />
         </div>
 
         {visibleCharts.length > 0 && (
@@ -415,6 +439,9 @@ export default function TeamDiscipline() {
                 foulsName={FOULS_NAME_BY_DIRECTION[direction]}
                 data={chartData.get(key) ?? []}
                 isMobile={isMobile}
+                isFoulsShown={!hiddenMetrics.has('fouls')}
+                isFoulsPerYellowCardShown={!hiddenMetrics.has('yellow')}
+                isFoulsPerRedCardShown={!hiddenMetrics.has('red')}
               />
             ))}
           </div>
@@ -468,5 +495,111 @@ export default function TeamDiscipline() {
         )}
       </div>
     </>
+  )
+}
+
+interface SortSelectorProps {
+  metric: SortMetric
+  side: SortSide
+  order: SortOrder
+  onApply: (metric: SortMetric, side: SortSide, order: SortOrder) => void
+}
+
+/**
+ * Submit-to-apply sort popover, following the roles selector pattern in insights.official-assignments.
+ * The radios preview inside the form; only submitting applies the sort.
+ */
+function SortSelector({ metric, side, order, onApply }: SortSelectorProps) {
+  const closeBtnRef = useRef<HTMLButtonElement>(null)
+  const { watch, setValue, handleSubmit, reset } = useForm<{ metric: SortMetric; side: SortSide; order: SortOrder }>({
+    defaultValues: { metric, side, order },
+  })
+
+  function onSubmit(data: { metric: SortMetric; side: SortSide; order: SortOrder }) {
+    onApply(data.metric, data.side, data.order)
+
+    if (closeBtnRef.current) {
+      closeBtnRef.current.dataset.gaValue = `${data.metric}-${data.side}-${data.order}`
+      closeBtnRef.current.click()
+    }
+  }
+
+  return (
+    <Popover onOpenChange={(open) => open && reset({ metric, side, order })}>
+      <PopoverTrigger asChild>
+        <Button variant="outline" data-ga-label="ga-team-discipline-start-update-sort-button">
+          <ArrowDownUp aria-hidden />
+          Sort
+        </Button>
+      </PopoverTrigger>
+
+      <PopoverContent align="start" className="w-auto p-3">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
+          <section>
+            <div className="text-sm font-medium">Sort by</div>
+            <RadioGroup value={watch('metric')} onValueChange={(value) => setValue('metric', value as SortMetric)} className="mt-2 gap-2">
+              {SORT_METRICS.map(({ value, label }) => (
+                <div key={value} className="flex items-center gap-2">
+                  <RadioGroupItem
+                    value={value}
+                    id={`sort-metric-${value}`}
+                    data-ga-label={`ga-team-discipline-sort-metric-${value}-radio`}
+                  />
+                  <Label htmlFor={`sort-metric-${value}`} className="font-normal">
+                    {label}
+                  </Label>
+                </div>
+              ))}
+            </RadioGroup>
+          </section>
+
+          <section>
+            <div className="text-sm font-medium">Side</div>
+            <RadioGroup
+              value={watch('side')}
+              onValueChange={(value) => setValue('side', value as SortSide)}
+              className="mt-2 flex-row gap-4"
+            >
+              {SORT_SIDES.map(({ value, label }) => (
+                <div key={value} className="flex items-center gap-2">
+                  <RadioGroupItem value={value} id={`sort-side-${value}`} data-ga-label={`ga-team-discipline-sort-side-${value}-radio`} />
+                  <Label htmlFor={`sort-side-${value}`} className="font-normal">
+                    {label}
+                  </Label>
+                </div>
+              ))}
+            </RadioGroup>
+          </section>
+
+          <section>
+            <div className="text-sm font-medium">Order by</div>
+            <RadioGroup
+              value={watch('order')}
+              onValueChange={(value) => setValue('order', value as SortOrder)}
+              className="mt-2 flex-row gap-4"
+            >
+              {SORT_ORDERS.map(({ value, label }) => (
+                <div key={value} className="flex items-center gap-2">
+                  <RadioGroupItem value={value} id={`sort-order-${value}`} data-ga-label={`ga-team-discipline-sort-order-${value}-radio`} />
+                  <Label htmlFor={`sort-order-${value}`} className="font-normal">
+                    {label}
+                  </Label>
+                </div>
+              ))}
+            </RadioGroup>
+          </section>
+
+          <Button type="submit" className="mt-2">
+            Update sort
+          </Button>
+        </form>
+
+        <PopoverClose asChild>
+          <Button data-ga-label="ga-team-discipline-finish-update-sort-button" ref={closeBtnRef} hidden>
+            Close
+          </Button>
+        </PopoverClose>
+      </PopoverContent>
+    </Popover>
   )
 }

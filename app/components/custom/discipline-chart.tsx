@@ -8,7 +8,7 @@ export interface DisciplineChartDatum {
   /** Fouls per card; undefined when the team received no cards of that kind, e.g. zero red cards. */
   foulsPerYellowCard?: number
   foulsPerRedCard?: number
-  /** Page-wide sort value, baked in so both charts and the table share one team order. */
+  /** The chart's own sort value (its side's column), baked in by the route. */
   sortValue?: number
 }
 
@@ -18,6 +18,10 @@ interface DisciplineChartProps {
   foulsName: string
   data: DisciplineChartDatum[]
   isMobile: boolean
+  /** Series visibility, controlled by the Display popover's Metrics section. */
+  isFoulsShown: boolean
+  isFoulsPerYellowCardShown: boolean
+  isFoulsPerRedCardShown: boolean
 }
 
 // The bars are the context series, so they are neutral and nearly hollow; the two ratio series carry
@@ -95,7 +99,15 @@ function ChartTooltip({ active, payload, foulsName }: ChartTooltipProps) {
   )
 }
 
-export function DisciplineChart({ title, foulsName, data, isMobile }: DisciplineChartProps) {
+export function DisciplineChart({
+  title,
+  foulsName,
+  data,
+  isMobile,
+  isFoulsShown,
+  isFoulsPerYellowCardShown,
+  isFoulsPerRedCardShown,
+}: DisciplineChartProps) {
   return (
     <div className="rounded-lg border bg-card p-3 text-card-foreground sm:p-4">
       <h3 className="text-sm font-semibold">{title}</h3>
@@ -137,40 +149,46 @@ export function DisciplineChart({ title, foulsName, data, isMobile }: Discipline
             label={<YAxisLabel value="Fouls per card" side="right" />}
           />
           <Tooltip cursor={{ fill: 'var(--muted)', fillOpacity: 0.5 }} content={<ChartTooltip foulsName={foulsName} />} />
-          <Bar
-            yAxisId="fouls"
-            dataKey="fouls"
-            name={foulsName}
-            fill={BAR_COLOR}
-            fillOpacity={0.06}
-            stroke={BAR_COLOR}
-            strokeWidth={1}
-            maxBarSize={24}
-            radius={[2, 2, 0, 0]}
-            isAnimationActive={false}
-          />
-          <Line
-            yAxisId="ratio"
-            dataKey="foulsPerYellowCard"
-            name="Fouls per yellow card"
-            stroke={YELLOW_COLOR}
-            strokeWidth={0} // dots only; the legend icon draws its own squiggle from the stroke color
-            dot={{ r: 3, fill: YELLOW_COLOR, stroke: 'var(--foreground)', strokeWidth: 1 }}
-            activeDot={{ r: 5, fill: YELLOW_COLOR, stroke: 'var(--foreground)', strokeWidth: 1 }}
-            connectNulls={false}
-            isAnimationActive={false}
-          />
-          <Line
-            yAxisId="ratio"
-            dataKey="foulsPerRedCard"
-            name="Fouls per red card"
-            stroke={RED_COLOR}
-            strokeWidth={0} // dots only; the legend icon draws its own squiggle from the stroke color
-            dot={{ r: 3, fill: RED_COLOR, stroke: 'var(--foreground)', strokeWidth: 1 }}
-            activeDot={{ r: 5, fill: RED_COLOR, stroke: 'var(--foreground)', strokeWidth: 1 }}
-            connectNulls={false}
-            isAnimationActive={false}
-          />
+          {isFoulsShown && (
+            <Bar
+              yAxisId="fouls"
+              dataKey="fouls"
+              name={foulsName}
+              fill={BAR_COLOR}
+              fillOpacity={0.06}
+              stroke={BAR_COLOR}
+              strokeWidth={1}
+              maxBarSize={24}
+              radius={[2, 2, 0, 0]}
+              isAnimationActive={false}
+            />
+          )}
+          {isFoulsPerYellowCardShown && (
+            <Line
+              yAxisId="ratio"
+              dataKey="foulsPerYellowCard"
+              name="Fouls per yellow card"
+              stroke={YELLOW_COLOR}
+              strokeWidth={0} // dots only; the legend icon draws its own squiggle from the stroke color
+              dot={{ r: 3, fill: YELLOW_COLOR, stroke: 'var(--foreground)', strokeWidth: 1 }}
+              activeDot={{ r: 5, fill: YELLOW_COLOR, stroke: 'var(--foreground)', strokeWidth: 1 }}
+              connectNulls={false}
+              isAnimationActive={false}
+            />
+          )}
+          {isFoulsPerRedCardShown && (
+            <Line
+              yAxisId="ratio"
+              dataKey="foulsPerRedCard"
+              name="Fouls per red card"
+              stroke={RED_COLOR}
+              strokeWidth={0} // dots only; the legend icon draws its own squiggle from the stroke color
+              dot={{ r: 3, fill: RED_COLOR, stroke: 'var(--foreground)', strokeWidth: 1 }}
+              activeDot={{ r: 5, fill: RED_COLOR, stroke: 'var(--foreground)', strokeWidth: 1 }}
+              connectNulls={false}
+              isAnimationActive={false}
+            />
+          )}
           <Legend iconSize={10} wrapperStyle={{ fontSize: 11, paddingTop: 4 }} />
         </ComposedChart>
       </ResponsiveContainer>
