@@ -1,8 +1,8 @@
 import { DisciplineChart, type DisciplineChartDatum } from '@/components/custom/discipline-chart'
+import { CheckboxWithField } from '@/components/custom/form'
 import { Header } from '@/components/custom/header'
 import { SEASONS_SEARCH_PARAMETER, SeasonsSelector } from '@/components/custom/seasons-selector'
 import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
 import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
@@ -103,21 +103,24 @@ const SORT_METRICS = [
   { value: 'red', label: 'Fouls per red card' },
 ] as const
 
-const SORT_SIDES = [
-  { value: 'conceded', label: 'Conceded' },
-  { value: 'given', label: 'Given' },
-] as const
-
 const SORT_ORDERS = [
   { value: 'desc', label: 'Descending' },
   { value: 'asc', label: 'Ascending' },
 ] as const
 
 type SortMetric = (typeof SORT_METRICS)[number]['value']
-type SortSide = (typeof SORT_SIDES)[number]['value']
 type SortOrder = (typeof SORT_ORDERS)[number]['value']
 
-function sortAccessor(metric: SortMetric, side: SortSide): keyof TeamDisciplineStats {
+// The table is ordered by the combined conceded+given totals of the chosen metric, re-derived from
+// the sums so the ratios stay true "fouls per card". The charts order by their own side's
+// column for the same metric and direction.
+const COMBINED_BY_METRIC = {
+  fouls: 'combinedFouls',
+  yellow: 'combinedFoulsPerYellowCard',
+  red: 'combinedFoulsPerRedCard',
+} as const satisfies Record<SortMetric, string>
+
+function sortAccessor(metric: SortMetric, side: DisciplineDirection): keyof TeamDisciplineStats {
   if (metric === 'fouls') {
     return FOULS_BY_DIRECTION[side]
   }
@@ -131,7 +134,7 @@ function DisciplineLegend() {
     'With multiple seasons selected, everything shows the totals across them, counting only the seasons that each team played in.',
     'Ratios are marked <strong>-</strong> when a team received no cards of that kind.',
     "The Display popover's <strong>Metrics</strong> section hides the matching columns from the table and the matching series from the charts.",
-    "Each chart is sorted by its own side's stats using the Sort popover's metric and order. The Sort popover's Side selector picks which side's column orders the table.",
+    "Each chart is sorted by its own side's stats using the Sort popover's metric and order; the table is ordered by the combined conceded+given totals.",
   ]
 
   const legends = [
@@ -233,13 +236,10 @@ export default function TeamDiscipline() {
   // Metrics hidden via the display popover's Metrics section; filters the table columns and the chart
   // series. Everything is visible by default.
   const [hiddenMetrics, setHiddenMetrics] = useState<ReadonlySet<SortMetric>>(() => new Set<SortMetric>())
-  // Page-wide team ordering. The metric and direction apply to the table; each chart uses its own
-  // side's column for the same metric and direction, so both charts look cleanly sorted.
+  // Page-wide ordering. Each chart uses its own side's column for the metric and direction; the
+  // table uses the combined conceded+given column of the metric.
   const [sortMetric, setSortMetric] = useState<SortMetric>('fouls')
-  const [sortSide, setSortSide] = useState<SortSide>('conceded')
   const [sortOrder, setSortOrder] = useState<SortOrder>('desc')
-
-  const sortColumn = sortAccessor(sortMetric, sortSide)
 
   const columns = useMemo<ColumnDef<TeamDisciplineAggregateRow>[]>(
     () => [
@@ -268,15 +268,47 @@ export default function TeamDiscipline() {
     // STATS and METRIC_BY_ACCESSOR are module-level constants.
     [hiddenMetrics],
   )
+  // Internal ordering columns for the combined conceded+given metric; kept invisible so only the
+  // Sort popover drives the table order.
+  const COMBINED_COLUMNS: Array<ColumnDef<TeamDisciplineAggregateRow>> = [
+    {
+      id: 'combinedFouls',
+      accessorFn: (row) => row.stats.foulsConceded + row.stats.foulsGiven,
+      sortUndefined: 'last' as const,
+    },
+    {
+      id: 'combinedFoulsPerYellowCard',
+      accessorFn: (row) => {
+        const cards = row.stats.yellowCardsConceded + row.stats.yellowCardsGiven
+
+        return cards === 0 ? undefined : truncateDecimals((row.stats.foulsConceded + row.stats.foulsGiven) / cards)
+      },
+      sortUndefined: 'last' as const,
+    },
+    {
+      id: 'combinedFoulsPerRedCard',
+      accessorFn: (row) => {
+        const cards = row.stats.redCardsConceded + row.stats.redCardsGiven
+
+        return cards === 0 ? undefined : truncateDecimals((row.stats.foulsConceded + row.stats.foulsGiven) / cards)
+      },
+      sortUndefined: 'last' as const,
+    },
+  ]
+
   // Stable identity: passing a fresh sorting object every render made TanStack churn endlessly when
   // re-rendered alongside the charts (the whole tab froze).
-  const sorting = useMemo(() => [{ id: sortColumn, desc: sortOrder === 'desc' }], [sortColumn, sortOrder])
+  const sorting = useMemo(() => [{ id: COMBINED_BY_METRIC[sortMetric], desc: sortOrder === 'desc' }], [sortMetric, sortOrder])
 
   const table = useReactTable({
     data: tableData,
-    columns,
+    columns: [...columns, ...COMBINED_COLUMNS],
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    // Hide the internal combined ordering columns from the rendered cells.
+    initialState: {
+      columnVisibility: { combinedFouls: false, combinedFoulsPerYellowCard: false, combinedFoulsPerRedCard: false },
+    },
     // The page-wide Sort popover is the single source of truth for the table ordering; columns are not
     // independently sortable.
     state: { sorting },
@@ -323,32 +355,6 @@ export default function TeamDiscipline() {
 
   const visibleCharts = CHARTS.filter(({ key }) => !hiddenSections.has(key))
 
-  function toggleSection(key: DisplayKey, visible: boolean) {
-    setHiddenSections((prev) => {
-      const next = new Set(prev)
-      if (visible) {
-        next.delete(key)
-      } else {
-        next.add(key)
-      }
-
-      return next
-    })
-  }
-
-  function toggleMetric(metric: SortMetric, visible: boolean) {
-    setHiddenMetrics((prev) => {
-      const next = new Set(prev)
-      if (visible) {
-        next.delete(metric)
-      } else {
-        next.add(metric)
-      }
-
-      return next
-    })
-  }
-
   return (
     <>
       <title>Team Discipline | Premier League Form Comparison</title>
@@ -367,64 +373,20 @@ export default function TeamDiscipline() {
         <div className="flex flex-wrap items-center gap-2">
           <SeasonsSelector seasons={seasons} gaLabelPrefix="ga-team-discipline" />
 
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button variant="outline" data-ga-label="ga-team-discipline-show-display-button">
-                <SlidersHorizontal aria-hidden />
-                Display
-              </Button>
-            </PopoverTrigger>
-
-            <PopoverContent align="start" className="w-auto p-3">
-              <div className="flex flex-col gap-3">
-                <section>
-                  <div className="text-sm font-medium">Illustrations</div>
-                  <ul className="mt-2 flex flex-col gap-2.5">
-                    {DISPLAY_OPTIONS.map(({ key, label }) => (
-                      <li key={key} className="flex items-center gap-2">
-                        <Checkbox
-                          id={`display-${key}`}
-                          checked={!hiddenSections.has(key)}
-                          onCheckedChange={(checked) => toggleSection(key, checked === true)}
-                          data-ga-label={`ga-team-discipline-toggle-display-${key}-checkbox`}
-                        />
-                        <Label htmlFor={`display-${key}`} className="font-normal">
-                          {label}
-                        </Label>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-
-                <section>
-                  <div className="text-sm font-medium">Metrics</div>
-                  <ul className="mt-2 flex flex-col gap-2.5">
-                    {DISPLAY_METRICS.map(({ key, label }) => (
-                      <li key={key} className="flex items-center gap-2">
-                        <Checkbox
-                          id={`display-metric-${key}`}
-                          checked={!hiddenMetrics.has(key)}
-                          onCheckedChange={(checked) => toggleMetric(key, checked === true)}
-                          data-ga-label={`ga-team-discipline-toggle-metric-${key}-checkbox`}
-                        />
-                        <Label htmlFor={`display-metric-${key}`} className="font-normal">
-                          {label}
-                        </Label>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              </div>
-            </PopoverContent>
-          </Popover>
+          <DisplaySelector
+            hiddenSections={hiddenSections}
+            hiddenMetrics={hiddenMetrics}
+            onApply={(sections, metrics) => {
+              setHiddenSections(sections)
+              setHiddenMetrics(metrics)
+            }}
+          />
 
           <SortSelector
             metric={sortMetric}
-            side={sortSide}
             order={sortOrder}
-            onApply={(metric, side, order) => {
+            onApply={(metric, order) => {
               setSortMetric(metric)
-              setSortSide(side)
               setSortOrder(order)
             }}
           />
@@ -457,8 +419,14 @@ export default function TeamDiscipline() {
                     <span className="inline-flex items-center gap-1">Team name</span>
                   </TableHead>
 
-                  {STATS.map((stat) => {
-                    const isSorted = stat.accessor === sortColumn
+                  {STATS.filter((stat) => {
+                    const metric = METRIC_BY_ACCESSOR[stat.accessor]
+
+                    return metric === undefined || !hiddenMetrics.has(metric)
+                  }).map((stat) => {
+                    // The combined ordering column is invisible; mark every column of the sorted
+                    // metric pair instead.
+                    const isSorted = METRIC_BY_ACCESSOR[stat.accessor] === sortMetric
 
                     return (
                       <TableHead key={stat.accessor} className="text-right whitespace-nowrap" title={stat.long}>
@@ -500,32 +468,31 @@ export default function TeamDiscipline() {
 
 interface SortSelectorProps {
   metric: SortMetric
-  side: SortSide
   order: SortOrder
-  onApply: (metric: SortMetric, side: SortSide, order: SortOrder) => void
+  onApply: (metric: SortMetric, order: SortOrder) => void
 }
 
 /**
  * Submit-to-apply sort popover, following the roles selector pattern in insights.official-assignments.
  * The radios preview inside the form; only submitting applies the sort.
  */
-function SortSelector({ metric, side, order, onApply }: SortSelectorProps) {
+function SortSelector({ metric, order, onApply }: SortSelectorProps) {
   const closeBtnRef = useRef<HTMLButtonElement>(null)
-  const { watch, setValue, handleSubmit, reset } = useForm<{ metric: SortMetric; side: SortSide; order: SortOrder }>({
-    defaultValues: { metric, side, order },
+  const { watch, setValue, handleSubmit, reset } = useForm<{ metric: SortMetric; order: SortOrder }>({
+    defaultValues: { metric, order },
   })
 
-  function onSubmit(data: { metric: SortMetric; side: SortSide; order: SortOrder }) {
-    onApply(data.metric, data.side, data.order)
+  function onSubmit(data: { metric: SortMetric; order: SortOrder }) {
+    onApply(data.metric, data.order)
 
     if (closeBtnRef.current) {
-      closeBtnRef.current.dataset.gaValue = `${data.metric}-${data.side}-${data.order}`
+      closeBtnRef.current.dataset.gaValue = `${data.metric}-${data.order}`
       closeBtnRef.current.click()
     }
   }
 
   return (
-    <Popover onOpenChange={(open) => open && reset({ metric, side, order })}>
+    <Popover onOpenChange={(open) => open && reset({ metric, order })}>
       <PopoverTrigger asChild>
         <Button variant="outline" data-ga-label="ga-team-discipline-start-update-sort-button">
           <ArrowDownUp aria-hidden />
@@ -546,24 +513,6 @@ function SortSelector({ metric, side, order, onApply }: SortSelectorProps) {
                     data-ga-label={`ga-team-discipline-sort-metric-${value}-radio`}
                   />
                   <Label htmlFor={`sort-metric-${value}`} className="font-normal">
-                    {label}
-                  </Label>
-                </div>
-              ))}
-            </RadioGroup>
-          </section>
-
-          <section>
-            <div className="text-sm font-medium">Side</div>
-            <RadioGroup
-              value={watch('side')}
-              onValueChange={(value) => setValue('side', value as SortSide)}
-              className="mt-2 flex-row gap-4"
-            >
-              {SORT_SIDES.map(({ value, label }) => (
-                <div key={value} className="flex items-center gap-2">
-                  <RadioGroupItem value={value} id={`sort-side-${value}`} data-ga-label={`ga-team-discipline-sort-side-${value}-radio`} />
-                  <Label htmlFor={`sort-side-${value}`} className="font-normal">
                     {label}
                   </Label>
                 </div>
@@ -596,6 +545,119 @@ function SortSelector({ metric, side, order, onApply }: SortSelectorProps) {
 
         <PopoverClose asChild>
           <Button data-ga-label="ga-team-discipline-finish-update-sort-button" ref={closeBtnRef} hidden>
+            Close
+          </Button>
+        </PopoverClose>
+      </PopoverContent>
+    </Popover>
+  )
+}
+
+interface DisplaySelectorProps {
+  hiddenSections: ReadonlySet<DisplayKey>
+  hiddenMetrics: ReadonlySet<SortMetric>
+  onApply: (hiddenSections: ReadonlySet<DisplayKey>, hiddenMetrics: ReadonlySet<SortMetric>) => void
+}
+
+/**
+ * Submit-to-apply display popover, following the roles selector pattern in
+ * insights.official-assignments. The checkboxes preview inside the form (they hold the *visible*
+ * items); only submitting applies. Illustrations toggle whole sections; Metrics toggle the matching
+ * table columns and chart series.
+ */
+function DisplaySelector({ hiddenSections, hiddenMetrics, onApply }: DisplaySelectorProps) {
+  const closeBtnRef = useRef<HTMLButtonElement>(null)
+
+  const currentVisibleSections = DISPLAY_OPTIONS.map(({ key }) => key).filter((key) => !hiddenSections.has(key))
+  const currentVisibleMetrics = DISPLAY_METRICS.map(({ key }) => key).filter((key) => !hiddenMetrics.has(key))
+  const { control, handleSubmit, reset } = useForm<{ illustrations: string[]; metrics: string[] }>({
+    defaultValues: { illustrations: currentVisibleSections, metrics: currentVisibleMetrics },
+  })
+
+  function onSubmit(data: { illustrations: string[]; metrics: string[] }) {
+    onApply(
+      new Set(DISPLAY_OPTIONS.map(({ key }) => key).filter((key) => !data.illustrations.includes(key))),
+      new Set(DISPLAY_METRICS.map(({ key }) => key).filter((key) => !data.metrics.includes(key))),
+    )
+
+    if (closeBtnRef.current) {
+      closeBtnRef.current.dataset.gaValue = `${data.illustrations.join(',')}|${data.metrics.join(',')}`
+      closeBtnRef.current.click()
+    }
+  }
+
+  return (
+    <Popover onOpenChange={(open) => open && reset({ illustrations: currentVisibleSections, metrics: currentVisibleMetrics })}>
+      <PopoverTrigger asChild>
+        <Button variant="outline" data-ga-label="ga-team-discipline-start-update-display-button">
+          <SlidersHorizontal aria-hidden />
+          Display
+        </Button>
+      </PopoverTrigger>
+
+      <PopoverContent align="start" className="w-auto p-3">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
+          <section>
+            <div className="text-sm font-medium">Illustrations</div>
+            <div className="mt-2 flex flex-col gap-2.5">
+              {DISPLAY_OPTIONS.map(({ key, label }) => (
+                <CheckboxWithField
+                  key={key}
+                  value={key}
+                  name="illustrations"
+                  control={control}
+                  defaultChecked={currentVisibleSections.includes(key)}
+                  getNextValue={(checked, v) => {
+                    const nextValue = [...v]
+                    if (checked) {
+                      nextValue.push(key)
+                    } else {
+                      nextValue.splice(nextValue.indexOf(key), 1)
+                    }
+
+                    return nextValue
+                  }}
+                  formatValue={() => label}
+                  data-ga-label={`ga-team-discipline-toggle-display-${key}-checkbox`}
+                />
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <div className="text-sm font-medium">Metrics</div>
+            <div className="mt-2 flex flex-col gap-2.5">
+              {DISPLAY_METRICS.map(({ key, label }) => (
+                <CheckboxWithField
+                  key={key}
+                  value={key}
+                  name="metrics"
+                  control={control}
+                  defaultChecked={currentVisibleMetrics.includes(key)}
+                  getNextValue={(checked, v) => {
+                    const nextValue = [...v]
+                    if (checked) {
+                      nextValue.push(key)
+                    } else {
+                      nextValue.splice(nextValue.indexOf(key), 1)
+                    }
+
+                    return nextValue
+                  }}
+                  formatValue={() => label}
+                  data-ga-label={`ga-team-discipline-toggle-metric-${key}-checkbox`}
+                />
+              ))}
+            </div>
+          </section>
+
+          <Button type="submit" className="mt-2">
+            Update display
+          </Button>
+        </form>
+
+        <PopoverClose asChild>
+          <Button data-ga-label="ga-team-discipline-finish-update-display-button" ref={closeBtnRef} hidden>
             Close
           </Button>
         </PopoverClose>

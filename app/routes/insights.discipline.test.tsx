@@ -189,16 +189,25 @@ test('totals the stats across the selected seasons while keeping one row per tea
   }
 })
 
-test('teams are ordered page-wide by fouls conceded, descending, by default', async () => {
+test('teams are ordered by the combined fouls of both sides, descending, by default', async () => {
   const Stub = createStub()
   renderTest(<Stub initialEntries={[{ pathname: '/', search: '?seasons=2023,2024' }]} />)
 
   await screen.findAllByText('Arsenal')
 
-  // No column is clickable anymore; the Sort popover owns the order and defaults to fouls conceded,
-  // descending, so the totals come largest-first without any interaction.
+  // No column is clickable anymore; the Sort popover owns the order and defaults to the combined
+  // fouls (conceded + given) of both sides, descending.
   expect(screen.queryByRole('columnheader', { name: 'Season' })).not.toBeInTheDocument()
-  const getFoulsConcededTotals = () => getBodyRows().map((row) => Number(within(row).getAllByRole('cell')[1].textContent?.trim()))
-  const totals = getFoulsConcededTotals()
+
+  const indexByHeader = getStatHeaderIndexMap()
+  const foulsConcededIndex = indexByHeader.get(STAT_HEADERS.foulsConceded)!
+  const foulsGivenIndex = indexByHeader.get(STAT_HEADERS.foulsGiven)!
+  const getCombinedFoulsTotals = () =>
+    getBodyRows().map((row) => {
+      const cells = within(row).getAllByRole('cell')
+      return Number(cells[foulsConcededIndex].textContent?.trim()) + Number(cells[foulsGivenIndex].textContent?.trim())
+    })
+
+  const totals = getCombinedFoulsTotals()
   expect(totals).toEqual([...totals].sort((a, b) => b - a))
 })
