@@ -2,6 +2,7 @@ import { truncateDecimals } from '@/lib/format'
 import { renderTest } from '@/lib/testutils'
 import '@testing-library/jest-dom'
 import { screen, within } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { RouterContextProvider, createRoutesStub } from 'react-router'
 import { expect, test } from 'vitest'
 import TeamDiscipline, { clientLoader } from './insights.discipline'
@@ -211,3 +212,87 @@ test('teams are ordered by the combined fouls of both sides, descending, by defa
   const totals = getCombinedFoulsTotals()
   expect(totals).toEqual([...totals].sort((a, b) => b - a))
 })
+
+// A metric hidden via Display > Metrics is dropped from the Sort popover's options and from the
+// legend's related entries; the card-count entries always stay, and the ratio "- " remark drops
+// once both ratio metrics are hidden. The loader falls back to the first still visible sort metric,
+// so the checked radio confirms the fallback too.
+const HIDDEN_METRIC_CASES = [
+  {
+    description: 'fouls',
+    search: 'metrics=yellow,red',
+    presentSortMetrics: ['Fouls per yellow card', 'Fouls per red card'],
+    absentSortMetrics: ['Number of fouls'],
+    checkedSortMetric: 'Fouls per yellow card',
+    presentLegends: ['YC / YG', 'RC / RG', 'FPY / FPYG', 'FPR / FPRG'],
+    absentLegends: ['FC / FG'],
+    isRatioMarkExplained: true,
+  },
+  {
+    description: 'yellow ratio',
+    search: 'metrics=fouls,red',
+    presentSortMetrics: ['Number of fouls', 'Fouls per red card'],
+    absentSortMetrics: ['Fouls per yellow card'],
+    checkedSortMetric: 'Number of fouls',
+    presentLegends: ['FC / FG', 'YC / YG', 'RC / RG', 'FPR / FPRG'],
+    absentLegends: ['FPY / FPYG'],
+    isRatioMarkExplained: true,
+  },
+  {
+    description: 'red ratio',
+    search: 'metrics=fouls,yellow',
+    presentSortMetrics: ['Number of fouls', 'Fouls per yellow card'],
+    absentSortMetrics: ['Fouls per red card'],
+    checkedSortMetric: 'Number of fouls',
+    presentLegends: ['FC / FG', 'YC / YG', 'RC / RG', 'FPY / FPYG'],
+    absentLegends: ['FPR / FPRG'],
+    isRatioMarkExplained: true,
+  },
+  {
+    description: 'both ratios',
+    search: 'metrics=fouls',
+    presentSortMetrics: ['Number of fouls'],
+    absentSortMetrics: ['Fouls per yellow card', 'Fouls per red card'],
+    checkedSortMetric: 'Number of fouls',
+    presentLegends: ['FC / FG', 'YC / YG', 'RC / RG'],
+    absentLegends: ['FPY / FPYG', 'FPR / FPRG'],
+    isRatioMarkExplained: false,
+  },
+] as const
+
+test.each(HIDDEN_METRIC_CASES)(
+  'a hidden $description metric is dropped from the Sort and legend popovers',
+  async ({ search, presentSortMetrics, absentSortMetrics, checkedSortMetric, presentLegends, absentLegends, isRatioMarkExplained }) => {
+    const Stub = createStub()
+    renderTest(<Stub initialEntries={[{ pathname: '/', search: `?seasons=2023&${search}` }]} />)
+
+    await screen.findAllByText('Arsenal')
+
+    const user = userEvent.setup()
+
+    await user.click(screen.getByRole('button', { name: 'Click here for explanations and legends.' }))
+
+    for (const legend of presentLegends) {
+      expect(screen.getByText(legend)).toBeInTheDocument()
+    }
+    for (const legend of absentLegends) {
+      expect(screen.queryByText(legend)).not.toBeInTheDocument()
+    }
+    if (isRatioMarkExplained) {
+      expect(screen.getByText(/Ratios are marked/)).toBeInTheDocument()
+    } else {
+      expect(screen.queryByText(/Ratios are marked/)).not.toBeInTheDocument()
+    }
+
+    await user.click(document.body)
+    await user.click(screen.getByRole('button', { name: 'Sort' }))
+
+    for (const name of presentSortMetrics) {
+      expect(screen.getByRole('radio', { name })).toBeInTheDocument()
+    }
+    for (const name of absentSortMetrics) {
+      expect(screen.queryByRole('radio', { name })).not.toBeInTheDocument()
+    }
+    expect(screen.getByRole('radio', { name: checkedSortMetric })).toBeChecked()
+  },
+)

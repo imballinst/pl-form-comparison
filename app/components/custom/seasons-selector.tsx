@@ -2,10 +2,11 @@ import { CheckboxWithField } from '@/components/custom/form'
 import { Button } from '@/components/ui/button'
 import { FieldGroup, FieldLegend, FieldSet } from '@/components/ui/field'
 import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { CURRENT_SEASON } from '@/constants'
 import { formatSeason } from '@/utils/match'
 import { AVAILABLE_SEASONS } from '@/utils/seasons-fetcher'
 import { ChevronDown } from 'lucide-react'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { useSearchParams } from 'react-router'
 
@@ -20,7 +21,7 @@ interface SeasonsSelectorProps {
 export const SEASONS_SEARCH_PARAMETER = 'seasons'
 
 export function SeasonsSelector({ seasons: seasonsArraySearchParams, gaLabelPrefix }: SeasonsSelectorProps) {
-  const [, setSearchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const closeBtnRef = useRef<HTMLButtonElement>(null)
   const { control, handleSubmit } = useForm({
@@ -29,11 +30,40 @@ export function SeasonsSelector({ seasons: seasonsArraySearchParams, gaLabelPref
     },
   })
 
+  // Retroactive cleanup, mirroring the sort-by handling in insights.discipline: a lone current season
+  // means the default, so a stale ?seasons=<current-season> URL is rewritten to drop the parameter,
+  // keeping the parameterless URL the pristine view for refreshes and shared links.
+  useEffect(() => {
+    const seasonsParam = searchParams.get(SEASONS_SEARCH_PARAMETER)
+
+    if (seasonsParam === null) {
+      return
+    }
+
+    const seasonsFromParam = seasonsParam.split(',').filter(Boolean).sort()
+
+    if (seasonsFromParam.length === 1 && seasonsFromParam[0] === CURRENT_SEASON) {
+      setSearchParams(
+        (prev) => {
+          const newSearchParams = new URLSearchParams(prev)
+          newSearchParams.delete(SEASONS_SEARCH_PARAMETER)
+
+          return newSearchParams
+        },
+        { replace: true },
+      )
+    }
+  }, [searchParams, setSearchParams])
+
   function onSubmit(data: { seasons: string[] }) {
     setSearchParams((prev) => {
       const newSearchParams = new URLSearchParams(prev)
       const newSeasonsArray = data.seasons
-      if (newSeasonsArray.length === 0) {
+      // Persist only non-default states, matching the other selectors: both consumer routes default
+      // to the single current season, so that selection (and none) drops the parameter altogether
+      // and the parameterless URL stays the pristine view.
+      const isDefaultSelection = newSeasonsArray.length === 0 || (newSeasonsArray.length === 1 && newSeasonsArray[0] === CURRENT_SEASON)
+      if (isDefaultSelection) {
         newSearchParams.delete(SEASONS_SEARCH_PARAMETER)
       } else {
         newSearchParams.set(SEASONS_SEARCH_PARAMETER, newSeasonsArray.sort().join(','))

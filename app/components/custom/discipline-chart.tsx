@@ -71,12 +71,17 @@ interface ChartTooltipProps {
   active?: boolean
   payload?: Array<{ payload: DisciplineChartDatum }>
   foulsName: string
+  /** Mirrors the series visibility props: hidden metrics are dropped from the rows as well. */
+  isFoulsShown: boolean
+  isFoulsPerYellowCardShown: boolean
+  isFoulsPerRedCardShown: boolean
 }
 
-function ChartTooltip({ active, payload, foulsName }: ChartTooltipProps) {
+function ChartTooltip({ active, payload, foulsName, isFoulsShown, isFoulsPerYellowCardShown, isFoulsPerRedCardShown }: ChartTooltipProps) {
   const datum = payload?.[0]?.payload
+  const isAnyRowShown = isFoulsShown || isFoulsPerYellowCardShown || isFoulsPerRedCardShown
 
-  if (!active || !datum) {
+  if (!active || !datum || !isAnyRowShown) {
     return null
   }
 
@@ -85,18 +90,24 @@ function ChartTooltip({ active, payload, foulsName }: ChartTooltipProps) {
   return (
     <div className="rounded-md border bg-popover text-popover-foreground px-2 py-1.5 text-xs shadow-md">
       <div className="font-semibold">{datum.team}</div>
-      <div className="mt-1 flex items-center gap-1.5">
-        <span className="size-2 rounded-[2px]" style={{ backgroundColor: BAR_COLOR }} />
-        {foulsName}: {datum.fouls}
-      </div>
-      <div className="flex items-center gap-1.5">
-        <span className="size-2 rounded-full" style={{ backgroundColor: YELLOW_COLOR }} />
-        Fouls per yellow card: {ratioText(datum.foulsPerYellowCard)}
-      </div>
-      <div className="flex items-center gap-1.5">
-        <span className="size-2 rounded-full" style={{ backgroundColor: RED_COLOR }} />
-        Fouls per red card: {ratioText(datum.foulsPerRedCard)}
-      </div>
+      {isFoulsShown && (
+        <div className="mt-1 flex items-center gap-1.5">
+          <span className="size-2 rounded-[2px]" style={{ backgroundColor: BAR_COLOR }} />
+          {foulsName}: {datum.fouls}
+        </div>
+      )}
+      {isFoulsPerYellowCardShown && (
+        <div className="flex items-center gap-1.5">
+          <span className="size-2 rounded-full" style={{ backgroundColor: YELLOW_COLOR }} />
+          Fouls per yellow card: {ratioText(datum.foulsPerYellowCard)}
+        </div>
+      )}
+      {isFoulsPerRedCardShown && (
+        <div className="flex items-center gap-1.5">
+          <span className="size-2 rounded-full" style={{ backgroundColor: RED_COLOR }} />
+          Fouls per red card: {ratioText(datum.foulsPerRedCard)}
+        </div>
+      )}
     </div>
   )
 }
@@ -155,7 +166,17 @@ export function DisciplineChart({
             axisLine={false}
             label={<YAxisLabel value="Fouls per card" side="right" />}
           />
-          <Tooltip cursor={{ fill: 'var(--muted)', fillOpacity: 0.5 }} content={<ChartTooltip foulsName={foulsName} />} />
+          <Tooltip
+            cursor={{ fill: 'var(--muted)', fillOpacity: 0.5 }}
+            content={
+              <ChartTooltip
+                foulsName={foulsName}
+                isFoulsShown={isFoulsShown}
+                isFoulsPerYellowCardShown={isFoulsPerYellowCardShown}
+                isFoulsPerRedCardShown={isFoulsPerRedCardShown}
+              />
+            }
+          />
           {isFoulsShown && (
             <Bar
               yAxisId="fouls"

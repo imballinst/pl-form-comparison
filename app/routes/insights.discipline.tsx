@@ -14,7 +14,7 @@ import type { TeamDisciplineAggregateRow, TeamDisciplineStats } from '@/types'
 import { fetchTeamDisciplineStats } from '@/utils/seasons-fetcher'
 import { flexRender, getCoreRowModel, getSortedRowModel, useReactTable, type CellContext, type ColumnDef } from '@tanstack/react-table'
 import { ArrowDown, ArrowDownUp, ArrowUp, SlidersHorizontal } from 'lucide-react'
-import { useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/insights.discipline'
@@ -62,7 +62,9 @@ const DISPLAY_OPTIONS: Array<{ key: DisplayKey; label: string }> = [
 
 // Metric checkboxes in the Display popover. Each metric toggles the corresponding series in both
 // charts and the conceded+given columns of that metric in the table; the card-count columns
-// (yellow/red cards) have no metric toggle and always appear.
+// (yellow/red cards) have no metric toggle and always appear. Hidden metrics also drop from the
+// legend popover's related entries, from the Sort popover's options, and from the sort-by search
+// parameter.
 const DISPLAY_METRICS: Array<{ key: SortMetric; label: string }> = [
   { key: 'fouls', label: 'Number of fouls' },
   { key: 'yellow', label: 'Fouls per yellow card' },
@@ -135,22 +137,31 @@ function sortAccessor(metric: SortMetric, side: DisciplineDirection): keyof Team
   return metric === 'yellow' ? RATIO_BY_DIRECTION[side].yellow : RATIO_BY_DIRECTION[side].red
 }
 
-function DisciplineLegend() {
-  const explanations = [
+function DisciplineLegend({ hiddenMetrics }: { hiddenMetrics: ReadonlySet<SortMetric> }) {
+  const explanations: string[] = [
     "<strong>Conceded</strong>: the stats by the team's own players; <strong>given</strong>: the ones by their opponents.",
     'With multiple seasons selected, everything shows the totals across them, counting only the seasons that each team played in.',
-    'Ratios are marked <strong>-</strong> when a team received no cards of that kind.',
-    "The Display popover's <strong>Metrics</strong> section hides the matching columns from the table and the matching series from the charts.",
-    "Each chart is sorted by its own side's stats using the Sort popover's metric and order; the table is ordered by the combined conceded+given totals.",
   ]
+  // The ratio remark only matters while at least one ratio metric is still displayed.
+  if (!hiddenMetrics.has('yellow') || !hiddenMetrics.has('red')) {
+    explanations.push('Ratios are marked <strong>-</strong> when a team received no cards of that kind.')
+  }
+  explanations.push(
+    "The Display popover's <strong>Metrics</strong> section hides the matching columns from the table, the matching series from the charts, and the related sort options and legend entries.",
+    "Each chart is sorted by its own side's stats using the Sort popover's metric and order; the table is ordered by the combined conceded+given totals.",
+  )
 
-  const legends = [
-    ['FC / FG', 'fouls conceded / given'],
-    ['YC / YG', 'yellow cards conceded / given'],
-    ['RC / RG', 'red cards conceded / given'],
-    ['FPY / FPYG', 'fouls per yellow card conceded / given, e.g. 102 fouls and 10 yellow cards ≈ 10.2'],
-    ['FPR / FPRG', 'fouls per red card conceded / given'],
-  ] as Array<[string, string]>
+  const legends: Array<[string, string]> = []
+  if (!hiddenMetrics.has('fouls')) {
+    legends.push(['FC / FG', 'fouls conceded / given'])
+  }
+  legends.push(['YC / YG', 'yellow cards conceded / given'], ['RC / RG', 'red cards conceded / given'])
+  if (!hiddenMetrics.has('yellow')) {
+    legends.push(['FPY / FPYG', 'fouls per yellow card conceded / given, e.g. 102 fouls and 10 yellow cards ≈ 10.2'])
+  }
+  if (!hiddenMetrics.has('red')) {
+    legends.push(['FPR / FPRG', 'fouls per red card conceded / given'])
+  }
 
   return (
     <Popover>
@@ -202,10 +213,15 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
       ? SORT_METRICS.map(({ value }) => value)
       : (metricsParam.split(',').filter((value) => SORT_METRICS.some(({ value: metric }) => metric === value)) as SortMetric[])
   const hiddenMetrics = DISPLAY_METRICS.map(({ key }) => key).filter((key) => !visibleMetrics.includes(key))
+  const hiddenMetricsSet = new Set(hiddenMetrics)
 
   const chartGrid: ChartGrid = searchParams.get(CHART_GRID_SEARCH_PARAMETER) === '1' ? '1' : '2'
   const sortByParam = searchParams.get(SORT_BY_SEARCH_PARAMETER) ?? ''
-  const sortBy: SortMetric = SORT_METRICS.some(({ value }) => value === sortByParam) ? (sortByParam as SortMetric) : 'fouls'
+  const requestedSortBy: SortMetric = SORT_METRICS.some(({ value }) => value === sortByParam) ? (sortByParam as SortMetric) : 'fouls'
+  // A sort metric hidden via Display > Metrics is no longer offered by the Sort popover; fall back
+  // to the first still visible metric, and the UI cleans up the stale parameter after the loader.
+  const visibleSortMetrics = SORT_METRICS.map(({ value }) => value).filter((value) => !hiddenMetricsSet.has(value))
+  const sortBy: SortMetric = hiddenMetricsSet.has(requestedSortBy) ? (visibleSortMetrics[0] ?? 'fouls') : requestedSortBy
   const sortOrder: SortOrder = searchParams.get(SORT_ORDER_SEARCH_PARAMETER) === 'asc' ? 'asc' : 'desc'
 
   const rows = await fetchTeamDisciplineStats(seasonsArray)
@@ -276,6 +292,36 @@ export default function TeamDiscipline() {
   // the combined conceded+given column.
 
   const hiddenMetricsSet = useMemo(() => new Set<SortMetric>(hiddenMetrics), [hiddenMetrics])
+
+  // When the persisted sort metric becomes hidden via Display > Metrics, the loader falls back to
+  // the first still visible metric; retroactively drop the stale parameter so refreshes and shared
+  // links stay consistent, keeping the parameterless URL the pristine 'fouls' default.
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  useEffect(() => {
+    const sortByParam = searchParams.get(SORT_BY_SEARCH_PARAMETER)
+
+    if (sortByParam === null || !hiddenMetricsSet.has(sortByParam as SortMetric)) {
+      return
+    }
+
+    const fallback = SORT_METRICS.map(({ value }) => value).find((value) => !hiddenMetricsSet.has(value)) ?? 'fouls'
+
+    setSearchParams(
+      (prev) => {
+        const newSearchParams = new URLSearchParams(prev)
+
+        if (fallback === 'fouls') {
+          newSearchParams.delete(SORT_BY_SEARCH_PARAMETER)
+        } else {
+          newSearchParams.set(SORT_BY_SEARCH_PARAMETER, fallback)
+        }
+
+        return newSearchParams
+      },
+      { replace: true },
+    )
+  }, [searchParams, hiddenMetricsSet, setSearchParams])
 
   const columns = useMemo<ColumnDef<TeamDisciplineAggregateRow>[]>(
     () => [
@@ -400,7 +446,7 @@ export default function TeamDiscipline() {
         description={
           <>
             Compare fouls, yellow cards, and red cards between clubs in the selected seasons. Choose which charts and the table to display
-            with the Display selector. <DisciplineLegend />
+            with the Display selector. <DisciplineLegend hiddenMetrics={hiddenMetricsSet} />
           </>
         }
       />
@@ -411,7 +457,7 @@ export default function TeamDiscipline() {
 
           <DisplaySelector hiddenSections={hiddenSections} hiddenMetrics={hiddenMetricsSet} chartGrid={chartGrid} />
 
-          <SortSelector metric={sortBy} order={sortOrder} />
+          <SortSelector metric={sortBy} order={sortOrder} hiddenMetrics={hiddenMetricsSet} />
         </div>
 
         {visibleCharts.length > 0 && (
@@ -492,6 +538,8 @@ export default function TeamDiscipline() {
 interface SortSelectorProps {
   metric: SortMetric
   order: SortOrder
+  /** Metrics hidden via the Display popover, excluded from the offered sort options. */
+  hiddenMetrics: ReadonlySet<SortMetric>
 }
 
 /**
@@ -499,12 +547,13 @@ interface SortSelectorProps {
  * The radios preview inside the form; only submitting persists the values into the URL's search
  * parameters, which the loader parses back.
  */
-function SortSelector({ metric, order }: SortSelectorProps) {
+function SortSelector({ metric, order, hiddenMetrics }: SortSelectorProps) {
   const [, setSearchParams] = useSearchParams()
   const closeBtnRef = useRef<HTMLButtonElement>(null)
   const { watch, setValue, handleSubmit, reset } = useForm<{ metric: SortMetric; order: SortOrder }>({
     defaultValues: { metric, order },
   })
+  const visibleSortMetrics = SORT_METRICS.filter(({ value }) => !hiddenMetrics.has(value))
 
   function onSubmit(data: { metric: SortMetric; order: SortOrder }) {
     // Persist only the non-default states, so the parameterless URL stays the pristine view.
@@ -543,31 +592,29 @@ function SortSelector({ metric, order }: SortSelectorProps) {
 
       <PopoverContent align="start" className="w-auto p-3">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
-          <section>
-            <div className="text-sm font-medium">Sort by</div>
-            <RadioGroup value={watch('metric')} onValueChange={(value) => setValue('metric', value as SortMetric)} className="mt-2 gap-2">
-              {SORT_METRICS.map(({ value, label }) => (
-                <div key={value} className="flex items-center gap-2">
-                  <RadioGroupItem
-                    value={value}
-                    id={`sort-metric-${value}`}
-                    data-ga-label={`ga-team-discipline-sort-metric-${value}-radio`}
-                  />
-                  <Label htmlFor={`sort-metric-${value}`} className="font-normal">
-                    {label}
-                  </Label>
-                </div>
-              ))}
-            </RadioGroup>
-          </section>
+          {visibleSortMetrics.length > 0 && (
+            <section>
+              <div className="text-sm font-medium">Sort by</div>
+              <RadioGroup value={watch('metric')} onValueChange={(value) => setValue('metric', value as SortMetric)} className="mt-2">
+                {visibleSortMetrics.map(({ value, label }) => (
+                  <div key={value} className="flex items-center gap-2">
+                    <RadioGroupItem
+                      value={value}
+                      id={`sort-metric-${value}`}
+                      data-ga-label={`ga-team-discipline-sort-metric-${value}-radio`}
+                    />
+                    <Label htmlFor={`sort-metric-${value}`} className="font-normal">
+                      {label}
+                    </Label>
+                  </div>
+                ))}
+              </RadioGroup>
+            </section>
+          )}
 
           <section>
             <div className="text-sm font-medium">Order by</div>
-            <RadioGroup
-              value={watch('order')}
-              onValueChange={(value) => setValue('order', value as SortOrder)}
-              className="mt-2 flex-row gap-4"
-            >
+            <RadioGroup value={watch('order')} onValueChange={(value) => setValue('order', value as SortOrder)} className="mt-2">
               {SORT_ORDERS.map(({ value, label }) => (
                 <div key={value} className="flex items-center gap-2">
                   <RadioGroupItem value={value} id={`sort-order-${value}`} data-ga-label={`ga-team-discipline-sort-order-${value}-radio`} />
@@ -675,7 +722,7 @@ function DisplaySelector({ hiddenSections, hiddenMetrics, chartGrid }: DisplaySe
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
           <section>
             <div className="text-sm font-medium">Illustrations</div>
-            <div className="mt-2 flex flex-col gap-2.5">
+            <div className="mt-2 flex flex-col gap-3">
               {DISPLAY_OPTIONS.map(({ key, label }) => (
                 <CheckboxWithField
                   key={key}
@@ -702,7 +749,7 @@ function DisplaySelector({ hiddenSections, hiddenMetrics, chartGrid }: DisplaySe
 
           <section>
             <div className="text-sm font-medium">Metrics</div>
-            <div className="mt-2 flex flex-col gap-2.5">
+            <div className="mt-2 flex flex-col gap-3">
               {DISPLAY_METRICS.map(({ key, label }) => (
                 <CheckboxWithField
                   key={key}
@@ -729,11 +776,7 @@ function DisplaySelector({ hiddenSections, hiddenMetrics, chartGrid }: DisplaySe
 
           <section>
             <div className="text-sm font-medium">Chart grid</div>
-            <RadioGroup
-              value={watch('chartGrid')}
-              onValueChange={(value) => setValue('chartGrid', value as ChartGrid)}
-              className="mt-2 flex-row gap-4"
-            >
+            <RadioGroup value={watch('chartGrid')} onValueChange={(value) => setValue('chartGrid', value as ChartGrid)} className="mt-2">
               {CHART_GRIDS.map(({ value, label }) => (
                 <div key={value} className="flex items-center gap-2">
                   <RadioGroupItem value={value} id={`chart-grid-${value}`} data-ga-label={`ga-team-discipline-chart-grid-${value}-radio`} />
