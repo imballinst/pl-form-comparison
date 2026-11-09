@@ -3800,7 +3800,7 @@
           "redCards": 1
         },
         "ground": "Stamford Bridge",
-        "attendance": null,
+        "attendance": 39503,
         "stats": {
           "referee": "Peter Bankes",
           "fbref": {
@@ -3941,7 +3941,7 @@
           "redCards": 0
         },
         "ground": "Etihad Stadium",
-        "attendance": null,
+        "attendance": 60503,
         "stats": {
           "referee": "Craig Pawson",
           "fbref": {
@@ -4254,9 +4254,9 @@
         "matchId": "31273",
         "matchweek": 10,
         "kickoff": "2026-11-06 20:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 3,
           "name": "Everton",
           "id": "72",
           "shortName": "Everton",
@@ -4264,7 +4264,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Coventry City",
           "id": "294",
           "shortName": "Coventry City",
@@ -4272,16 +4272,38 @@
           "redCards": 0
         },
         "ground": "Hill Dickinson Stadium",
-        "attendance": null,
-        "stats": null
+        "attendance": 52395,
+        "stats": {
+          "referee": "Stuart Attwell",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 2,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 2,
+              "offsides": 0
+            }
+          },
+          "understat": {
+            "homeXg": 0,
+            "awayXg": 0
+          }
+        }
       },
       {
         "matchId": "31276",
         "matchweek": 10,
         "kickoff": "2026-11-07 12:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Leeds United",
           "id": "245",
           "shortName": "Leeds United",
@@ -4289,7 +4311,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 0,
           "name": "Tottenham Hotspur",
           "id": "82",
           "shortName": "Tottenham Hotspur",
@@ -4297,16 +4319,38 @@
           "redCards": 0
         },
         "ground": "Elland Road",
-        "attendance": null,
-        "stats": null
+        "attendance": 36924,
+        "stats": {
+          "referee": "John Brooks",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 6,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 0,
+            "awayXg": 0
+          }
+        }
       },
       {
         "matchId": "31270",
         "matchweek": 10,
         "kickoff": "2026-11-07 15:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Arsenal",
           "id": "83",
           "shortName": "Arsenal",
@@ -4314,7 +4358,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 0,
           "name": "Hull City",
           "id": "91",
           "shortName": "Hull City",
@@ -4322,16 +4366,38 @@
           "redCards": 0
         },
         "ground": "Emirates Stadium",
-        "attendance": null,
-        "stats": null
+        "attendance": 60285,
+        "stats": {
+          "referee": "Farai Hallam",
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 7,
+              "offsides": 4
+            },
+            "away": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 0,
+            "awayXg": 0
+          }
+        }
       },
       {
         "matchId": "31274",
         "matchweek": 10,
         "kickoff": "2026-11-07 15:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Fulham",
           "id": "228",
           "shortName": "Fulham",
@@ -4339,7 +4405,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Newcastle United",
           "id": "86",
           "shortName": "Newcastle United",
@@ -4347,16 +4413,38 @@
           "redCards": 0
         },
         "ground": "Craven Cottage",
-        "attendance": null,
-        "stats": null
+        "attendance": 27367,
+        "stats": {
+          "referee": "Robert Jones",
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 3,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 3,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 0,
+            "awayXg": 0
+          }
+        }
       },
       {
         "matchId": "31278",
         "matchweek": 10,
         "kickoff": "2026-11-07 17:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 3,
           "name": "Nottingham Forest",
           "id": "249",
           "shortName": "Nottingham Forest",
@@ -4364,7 +4452,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 1,
           "name": "Manchester City",
           "id": "88",
           "shortName": "Manchester City",
@@ -4372,16 +4460,38 @@
           "redCards": 0
         },
         "ground": "The City Ground",
-        "attendance": null,
-        "stats": null
+        "attendance": 30762,
+        "stats": {
+          "referee": "Samuel Barrott",
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 13,
+              "corners": 3,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 7,
+              "offsides": 0
+            }
+          },
+          "understat": {
+            "homeXg": 0,
+            "awayXg": 0
+          }
+        }
       },
       {
         "matchId": "31271",
         "matchweek": 10,
         "kickoff": "2026-11-08 14:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 2,
           "name": "Brighton and Hove Albion",
           "id": "220",
           "shortName": "Brighton and Hove Albion",
@@ -4389,24 +4499,46 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 0,
           "name": "Brentford",
           "id": "244",
           "shortName": "Brentford",
           "abbr": "BRE",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "The American Express Stadium",
-        "attendance": null,
-        "stats": null
+        "attendance": 31629,
+        "stats": {
+          "referee": "Michael Oliver",
+          "fbref": {
+            "home": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 11,
+              "corners": 7,
+              "offsides": 1
+            },
+            "away": {
+              "yellowCards": 2,
+              "redCards": 1,
+              "fouls": 7,
+              "corners": 3,
+              "offsides": 3
+            }
+          },
+          "understat": {
+            "homeXg": 0,
+            "awayXg": 0
+          }
+        }
       },
       {
         "matchId": "31272",
         "matchweek": 10,
         "kickoff": "2026-11-08 14:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Crystal Palace",
           "id": "78",
           "shortName": "Crystal Palace",
@@ -4414,7 +4546,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 3,
           "name": "Liverpool",
           "id": "87",
           "shortName": "Liverpool",
@@ -4423,15 +4555,37 @@
         },
         "ground": "Selhurst Park",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": "Tony Harrington",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 10,
+              "corners": 4,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 7,
+              "offsides": 0
+            }
+          },
+          "understat": {
+            "homeXg": 0,
+            "awayXg": 0
+          }
+        }
       },
       {
         "matchId": "31275",
         "matchweek": 10,
         "kickoff": "2026-11-08 14:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Ipswich Town",
           "id": "285",
           "shortName": "Ipswich Town",
@@ -4439,7 +4593,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 2,
           "name": "Bournemouth",
           "id": "73",
           "shortName": "Bournemouth",
@@ -4447,16 +4601,38 @@
           "redCards": 0
         },
         "ground": "Portman Road Stadium",
-        "attendance": null,
-        "stats": null
+        "attendance": 29396,
+        "stats": {
+          "referee": "Simon Hooper",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 6,
+              "corners": 2,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 3,
+              "redCards": 0,
+              "fouls": 20,
+              "corners": 7,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 0,
+            "awayXg": 0
+          }
+        }
       },
       {
         "matchId": "31279",
         "matchweek": 10,
         "kickoff": "2026-11-08 14:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 1,
           "name": "Sunderland",
           "id": "77",
           "shortName": "Sunderland",
@@ -4464,7 +4640,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 0,
           "name": "Chelsea",
           "id": "80",
           "shortName": "Chelsea",
@@ -4473,15 +4649,37 @@
         },
         "ground": "Stadium of Light",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": "Jarred Gillett",
+          "fbref": {
+            "home": {
+              "yellowCards": 5,
+              "redCards": 0,
+              "fouls": 17,
+              "corners": 2,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 2,
+              "offsides": 0
+            }
+          },
+          "understat": {
+            "homeXg": 0,
+            "awayXg": 0
+          }
+        }
       },
       {
         "matchId": "31277",
         "matchweek": 10,
         "kickoff": "2026-11-08 16:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 4,
           "name": "Manchester United",
           "id": "89",
           "shortName": "Manchester United",
@@ -4489,7 +4687,7 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 4,
           "name": "Aston Villa",
           "id": "71",
           "shortName": "Aston Villa",
@@ -4497,8 +4695,30 @@
           "redCards": 0
         },
         "ground": "Old Trafford",
-        "attendance": null,
-        "stats": null
+        "attendance": 74149,
+        "stats": {
+          "referee": "Chris Kavanagh",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 18,
+              "corners": 8,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 9,
+              "corners": 1,
+              "offsides": 0
+            }
+          },
+          "understat": {
+            "homeXg": 0,
+            "awayXg": 0
+          }
+        }
       }
     ],
     "11": [
@@ -5863,31 +6083,6 @@
         "stats": null
       },
       {
-        "matchId": "31338",
-        "matchweek": 16,
-        "kickoff": "2026-12-19 15:00:00",
-        "period": "Scheduled",
-        "homeTeam": {
-          "score": null,
-          "name": "Nottingham Forest",
-          "id": "249",
-          "shortName": "Nottingham Forest",
-          "abbr": "NOT",
-          "redCards": 0
-        },
-        "awayTeam": {
-          "score": null,
-          "name": "Everton",
-          "id": "72",
-          "shortName": "Everton",
-          "abbr": "EVE",
-          "redCards": 0
-        },
-        "ground": "The City Ground",
-        "attendance": null,
-        "stats": null
-      },
-      {
         "matchId": "31336",
         "matchweek": 16,
         "kickoff": "2026-12-19 17:30:00",
@@ -5934,6 +6129,31 @@
           "redCards": 0
         },
         "ground": "The American Express Stadium",
+        "attendance": null,
+        "stats": null
+      },
+      {
+        "matchId": "31338",
+        "matchweek": 16,
+        "kickoff": "2026-12-20 14:00:00",
+        "period": "Scheduled",
+        "homeTeam": {
+          "score": null,
+          "name": "Nottingham Forest",
+          "id": "249",
+          "shortName": "Nottingham Forest",
+          "abbr": "NOT",
+          "redCards": 0
+        },
+        "awayTeam": {
+          "score": null,
+          "name": "Everton",
+          "id": "72",
+          "shortName": "Everton",
+          "abbr": "EVE",
+          "redCards": 0
+        },
+        "ground": "The City Ground",
         "attendance": null,
         "stats": null
       },
