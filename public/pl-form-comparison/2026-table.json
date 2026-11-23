@@ -16,14 +16,14 @@
     "name": "Brighton and Hove Albion",
     "abbr": "BRI",
     "shortName": "Brighton and Hove Albion",
-    "played": 10,
+    "played": 11,
     "wins": 7,
     "draws": 1,
-    "losses": 2,
+    "losses": 3,
     "points": 22,
     "gf": 26,
-    "ga": 7,
-    "gd": 19
+    "ga": 9,
+    "gd": 17
   },
   {
     "name": "Manchester City",
@@ -39,6 +39,19 @@
     "gd": 8
   },
   {
+    "name": "Liverpool",
+    "abbr": "LIV",
+    "shortName": "Liverpool",
+    "played": 11,
+    "wins": 6,
+    "draws": 3,
+    "losses": 2,
+    "points": 21,
+    "gf": 18,
+    "ga": 10,
+    "gd": 8
+  },
+  {
     "name": "Bournemouth",
     "abbr": "BOU",
     "shortName": "Bournemouth",
@@ -49,19 +62,6 @@
     "points": 18,
     "gf": 18,
     "ga": 14,
-    "gd": 4
-  },
-  {
-    "name": "Liverpool",
-    "abbr": "LIV",
-    "shortName": "Liverpool",
-    "played": 10,
-    "wins": 5,
-    "draws": 3,
-    "losses": 2,
-    "points": 18,
-    "gf": 14,
-    "ga": 10,
     "gd": 4
   },
   {
@@ -130,6 +130,19 @@
     "gd": 5
   },
   {
+    "name": "Hull City",
+    "abbr": "HUL",
+    "shortName": "Hull City",
+    "played": 11,
+    "wins": 3,
+    "draws": 5,
+    "losses": 3,
+    "points": 14,
+    "gf": 13,
+    "ga": 11,
+    "gd": 2
+  },
+  {
     "name": "Aston Villa",
     "abbr": "AVL",
     "shortName": "Aston Villa",
@@ -167,19 +180,6 @@
     "gf": 13,
     "ga": 21,
     "gd": -8
-  },
-  {
-    "name": "Hull City",
-    "abbr": "HUL",
-    "shortName": "Hull City",
-    "played": 10,
-    "wins": 2,
-    "draws": 5,
-    "losses": 3,
-    "points": 11,
-    "gf": 11,
-    "ga": 11,
-    "gd": 0
   },
   {
     "name": "Fulham",
@@ -237,14 +237,14 @@
     "name": "Manchester United",
     "abbr": "MUN",
     "shortName": "Manchester United",
-    "played": 10,
+    "played": 11,
     "wins": 1,
     "draws": 5,
-    "losses": 4,
+    "losses": 5,
     "points": 8,
     "gf": 14,
-    "ga": 19,
-    "gd": -5
+    "ga": 23,
+    "gd": -9
   },
   {
     "name": "Crystal Palace",

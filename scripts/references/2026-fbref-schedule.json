@@ -1181,22 +1181,22 @@
     "datetime": "2026-11-22T14:00:00Z",
     "home": "Hull City",
     "away": "Brighton",
-    "score": "",
-    "attendance": null,
+    "score": "2–0",
+    "attendance": 24461,
     "venue": "MKM Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Peter Bankes",
+    "matchReportUrl": "https://fbref.com/en/matches/b196e281/Hull-City-Brighton-and-Hove-Albion-November-22-2026-Premier-League"
   },
   {
     "matchweek": 11,
     "datetime": "2026-11-22T16:30:00Z",
     "home": "Liverpool",
     "away": "Manchester Utd",
-    "score": "",
+    "score": "4–0",
     "attendance": null,
     "venue": "Anfield",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Samuel Barrott",
+    "matchReportUrl": "https://fbref.com/en/matches/59d787b5/North-West-Derby-Liverpool-Manchester-United-November-22-2026-Premier-League"
   },
   {
     "matchweek": 11,

@@ -5055,9 +5055,9 @@
         "matchId": "31285",
         "matchweek": 11,
         "kickoff": "2026-11-22 14:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 2,
           "name": "Hull City",
           "id": "91",
           "shortName": "Hull City",
@@ -5065,24 +5065,46 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 0,
           "name": "Brighton and Hove Albion",
           "id": "220",
           "shortName": "Brighton and Hove Albion",
           "abbr": "BRI",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "MKM Stadium",
-        "attendance": null,
-        "stats": null
+        "attendance": 24461,
+        "stats": {
+          "referee": "Peter Bankes",
+          "fbref": {
+            "home": {
+              "yellowCards": 2,
+              "redCards": 0,
+              "fouls": 7,
+              "corners": 3,
+              "offsides": 3
+            },
+            "away": {
+              "yellowCards": 4,
+              "redCards": 1,
+              "fouls": 17,
+              "corners": 4,
+              "offsides": 1
+            }
+          },
+          "understat": {
+            "homeXg": 0,
+            "awayXg": 0
+          }
+        }
       },
       {
         "matchId": "31286",
         "matchweek": 11,
         "kickoff": "2026-11-22 16:30:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 4,
           "name": "Liverpool",
           "id": "87",
           "shortName": "Liverpool",
@@ -5090,16 +5112,38 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 0,
           "name": "Manchester United",
           "id": "89",
           "shortName": "Manchester United",
           "abbr": "MUN",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Anfield",
         "attendance": null,
-        "stats": null
+        "stats": {
+          "referee": "Samuel Barrott",
+          "fbref": {
+            "home": {
+              "yellowCards": 1,
+              "redCards": 0,
+              "fouls": 15,
+              "corners": 15,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 0,
+              "redCards": 1,
+              "fouls": 7,
+              "corners": 5,
+              "offsides": 2
+            }
+          },
+          "understat": {
+            "homeXg": 0,
+            "awayXg": 0
+          }
+        }
       },
       {
         "matchId": "31282",

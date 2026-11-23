@@ -4064,5 +4064,81 @@
       "corners": 6,
       "offsides": 2
     }
+  },
+  "2026-11-22_Hull City_Brighton and Hove Albion": {
+    "officials": [
+      {
+        "name": "Peter Bankes",
+        "role": "Referee"
+      },
+      {
+        "name": "Ian Hussin",
+        "role": "AR1"
+      },
+      {
+        "name": "Blake Antrobus",
+        "role": "AR2"
+      },
+      {
+        "name": "Tony Harrington",
+        "role": "4th"
+      },
+      {
+        "name": "Andrew Kitchen",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 2,
+      "redCards": 0,
+      "fouls": 7,
+      "corners": 3,
+      "offsides": 3
+    },
+    "away": {
+      "yellowCards": 4,
+      "redCards": 1,
+      "fouls": 17,
+      "corners": 4,
+      "offsides": 1
+    }
+  },
+  "2026-11-22_Liverpool_Manchester United": {
+    "officials": [
+      {
+        "name": "Samuel Barrott",
+        "role": "Referee"
+      },
+      {
+        "name": "Adam Nunn",
+        "role": "AR1"
+      },
+      {
+        "name": "Lee Betts",
+        "role": "AR2"
+      },
+      {
+        "name": "Chris Kavanagh",
+        "role": "4th"
+      },
+      {
+        "name": "John Brooks",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 1,
+      "redCards": 0,
+      "fouls": 15,
+      "corners": 15,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 0,
+      "redCards": 1,
+      "fouls": 7,
+      "corners": 5,
+      "offsides": 2
+    }
   }
 }

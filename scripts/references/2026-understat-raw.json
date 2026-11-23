@@ -16783,7 +16783,7 @@
     },
     {
       "id": "31285",
-      "isResult": false,
+      "isResult": true,
       "h": {
         "id": "91",
         "title": "Hull",
@@ -16795,18 +16795,14 @@
         "short_title": "BRI"
       },
       "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
+        "h": "2",
+        "a": "0"
       },
       "datetime": "2026-11-22 14:00:00"
     },
     {
       "id": "31286",
-      "isResult": false,
+      "isResult": true,
       "h": {
         "id": "87",
         "title": "Liverpool",
@@ -16818,12 +16814,8 @@
         "short_title": "MUN"
       },
       "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
+        "h": "4",
+        "a": "0"
       },
       "datetime": "2026-11-22 16:30:00"
     },
