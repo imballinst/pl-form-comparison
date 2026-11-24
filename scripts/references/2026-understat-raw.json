@@ -16821,7 +16821,7 @@
     },
     {
       "id": "31282",
-      "isResult": false,
+      "isResult": true,
       "h": {
         "id": "244",
         "title": "Brentford",
@@ -16833,12 +16833,8 @@
         "short_title": "EVE"
       },
       "goals": {
-        "h": null,
-        "a": null
-      },
-      "xG": {
-        "h": null,
-        "a": null
+        "h": "4",
+        "a": "0"
       },
       "datetime": "2026-11-23 20:00:00"
     },

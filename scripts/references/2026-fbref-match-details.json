@@ -4140,5 +4140,43 @@
       "corners": 5,
       "offsides": 2
     }
+  },
+  "2026-11-23_Brentford_Everton": {
+    "officials": [
+      {
+        "name": "Craig Pawson",
+        "role": "Referee"
+      },
+      {
+        "name": "Nicholas Hopton",
+        "role": "AR1"
+      },
+      {
+        "name": "Adrian Holmes",
+        "role": "AR2"
+      },
+      {
+        "name": "Paul Tierney",
+        "role": "4th"
+      },
+      {
+        "name": "Matt Donohue",
+        "role": "VAR"
+      }
+    ],
+    "home": {
+      "yellowCards": 0,
+      "redCards": 0,
+      "fouls": 8,
+      "corners": 6,
+      "offsides": 2
+    },
+    "away": {
+      "yellowCards": 1,
+      "redCards": 1,
+      "fouls": 9,
+      "corners": 3,
+      "offsides": 0
+    }
   }
 }

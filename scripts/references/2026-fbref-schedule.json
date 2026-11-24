@@ -1203,11 +1203,11 @@
     "datetime": "2026-11-23T20:00:00Z",
     "home": "Brentford",
     "away": "Everton",
-    "score": "",
-    "attendance": null,
+    "score": "4–0",
+    "attendance": 17168,
     "venue": "Gtech Community Stadium",
-    "referee": null,
-    "matchReportUrl": null
+    "referee": "Craig Pawson",
+    "matchReportUrl": "https://fbref.com/en/matches/bfcb192d/Brentford-Everton-November-23-2026-Premier-League"
   },
   {
     "matchweek": 12,

@@ -2263,6 +2263,34 @@
           "Assistant Referee": [],
           "Video Assistant Referee": []
         }
+      },
+      "Craig Pawson": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [
+            "31282"
+          ],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Matt Donohue": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": [
+            "31282"
+          ]
+        }
       }
     },
     "Crystal Palace": {
@@ -5112,7 +5140,9 @@
       },
       "Craig Pawson": {
         "Home": {
-          "Referee": [],
+          "Referee": [
+            "31282"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": []
         },
@@ -5278,6 +5308,44 @@
           "Video Assistant Referee": [
             "31271"
           ]
+        }
+      },
+      "Adrian Holmes": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Paul Tierney": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Matt Donohue": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": [
+            "31282"
+          ]
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
         }
       }
     },
@@ -12612,6 +12680,34 @@
         "penaltyConceded": 0,
         "totalYelCard": 2,
         "totalRedCard": 0
+      }
+    },
+    "31282": {
+      "Brentford": {
+        "goals": 4,
+        "goalsConceded": 0,
+        "expectedGoals": 0,
+        "wonCorners": 6,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 8,
+        "totalOffside": 2,
+        "penaltyConceded": 0,
+        "totalYelCard": 0,
+        "totalRedCard": 0
+      },
+      "Everton": {
+        "goals": 0,
+        "goalsConceded": 4,
+        "expectedGoals": 0,
+        "wonCorners": 3,
+        "duelWon": 0,
+        "totalDistance": 0,
+        "fkFoulLost": 9,
+        "totalOffside": 0,
+        "penaltyConceded": 0,
+        "totalYelCard": 1,
+        "totalRedCard": 1
       }
     },
     "31283": {

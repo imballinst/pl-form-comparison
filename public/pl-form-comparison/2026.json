@@ -5149,9 +5149,9 @@
         "matchId": "31282",
         "matchweek": 11,
         "kickoff": "2026-11-23 20:00:00",
-        "period": "Scheduled",
+        "period": "FullTime",
         "homeTeam": {
-          "score": null,
+          "score": 4,
           "name": "Brentford",
           "id": "244",
           "shortName": "Brentford",
@@ -5159,16 +5159,38 @@
           "redCards": 0
         },
         "awayTeam": {
-          "score": null,
+          "score": 0,
           "name": "Everton",
           "id": "72",
           "shortName": "Everton",
           "abbr": "EVE",
-          "redCards": 0
+          "redCards": 1
         },
         "ground": "Gtech Community Stadium",
-        "attendance": null,
-        "stats": null
+        "attendance": 17168,
+        "stats": {
+          "referee": "Craig Pawson",
+          "fbref": {
+            "home": {
+              "yellowCards": 0,
+              "redCards": 0,
+              "fouls": 8,
+              "corners": 6,
+              "offsides": 2
+            },
+            "away": {
+              "yellowCards": 1,
+              "redCards": 1,
+              "fouls": 9,
+              "corners": 3,
+              "offsides": 0
+            }
+          },
+          "understat": {
+            "homeXg": 0,
+            "awayXg": 0
+          }
+        }
       }
     ],
     "12": [

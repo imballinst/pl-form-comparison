@@ -65,6 +65,19 @@
     "gd": 4
   },
   {
+    "name": "Brentford",
+    "abbr": "BRE",
+    "shortName": "Brentford",
+    "played": 11,
+    "wins": 4,
+    "draws": 5,
+    "losses": 2,
+    "points": 17,
+    "gf": 20,
+    "ga": 11,
+    "gd": 9
+  },
+  {
     "name": "Leeds United",
     "abbr": "LED",
     "shortName": "Leeds United",
@@ -76,19 +89,6 @@
     "gf": 14,
     "ga": 9,
     "gd": 5
-  },
-  {
-    "name": "Everton",
-    "abbr": "EVE",
-    "shortName": "Everton",
-    "played": 10,
-    "wins": 4,
-    "draws": 4,
-    "losses": 2,
-    "points": 16,
-    "gf": 12,
-    "ga": 10,
-    "gd": 2
   },
   {
     "name": "Chelsea",
@@ -104,6 +104,19 @@
     "gd": 0
   },
   {
+    "name": "Everton",
+    "abbr": "EVE",
+    "shortName": "Everton",
+    "played": 11,
+    "wins": 4,
+    "draws": 4,
+    "losses": 3,
+    "points": 16,
+    "gf": 12,
+    "ga": 14,
+    "gd": -2
+  },
+  {
     "name": "Tottenham Hotspur",
     "abbr": "TOT",
     "shortName": "Tottenham Hotspur",
@@ -115,19 +128,6 @@
     "gf": 12,
     "ga": 11,
     "gd": 1
-  },
-  {
-    "name": "Brentford",
-    "abbr": "BRE",
-    "shortName": "Brentford",
-    "played": 10,
-    "wins": 3,
-    "draws": 5,
-    "losses": 2,
-    "points": 14,
-    "gf": 16,
-    "ga": 11,
-    "gd": 5
   },
   {
     "name": "Hull City",
