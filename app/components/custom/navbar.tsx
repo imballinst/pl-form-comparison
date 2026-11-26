@@ -43,6 +43,12 @@ const components: { title: string; href: string; description: string; lastUpdate
     description: `Compare fouls and cards conceded and given by clubs over the selected seasons.`,
     lastUpdatedAt: '2026-11-03T00:00:00.000Z',
   },
+  {
+    title: 'Referee Venue Influence',
+    href: `/insights/referee-venue-influence`,
+    description: `Compare the fouls committed by home and away teams under each referee, one scatter plot per season.`,
+    lastUpdatedAt: '2026-11-26T00:00:00.000Z',
+  },
 ]
 
 export function Navbar({ className }: { className?: string }) {
