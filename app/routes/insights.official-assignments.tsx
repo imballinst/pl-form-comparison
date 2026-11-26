@@ -29,13 +29,14 @@ import { ChevronDown, LoaderIcon } from 'lucide-react'
 import { useMemo, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useLoaderData, useSearchParams } from 'react-router'
-import type { Route } from './+types/compare.remaining-matches'
+import type { Route } from './+types/insights.official-assignments'
 
 type GameStat = keyof ReturnType<typeof getGameStats>
 type RefereeStat = Exclude<keyof RefereeAdditionalInformation, 'score'>
 
 const SEASONS_PARAMETER = 'seasons'
 const ROLES_PARAMETER = 'roles'
+const TEAMS_PARAMETER = 'teams'
 const DEFAULT_SELECTED_ROLES = (['Referee'] as Array<(typeof OFFICIAL_ROLES)[number]>).join(',')
 
 const GAME_STATS = filterGameStatKeys(Object.keys(getGameStats()) as Array<GameStat>, [
@@ -85,19 +86,38 @@ export const handle = {
 }
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
-  const { [SEASONS_PARAMETER]: seasons = CURRENT_SEASON, [ROLES_PARAMETER]: roles = DEFAULT_SELECTED_ROLES } = Object.fromEntries(
-    new URL(request.url).searchParams,
-  )
+  const {
+    [SEASONS_PARAMETER]: seasons = CURRENT_SEASON,
+    [ROLES_PARAMETER]: roles = DEFAULT_SELECTED_ROLES,
+    [TEAMS_PARAMETER]: teams = '',
+  } = Object.fromEntries(new URL(request.url).searchParams)
   const seasonsArray = seasons.split(',').sort()
   const rolesArray = roles.split(',').sort((a, b) => ROLE_KEYS.indexOf(a) - ROLE_KEYS.indexOf(b))
+  const teamsParamValues = teams.split(',').filter(Boolean)
 
   const result = await fetchMatchOfficialAssignments(seasonsArray, rolesArray)
 
-  return { ...result, seasons: seasonsArray, roles: rolesArray }
+  const allTeams = result.allSeasons.tableData.map((row) => row.name).sort((a, b) => a.localeCompare(b))
+  const selectedTeamNameSet = new Set(teamsParamValues)
+  // No teams parameter (or only unknown names, which match nothing here) keeps the default of all
+  // rows; otherwise only the selected teams' rows are shown.
+  const tableData =
+    teamsParamValues.length > 0
+      ? result.allSeasons.tableData.filter((row) => selectedTeamNameSet.has(row.name))
+      : result.allSeasons.tableData
+
+  return {
+    ...result,
+    allSeasons: { ...result.allSeasons, tableData },
+    allTeams,
+    seasons: seasonsArray,
+    roles: rolesArray,
+    teams: teamsParamValues,
+  }
 }
 
 export default function MatchOfficialAssignments() {
-  const { perSeasonRecord, allSeasons, seasons, roles } = useLoaderData<typeof clientLoader>()
+  const { perSeasonRecord, allSeasons, allTeams, seasons, roles, teams } = useLoaderData<typeof clientLoader>()
   const isMobile = useIsMobile()
   const [selectedCell, setSelectedCell] = useState<[AllSeasonMatchOfficialAssignmentTableData, string] | null>(null)
   const openDialogBtnRef = useRef<HTMLButtonElement>(null)
@@ -212,6 +232,8 @@ export default function MatchOfficialAssignments() {
       <div className="flex flex-col gap-y-4 flex-1 min-h-0">
         <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
           <SeasonsSelector seasons={seasons} gaLabelPrefix="ga-official-assignments" />
+
+          <TeamsSelector teams={teams} allTeams={allTeams} />
 
           <RolesSelector roles={roles} />
         </div>
@@ -512,6 +534,101 @@ function TableBodyRow({ columnVirtualizer, row, rowVirtualizer, virtualPaddingLe
         <td style={{ display: 'flex', width: virtualPaddingRight }} />
       ) : null}
     </TableRow>
+  )
+}
+
+interface TeamsSelectorProps {
+  // Team display names currently selected via the URL search parameter; empty means all teams.
+  teams: string[]
+  allTeams: string[]
+}
+
+// Submit-to-apply teams popover, following the roles selector pattern. The parameterless URL stays
+// the pristine view: both an empty selection and the full selection are the default (no filter).
+function TeamsSelector({ teams: teamsParamValues, allTeams }: TeamsSelectorProps) {
+  const [, setSearchParams] = useSearchParams()
+  const closeBtnRef = useRef<HTMLButtonElement>(null)
+  const selectedTeamNameSet = new Set(teamsParamValues)
+  const selectedTeamNames = allTeams.filter((team) => selectedTeamNameSet.has(team))
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      teams: selectedTeamNames,
+    },
+  })
+
+  function onSubmit(data: { teams: string[] }) {
+    setSearchParams((prev) => {
+      const newSearchParams = new URLSearchParams(prev)
+      const isDefaultSelection = data.teams.length === 0 || data.teams.length === allTeams.length
+      if (isDefaultSelection) {
+        newSearchParams.delete(TEAMS_PARAMETER)
+      } else {
+        newSearchParams.set(TEAMS_PARAMETER, data.teams.sort().join(','))
+      }
+
+      return newSearchParams
+    })
+
+    if (closeBtnRef.current) {
+      closeBtnRef.current.dataset.gaValue = data.teams.join(',')
+      closeBtnRef.current.click()
+    }
+  }
+
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button className="flex justify-between" variant="outline" data-ga-label="ga-official-assignments-start-update-teams-button">
+          <div>
+            Teams: {selectedTeamNames.length === 0 || selectedTeamNames.length === allTeams.length ? 'All' : selectedTeamNames.join(', ')}
+          </div>
+
+          <ChevronDown />
+        </Button>
+      </PopoverTrigger>
+
+      <PopoverContent className="flex flex-col popover-available-width">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
+          <FieldSet>
+            <FieldLegend variant="label">Select teams:</FieldLegend>
+            <FieldGroup className="gap-3">
+              {allTeams.map((team) => (
+                <CheckboxWithField
+                  key={team}
+                  value={team}
+                  name="teams"
+                  defaultChecked={selectedTeamNameSet.has(team)}
+                  control={control}
+                  getNextValue={(checked, v) => {
+                    const nextValue = [...v]
+                    if (checked) {
+                      nextValue.push(team)
+                    } else {
+                      const idx = nextValue.indexOf(team)
+                      nextValue.splice(idx, 1)
+                    }
+
+                    return nextValue
+                  }}
+                  formatValue={() => team}
+                  data-ga-label={`ga-official-assignments-toggle-teams-${team}-checkbox`}
+                />
+              ))}
+            </FieldGroup>
+          </FieldSet>
+
+          <Button type="submit" className="mt-4">
+            Update teams
+          </Button>
+        </form>
+
+        <PopoverClose asChild>
+          <Button data-ga-label="ga-official-assignments-finish-update-teams-button" ref={closeBtnRef} hidden>
+            Close
+          </Button>
+        </PopoverClose>
+      </PopoverContent>
+    </Popover>
   )
 }
 
