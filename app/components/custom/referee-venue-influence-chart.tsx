@@ -98,18 +98,18 @@ interface ScatterPointLabelProps {
   x?: number
   y?: number
   topNames: ReadonlySet<string>
-  highlightedReferee: string | null
+  highlightedReferees: ReadonlySet<string>
 }
 
 // Recharts clones this element per dot with the computed x and y of the "top" position; rendering
-// null for everyone outside the busiest referees keeps the chart readable. The highlighted referee
-// always gets their name, and the other labels fade while someone is highlighted.
-function ScatterPointLabel({ value, x, y, topNames, highlightedReferee }: ScatterPointLabelProps) {
+// null for everyone outside the busiest referees keeps the chart readable. Highlighted referees
+// always get their name, and the other labels fade while anyone is highlighted.
+function ScatterPointLabel({ value, x, y, topNames, highlightedReferees }: ScatterPointLabelProps) {
   if (value === undefined || x === undefined || y === undefined) {
     return null
   }
 
-  if (!topNames.has(value) && value !== highlightedReferee) {
+  if (!topNames.has(value) && !highlightedReferees.has(value)) {
     return null
   }
 
@@ -120,7 +120,7 @@ function ScatterPointLabel({ value, x, y, topNames, highlightedReferee }: Scatte
       textAnchor="middle"
       fontSize={10}
       fill="var(--foreground)"
-      opacity={highlightedReferee !== null && value !== highlightedReferee ? 0.3 : 1}
+      opacity={highlightedReferees.size > 0 && !highlightedReferees.has(value) ? 0.05 : 1}
     >
       {value}
     </text>
@@ -133,18 +133,18 @@ interface BubbleShapeProps {
   size?: number
   payload?: RefereeVenueInfluenceDatum
   colorByName: Record<string, string>
-  highlightedReferee: string | null
+  highlightedReferees: ReadonlySet<string>
 }
 
 // Recharts clones this element per dot with the computed position and the ZAxis-derived bubble area;
-// the radius follows recharts' own convention of treating the size as the circle's area. With a
-// highlighted referee, the matching bubble enlarges and every other one fades.
-function BubbleShape({ cx, cy, size, payload, colorByName, highlightedReferee }: BubbleShapeProps) {
+// the radius follows recharts' own convention of treating the size as the circle's area. With
+// highlighted referees, the matching bubbles enlarge and every other one fades.
+function BubbleShape({ cx, cy, size, payload, colorByName, highlightedReferees }: BubbleShapeProps) {
   if (cx === undefined || cy === undefined || size === undefined) {
     return null
   }
 
-  const isHighlighted = highlightedReferee !== null && payload?.name === highlightedReferee
+  const isHighlighted = highlightedReferees.has(payload?.name ?? '')
 
   return (
     <circle
@@ -152,9 +152,9 @@ function BubbleShape({ cx, cy, size, payload, colorByName, highlightedReferee }:
       cy={cy}
       r={Math.sqrt(size / Math.PI) * (isHighlighted ? 1.25 : 1)}
       fill={colorByName[payload?.name ?? ''] ?? DOT_COLOR}
-      fillOpacity={highlightedReferee !== null && !isHighlighted ? 0.12 : 0.85}
+      fillOpacity={highlightedReferees.size > 0 && !isHighlighted ? 0.1 : 0.85}
       stroke="var(--foreground)"
-      strokeOpacity={highlightedReferee !== null && !isHighlighted ? 0.3 : 1}
+      strokeOpacity={highlightedReferees.size > 0 && !isHighlighted ? 0.1 : 1}
       strokeWidth={1}
     />
   )
@@ -196,11 +196,11 @@ interface RefereeVenueInfluenceChartProps {
   plot: Plot
   /** Shared by every chart on the page so one referee keeps the same color in all of them. */
   colorByName: Record<string, string>
-  /** Referee to pinpoint: their bubble enlarges, keeps full opacity, and always shows their name. */
-  highlightedReferee: string | null
+  /** Referees to pinpoint: their bubbles enlarge, keep full opacity, and always show their names. */
+  highlightedReferees: ReadonlySet<string>
 }
 
-export function RefereeVenueInfluenceChart({ title, data, plot, colorByName, highlightedReferee }: RefereeVenueInfluenceChartProps) {
+export function RefereeVenueInfluenceChart({ title, data, plot, colorByName, highlightedReferees }: RefereeVenueInfluenceChartProps) {
   const { datumKey, homeAxisLabel, awayAxisLabel } = PLOTS.find(({ value }) => value === plot)!
   // Both axes share the same domain so the dashed diagonal is the exact "home = away" line; dots
   // above it mean the away teams commit more of the plotted metric under that referee, below it
@@ -259,13 +259,13 @@ export function RefereeVenueInfluenceChart({ title, data, plot, colorByName, hig
           <Scatter
             data={data}
             isAnimationActive={false}
-            shape={<BubbleShape colorByName={colorByName} highlightedReferee={highlightedReferee} />}
+            shape={<BubbleShape colorByName={colorByName} highlightedReferees={highlightedReferees} />}
           >
             <LabelList
               dataKey="name"
               position="top"
               offset={14}
-              content={<ScatterPointLabel topNames={topNames} highlightedReferee={highlightedReferee} />}
+              content={<ScatterPointLabel topNames={topNames} highlightedReferees={highlightedReferees} />}
             />
           </Scatter>
         </ScatterChart>

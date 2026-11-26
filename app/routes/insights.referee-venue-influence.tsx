@@ -132,8 +132,14 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
 export default function RefereeVenueInfluence() {
   const { seasons, chartDataPerSeason, plot } = useLoaderData<typeof clientLoader>()
   const [hoveredReferee, setHoveredReferee] = useState<string | null>(null)
-  const [pinnedReferee, setPinnedReferee] = useState<string | null>(null)
-  const highlightedReferee = hoveredReferee ?? pinnedReferee
+  const [pinnedReferees, setPinnedReferees] = useState<ReadonlySet<string>>(new Set())
+
+  // Hovering adds a transient highlight on top of the pinned ones; the Set dedupes when both cover
+  // the same referee.
+  const highlightedReferees = new Set(pinnedReferees)
+  if (hoveredReferee) {
+    highlightedReferees.add(hoveredReferee)
+  }
 
   // One mapping shared by every chart on the page: referees across all selected seasons sorted
   // alphabetically pick up palette colors in order, so a referee keeps the same bubble color
@@ -153,8 +159,8 @@ export default function RefereeVenueInfluence() {
         description={
           <>
             You may wonder how easily influenced a referee is, how easily rattled they are by the home fans. After all, there is a thing
-            called "home advantage". Whenever a home player falls, there is a sudden noise in the entire stadium, maybe unconsciously
-            forcing the referee to blow their whistle.
+            called "home advantage". Whenever a home player falls, there is a sudden roar in the entire stadium, maybe unconsciously forcing
+            the referee to blow their whistle.
           </>
         }
       />
@@ -168,9 +174,20 @@ export default function RefereeVenueInfluence() {
           <RefereeLegend
             colorByName={colorByName}
             refereeNames={refereeNames}
-            pinnedReferee={pinnedReferee}
+            pinnedReferees={pinnedReferees}
             onHover={setHoveredReferee}
-            onPin={(name) => setPinnedReferee((pinned) => (pinned === name ? null : name))}
+            onTogglePin={(name) =>
+              setPinnedReferees((pinned) => {
+                const next = new Set(pinned)
+                if (next.has(name)) {
+                  next.delete(name)
+                } else {
+                  next.add(name)
+                }
+                return next
+              })
+            }
+            onClearPins={() => setPinnedReferees(new Set())}
           />
         </div>
 
@@ -182,7 +199,7 @@ export default function RefereeVenueInfluence() {
               data={chartDataPerSeason[season] ?? []}
               plot={plot}
               colorByName={colorByName}
-              highlightedReferee={highlightedReferee}
+              highlightedReferees={highlightedReferees}
             />
           ))}
         </div>
@@ -192,31 +209,40 @@ export default function RefereeVenueInfluence() {
 }
 
 // Highlight picker: hovering a referee name pinpoints that referee's bubble in every chart; clicking
-// pins the highlight so it survives closing the popover, and clicking the pinned name again clears
-// it. Hover highlights clear when the pointer leaves the list.
+// toggles a pinned highlight so it survives closing the popover, and several referees can be pinned
+// at once. Hover highlights clear when the pointer leaves the list.
 function RefereeLegend({
   colorByName,
   refereeNames,
-  pinnedReferee,
+  pinnedReferees,
   onHover,
-  onPin,
+  onTogglePin,
+  onClearPins,
 }: {
   colorByName: Record<string, string>
   refereeNames: string[]
-  pinnedReferee: string | null
+  pinnedReferees: ReadonlySet<string>
   onHover: (name: string | null) => void
-  onPin: (name: string) => void
+  onTogglePin: (name: string) => void
+  onClearPins: () => void
 }) {
   const [query, setQuery] = useState('')
   const matches = refereeNames.filter((name) => name.toLowerCase().includes(query.toLowerCase()))
+  const firstPinned = [...pinnedReferees][0]
+  const label =
+    pinnedReferees.size === 0
+      ? 'Referee: All'
+      : pinnedReferees.size === 1
+        ? `Referee: ${firstPinned}`
+        : `Referees: ${pinnedReferees.size} selected`
 
   return (
     <Popover onOpenChange={(open) => !open && onHover(null)}>
       <PopoverTrigger asChild>
         <Button className="flex justify-between w-full" variant="outline" data-ga-label="ga-referee-venue-influence-open-referees-button">
           <div className="flex min-w-0 items-center gap-2">
-            {pinnedReferee && <span className="size-3 shrink-0 rounded-full" style={{ backgroundColor: colorByName[pinnedReferee] }} />}
-            <span className="truncate">Referee{pinnedReferee ? `: ${pinnedReferee}` : ''}</span>
+            {firstPinned && <span className="size-3 shrink-0 rounded-full" style={{ backgroundColor: colorByName[firstPinned] }} />}
+            <span className="truncate">{label}</span>
           </div>
 
           <ChevronDown />
@@ -232,6 +258,16 @@ function RefereeLegend({
           className="w-full rounded-md border bg-transparent px-2 py-1.5 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
         />
 
+        {pinnedReferees.size > 0 && (
+          <button
+            type="button"
+            onClick={onClearPins}
+            className="mt-2 w-full rounded-md px-2 py-1 text-left text-xs text-muted-foreground hover:bg-accent hover:text-foreground"
+          >
+            Clear selection ({pinnedReferees.size})
+          </button>
+        )}
+
         <div className="mt-2 max-h-64 overflow-y-auto" onMouseLeave={() => onHover(null)}>
           {matches.map((name) => (
             <button
@@ -239,9 +275,11 @@ function RefereeLegend({
               type="button"
               onMouseEnter={() => onHover(name)}
               onFocus={() => onHover(name)}
-              onClick={() => onPin(name)}
+              onClick={() => onTogglePin(name)}
               data-ga-label={`ga-referee-venue-influence-highlight-${name}`}
-              className={`flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm hover:bg-accent ${pinnedReferee === name ? 'bg-accent' : ''}`}
+              className={`flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm hover:bg-accent ${
+                pinnedReferees.has(name) ? 'bg-accent' : ''
+              }`}
             >
               <span className="size-3 shrink-0 rounded-full border" style={{ backgroundColor: colorByName[name] }} />
               <span className="truncate">{name}</span>
