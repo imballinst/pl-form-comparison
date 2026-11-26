@@ -126,11 +126,30 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
       .sort((a, b) => a.name.localeCompare(b.name))
   }
 
-  return { seasons: seasonsArray, chartDataPerSeason, plot }
+  const refereeNames = [...new Set(seasonsArray.flatMap((season) => chartDataPerSeason[season].map(({ name }) => name)))].sort()
+  // One mapping shared by every chart on the page: referees across all selected seasons sorted
+  // alphabetically pick up palette colors in order, so a referee keeps the same bubble color
+  // whether they appear in one season's chart or all of them.
+  const colorByName: Record<string, string> = {}
+  refereeNames.forEach((name, index) => {
+    colorByName[name] = SCATTER_COLORS[index % SCATTER_COLORS.length]
+  })
+
+  // Every chart on the page shares one axis max computed across all selected seasons, so the same
+  // plot value spans the same distance everywhere and the seasons are visually comparable.
+  const { datumKey } = PLOTS.find(({ value }) => value === plot)!
+  const axisMax = Math.max(
+    ...seasonsArray.flatMap((season) =>
+      chartDataPerSeason[season].flatMap((datum) => [datum.home[datumKey] ?? 0, datum.away[datumKey] ?? 0]),
+    ),
+    0,
+  )
+
+  return { seasons: seasonsArray, chartDataPerSeason, plot, refereeNames, colorByName, paddedAxisMax: Math.ceil(axisMax) + 1 }
 }
 
 export default function RefereeVenueInfluence() {
-  const { seasons, chartDataPerSeason, plot } = useLoaderData<typeof clientLoader>()
+  const { seasons, chartDataPerSeason, plot, refereeNames, colorByName, paddedAxisMax } = useLoaderData<typeof clientLoader>()
   const [hoveredReferee, setHoveredReferee] = useState<string | null>(null)
   const [pinnedReferees, setPinnedReferees] = useState<ReadonlySet<string>>(new Set())
 
@@ -140,15 +159,6 @@ export default function RefereeVenueInfluence() {
   if (hoveredReferee) {
     highlightedReferees.add(hoveredReferee)
   }
-
-  // One mapping shared by every chart on the page: referees across all selected seasons sorted
-  // alphabetically pick up palette colors in order, so a referee keeps the same bubble color
-  // whether they appear in one season's chart or all of them.
-  const colorByName: Record<string, string> = {}
-  const refereeNames = [...new Set(seasons.flatMap((season) => (chartDataPerSeason[season] ?? []).map(({ name }) => name)))].sort()
-  refereeNames.forEach((name, index) => {
-    colorByName[name] = SCATTER_COLORS[index % SCATTER_COLORS.length]
-  })
 
   return (
     <>
@@ -198,6 +208,7 @@ export default function RefereeVenueInfluence() {
               title={formatSeason(season, 'long')}
               data={chartDataPerSeason[season] ?? []}
               plot={plot}
+              paddedAxisMax={paddedAxisMax}
               colorByName={colorByName}
               highlightedReferees={highlightedReferees}
             />

@@ -194,19 +194,18 @@ interface RefereeVenueInfluenceChartProps {
   title: string
   data: RefereeVenueInfluenceDatum[]
   plot: Plot
+  // Both axes share the same domain so the dashed diagonal is the exact "home = away" line; dots
+  // above it mean the away teams commit more of the plotted metric under that referee, below it
+  // the home teams do. Shared by every chart on the page so seasons stay comparable.
+  paddedAxisMax: number
   /** Shared by every chart on the page so one referee keeps the same color in all of them. */
   colorByName: Record<string, string>
   /** Referees to pinpoint: their bubbles enlarge, keep full opacity, and always show their names. */
   highlightedReferees: ReadonlySet<string>
 }
 
-export function RefereeVenueInfluenceChart({ title, data, plot, colorByName, highlightedReferees }: RefereeVenueInfluenceChartProps) {
+export function RefereeVenueInfluenceChart({ title, data, plot, paddedAxisMax, colorByName, highlightedReferees }: RefereeVenueInfluenceChartProps) {
   const { datumKey, homeAxisLabel, awayAxisLabel } = PLOTS.find(({ value }) => value === plot)!
-  // Both axes share the same domain so the dashed diagonal is the exact "home = away" line; dots
-  // above it mean the away teams commit more of the plotted metric under that referee, below it
-  // the home teams do.
-  const axisMax = Math.max(...data.flatMap((datum) => [datum.home[datumKey] ?? 0, datum.away[datumKey] ?? 0]), 0)
-  const paddedAxisMax = Math.ceil(axisMax) + 1
   const topNames = new Set(
     [...data]
       .sort((a, b) => b.matches - a.matches)
