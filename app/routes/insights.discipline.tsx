@@ -48,8 +48,8 @@ type DisciplineDirection = 'conceded' | 'given'
 // and fouls-per-red-card ratios as yellow/red lines sharing the right axis. Order matches the table:
 // conceded stats first, then the given ones.
 const CHARTS = [
-  { key: 'conceded', title: 'Conceded (bigger ratio is better)', direction: 'conceded' },
-  { key: 'given', title: 'Given (smaller ratio is better)', direction: 'given' },
+  { key: 'conceded', title: 'Conceded (bigger FPY/FPR ratio has better advantage)', direction: 'conceded' },
+  { key: 'given', title: 'Given (smaller FPY/FPR ratio has better advantage)', direction: 'given' },
 ] as const satisfies ReadonlyArray<{ key: string; title: string; direction: DisciplineDirection }>
 
 type ChartKey = (typeof CHARTS)[number]['key']
@@ -140,16 +140,11 @@ function sortAccessor(metric: SortMetric, side: DisciplineDirection): keyof Team
 function DisciplineLegend({ hiddenMetrics }: { hiddenMetrics: ReadonlySet<SortMetric> }) {
   const explanations: string[] = [
     "<strong>Conceded</strong>: the stats by the team's own players; <strong>given</strong>: the ones by their opponents.",
-    'With multiple seasons selected, everything shows the totals across them, counting only the seasons that each team played in.',
   ]
   // The ratio remark only matters while at least one ratio metric is still displayed.
   if (!hiddenMetrics.has('yellow') || !hiddenMetrics.has('red')) {
-    explanations.push('Ratios are marked <strong>-</strong> when a team received no cards of that kind.')
+    explanations.push('Ratios are marked "<strong>-</strong>" when a team received no cards of that kind.')
   }
-  explanations.push(
-    "The Display popover's <strong>Metrics</strong> section hides the matching columns from the table, the matching series from the charts, and the related sort options and legend entries.",
-    "Each chart is sorted by its own side's stats using the Sort popover's metric and order; the table is ordered by the combined conceded+given totals.",
-  )
 
   const legends: Array<[string, string]> = []
   if (!hiddenMetrics.has('fouls')) {
@@ -241,7 +236,7 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
 
   const grouped: Record<string, TeamDisciplineAggregateRow> = {}
   for (const row of rows) {
-    const { season, team, abbr, ...stats } = row
+    const { season: _season, team, abbr, ...stats } = row
     const group = (grouped[team] ??= {
       team,
       abbr,

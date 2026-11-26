@@ -1,4 +1,5 @@
-import { CartesianGrid, LabelList, ReferenceLine, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis } from 'recharts'
+import { CartesianGrid, LabelList, ReferenceLine, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis, ZAxis } from 'recharts'
+import { YAxisLabel } from './y-axis-label'
 
 export interface RefereeVenueStats {
   foulsPerGame: number
@@ -75,6 +76,32 @@ export type Plot = (typeof PLOTS)[number]['value']
 const AXIS_TICK = { fontSize: 10, fill: 'var(--muted-foreground)' }
 const DOT_COLOR = 'var(--chart-2)'
 
+// Bubble area in px^2 that recharts maps linearly to the matches count: radius grows from ~4.5px
+// for the fewest matches to ~11.3px for the most.
+const BUBBLE_AREA_RANGE: readonly [number, number] = [64, 400]
+const LABELLED_REFEREE_COUNT = 10
+
+interface ScatterPointLabelProps {
+  value?: string
+  x?: number
+  y?: number
+  topNames: ReadonlySet<string>
+}
+
+// Recharts clones this element per dot with the computed x and y of the "top" position; rendering
+// null for everyone outside the busiest referees keeps the chart readable.
+function ScatterPointLabel({ value, x, y, topNames }: ScatterPointLabelProps) {
+  if (value === undefined || x === undefined || y === undefined || !topNames.has(value)) {
+    return null
+  }
+
+  return (
+    <text x={x} y={y} textAnchor="middle" fontSize={10} fill="var(--foreground)">
+      {value}
+    </text>
+  )
+}
+
 interface ChartTooltipProps {
   active?: boolean
   payload?: Array<{ payload: RefereeVenueInfluenceDatum }>
@@ -118,12 +145,18 @@ export function RefereeVenueInfluenceChart({ title, data, plot }: RefereeVenueIn
   // the home teams do.
   const axisMax = Math.max(...data.flatMap((datum) => [datum.home[datumKey] ?? 0, datum.away[datumKey] ?? 0]), 0)
   const paddedAxisMax = Math.ceil(axisMax) + 1
+  const topNames = new Set(
+    [...data]
+      .sort((a, b) => b.matches - a.matches)
+      .slice(0, LABELLED_REFEREE_COUNT)
+      .map(({ name }) => name),
+  )
 
   return (
     <div className="rounded-lg border bg-card p-3 text-card-foreground sm:p-4">
       <h3 className="text-sm font-semibold">{title}</h3>
 
-      <ResponsiveContainer width="100%" height={340} className="mt-2">
+      <ResponsiveContainer width="100%" height={420} className="mt-2">
         <ScatterChart margin={{ top: 20, right: 16, bottom: 8, left: 0 }}>
           <CartesianGrid stroke="var(--border)" strokeDasharray="4 4" />
           <XAxis
@@ -149,13 +182,7 @@ export function RefereeVenueInfluenceChart({ title, data, plot }: RefereeVenueIn
             tick={AXIS_TICK}
             tickLine={false}
             axisLine={false}
-            label={{
-              value: awayAxisLabel,
-              angle: -90,
-              position: 'insideLeft',
-              fontSize: 10,
-              fill: 'var(--muted-foreground)',
-            }}
+            label={<YAxisLabel value={awayAxisLabel} side="left" />}
           />
           <ReferenceLine
             segment={[
@@ -165,9 +192,10 @@ export function RefereeVenueInfluenceChart({ title, data, plot }: RefereeVenueIn
             stroke="var(--muted-foreground)"
             strokeDasharray="6 4"
           />
+          <ZAxis type="number" dataKey="matches" range={BUBBLE_AREA_RANGE} />
           <Tooltip cursor={{ stroke: 'var(--border)', strokeDasharray: '4 4' }} content={<ChartTooltip />} />
           <Scatter data={data} fill={DOT_COLOR} fillOpacity={0.85} stroke="var(--foreground)" strokeWidth={1} isAnimationActive={false}>
-            <LabelList dataKey="name" position="top" offset={8} fontSize={10} fill="var(--foreground)" />
+            <LabelList dataKey="name" position="top" offset={14} content={<ScatterPointLabel topNames={topNames} />} />
           </Scatter>
         </ScatterChart>
       </ResponsiveContainer>

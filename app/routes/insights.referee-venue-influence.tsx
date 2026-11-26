@@ -47,7 +47,12 @@ function newRefereeTotals(): RefereeTotals {
 // Each match appears once per side: under the home team's Home entry and the away team's Away entry,
 // so accumulating per side counts every officiated match exactly once. Fouls follow the Match
 // Official Assignments derivation (fouls committed plus penalties conceded).
-function accumulateVenueTotals(totals: VenueTotals, matchIds: number[], matchStatRecord: Record<string, Record<string, MatchFullStatData>>, team: string) {
+function accumulateVenueTotals(
+  totals: VenueTotals,
+  matchIds: number[],
+  matchStatRecord: Record<string, Record<string, MatchFullStatData>>,
+  team: string,
+) {
   for (const matchId of matchIds) {
     const stats = matchStatRecord[matchId]?.[team]
     if (!stats) continue
@@ -148,7 +153,7 @@ export default function RefereeVenueInfluence() {
           <PlotSelector plot={plot} />
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-2 2xl:grid-cols-3">
+        <div className="grid gap-4 lg:grid-cols-2">
           {seasons.map((season) => (
             <RefereeVenueInfluenceChart
               key={season}
@@ -197,7 +202,11 @@ function PlotSelector({ plot }: { plot: Plot }) {
   return (
     <Popover onOpenChange={(open) => open && reset({ plot })}>
       <PopoverTrigger asChild>
-        <Button className="flex justify-between w-full" variant="outline" data-ga-label="ga-referee-venue-influence-start-update-plot-button">
+        <Button
+          className="flex justify-between w-full"
+          variant="outline"
+          data-ga-label="ga-referee-venue-influence-start-update-plot-button"
+        >
           <div>Plot: {label}</div>
 
           <ChevronDown />
