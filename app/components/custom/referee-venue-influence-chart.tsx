@@ -1,16 +1,4 @@
-import {
-  CartesianGrid,
-  Cell,
-  LabelList,
-  ReferenceLine,
-  ResponsiveContainer,
-  Scatter,
-  ScatterChart,
-  Tooltip,
-  XAxis,
-  YAxis,
-  ZAxis,
-} from 'recharts'
+import { CartesianGrid, LabelList, ReferenceLine, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis, ZAxis } from 'recharts'
 import { YAxisLabel } from './y-axis-label'
 
 export interface RefereeVenueStats {
@@ -88,61 +76,17 @@ export type Plot = (typeof PLOTS)[number]['value']
 const AXIS_TICK = { fontSize: 10, fill: 'var(--muted-foreground)' }
 const DOT_COLOR = 'var(--chart-2)'
 
-// 50 bubble colors: 10 hue families x 5 shades, ordered shade-major so that assigning them to
-// alphabetically sorted referees gives the first 10 ten distinct hues, the next 10 darker versions
-// of the same hues, and so on. Mid-tones keep every bubble readable on both theme backgrounds.
-export const SCATTER_COLORS = [
-  '#f0988a',
-  '#f5b06e',
-  '#e5c355',
-  '#a8d05c',
-  '#64cc8a',
-  '#54c4bb',
-  '#79c1e8',
-  '#859bea',
-  '#a98ede',
-  '#de82c0',
-  '#e0705c',
-  '#ec9142',
-  '#d5ab2b',
-  '#8dbc39',
-  '#44b370',
-  '#2eaba3',
-  '#4fa8dc',
-  '#5f76e0',
-  '#8c68d0',
-  '#cd5aa7',
-  '#c94b36',
-  '#dd7a26',
-  '#bd9414',
-  '#71a022',
-  '#2d9a58',
-  '#1d8f88',
-  '#2f8bc2',
-  '#4158c7',
-  '#7149bc',
-  '#b23d8a',
-  '#a53220',
-  '#b95f16',
-  '#9e7a0c',
-  '#598218',
-  '#217c44',
-  '#12706a',
-  '#1f6ea0',
-  '#2d3fa2',
-  '#57359c',
-  '#8f2b6d',
-  '#7e2415',
-  '#93490f',
-  '#7f6107',
-  '#44650f',
-  '#166033',
-  '#0b574f',
-  '#14537c',
-  '#202e7f',
-  '#402479',
-  '#6e1e54',
-]
+// Bubble palette: 10 evenly spaced hues x 5 evenly stepped lightnesses, generated shade-major so
+// assigning colors to alphabetically sorted referees gives the first 10 ten distinct hues, the next
+// 10 darker versions of the same hues, and so on. OKLCH with a constant chroma keeps every bubble
+// equally colorful and its lightness scale keeps each shade row equally bright, on both themes.
+const SHADE_LIGHTNESSES = [82, 72, 62, 52, 42]
+const HUE_FAMILY_COUNT = 10
+const CHROMA = 0.11
+
+export const SCATTER_COLORS = SHADE_LIGHTNESSES.flatMap((lightness) =>
+  Array.from({ length: HUE_FAMILY_COUNT }, (_, index) => `oklch(${lightness}% ${CHROMA} ${index * (360 / HUE_FAMILY_COUNT)})`),
+)
 
 // Bubble area in px^2 that recharts maps linearly to the matches count: radius grows from ~4.5px
 // for the fewest matches to ~11.3px for the most.
@@ -167,6 +111,34 @@ function ScatterPointLabel({ value, x, y, topNames }: ScatterPointLabelProps) {
     <text x={x} y={y} textAnchor="middle" fontSize={10} fill="var(--foreground)">
       {value}
     </text>
+  )
+}
+
+interface BubbleShapeProps {
+  cx?: number
+  cy?: number
+  size?: number
+  payload?: RefereeVenueInfluenceDatum
+  colorByName: Record<string, string>
+}
+
+// Recharts clones this element per dot with the computed position and the ZAxis-derived bubble area;
+// the radius follows recharts' own convention of treating the size as the circle's area.
+function BubbleShape({ cx, cy, size, payload, colorByName }: BubbleShapeProps) {
+  if (cx === undefined || cy === undefined || size === undefined) {
+    return null
+  }
+
+  return (
+    <circle
+      cx={cx}
+      cy={cy}
+      r={Math.sqrt(size / Math.PI)}
+      fill={colorByName[payload?.name ?? ''] ?? DOT_COLOR}
+      fillOpacity={0.85}
+      stroke="var(--foreground)"
+      strokeWidth={1}
+    />
   )
 }
 
@@ -264,10 +236,7 @@ export function RefereeVenueInfluenceChart({ title, data, plot, colorByName }: R
           />
           <ZAxis type="number" dataKey="matches" range={BUBBLE_AREA_RANGE} />
           <Tooltip cursor={{ stroke: 'var(--border)', strokeDasharray: '4 4' }} content={<ChartTooltip />} />
-          <Scatter data={data} fill={DOT_COLOR} fillOpacity={0.85} stroke="var(--foreground)" strokeWidth={1} isAnimationActive={false}>
-            {data.map((datum) => (
-              <Cell key={datum.name} fill={colorByName[datum.name] ?? DOT_COLOR} />
-            ))}
+          <Scatter data={data} isAnimationActive={false} shape={<BubbleShape colorByName={colorByName} />}>
             <LabelList dataKey="name" position="top" offset={14} content={<ScatterPointLabel topNames={topNames} />} />
           </Scatter>
         </ScatterChart>
