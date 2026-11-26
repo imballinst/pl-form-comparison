@@ -1,19 +1,76 @@
 import { CartesianGrid, LabelList, ReferenceLine, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis } from 'recharts'
 
+export interface RefereeVenueStats {
+  foulsPerGame: number
+  yellowCardsPerGame: number
+  redCardsPerGame: number
+  /** undefined when the teams on this side received no yellow cards. */
+  foulsPerYellowCard?: number
+  /** undefined when the teams on this side received no red cards. */
+  foulsPerRedCard?: number
+}
+
 export interface RefereeVenueInfluenceDatum {
   name: string
-  /** Average fouls committed by the home teams per match officiated. */
-  homeFoulsPerGame: number
-  /** Average fouls committed by the away teams per match officiated. */
-  awayFoulsPerGame: number
+  /** Matches officiated as the on-field referee. */
+  matches: number
+  home: RefereeVenueStats
+  away: RefereeVenueStats
+  // Combined card totals across both sides, shown in the tooltip regardless of the selected plot.
   yellowCards: number
-  /** undefined when the referee showed no yellow cards in the selected season. */
   foulsPerYellowCard?: number
   redCards: number
-  /** undefined when the referee showed no red cards in the selected season. */
   foulsPerRedCard?: number
-  matches: number
 }
+
+// One entry per selectable Plot metric: the datum key carrying the per-side value, plus the axis
+// labels. Count metrics are per game so dots stay comparable across referees with different
+// workloads; the fouls-per-card ratios are scale-free already.
+export const PLOTS = [
+  {
+    value: 'fouls',
+    label: 'Number of fouls',
+    datumKey: 'foulsPerGame',
+    homeAxisLabel: 'Fouls by home teams (per game)',
+    awayAxisLabel: 'Fouls by away teams (per game)',
+  },
+  {
+    value: 'yellow',
+    label: 'Number of yellow cards',
+    datumKey: 'yellowCardsPerGame',
+    homeAxisLabel: 'Yellow cards by home teams (per game)',
+    awayAxisLabel: 'Yellow cards by away teams (per game)',
+  },
+  {
+    value: 'red',
+    label: 'Number of red cards',
+    datumKey: 'redCardsPerGame',
+    homeAxisLabel: 'Red cards by home teams (per game)',
+    awayAxisLabel: 'Red cards by away teams (per game)',
+  },
+  {
+    value: 'fouls-per-yellow',
+    label: 'Fouls per yellow card',
+    datumKey: 'foulsPerYellowCard',
+    homeAxisLabel: 'Fouls per yellow card, home teams',
+    awayAxisLabel: 'Fouls per yellow card, away teams',
+  },
+  {
+    value: 'fouls-per-red',
+    label: 'Fouls per red card',
+    datumKey: 'foulsPerRedCard',
+    homeAxisLabel: 'Fouls per red card, home teams',
+    awayAxisLabel: 'Fouls per red card, away teams',
+  },
+] as const satisfies ReadonlyArray<{
+  value: string
+  label: string
+  datumKey: keyof RefereeVenueStats
+  homeAxisLabel: string
+  awayAxisLabel: string
+}>
+
+export type Plot = (typeof PLOTS)[number]['value']
 
 const AXIS_TICK = { fontSize: 10, fill: 'var(--muted-foreground)' }
 const DOT_COLOR = 'var(--chart-2)'
@@ -35,8 +92,8 @@ function ChartTooltip({ active, payload }: ChartTooltipProps) {
   return (
     <div className="rounded-md border bg-popover text-popover-foreground px-2 py-1.5 text-xs shadow-md">
       <div className="font-semibold">{datum.name}</div>
-      <div className="mt-1">Fouls by home teams: {datum.homeFoulsPerGame.toFixed(2)} per game</div>
-      <div>Fouls by away teams: {datum.awayFoulsPerGame.toFixed(2)} per game</div>
+      <div className="mt-1">Fouls by home teams: {datum.home.foulsPerGame.toFixed(2)} per game</div>
+      <div>Fouls by away teams: {datum.away.foulsPerGame.toFixed(2)} per game</div>
       <div>
         Yellow cards: {datum.yellowCards} ({ratio(datum.foulsPerYellowCard)} fouls per yellow)
       </div>
@@ -51,12 +108,15 @@ function ChartTooltip({ active, payload }: ChartTooltipProps) {
 interface RefereeVenueInfluenceChartProps {
   title: string
   data: RefereeVenueInfluenceDatum[]
+  plot: Plot
 }
 
-export function RefereeVenueInfluenceChart({ title, data }: RefereeVenueInfluenceChartProps) {
-  // Both axes share the same domain so the dashed diagonal is the exact "home fouls = away fouls"
-  // line; dots above it mean away teams foul more under that referee, below it the home teams do.
-  const axisMax = Math.max(...data.flatMap((datum) => [datum.homeFoulsPerGame, datum.awayFoulsPerGame]), 0)
+export function RefereeVenueInfluenceChart({ title, data, plot }: RefereeVenueInfluenceChartProps) {
+  const { datumKey, homeAxisLabel, awayAxisLabel } = PLOTS.find(({ value }) => value === plot)!
+  // Both axes share the same domain so the dashed diagonal is the exact "home = away" line; dots
+  // above it mean the away teams commit more of the plotted metric under that referee, below it
+  // the home teams do.
+  const axisMax = Math.max(...data.flatMap((datum) => [datum.home[datumKey] ?? 0, datum.away[datumKey] ?? 0]), 0)
   const paddedAxisMax = Math.ceil(axisMax) + 1
 
   return (
@@ -68,13 +128,13 @@ export function RefereeVenueInfluenceChart({ title, data }: RefereeVenueInfluenc
           <CartesianGrid stroke="var(--border)" strokeDasharray="4 4" />
           <XAxis
             type="number"
-            dataKey="homeFoulsPerGame"
+            dataKey={`home.${datumKey}`}
             domain={[0, paddedAxisMax]}
             tick={AXIS_TICK}
             tickLine={false}
             axisLine={{ stroke: 'var(--border)' }}
             label={{
-              value: 'Fouls by home teams (per game)',
+              value: homeAxisLabel,
               position: 'insideBottom',
               offset: -4,
               fontSize: 10,
@@ -83,14 +143,14 @@ export function RefereeVenueInfluenceChart({ title, data }: RefereeVenueInfluenc
           />
           <YAxis
             type="number"
-            dataKey="awayFoulsPerGame"
+            dataKey={`away.${datumKey}`}
             width={40}
             domain={[0, paddedAxisMax]}
             tick={AXIS_TICK}
             tickLine={false}
             axisLine={false}
             label={{
-              value: 'Fouls by away teams (per game)',
+              value: awayAxisLabel,
               angle: -90,
               position: 'insideLeft',
               fontSize: 10,
