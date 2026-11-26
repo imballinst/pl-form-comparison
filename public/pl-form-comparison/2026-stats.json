@@ -413,20 +413,6 @@
           "Video Assistant Referee": []
         }
       },
-      "Andrew Madley": {
-        "Home": {
-          "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        },
-        "Away": {
-          "Referee": [
-            "31268"
-          ],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        }
-      },
       "Nicholas Hopton": {
         "Home": {
           "Referee": [],
@@ -459,6 +445,20 @@
         },
         "Away": {
           "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Andy Madley": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [
+            "31268"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": []
         }
@@ -775,20 +775,6 @@
           "Video Assistant Referee": []
         }
       },
-      "Andrew Madley": {
-        "Home": {
-          "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        },
-        "Away": {
-          "Referee": [
-            "31249"
-          ],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        }
-      },
       "Nicholas Hopton": {
         "Home": {
           "Referee": [],
@@ -947,6 +933,20 @@
         },
         "Away": {
           "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Andy Madley": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [
+            "31249"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": []
         }
@@ -3423,7 +3423,9 @@
           "Video Assistant Referee": []
         },
         "Away": {
-          "Referee": [],
+          "Referee": [
+            "31281"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": []
         }
@@ -3748,20 +3750,6 @@
           "Video Assistant Referee": [
             "31246"
           ]
-        }
-      },
-      "Andrew Madley": {
-        "Home": {
-          "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        },
-        "Away": {
-          "Referee": [
-            "31281"
-          ],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
         }
       },
       "Simon Hooper": {
@@ -4746,18 +4734,6 @@
           "Video Assistant Referee": []
         }
       },
-      "Andrew Madley": {
-        "Home": {
-          "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        },
-        "Away": {
-          "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        }
-      },
       "Adrian Holmes": {
         "Home": {
           "Referee": [],
@@ -4833,6 +4809,18 @@
         }
       },
       "James Mainwaring": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Andy Madley": {
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
@@ -5115,20 +5103,6 @@
       "Nicholas Hopton": {
         "Home": {
           "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        },
-        "Away": {
-          "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        }
-      },
-      "Andrew Madley": {
-        "Home": {
-          "Referee": [
-            "31220"
-          ],
           "Assistant Referee": [],
           "Video Assistant Referee": []
         },
@@ -5662,20 +5636,6 @@
           ]
         }
       },
-      "Andrew Madley": {
-        "Home": {
-          "Referee": [
-            "31249"
-          ],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        },
-        "Away": {
-          "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        }
-      },
       "Craig Taylor": {
         "Home": {
           "Referee": [],
@@ -5827,6 +5787,20 @@
       "Andrew Kitchen": {
         "Home": {
           "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Andy Madley": {
+        "Home": {
+          "Referee": [
+            "31249"
+          ],
           "Assistant Referee": [],
           "Video Assistant Referee": []
         },
@@ -6558,7 +6532,8 @@
       "Andy Madley": {
         "Home": {
           "Referee": [
-            "31211"
+            "31211",
+            "31281"
           ],
           "Assistant Referee": [],
           "Video Assistant Referee": []
@@ -6826,20 +6801,6 @@
       "Robert Jones": {
         "Home": {
           "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        },
-        "Away": {
-          "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        }
-      },
-      "Andrew Madley": {
-        "Home": {
-          "Referee": [
-            "31281"
-          ],
           "Assistant Referee": [],
           "Video Assistant Referee": []
         },
@@ -7193,18 +7154,6 @@
         }
       },
       "Nick Greenhalgh": {
-        "Home": {
-          "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        },
-        "Away": {
-          "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        }
-      },
-      "Andrew Madley": {
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
@@ -8372,18 +8321,6 @@
           "Video Assistant Referee": []
         }
       },
-      "Andrew Madley": {
-        "Home": {
-          "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        },
-        "Away": {
-          "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        }
-      },
       "Chris Kavanagh": {
         "Home": {
           "Referee": [
@@ -8423,6 +8360,18 @@
         }
       },
       "Elliot Bell": {
+        "Home": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        }
+      },
+      "Andy Madley": {
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
@@ -8779,20 +8728,6 @@
           "Video Assistant Referee": []
         }
       },
-      "Andrew Madley": {
-        "Home": {
-          "Referee": [
-            "31268"
-          ],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        },
-        "Away": {
-          "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        }
-      },
       "Paul Howard": {
         "Home": {
           "Referee": [],
@@ -8919,6 +8854,20 @@
           "Video Assistant Referee": [
             "31272"
           ]
+        }
+      },
+      "Andy Madley": {
+        "Home": {
+          "Referee": [
+            "31268"
+          ],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
+        },
+        "Away": {
+          "Referee": [],
+          "Assistant Referee": [],
+          "Video Assistant Referee": []
         }
       }
     },
@@ -9347,7 +9296,7 @@
           "Video Assistant Referee": []
         }
       },
-      "Andrew Madley": {
+      "Andy Madley": {
         "Home": {
           "Referee": [],
           "Assistant Referee": [],
@@ -9643,20 +9592,6 @@
           "Video Assistant Referee": [
             "31220"
           ]
-        }
-      },
-      "Andrew Madley": {
-        "Home": {
-          "Referee": [],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
-        },
-        "Away": {
-          "Referee": [
-            "31220"
-          ],
-          "Assistant Referee": [],
-          "Video Assistant Referee": []
         }
       },
       "Samuel Barrott": {

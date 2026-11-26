@@ -41,6 +41,18 @@ const OFFICIAL_ROLE_MAP: Record<string, keyof OfficialAssignment['Home']> = {
   VAR: 'Video Assistant Referee',
 }
 
+// FBref is inconsistent with official names across its schedule and match pages: e.g. the 2026
+// season lists Andy Madley under both "Andy Madley" and his full legal name "Andrew Madley", even
+// for the same match. Explicit aliases only: fuzzy surname matching would wrongly merge genuinely
+// distinct referees like the Madley brothers.
+const OFFICIAL_NAME_ALIASES: Record<string, string> = {
+  'Andrew Madley': 'Andy Madley',
+}
+
+function normalizeOfficialName(name: string): string {
+  return OFFICIAL_NAME_ALIASES[name] || name
+}
+
 function findTeamHistory(
   teams: Record<string, { id: string; title: string; history: UnderstatTeamHistory[] }>,
   teamId: string,
@@ -86,16 +98,17 @@ async function main() {
   const teamOfficialsRecord: Record<string, Record<string, OfficialAssignment>> = {}
 
   function ensureTeamOfficials(teamName: string, officialName: string, side: 'Home' | 'Away', matchId: string, role: string) {
+    const canonicalName = normalizeOfficialName(officialName)
     if (!teamOfficialsRecord[teamName]) {
       teamOfficialsRecord[teamName] = {}
     }
-    if (!teamOfficialsRecord[teamName][officialName]) {
-      teamOfficialsRecord[teamName][officialName] = createEmptyOfficialAssignment()
+    if (!teamOfficialsRecord[teamName][canonicalName]) {
+      teamOfficialsRecord[teamName][canonicalName] = createEmptyOfficialAssignment()
     }
 
     const mappedRole = OFFICIAL_ROLE_MAP[role]
-    if (mappedRole && !teamOfficialsRecord[teamName][officialName][side][mappedRole].includes(matchId)) {
-      teamOfficialsRecord[teamName][officialName][side][mappedRole].push(matchId)
+    if (mappedRole && !teamOfficialsRecord[teamName][canonicalName][side][mappedRole].includes(matchId)) {
+      teamOfficialsRecord[teamName][canonicalName][side][mappedRole].push(matchId)
     }
   }
 
