@@ -1,4 +1,16 @@
-import { CartesianGrid, LabelList, ReferenceLine, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis, ZAxis } from 'recharts'
+import {
+  CartesianGrid,
+  Cell,
+  LabelList,
+  ReferenceLine,
+  ResponsiveContainer,
+  Scatter,
+  ScatterChart,
+  Tooltip,
+  XAxis,
+  YAxis,
+  ZAxis,
+} from 'recharts'
 import { YAxisLabel } from './y-axis-label'
 
 export interface RefereeVenueStats {
@@ -76,6 +88,62 @@ export type Plot = (typeof PLOTS)[number]['value']
 const AXIS_TICK = { fontSize: 10, fill: 'var(--muted-foreground)' }
 const DOT_COLOR = 'var(--chart-2)'
 
+// 50 bubble colors: 10 hue families x 5 shades, ordered shade-major so that assigning them to
+// alphabetically sorted referees gives the first 10 ten distinct hues, the next 10 darker versions
+// of the same hues, and so on. Mid-tones keep every bubble readable on both theme backgrounds.
+export const SCATTER_COLORS = [
+  '#f0988a',
+  '#f5b06e',
+  '#e5c355',
+  '#a8d05c',
+  '#64cc8a',
+  '#54c4bb',
+  '#79c1e8',
+  '#859bea',
+  '#a98ede',
+  '#de82c0',
+  '#e0705c',
+  '#ec9142',
+  '#d5ab2b',
+  '#8dbc39',
+  '#44b370',
+  '#2eaba3',
+  '#4fa8dc',
+  '#5f76e0',
+  '#8c68d0',
+  '#cd5aa7',
+  '#c94b36',
+  '#dd7a26',
+  '#bd9414',
+  '#71a022',
+  '#2d9a58',
+  '#1d8f88',
+  '#2f8bc2',
+  '#4158c7',
+  '#7149bc',
+  '#b23d8a',
+  '#a53220',
+  '#b95f16',
+  '#9e7a0c',
+  '#598218',
+  '#217c44',
+  '#12706a',
+  '#1f6ea0',
+  '#2d3fa2',
+  '#57359c',
+  '#8f2b6d',
+  '#7e2415',
+  '#93490f',
+  '#7f6107',
+  '#44650f',
+  '#166033',
+  '#0b574f',
+  '#14537c',
+  '#202e7f',
+  '#402479',
+  '#6e1e54',
+]
+
 // Bubble area in px^2 that recharts maps linearly to the matches count: radius grows from ~4.5px
 // for the fewest matches to ~11.3px for the most.
 const BUBBLE_AREA_RANGE: readonly [number, number] = [64, 400]
@@ -136,9 +204,11 @@ interface RefereeVenueInfluenceChartProps {
   title: string
   data: RefereeVenueInfluenceDatum[]
   plot: Plot
+  /** Shared by every chart on the page so one referee keeps the same color in all of them. */
+  colorByName: Record<string, string>
 }
 
-export function RefereeVenueInfluenceChart({ title, data, plot }: RefereeVenueInfluenceChartProps) {
+export function RefereeVenueInfluenceChart({ title, data, plot, colorByName }: RefereeVenueInfluenceChartProps) {
   const { datumKey, homeAxisLabel, awayAxisLabel } = PLOTS.find(({ value }) => value === plot)!
   // Both axes share the same domain so the dashed diagonal is the exact "home = away" line; dots
   // above it mean the away teams commit more of the plotted metric under that referee, below it
@@ -195,6 +265,9 @@ export function RefereeVenueInfluenceChart({ title, data, plot }: RefereeVenueIn
           <ZAxis type="number" dataKey="matches" range={BUBBLE_AREA_RANGE} />
           <Tooltip cursor={{ stroke: 'var(--border)', strokeDasharray: '4 4' }} content={<ChartTooltip />} />
           <Scatter data={data} fill={DOT_COLOR} fillOpacity={0.85} stroke="var(--foreground)" strokeWidth={1} isAnimationActive={false}>
+            {data.map((datum) => (
+              <Cell key={datum.name} fill={colorByName[datum.name] ?? DOT_COLOR} />
+            ))}
             <LabelList dataKey="name" position="top" offset={14} content={<ScatterPointLabel topNames={topNames} />} />
           </Scatter>
         </ScatterChart>

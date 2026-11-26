@@ -2,6 +2,7 @@ import { Header } from '@/components/custom/header'
 import {
   PLOTS,
   RefereeVenueInfluenceChart,
+  SCATTER_COLORS,
   type Plot,
   type RefereeVenueInfluenceDatum,
   type RefereeVenueStats,
@@ -131,6 +132,15 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
 export default function RefereeVenueInfluence() {
   const { seasons, chartDataPerSeason, plot } = useLoaderData<typeof clientLoader>()
 
+  // One mapping shared by every chart on the page: referees across all selected seasons sorted
+  // alphabetically pick up palette colors in order, so a referee keeps the same bubble color
+  // whether they appear in one season's chart or all of them.
+  const colorByName: Record<string, string> = {}
+  const refereeNames = [...new Set(seasons.flatMap((season) => (chartDataPerSeason[season] ?? []).map(({ name }) => name)))].sort()
+  refereeNames.forEach((name, index) => {
+    colorByName[name] = SCATTER_COLORS[index % SCATTER_COLORS.length]
+  })
+
   return (
     <>
       <title>Referee Venue Influence | Premier League Form Comparison</title>
@@ -160,6 +170,7 @@ export default function RefereeVenueInfluence() {
               title={formatSeason(season, 'long')}
               data={chartDataPerSeason[season] ?? []}
               plot={plot}
+              colorByName={colorByName}
             />
           ))}
         </div>
