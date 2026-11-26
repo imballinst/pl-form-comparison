@@ -98,17 +98,30 @@ interface ScatterPointLabelProps {
   x?: number
   y?: number
   topNames: ReadonlySet<string>
+  highlightedReferee: string | null
 }
 
 // Recharts clones this element per dot with the computed x and y of the "top" position; rendering
-// null for everyone outside the busiest referees keeps the chart readable.
-function ScatterPointLabel({ value, x, y, topNames }: ScatterPointLabelProps) {
-  if (value === undefined || x === undefined || y === undefined || !topNames.has(value)) {
+// null for everyone outside the busiest referees keeps the chart readable. The highlighted referee
+// always gets their name, and the other labels fade while someone is highlighted.
+function ScatterPointLabel({ value, x, y, topNames, highlightedReferee }: ScatterPointLabelProps) {
+  if (value === undefined || x === undefined || y === undefined) {
+    return null
+  }
+
+  if (!topNames.has(value) && value !== highlightedReferee) {
     return null
   }
 
   return (
-    <text x={x} y={y} textAnchor="middle" fontSize={10} fill="var(--foreground)">
+    <text
+      x={x}
+      y={y}
+      textAnchor="middle"
+      fontSize={10}
+      fill="var(--foreground)"
+      opacity={highlightedReferee !== null && value !== highlightedReferee ? 0.3 : 1}
+    >
       {value}
     </text>
   )
@@ -120,23 +133,28 @@ interface BubbleShapeProps {
   size?: number
   payload?: RefereeVenueInfluenceDatum
   colorByName: Record<string, string>
+  highlightedReferee: string | null
 }
 
 // Recharts clones this element per dot with the computed position and the ZAxis-derived bubble area;
-// the radius follows recharts' own convention of treating the size as the circle's area.
-function BubbleShape({ cx, cy, size, payload, colorByName }: BubbleShapeProps) {
+// the radius follows recharts' own convention of treating the size as the circle's area. With a
+// highlighted referee, the matching bubble enlarges and every other one fades.
+function BubbleShape({ cx, cy, size, payload, colorByName, highlightedReferee }: BubbleShapeProps) {
   if (cx === undefined || cy === undefined || size === undefined) {
     return null
   }
+
+  const isHighlighted = highlightedReferee !== null && payload?.name === highlightedReferee
 
   return (
     <circle
       cx={cx}
       cy={cy}
-      r={Math.sqrt(size / Math.PI)}
+      r={Math.sqrt(size / Math.PI) * (isHighlighted ? 1.25 : 1)}
       fill={colorByName[payload?.name ?? ''] ?? DOT_COLOR}
-      fillOpacity={0.85}
+      fillOpacity={highlightedReferee !== null && !isHighlighted ? 0.12 : 0.85}
       stroke="var(--foreground)"
+      strokeOpacity={highlightedReferee !== null && !isHighlighted ? 0.3 : 1}
       strokeWidth={1}
     />
   )
@@ -178,9 +196,11 @@ interface RefereeVenueInfluenceChartProps {
   plot: Plot
   /** Shared by every chart on the page so one referee keeps the same color in all of them. */
   colorByName: Record<string, string>
+  /** Referee to pinpoint: their bubble enlarges, keeps full opacity, and always shows their name. */
+  highlightedReferee: string | null
 }
 
-export function RefereeVenueInfluenceChart({ title, data, plot, colorByName }: RefereeVenueInfluenceChartProps) {
+export function RefereeVenueInfluenceChart({ title, data, plot, colorByName, highlightedReferee }: RefereeVenueInfluenceChartProps) {
   const { datumKey, homeAxisLabel, awayAxisLabel } = PLOTS.find(({ value }) => value === plot)!
   // Both axes share the same domain so the dashed diagonal is the exact "home = away" line; dots
   // above it mean the away teams commit more of the plotted metric under that referee, below it
@@ -236,8 +256,17 @@ export function RefereeVenueInfluenceChart({ title, data, plot, colorByName }: R
           />
           <ZAxis type="number" dataKey="matches" range={BUBBLE_AREA_RANGE} />
           <Tooltip cursor={{ stroke: 'var(--border)', strokeDasharray: '4 4' }} content={<ChartTooltip />} />
-          <Scatter data={data} isAnimationActive={false} shape={<BubbleShape colorByName={colorByName} />}>
-            <LabelList dataKey="name" position="top" offset={14} content={<ScatterPointLabel topNames={topNames} />} />
+          <Scatter
+            data={data}
+            isAnimationActive={false}
+            shape={<BubbleShape colorByName={colorByName} highlightedReferee={highlightedReferee} />}
+          >
+            <LabelList
+              dataKey="name"
+              position="top"
+              offset={14}
+              content={<ScatterPointLabel topNames={topNames} highlightedReferee={highlightedReferee} />}
+            />
           </Scatter>
         </ScatterChart>
       </ResponsiveContainer>

@@ -18,7 +18,7 @@ import type { MatchFullStatData } from '@/types'
 import { formatSeason } from '@/utils/match'
 import { fetchMatchOfficialAssignments } from '@/utils/seasons-fetcher'
 import { ChevronDown } from 'lucide-react'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useLoaderData, useSearchParams } from 'react-router'
 import type { Route } from './+types/insights.referee-venue-influence'
@@ -131,6 +131,9 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
 
 export default function RefereeVenueInfluence() {
   const { seasons, chartDataPerSeason, plot } = useLoaderData<typeof clientLoader>()
+  const [hoveredReferee, setHoveredReferee] = useState<string | null>(null)
+  const [pinnedReferee, setPinnedReferee] = useState<string | null>(null)
+  const highlightedReferee = hoveredReferee ?? pinnedReferee
 
   // One mapping shared by every chart on the page: referees across all selected seasons sorted
   // alphabetically pick up palette colors in order, so a referee keeps the same bubble color
@@ -157,10 +160,18 @@ export default function RefereeVenueInfluence() {
       />
 
       <div className="flex flex-col gap-y-4 flex-1 min-h-0">
-        <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
           <SeasonsSelector seasons={seasons} gaLabelPrefix="ga-referee-venue-influence" />
 
           <PlotSelector plot={plot} />
+
+          <RefereeLegend
+            colorByName={colorByName}
+            refereeNames={refereeNames}
+            pinnedReferee={pinnedReferee}
+            onHover={setHoveredReferee}
+            onPin={(name) => setPinnedReferee((pinned) => (pinned === name ? null : name))}
+          />
         </div>
 
         <div className="grid gap-4 lg:grid-cols-2">
@@ -171,11 +182,76 @@ export default function RefereeVenueInfluence() {
               data={chartDataPerSeason[season] ?? []}
               plot={plot}
               colorByName={colorByName}
+              highlightedReferee={highlightedReferee}
             />
           ))}
         </div>
       </div>
     </>
+  )
+}
+
+// Highlight picker: hovering a referee name pinpoints that referee's bubble in every chart; clicking
+// pins the highlight so it survives closing the popover, and clicking the pinned name again clears
+// it. Hover highlights clear when the pointer leaves the list.
+function RefereeLegend({
+  colorByName,
+  refereeNames,
+  pinnedReferee,
+  onHover,
+  onPin,
+}: {
+  colorByName: Record<string, string>
+  refereeNames: string[]
+  pinnedReferee: string | null
+  onHover: (name: string | null) => void
+  onPin: (name: string) => void
+}) {
+  const [query, setQuery] = useState('')
+  const matches = refereeNames.filter((name) => name.toLowerCase().includes(query.toLowerCase()))
+
+  return (
+    <Popover onOpenChange={(open) => !open && onHover(null)}>
+      <PopoverTrigger asChild>
+        <Button className="flex justify-between w-full" variant="outline" data-ga-label="ga-referee-venue-influence-open-referees-button">
+          <div className="flex min-w-0 items-center gap-2">
+            {pinnedReferee && <span className="size-3 shrink-0 rounded-full" style={{ backgroundColor: colorByName[pinnedReferee] }} />}
+            <span className="truncate">Referee{pinnedReferee ? `: ${pinnedReferee}` : ''}</span>
+          </div>
+
+          <ChevronDown />
+        </Button>
+      </PopoverTrigger>
+
+      <PopoverContent align="start" className="w-64 p-3">
+        <input
+          type="search"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="Search referees"
+          className="w-full rounded-md border bg-transparent px-2 py-1.5 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+        />
+
+        <div className="mt-2 max-h-64 overflow-y-auto" onMouseLeave={() => onHover(null)}>
+          {matches.map((name) => (
+            <button
+              key={name}
+              type="button"
+              onMouseEnter={() => onHover(name)}
+              onFocus={() => onHover(name)}
+              onClick={() => onPin(name)}
+              data-ga-label={`ga-referee-venue-influence-highlight-${name}`}
+              className={`flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm hover:bg-accent ${pinnedReferee === name ? 'bg-accent' : ''}`}
+            >
+              <span className="size-3 shrink-0 rounded-full border" style={{ backgroundColor: colorByName[name] }} />
+              <span className="truncate">{name}</span>
+            </button>
+          ))}
+
+          {matches.length === 0 && <div className="px-2 py-1.5 text-sm text-muted-foreground">No referee matches.</div>}
+        </div>
+      </PopoverContent>
+    </Popover>
   )
 }
 

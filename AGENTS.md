@@ -1,5 +1,10 @@
 # AGENTS.md
 
+## Commit policy
+
+- Leave changes uncommitted in the working tree by default; only commit when the user explicitly
+  asks for it. The user reviews changes in the working tree before they land.
+
 ## Test conventions
 
 - Helper functions used only by tests (e.g. `seasonTags`, `countTags`) should be declared at the
