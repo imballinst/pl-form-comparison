@@ -108,49 +108,10 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const plotParam = searchParams.get(PLOT_PARAMETER)
   const plot: Plot = PLOTS.some(({ value }) => value === plotParam) ? (plotParam as Plot) : 'fouls'
 
-  // Referees only: the on-field role, not the VAR one.
-  const { perSeasonRecord } = await fetchMatchOfficialAssignments(seasonsArray, ['Referee'])
-
-  const chartDataPerSeason: Record<string, RefereeVenueInfluenceDatum[]> = {}
-  for (const season of seasonsArray) {
-    const { teamsRecord, matchStatRecord } = perSeasonRecord[season]
-    const totalsPerReferee: Record<string, RefereeTotals> = {}
-
-    for (const team in teamsRecord) {
-      for (const [refereeName, assignment] of Object.entries(teamsRecord[team].referees)) {
-        const totals = (totalsPerReferee[refereeName] ??= newRefereeTotals())
-        accumulateVenueTotals(totals.home, assignment.Home['Referee'], matchStatRecord, team)
-        accumulateVenueTotals(totals.away, assignment.Away['Referee'], matchStatRecord, team)
-      }
-    }
-
-    chartDataPerSeason[season] = Object.entries(totalsPerReferee)
-      .filter(([, totals]) => totals.home.matches + totals.away.matches > 0)
-      .map(([name, totals]) => getRefereeVenueInfluenceDatum(name, totals))
-      .sort((a, b) => a.name.localeCompare(b.name))
-  }
-
-  const refereeNames = [...new Set(seasonsArray.flatMap((season) => chartDataPerSeason[season].map(({ name }) => name)))].sort()
-  // One mapping shared by every chart on the page: referees across all selected seasons sorted
-  // alphabetically pick up palette colors in order, so a referee keeps the same bubble color
-  // whether they appear in one season's chart or all of them.
-  const colorByName: Record<string, string> = {}
-  refereeNames.forEach((name, index) => {
-    colorByName[name] = SCATTER_COLORS[index % SCATTER_COLORS.length]
-  })
-
-  // "Top 10 number of matches" preset candidates: referees ranked by matches officiated across all
-  // selected seasons, ties broken alphabetically.
-  const matchesPerReferee: Record<string, number> = {}
-  for (const season of seasonsArray) {
-    for (const { name, matches } of chartDataPerSeason[season]) {
-      matchesPerReferee[name] = (matchesPerReferee[name] ?? 0) + matches
-    }
-  }
-  const topMatchesRefereeNames = Object.entries(matchesPerReferee)
-    .sort(([nameA, matchesA], [nameB, matchesB]) => matchesB - matchesA || nameA.localeCompare(nameB))
-    .slice(0, 10)
-    .map(([name]) => name)
+  const { chartDataPerSeason, refereeNames, topMatchesRefereeNames, colorByName, paddedAxisMax } = await buildSelectionData(
+    seasonsArray,
+    plot,
+  )
 
   // Selection persistence for shared links: a referee-preset parameter picks the top-matches preset, a
   // referees list picks those names (unknown ones are dropped); when both are present, the preset wins.
@@ -164,16 +125,6 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
     initialPinnedReferees = refereeNames.filter((name) => requestedNames.has(name))
   }
 
-  // Every chart on the page shares one axis max computed across all selected seasons, so the same
-  // plot value spans the same distance everywhere and the seasons are visually comparable.
-  const { datumKey } = PLOTS.find(({ value }) => value === plot)!
-  const axisMax = Math.max(
-    ...seasonsArray.flatMap((season) =>
-      chartDataPerSeason[season].flatMap((datum) => [datum.home[datumKey] ?? 0, datum.away[datumKey] ?? 0]),
-    ),
-    0,
-  )
-
   return {
     seasons: seasonsArray,
     chartDataPerSeason,
@@ -182,7 +133,7 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
     topMatchesRefereeNames,
     initialPinnedReferees,
     colorByName,
-    paddedAxisMax: Math.ceil(axisMax) + 1,
+    paddedAxisMax,
   }
 }
 
@@ -470,4 +421,88 @@ function PlotSelector({ plot }: { plot: Plot }) {
       </PopoverContent>
     </Popover>
   )
+}
+
+// Chart inputs derived from the seasons and plot only. Every pin click re-runs the loader, so the
+// results are cached per selection the same way the season data underneath them is cached.
+interface SelectionData {
+  chartDataPerSeason: Record<string, RefereeVenueInfluenceDatum[]>
+  refereeNames: string[]
+  topMatchesRefereeNames: string[]
+  colorByName: Record<string, string>
+  paddedAxisMax: number
+}
+
+const selectionDataCache: Record<string, SelectionData> = {}
+
+async function buildSelectionData(seasonsArray: string[], plot: Plot): Promise<SelectionData> {
+  const selectionKey = `${seasonsArray.join(',')}|${plot}`
+  const cachedSelectionData = selectionDataCache[selectionKey]
+  if (cachedSelectionData) {
+    return cachedSelectionData
+  }
+
+  // Referees only: the on-field role, not the VAR one.
+  const { perSeasonRecord } = await fetchMatchOfficialAssignments(seasonsArray, ['Referee'])
+
+  const chartDataPerSeason: Record<string, RefereeVenueInfluenceDatum[]> = {}
+  for (const season of seasonsArray) {
+    const { teamsRecord, matchStatRecord } = perSeasonRecord[season]
+    const totalsPerReferee: Record<string, RefereeTotals> = {}
+
+    for (const team in teamsRecord) {
+      for (const [refereeName, assignment] of Object.entries(teamsRecord[team].referees)) {
+        const totals = (totalsPerReferee[refereeName] ??= newRefereeTotals())
+        accumulateVenueTotals(totals.home, assignment.Home['Referee'], matchStatRecord, team)
+        accumulateVenueTotals(totals.away, assignment.Away['Referee'], matchStatRecord, team)
+      }
+    }
+
+    chartDataPerSeason[season] = Object.entries(totalsPerReferee)
+      .filter(([, totals]) => totals.home.matches + totals.away.matches > 0)
+      .map(([name, totals]) => getRefereeVenueInfluenceDatum(name, totals))
+      .sort((a, b) => a.name.localeCompare(b.name))
+  }
+
+  const refereeNames = [...new Set(seasonsArray.flatMap((season) => chartDataPerSeason[season].map(({ name }) => name)))].sort()
+  // One mapping shared by every chart on the page: referees across all selected seasons sorted
+  // alphabetically pick up palette colors in order, so a referee keeps the same bubble color
+  // whether they appear in one season's chart or all of them.
+  const colorByName: Record<string, string> = {}
+  refereeNames.forEach((name, index) => {
+    colorByName[name] = SCATTER_COLORS[index % SCATTER_COLORS.length]
+  })
+
+  // "Top 10 number of matches" preset candidates: referees ranked by matches officiated across all
+  // selected seasons, ties broken alphabetically.
+  const matchesPerReferee: Record<string, number> = {}
+  for (const season of seasonsArray) {
+    for (const { name, matches } of chartDataPerSeason[season]) {
+      matchesPerReferee[name] = (matchesPerReferee[name] ?? 0) + matches
+    }
+  }
+  const topMatchesRefereeNames = Object.entries(matchesPerReferee)
+    .sort(([nameA, matchesA], [nameB, matchesB]) => matchesB - matchesA || nameA.localeCompare(nameB))
+    .slice(0, 10)
+    .map(([name]) => name)
+
+  // Every chart on the page shares one axis max computed across all selected seasons, so the same
+  // plot value spans the same distance everywhere and the seasons are visually comparable.
+  const { datumKey } = PLOTS.find(({ value }) => value === plot)!
+  const axisMax = Math.max(
+    ...seasonsArray.flatMap((season) =>
+      chartDataPerSeason[season].flatMap((datum) => [datum.home[datumKey] ?? 0, datum.away[datumKey] ?? 0]),
+    ),
+    0,
+  )
+
+  const selectionData: SelectionData = {
+    chartDataPerSeason,
+    refereeNames,
+    topMatchesRefereeNames,
+    colorByName,
+    paddedAxisMax: Math.ceil(axisMax) + 1,
+  }
+  selectionDataCache[selectionKey] = selectionData
+  return selectionData
 }
