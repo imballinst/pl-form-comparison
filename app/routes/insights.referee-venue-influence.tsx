@@ -9,6 +9,7 @@ import {
 } from '@/components/custom/referee-venue-influence-chart'
 import { SeasonsSelector } from '@/components/custom/seasons-selector'
 import { Button } from '@/components/ui/button'
+import { FieldLegend, FieldSet } from '@/components/ui/field'
 import { Label } from '@/components/ui/label'
 import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
@@ -135,6 +136,19 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
     colorByName[name] = SCATTER_COLORS[index % SCATTER_COLORS.length]
   })
 
+  // "Top 10 number of matches" preset candidates: referees ranked by matches officiated across all
+  // selected seasons, ties broken alphabetically.
+  const matchesPerReferee: Record<string, number> = {}
+  for (const season of seasonsArray) {
+    for (const { name, matches } of chartDataPerSeason[season]) {
+      matchesPerReferee[name] = (matchesPerReferee[name] ?? 0) + matches
+    }
+  }
+  const topMatchesRefereeNames = Object.entries(matchesPerReferee)
+    .sort(([nameA, matchesA], [nameB, matchesB]) => matchesB - matchesA || nameA.localeCompare(nameB))
+    .slice(0, 10)
+    .map(([name]) => name)
+
   // Every chart on the page shares one axis max computed across all selected seasons, so the same
   // plot value spans the same distance everywhere and the seasons are visually comparable.
   const { datumKey } = PLOTS.find(({ value }) => value === plot)!
@@ -145,11 +159,20 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
     0,
   )
 
-  return { seasons: seasonsArray, chartDataPerSeason, plot, refereeNames, colorByName, paddedAxisMax: Math.ceil(axisMax) + 1 }
+  return {
+    seasons: seasonsArray,
+    chartDataPerSeason,
+    plot,
+    refereeNames,
+    topMatchesRefereeNames,
+    colorByName,
+    paddedAxisMax: Math.ceil(axisMax) + 1,
+  }
 }
 
 export default function RefereeVenueInfluence() {
-  const { seasons, chartDataPerSeason, plot, refereeNames, colorByName, paddedAxisMax } = useLoaderData<typeof clientLoader>()
+  const { seasons, chartDataPerSeason, plot, refereeNames, topMatchesRefereeNames, colorByName, paddedAxisMax } =
+    useLoaderData<typeof clientLoader>()
   const [hoveredReferee, setHoveredReferee] = useState<string | null>(null)
   const [pinnedReferees, setPinnedReferees] = useState<ReadonlySet<string>>(new Set())
 
@@ -181,9 +204,10 @@ export default function RefereeVenueInfluence() {
 
           <PlotSelector plot={plot} />
 
-          <RefereeLegend
+          <RefereeSelector
             colorByName={colorByName}
             refereeNames={refereeNames}
+            topMatchesRefereeNames={topMatchesRefereeNames}
             pinnedReferees={pinnedReferees}
             onHover={setHoveredReferee}
             onTogglePin={(name) =>
@@ -197,6 +221,7 @@ export default function RefereeVenueInfluence() {
                 return next
               })
             }
+            onPinReferees={(names) => setPinnedReferees(new Set(names))}
             onClearPins={() => setPinnedReferees(new Set())}
           />
         </div>
@@ -219,22 +244,25 @@ export default function RefereeVenueInfluence() {
   )
 }
 
-// Highlight picker: hovering a referee name pinpoints that referee's bubble in every chart; clicking
-// toggles a pinned highlight so it survives closing the popover, and several referees can be pinned
-// at once. Hover highlights clear when the pointer leaves the list.
-function RefereeLegend({
+// Highlight picker: hovering a referee pinpoints their bubble in every chart, clicking pins the
+// highlight, and presets replace the whole selection in one click.
+function RefereeSelector({
   colorByName,
   refereeNames,
+  topMatchesRefereeNames,
   pinnedReferees,
   onHover,
   onTogglePin,
+  onPinReferees,
   onClearPins,
 }: {
   colorByName: Record<string, string>
   refereeNames: string[]
+  topMatchesRefereeNames: string[]
   pinnedReferees: ReadonlySet<string>
   onHover: (name: string | null) => void
   onTogglePin: (name: string) => void
+  onPinReferees: (names: string[]) => void
   onClearPins: () => void
 }) {
   const [query, setQuery] = useState('')
@@ -246,6 +274,10 @@ function RefereeLegend({
       : pinnedReferees.size === 1
         ? `Referee: ${firstPinned}`
         : `Referees: ${pinnedReferees.size} selected`
+  const isTopMatchesPreset =
+    topMatchesRefereeNames.length > 0 &&
+    pinnedReferees.size === topMatchesRefereeNames.length &&
+    topMatchesRefereeNames.every((name) => pinnedReferees.has(name))
 
   return (
     <Popover onOpenChange={(open) => !open && onHover(null)}>
@@ -261,43 +293,61 @@ function RefereeLegend({
       </PopoverTrigger>
 
       <PopoverContent align="start" className="w-64 p-3">
-        <input
-          type="search"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="Search referees"
-          className="w-full rounded-md border bg-transparent px-2 py-1.5 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-        />
+        <div className="flex flex-col gap-3">
+          <FieldSet className="gap-1">
+            <FieldLegend variant="label">By preset</FieldLegend>
 
-        {pinnedReferees.size > 0 && (
-          <button
-            type="button"
-            onClick={onClearPins}
-            className="mt-2 w-full rounded-md px-2 py-1 text-left text-xs text-muted-foreground hover:bg-accent hover:text-foreground"
-          >
-            Clear selection ({pinnedReferees.size})
-          </button>
-        )}
+            <div className="flex flex-col">
+              <button
+                type="button"
+                onClick={onClearPins}
+                data-ga-label="ga-referee-venue-influence-preset-no-preset"
+                className={`w-full rounded-md px-2 py-1.5 text-left text-sm hover:bg-accent ${pinnedReferees.size === 0 ? 'bg-accent' : ''}`}
+              >
+                No preset
+              </button>
+              <button
+                type="button"
+                onClick={() => onPinReferees(topMatchesRefereeNames)}
+                data-ga-label="ga-referee-venue-influence-preset-top-10-matches"
+                className={`w-full rounded-md px-2 py-1.5 text-left text-sm hover:bg-accent ${isTopMatchesPreset ? 'bg-accent' : ''}`}
+              >
+                Top 10 number of matches
+              </button>
+            </div>
+          </FieldSet>
 
-        <div className="mt-2 max-h-64 overflow-y-auto" onMouseLeave={() => onHover(null)}>
-          {matches.map((name) => (
-            <button
-              key={name}
-              type="button"
-              onMouseEnter={() => onHover(name)}
-              onFocus={() => onHover(name)}
-              onClick={() => onTogglePin(name)}
-              data-ga-label={`ga-referee-venue-influence-highlight-${name}`}
-              className={`flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm hover:bg-accent ${
-                pinnedReferees.has(name) ? 'bg-accent' : ''
-              }`}
-            >
-              <span className="size-3 shrink-0 rounded-full border" style={{ backgroundColor: colorByName[name] }} />
-              <span className="truncate">{name}</span>
-            </button>
-          ))}
+          <FieldSet className="gap-2">
+            <FieldLegend variant="label">By names</FieldLegend>
+            <input
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search referees"
+              className="w-full rounded-md border bg-transparent px-2 py-1.5 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            />
 
-          {matches.length === 0 && <div className="px-2 py-1.5 text-sm text-muted-foreground">No referee matches.</div>}
+            <div className="max-h-64 overflow-y-auto" onMouseLeave={() => onHover(null)}>
+              {matches.map((name) => (
+                <button
+                  key={name}
+                  type="button"
+                  onMouseEnter={() => onHover(name)}
+                  onFocus={() => onHover(name)}
+                  onClick={() => onTogglePin(name)}
+                  data-ga-label={`ga-referee-venue-influence-highlight-${name}`}
+                  className={`flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm hover:bg-accent ${
+                    pinnedReferees.has(name) ? 'bg-accent' : ''
+                  }`}
+                >
+                  <span className="size-3 shrink-0 rounded-full border" style={{ backgroundColor: colorByName[name] }} />
+                  <span className="truncate">{name}</span>
+                </button>
+              ))}
+
+              {matches.length === 0 && <div className="px-2 py-1.5 text-sm text-muted-foreground">No referee matches.</div>}
+            </div>
+          </FieldSet>
         </div>
       </PopoverContent>
     </Popover>
