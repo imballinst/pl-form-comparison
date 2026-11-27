@@ -183,7 +183,13 @@ function ChartTooltip({ active, payload }: ChartTooltipProps) {
         Yellow cards: {datum.yellowCards} ({ratio(datum.foulsPerYellowCard)} fouls per yellow)
       </div>
       <div>
+        Fouls per yellow card: home {ratio(datum.home.foulsPerYellowCard)}, away {ratio(datum.away.foulsPerYellowCard)}
+      </div>
+      <div>
         Red cards: {datum.redCards} ({ratio(datum.foulsPerRedCard)} fouls per red)
+      </div>
+      <div>
+        Fouls per red card: home {ratio(datum.home.foulsPerRedCard)}, away {ratio(datum.away.foulsPerRedCard)}
       </div>
       <div className="text-muted-foreground">{datum.matches} matches</div>
     </div>
@@ -204,7 +210,14 @@ interface RefereeVenueInfluenceChartProps {
   highlightedReferees: ReadonlySet<string>
 }
 
-export function RefereeVenueInfluenceChart({ title, data, plot, paddedAxisMax, colorByName, highlightedReferees }: RefereeVenueInfluenceChartProps) {
+export function RefereeVenueInfluenceChart({
+  title,
+  data,
+  plot,
+  paddedAxisMax,
+  colorByName,
+  highlightedReferees,
+}: RefereeVenueInfluenceChartProps) {
   const { datumKey, homeAxisLabel, awayAxisLabel } = PLOTS.find(({ value }) => value === plot)!
   const topNames = new Set(
     [...data]
