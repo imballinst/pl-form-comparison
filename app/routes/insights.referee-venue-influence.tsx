@@ -26,6 +26,9 @@ import type { Route } from './+types/insights.referee-venue-influence'
 
 const SEASONS_PARAMETER = 'seasons'
 const PLOT_PARAMETER = 'plot'
+const REFEREES_PARAMETER = 'referees'
+const REFEREE_PRESET_PARAMETER = 'referee-preset'
+const TOP_MATCHES_PRESET = 'top-matches'
 
 interface VenueTotals {
   matches: number
@@ -149,6 +152,18 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
     .slice(0, 10)
     .map(([name]) => name)
 
+  // Selection persistence for shared links: a referee-preset parameter picks the top-matches preset, a
+  // referees list picks those names (unknown ones are dropped); when both are present, the preset wins.
+  const refereePresetParam = searchParams.get(REFEREE_PRESET_PARAMETER)
+  const refereesParam = searchParams.get(REFEREES_PARAMETER)
+  let initialPinnedReferees: string[] = []
+  if (refereePresetParam === TOP_MATCHES_PRESET) {
+    initialPinnedReferees = topMatchesRefereeNames
+  } else if (refereesParam) {
+    const requestedNames = new Set(refereesParam.split(',').filter(Boolean))
+    initialPinnedReferees = refereeNames.filter((name) => requestedNames.has(name))
+  }
+
   // Every chart on the page shares one axis max computed across all selected seasons, so the same
   // plot value spans the same distance everywhere and the seasons are visually comparable.
   const { datumKey } = PLOTS.find(({ value }) => value === plot)!
@@ -165,16 +180,39 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
     plot,
     refereeNames,
     topMatchesRefereeNames,
+    initialPinnedReferees,
     colorByName,
     paddedAxisMax: Math.ceil(axisMax) + 1,
   }
 }
 
 export default function RefereeVenueInfluence() {
-  const { seasons, chartDataPerSeason, plot, refereeNames, topMatchesRefereeNames, colorByName, paddedAxisMax } =
+  const { seasons, chartDataPerSeason, plot, refereeNames, topMatchesRefereeNames, initialPinnedReferees, colorByName, paddedAxisMax } =
     useLoaderData<typeof clientLoader>()
+  const [searchParams, setSearchParams] = useSearchParams()
   const [hoveredReferee, setHoveredReferee] = useState<string | null>(null)
-  const [pinnedReferees, setPinnedReferees] = useState<ReadonlySet<string>>(new Set())
+  const [pinnedReferees, setPinnedReferees] = useState<ReadonlySet<string>>(() => new Set(initialPinnedReferees))
+
+  // Every selection change rewrites the selection parameters for shareable links: the preset parameter
+  // while a preset is active, the sorted name list otherwise, both deleted when the selection is empty.
+  function persistSelection(pinned: ReadonlySet<string>, preset: string | null) {
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev)
+        next.delete(REFEREE_PRESET_PARAMETER)
+        next.delete(REFEREES_PARAMETER)
+
+        if (preset) {
+          next.set(REFEREE_PRESET_PARAMETER, preset)
+        } else if (pinned.size > 0) {
+          next.set(REFEREES_PARAMETER, [...pinned].sort().join(','))
+        }
+
+        return next
+      },
+      { replace: true },
+    )
+  }
 
   // Hovering adds a transient highlight on top of the pinned ones; the Set dedupes when both cover
   // the same referee.
@@ -207,22 +245,30 @@ export default function RefereeVenueInfluence() {
           <RefereeSelector
             colorByName={colorByName}
             refereeNames={refereeNames}
-            topMatchesRefereeNames={topMatchesRefereeNames}
+            isTopMatchesPreset={searchParams.get(REFEREE_PRESET_PARAMETER) === TOP_MATCHES_PRESET}
             pinnedReferees={pinnedReferees}
             onHover={setHoveredReferee}
-            onTogglePin={(name) =>
-              setPinnedReferees((pinned) => {
-                const next = new Set(pinned)
-                if (next.has(name)) {
-                  next.delete(name)
-                } else {
-                  next.add(name)
-                }
-                return next
-              })
-            }
-            onPinReferees={(names) => setPinnedReferees(new Set(names))}
-            onClearPins={() => setPinnedReferees(new Set())}
+            onTogglePin={(name) => {
+              const next = new Set(pinnedReferees)
+              if (next.has(name)) {
+                next.delete(name)
+              } else {
+                next.add(name)
+              }
+              setPinnedReferees(next)
+              // Toggling names always persists the explicit list, even when it happens to match a preset.
+              persistSelection(next, null)
+            }}
+            onApplyPreset={() => {
+              const next = new Set(topMatchesRefereeNames)
+              setPinnedReferees(next)
+              persistSelection(next, TOP_MATCHES_PRESET)
+            }}
+            onClearPins={() => {
+              const next = new Set<string>()
+              setPinnedReferees(next)
+              persistSelection(next, null)
+            }}
           />
         </div>
 
@@ -249,20 +295,20 @@ export default function RefereeVenueInfluence() {
 function RefereeSelector({
   colorByName,
   refereeNames,
-  topMatchesRefereeNames,
+  isTopMatchesPreset,
   pinnedReferees,
   onHover,
   onTogglePin,
-  onPinReferees,
+  onApplyPreset,
   onClearPins,
 }: {
   colorByName: Record<string, string>
   refereeNames: string[]
-  topMatchesRefereeNames: string[]
+  isTopMatchesPreset: boolean
   pinnedReferees: ReadonlySet<string>
   onHover: (name: string | null) => void
   onTogglePin: (name: string) => void
-  onPinReferees: (names: string[]) => void
+  onApplyPreset: () => void
   onClearPins: () => void
 }) {
   const [query, setQuery] = useState('')
@@ -274,10 +320,6 @@ function RefereeSelector({
       : pinnedReferees.size === 1
         ? `Referee: ${firstPinned}`
         : `Referees: ${pinnedReferees.size} selected`
-  const isTopMatchesPreset =
-    topMatchesRefereeNames.length > 0 &&
-    pinnedReferees.size === topMatchesRefereeNames.length &&
-    topMatchesRefereeNames.every((name) => pinnedReferees.has(name))
 
   return (
     <Popover onOpenChange={(open) => !open && onHover(null)}>
@@ -308,7 +350,7 @@ function RefereeSelector({
               </button>
               <button
                 type="button"
-                onClick={() => onPinReferees(topMatchesRefereeNames)}
+                onClick={onApplyPreset}
                 data-ga-label="ga-referee-venue-influence-preset-top-10-matches"
                 className={`w-full rounded-md px-2 py-1.5 text-left text-sm hover:bg-accent ${isTopMatchesPreset ? 'bg-accent' : ''}`}
               >
